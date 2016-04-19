@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -20,6 +21,8 @@ namespace Services
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+        [OperationContract]
+        Person GetPerson(string username);
     }
 
 

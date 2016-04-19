@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -28,6 +29,16 @@ namespace Services
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public Person GetPerson(string username)
+        {
+            Person pson = new Person();
+            pson.UserName = "Test";
+            pson.Id = 1;
+            pson.IsAdmin = true;
+            pson.Company = "testCompany";
+            return pson;
         }
     }
 }
