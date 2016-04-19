@@ -13,7 +13,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" onchange="javascript: check_email(this);"/>
+                <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" onkeyup="javascript: check_email(this);"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The email field is required." />
             </div>
@@ -54,9 +54,9 @@
         function check_email(txtbox) {
             var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             if (txtbox.value.match(mail_format)) {
-                
+                document.getElementById("MainContent_Email").style.border= "1px solid green";
             } else {
-                
+                document.getElementById("MainContent_Email").style.border = "1px solid red";
             }
         }
     </script>
