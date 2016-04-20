@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consumer.csproj", "{4DCE2A81-4105-4F14-BF77-640D1F2B992D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administration", "Administration\Administration.csproj", "{D2A6A51D-4D9A-4B52-8159-6EC986000E0B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D8835DA7-366E-43B3-B99F-1EDA9C808430} = {D8835DA7-366E-43B3-B99F-1EDA9C808430}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{D8835DA7-366E-43B3-B99F-1EDA9C808430}"
 EndProject
