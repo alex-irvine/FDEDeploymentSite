@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Administration.Models;
-using System.Web.UI.HtmlControls.HtmlControl;
+
 
 namespace Administration.Account
 {
@@ -52,6 +52,11 @@ namespace Administration.Account
                             // Redirect ?
                         }
                         //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    }
+                    else
+                    {
+                        FailureText.Text = "Invalid login attempt";
+                        ErrorMessage.Visible = true;
                     }
                     /*
                     switch (result)

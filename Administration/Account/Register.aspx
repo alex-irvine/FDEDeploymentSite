@@ -29,7 +29,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" onkeyup="javascript: check_passwords();"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
                     CssClass="text-danger" ErrorMessage="The password field is required." />
             </div>
@@ -37,7 +37,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm password</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" onkeyup="javascript: check_passwords();"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
@@ -57,6 +57,17 @@
                 document.getElementById("MainContent_Email").style.border= "1px solid green";
             } else {
                 document.getElementById("MainContent_Email").style.border = "1px solid red";
+            }
+        }
+        function check_passwords() {
+            if (document.getElementById("MainContent_ConfirmPassword").value!="") {
+                if (document.getElementById("MainContent_ConfirmPassword").value == document.getElementById("MainContent_Password").value) {
+                    document.getElementById("MainContent_ConfirmPassword").style.border = "1px solid green";
+                    document.getElementById("MainContent_Password").style.border = "1px solid green";
+                } else {
+                    document.getElementById("MainContent_ConfirmPassword").style.border = "1px solid red";
+                    document.getElementById("MainContent_Password").style.border = "1px solid red";
+                }
             }
         }
     </script>
