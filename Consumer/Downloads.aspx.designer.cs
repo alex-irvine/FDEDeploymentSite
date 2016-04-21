@@ -10,6 +10,6 @@
 namespace Consumer {
     
     
-    public partial class _Default {
+    public partial class Downloads {
     }
 }
