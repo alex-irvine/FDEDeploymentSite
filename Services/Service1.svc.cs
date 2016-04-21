@@ -31,6 +31,11 @@ namespace Services
             return composite;
         }
 
+        /// <summary>
+        /// Test service
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public Person GetPerson(string username)
         {
             Person pson = new Person();
@@ -39,6 +44,20 @@ namespace Services
             pson.IsAdmin = true;
             pson.Company = "testCompany";
             return pson;
+        }
+
+        /// <summary>
+        /// Test authenticator
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request)
+        {
+            return new AuthenticateUserResponse() { 
+            Errored = false,
+            Message = "Successfully authenticated",
+            Authenticated = true
+            };
         }
     }
 }
