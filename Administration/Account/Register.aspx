@@ -21,7 +21,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Company" CssClass="col-md-2 control-label">Company</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Company" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="Company" CssClass="form-control" onkeyup="javascript: check_company()"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Company"
                     CssClass="text-danger" ErrorMessage="The Company field is required." />
             </div>
@@ -29,9 +29,12 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" onkeyup="javascript: check_passwords();"/>
+                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" onkeyup="javascript: check_passwords();check_password(this);" data-toggle="popover" data-trigger="keypress" data-content="Password require numbers and letters, and must be over 6 characters long"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
                     CssClass="text-danger" ErrorMessage="The password field is required." />
+            </div>
+            <div id="NoJavascript" >
+                <p class="text-danger">Password require numbers and letters, and must be over 6 characters long</p>
             </div>
         </div>
         <div class="form-group">
@@ -46,29 +49,9 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button ID="BtnReg" runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function check_email(txtbox) {
-            var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            if (txtbox.value.match(mail_format)) {
-                document.getElementById("MainContent_Email").style.border= "1px solid green";
-            } else {
-                document.getElementById("MainContent_Email").style.border = "1px solid red";
-            }
-        }
-        function check_passwords() {
-            if (document.getElementById("MainContent_ConfirmPassword").value!="") {
-                if (document.getElementById("MainContent_ConfirmPassword").value == document.getElementById("MainContent_Password").value) {
-                    document.getElementById("MainContent_ConfirmPassword").style.border = "1px solid green";
-                    document.getElementById("MainContent_Password").style.border = "1px solid green";
-                } else {
-                    document.getElementById("MainContent_ConfirmPassword").style.border = "1px solid red";
-                    document.getElementById("MainContent_Password").style.border = "1px solid red";
-                }
-            }
-        }
-    </script>
+    <script type="text/javascript" src="./Register.js"></script>
 </asp:Content>

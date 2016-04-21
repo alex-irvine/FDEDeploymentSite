@@ -5,6 +5,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Administration.Models;
+using Administration.ServiceReference1;
+using System.Windows.Forms;
+using System.Web.Security;
 
 
 namespace Administration.Account
@@ -37,7 +40,28 @@ namespace Administration.Account
                 //var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
                 using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
                 {
-                    
+                    AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
+                    {
+                        Username = "",
+                        Password = ""
+                    });
+
+                    if (response.Errored)
+                    {
+                        MessageBox.Show(response.Message);
+                    }
+
+                    if(response.Authenticated)
+                    {
+                        FormsAuthentication.RedirectFromLoginPage("",true);
+                    }
+
+                    if(!Request.IsAuthenticated)
+                    {
+                        // redirect to login page
+                        return;
+                    }
+
                     ServiceReference1.Person pson = client.GetPerson(Email.Text/*,Password.Text*/);
                     if (pson!= null)
                     {

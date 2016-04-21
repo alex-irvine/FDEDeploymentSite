@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Administration.Models;
 using System.Text.RegularExpressions;
+using Administration.ServiceReference1;
 
 namespace Administration.Account
 {
@@ -34,14 +35,14 @@ namespace Administration.Account
             }*/
             if (checkMail(Email.Text))
             {
-                using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
+                using (Service1Client client = new Service1Client())
                 {
                     //Check mail is not already used
 
                     //Check password and Hash
-
+                    
                     // Add to database
-                    //client.Authenticate
+                    
                 }
             }
             else
@@ -49,6 +50,13 @@ namespace Administration.Account
                 ErrorMessage.Text = "Wrong email address format";
             }
             
+        }
+
+        private bool check_password(string password)
+        {
+            string cNumber = @"[\w\.\-]*[0-9]+[\w\.\-]*";
+            string cLetter = @"[0-9]*[\w\.\-]+[0-9]*";
+            return Regex.IsMatch(cNumber, password) && Regex.IsMatch(cLetter, password) && password.Length>=6;
         }
 
         private bool checkMail(string mail) {
