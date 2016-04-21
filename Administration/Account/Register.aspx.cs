@@ -51,10 +51,8 @@ namespace Administration.Account
         }
 
         private bool checkMail(string mail) {
-            return Regex.IsMatch(mail,
-                @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            string rgmail = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            return Regex.IsMatch(mail, rgmail, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
         }
 
         protected void Email_TextChanged(object sender, EventArgs e)
