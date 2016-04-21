@@ -23,6 +23,8 @@ namespace Services
         // TODO: Add your service operations here
         [OperationContract]
         Person GetPerson(string username);
+        [OperationContract]
+        AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
     }
 
 
