@@ -41,6 +41,7 @@ namespace Administration.Account
                     //Check password and Hash
 
                     // Add to database
+                    //client.Authenticate
                 }
             }
             else
