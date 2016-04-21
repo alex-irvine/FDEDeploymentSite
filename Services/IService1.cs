@@ -25,6 +25,8 @@ namespace Services
         Person GetPerson(string username);
         [OperationContract]
         AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
+        [OperationContract]
+        AuthenticateUserResponse AuthenticateUser1(AuthenticateUserRequest request);
     }
 
 

@@ -59,5 +59,15 @@ namespace Services
             Authenticated = true
             };
         }
+
+        public AuthenticateUserResponse AuthenticateUser1(AuthenticateUserRequest request)
+        {
+            return new AuthenticateUserResponse()
+            {
+                Errored = false,
+                Message = "Successfully authenticated",
+                Authenticated = true
+            };
+        }
     }
 }
