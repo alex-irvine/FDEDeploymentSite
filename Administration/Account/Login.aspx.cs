@@ -42,8 +42,8 @@ namespace Administration.Account
                 {
                     AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
                     {
-                        Username = "",
-                        Password = ""
+                        Username = Email.Text,
+                        Password = Password.Text
                     });
 
                     if (response.Errored)
@@ -53,16 +53,15 @@ namespace Administration.Account
 
                     if(response.Authenticated)
                     {
-                        FormsAuthentication.RedirectFromLoginPage("",true);
+                        FormsAuthentication.RedirectFromLoginPage("/Account/Register",true);
                     }
 
                     if(!Request.IsAuthenticated)
                     {
-                        // redirect to login page
-                        return;
+                        FormsAuthentication.RedirectFromLoginPage("/Account/Login", true);
                     }
 
-                    ServiceReference1.Person pson = client.GetPerson(Email.Text/*,Password.Text*/);
+                    /*ServiceReference1.Person pson = client.GetPerson(Email.Text);
                     if (pson!= null)
                     {
                         if (pson.IsAdmin == true) {

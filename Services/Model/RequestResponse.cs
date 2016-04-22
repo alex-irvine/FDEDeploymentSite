@@ -9,10 +9,7 @@ namespace Services.Model
     public class RequestResponse
     {
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> d0f63ad158b3a5d9a6a407478898166e0f5b00f0
     [DataContractAttribute]
     public class AuthenticateUserRequest
     {
