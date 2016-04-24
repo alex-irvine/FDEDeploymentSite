@@ -15,3 +15,8 @@ C:\Users\S15005685\DesignGUI_PublishingPlatform\Services\bin\Services.pdb
 C:\Users\S15005685\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
 C:\Users\S15005685\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.dll
 C:\Users\S15005685\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.pdb
+C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\bin\Services.dll.config
+C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\bin\Services.dll
+C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\bin\Services.pdb
+C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.dll
+C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.pdb
