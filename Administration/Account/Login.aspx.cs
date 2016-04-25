@@ -14,16 +14,16 @@ namespace Administration.Account
 {
     public partial class Login : Page
     {
+        static public string ReturnUrl = "";
+ 
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
-            // Enable this once you have account confirmation enabled for password reset functionality
-            //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
+            
+
+            if (Request.IsAuthenticated)
             {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+                Response.Redirect(ReturnUrl);
             }
         }
 
@@ -31,19 +31,13 @@ namespace Administration.Account
         {
             if (IsValid)
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
                 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                //var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
                 using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
                 {
                     AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
                     {
                         Username = Email.Text,
-                        Password = Password.Text
+                        Password = Password.Text // Hash password
                     });
 
                     if (response.Errored)
@@ -53,7 +47,20 @@ namespace Administration.Account
 
                     if(response.Authenticated)
                     {
-                        FormsAuthentication.RedirectFromLoginPage("/Account/Register",true);
+                        if (response.Person.IsAdmin)
+                        {
+                            Session["User"] = response.Person;
+                            Person pson = (Person)Session["User"];
+
+                            //FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
+                            Response.Redirect(ReturnUrl);
+                        }
+                        else
+                        {
+                            FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
+                            ErrorMessage.Visible = true;
+                        }
+                        
                     }
 
                     if(!Request.IsAuthenticated)
@@ -61,47 +68,6 @@ namespace Administration.Account
                         FormsAuthentication.RedirectFromLoginPage("/Account/Login", true);
                     }
 
-                    /*ServiceReference1.Person pson = client.GetPerson(Email.Text);
-                    if (pson!= null)
-                    {
-                        if (pson.IsAdmin == true) {
-                            // Log
-                        }
-                        else
-                        {
-                            // Error, you can't access
-                            FailureText.Text = "You don't have permission to access";
-                            ErrorMessage.Visible = true;
-                            // Redirect ?
-                        }
-                        //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                    }
-                    else
-                    {
-                        FailureText.Text = "Invalid login attempt";
-                        ErrorMessage.Visible = true;
-                    }
-                    /*
-                    switch (result)
-                    {
-                        case SignInStatus.Success:
-                            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                            break;
-                        case SignInStatus.LockedOut:
-                            Response.Redirect("/Account/Lockout");
-                            break;
-                        case SignInStatus.RequiresVerification:
-                            Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
-                                                            Request.QueryString["ReturnUrl"],
-                                                            RememberMe.Checked),
-                                              true);
-                            break;
-                        case SignInStatus.Failure:
-                        default:
-                            FailureText.Text = "Invalid login attempt";
-                            ErrorMessage.Visible = true;
-                            break;
-                    }*/
                 }
             }
         }

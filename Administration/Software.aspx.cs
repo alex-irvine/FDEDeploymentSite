@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
+using Administration;
 
 namespace Administration
 {
@@ -11,7 +13,11 @@ namespace Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"]==null)
+            {
+                Account.Login.ReturnUrl = "~/Software";
+                Response.Redirect("~/Account/Login");
+            }
         }
     }
 }

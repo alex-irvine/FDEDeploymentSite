@@ -299,6 +299,9 @@ namespace Administration.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool AuthenticatedField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.Person PersonField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         internal bool Authenticated {
             get {
@@ -308,6 +311,19 @@ namespace Administration.ServiceReference1 {
                 if ((this.AuthenticatedField.Equals(value) != true)) {
                     this.AuthenticatedField = value;
                     this.RaisePropertyChanged("Authenticated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.Person Person {
+            get {
+                return this.PersonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonField, value) != true)) {
+                    this.PersonField = value;
+                    this.RaisePropertyChanged("Person");
                 }
             }
         }

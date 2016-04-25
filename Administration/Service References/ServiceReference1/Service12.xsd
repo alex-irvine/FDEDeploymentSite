@@ -21,6 +21,7 @@
       <xs:extension base="tns:ErrorInformation">
         <xs:sequence>
           <xs:element minOccurs="0" name="Authenticated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

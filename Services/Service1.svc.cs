@@ -56,7 +56,8 @@ namespace Services
             return new AuthenticateUserResponse() { 
             Errored = false,
             Message = "Successfully authenticated",
-            Authenticated = true
+            Authenticated = true,
+            Person = GetPerson(request.Username)
             };
         }
 

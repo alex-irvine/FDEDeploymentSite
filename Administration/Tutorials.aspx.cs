@@ -11,7 +11,11 @@ namespace Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] == null)
+            {
+                Account.Login.ReturnUrl = "~/Tutorial";
+                Response.Redirect("~/Account/Login");
+            }
         }
     }
 }

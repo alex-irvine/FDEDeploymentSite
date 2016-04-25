@@ -7,10 +7,13 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Administration
 {
     public partial class SiteMaster : MasterPage
     {
+        public string UserName { get; private set; }
+
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -64,17 +67,20 @@ namespace Administration
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
+            
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] != null) { UserName = ((Administration.ServiceReference1.Person)Session["User"]).UserName; }
         }
 
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        /*protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut();
-        }
+            //Context.GetOwinContext().Authentication.SignOut();
+            Session["User"] = null;
+            Response.Redirect("~/");
+        }*/
     }
 
 }

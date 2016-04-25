@@ -29,6 +29,9 @@ namespace Services.Model
     {
         [DataMemberAttribute]
         public bool Authenticated { get; set; }
+        [DataMemberAttribute]
+        public Person Person { get; set; }
+
         
     }
 }
