@@ -19,6 +19,8 @@ namespace Services
         [OperationContract]
         List<News> GetNews();
         // One news
+        [OperationContract]
+        News GetNewsById(string id);
     }
 
     

@@ -75,6 +75,12 @@ namespace Administration
             if (Session["User"] != null) { UserName = ((Administration.ServiceReference1.Person)Session["User"]).UserName; }
         }
 
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Account.Login.ReturnUrl = Request.Url.AbsoluteUri;
+            Response.Redirect("~/Account/Login");
+        }
+
         /*protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             //Context.GetOwinContext().Authentication.SignOut();

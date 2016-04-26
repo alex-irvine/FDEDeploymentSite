@@ -59,7 +59,7 @@
                     <% if(Session["User"]==null){ %>
                     <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><asp:LinkButton OnClick="Unnamed_Click" runat="server" >Log in</asp:LinkButton></li>
                             </ul>
                     <% }else{ %>
                         <ul class="nav navbar-nav navbar-right">

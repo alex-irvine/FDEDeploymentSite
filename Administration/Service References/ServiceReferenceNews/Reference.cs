@@ -90,6 +90,9 @@ namespace Administration.ServiceReferenceNews {
         private string descriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool publishedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -130,6 +133,19 @@ namespace Administration.ServiceReferenceNews {
                 if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
                     this.descriptionField = value;
                     this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string picture {
+            get {
+                return this.pictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pictureField, value) != true)) {
+                    this.pictureField = value;
+                    this.RaisePropertyChanged("picture");
                 }
             }
         }
@@ -194,10 +210,16 @@ namespace Administration.ServiceReferenceNews {
         System.Threading.Tasks.Task<Administration.ServiceReferenceNews.CompositeType> GetDataUsingDataContractAsync(Administration.ServiceReferenceNews.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsService/GetNews", ReplyAction="http://tempuri.org/INewsService/GetNewsResponse")]
-        Administration.ServiceReferenceNews.News[] GetNews();
+        System.Collections.Generic.List<Administration.ServiceReferenceNews.News> GetNews();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsService/GetNews", ReplyAction="http://tempuri.org/INewsService/GetNewsResponse")]
-        System.Threading.Tasks.Task<Administration.ServiceReferenceNews.News[]> GetNewsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Administration.ServiceReferenceNews.News>> GetNewsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsService/GetNewsById", ReplyAction="http://tempuri.org/INewsService/GetNewsByIdResponse")]
+        Administration.ServiceReferenceNews.News GetNewsById(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsService/GetNewsById", ReplyAction="http://tempuri.org/INewsService/GetNewsByIdResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReferenceNews.News> GetNewsByIdAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -235,12 +257,20 @@ namespace Administration.ServiceReferenceNews {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public Administration.ServiceReferenceNews.News[] GetNews() {
+        public System.Collections.Generic.List<Administration.ServiceReferenceNews.News> GetNews() {
             return base.Channel.GetNews();
         }
         
-        public System.Threading.Tasks.Task<Administration.ServiceReferenceNews.News[]> GetNewsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Administration.ServiceReferenceNews.News>> GetNewsAsync() {
             return base.Channel.GetNewsAsync();
+        }
+        
+        public Administration.ServiceReferenceNews.News GetNewsById(string id) {
+            return base.Channel.GetNewsById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReferenceNews.News> GetNewsByIdAsync(string id) {
+            return base.Channel.GetNewsByIdAsync(id);
         }
     }
 }

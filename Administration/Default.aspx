@@ -4,6 +4,12 @@
 
     <!-- Home page -->
     <h2>News</h2>
+    <!-- Add news -->
+    <% if(Session["User"]!=null){
+    %>
+    <asp:Button runat="server" Text="Add a news" OnClick="NewNews_Click"/>
+    <% }
+    %>
     <!-- Display the news -->
     <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.News" SelectMethod="GetNews"
         GroupItemCount="3">
@@ -19,10 +25,12 @@
                 <td id="itemPlaceholder" runat="server"></td>
             </tr>
         </GroupTemplate>
-        <ItemTemplate runat="server">
-            <td class="news_box">
+        <ItemTemplate>
+            <td class="news_box" runat="server"><asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>'>
+                <img src="<%#: Item.picture %>" alt="" />
                 <h1 class="news_title"><%#: Item.title %></h1>
                 <p class="news_description"><%#: Item.description %></p>
+            </asp:HyperLink>
             </td>
         </ItemTemplate>
         <LayoutTemplate>
@@ -44,8 +52,25 @@
         </LayoutTemplate>
     </asp:ListView>
     <style>
-
-
+        .news_box{
+            vertical-align : top;
+            text-align : center;
+            max-width : 15%;
+            max-height : 15%;
+            margin : 10px;
+        }
+        .news_box img{
+            width : 100%;
+            height : 100%;
+            padding : 10px;
+        }
+        .news_box:hover{
+            box-shadow : 0px 0px 5px #CCC;
+            cursor:pointer;
+        }
+        .news_title{
+            font-size : 1.5em;
+        }
 
     </style>
 </asp:Content>

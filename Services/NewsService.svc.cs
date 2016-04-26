@@ -33,6 +33,24 @@ namespace Services
         /// <summary>
         /// Test service
         /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public News GetNewsById(string id)
+        {
+            return new News()
+            {
+                Id = 1,
+                title = "I am the first news",
+                description = "all the news will be ...",
+                text = "<h1>The news</h1><p>test</p>",
+                picture = "becky.jpg",
+                published = true
+            };
+        }
+
+        /// <summary>
+        /// Test service
+        /// </summary>
         /// <param></param>
         /// <returns></returns>
         public List<News> GetNews()
@@ -44,6 +62,7 @@ namespace Services
                     title = "I am the first news",
                     description = "all the news will be ...",
                     text = "<h1>The news</h1><p>test</p>",
+                    picture = "becky.jpg",
                     published = true
                 },
                 new News(){
@@ -51,6 +70,7 @@ namespace Services
                     title = "I am the second news",
                     description = "all the news will be ...",
                     text = "<h1>The news</h1><p>test</p>",
+                    picture = "becky.jpg",
                     published = true
                 },
                 new News(){
@@ -58,6 +78,7 @@ namespace Services
                     title = "I am the third news",
                     description = "all the news will be ...",
                     text = "<h1>The news</h1><p>test</p>",
+                    picture = "becky.jpg",
                     published = true
                 },
                 new News(){
@@ -65,6 +86,7 @@ namespace Services
                     title = "I am the fourth news",
                     description = "all the news will be ...",
                     text = "<h1>The news</h1><p>test</p>",
+                    picture = "becky.jpg",
                     published = true
                 },
             };
