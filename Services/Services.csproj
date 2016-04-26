@@ -65,9 +65,12 @@
     </Content>
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
+    <Content Include="NewsService.svc" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INewsService.cs" />
     <Compile Include="Model\ErrorInformation.cs" />
+    <Compile Include="Model\News.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\RequestResponse.cs" />
     <Compile Include="Service1.svc.cs">
@@ -75,8 +78,13 @@
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NewsService.svc.cs">
+      <DependentUpon>NewsService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

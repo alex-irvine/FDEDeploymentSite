@@ -1,9 +1,3 @@
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\bin\Services.dll.config
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\bin\Services.dll
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\bin\Services.pdb
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.dll
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.pdb
 Z:\DesignGUI_PublishingPlatform\Services\bin\Services.dll.config
 Z:\DesignGUI_PublishingPlatform\Services\bin\Services.dll
 Z:\DesignGUI_PublishingPlatform\Services\bin\Services.pdb
@@ -20,3 +14,9 @@ C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\bin\Se
 C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\bin\Services.pdb
 C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.dll
 C:\Users\Alex\Desktop\repoProjet_GU\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.pdb
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\bin\Services.dll.config
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\bin\Services.dll
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\bin\Services.pdb
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.dll
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Services\obj\Debug\Services.pdb
