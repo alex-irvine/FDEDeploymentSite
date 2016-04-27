@@ -32,7 +32,7 @@ namespace Consumer.Account
             if (IsValid)
             {
                 
-                using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
+                using (ServiceReference1.Service1Client client = new Consumer.ServiceReference1.Service1Client())
                 {
                     AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
                     {
