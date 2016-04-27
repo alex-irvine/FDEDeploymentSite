@@ -71,6 +71,7 @@
     <Compile Include="INewsService.cs" />
     <Compile Include="Model\ErrorInformation.cs" />
     <Compile Include="Model\News.cs" />
+    <Compile Include="Model\NewsItem.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\RequestResponse.cs" />
     <Compile Include="Service1.svc.cs">

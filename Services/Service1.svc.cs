@@ -1,6 +1,8 @@
 ﻿using Services.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -58,6 +60,36 @@ namespace Services
             Message = "Successfully authenticated",
             Authenticated = true,
             Person = GetPerson(request.Username)
+            };
+        }
+
+        public GetNewsItemsResponse GetNewsItems()
+        {
+
+            Image pic = Image.FromFile("Z:\\DesignGUI_PublishingPlatform\\cat.jpg");
+            MemoryStream ms = new MemoryStream();
+            pic.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            NewsItem newsItem = new NewsItem()
+            {
+                Picture = ms.ToArray(),
+                Text = "<h2>What is Lorem Ipsum?</h2>" +
+                    "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing" +
+                    "and typesetting industry. Lorem Ipsum has been the industry's standard" +
+                    "dummy text ever since the 1500s, when an unknown printer took a galley" +
+                    "of type and scrambled it to make a type specimen book. It has survived" +
+                    "not only five centuries, but also the leap into electronic typesetting," +
+                    "remaining essentially unchanged. It was popularised in the 1960s with" +
+                    "the release of Letraset sheets containing Lorem Ipsum passages, and more" +
+                    "recently with desktop publishing software like Aldus PageMaker" +
+                    "including versions of Lorem Ipsum.</p>"
+            };
+            List<NewsItem> newsItems = new List<NewsItem>();
+
+            newsItems.Add(newsItem);
+            return new GetNewsItemsResponse()
+            {
+                NewstItems = newsItems
             };
         }
 

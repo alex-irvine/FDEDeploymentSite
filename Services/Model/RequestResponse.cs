@@ -34,4 +34,10 @@ namespace Services.Model
 
         
     }
+    [DataContractAttribute]
+    public class GetNewsItemsResponse :ErrorInformation
+    {
+        [DataMemberAttribute]
+        public  List<NewsItem> NewstItems { get; set; }
+    }
 }
