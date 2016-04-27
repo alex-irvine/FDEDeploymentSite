@@ -1,0 +1,161 @@
+﻿.jqte {
+    background : #FAFAFA;
+} /* the jQTE editor */
+    .jqte_focused { border : 1px solid #EEE; } /* focused the editor */
+    
+    /* toolbar area */
+    .jqte_toolbar { 
+        overflow:auto;
+	    padding:7px 10px;
+	    background:#C5D5FF;
+	    border-bottom:#C5D5FF 1px solid;
+	    box-shadow:inset 0 10px 20px #CFDFFF; 
+        -webkit-box-shadow:inset 0 10px 20px #CFDFFF; 
+        -moz-box-shadow:inset 0 10px 20px #CFDFFF;
+	    transition:box-shadow 0.4s, border 0.4s, background 0.4s; 
+        -webkit-transition:-webkit-box-shadow 0.4s, border 0.4s, background 0.4s; 
+        -moz-transition:-moz-box-shadow 0.4s, border 0.4s, background 0.4s; 
+        -o-transition:-o-box-shadow 0.4s, border 0.4s, background 0.4s;
+    } /* the toolbar */
+    .jqte_tool {
+	    float:left;
+	    margin:0 2px 0 0;
+	    padding:4px;
+	    cursor:pointer;
+    }
+    .jqte_tool_icon {
+        display:block;
+	    width:22px;
+	    height:22px;
+	    background:url(images/toolbar.png) no-repeat
+    } /* the tool button */
+    .jqte_tool.jqte_tool_1 .jqte_tool_text {
+	    font:bold 13px Arial,sans-serif;
+	    color:#222;
+    }
+    .jqte_tool.jqte_tool_1 .jqte_tool_icon {
+        position:absolute;
+	    top:10px;
+	    right:2px;
+	    width:6px;
+	    height:4px;
+	    background-position:-19px -23px;
+	    border:none;
+	    border-radius:none; -webkit-border-radius:none; -moz-border-radius:none
+    }
+    .jqte_tool.jqte_tool_2 .jqte_tool_icon {
+        background-position : 0 0;
+    }
+    .jqte_tool.jqte_tool_3 .jqte_tool_icon {
+        background-position : -22px 0;
+    }
+    .jqte_tool.jqte_tool_4 .jqte_tool_icon {
+        background-position : -44px 0;
+    }
+    .jqte_tool.jqte_tool_5 .jqte_tool_icon {
+        background-position : -66px 0;
+    }
+    .jqte_tool.jqte_tool_6 .jqte_tool_icon {
+        background-position : -88px 0;
+    }
+    .jqte_tool.jqte_tool_7 .jqte_tool_icon {
+        background-position : -110px 0;
+    }
+    .jqte_tool.jqte_tool_8 .jqte_tool_icon {
+        background-position : -132px 0;
+    }
+    .jqte_tool.jqte_tool_9 .jqte_tool_icon {
+        background-position : -154px 0;
+    }
+    .jqte_tool.jqte_tool_10 .jqte_tool_icon {
+        background-position : -176px 0;
+    }
+    .jqte_tool.jqte_tool_11 .jqte_tool_icon {
+        background-position : -198px 0;
+    }
+    .jqte_tool.jqte_tool_12 .jqte_tool_icon {
+        background-position : -220px 0;
+    }
+    .jqte_tool.jqte_tool_13 .jqte_tool_icon {
+        background-position : -242px 0;
+    }
+    .jqte_tool.jqte_tool_14 .jqte_tool_icon {
+        background-position : -264px 0;
+    }
+    .jqte_tool.jqte_tool_15 .jqte_tool_icon {
+        background-position : -286px 0;
+    }
+    .jqte_tool.jqte_tool_16 .jqte_tool_icon {
+        background-position : -308px 0;
+    }
+    .jqte_tool.jqte_tool_17 .jqte_tool_icon {
+        background-position : -330px 0;
+    }
+    .jqte_tool.jqte_tool_18 .jqte_tool_icon {
+        background-position : -352px 0;
+    }
+    .jqte_tool.jqte_tool_19 .jqte_tool_icon {
+        background-position : -374px 0;
+    }
+    .jqte_tool.jqte_tool_20 .jqte_tool_icon {
+        background-position : -396px 0;
+    }
+    .jqte_tool:hover {
+	    background-color: rgba(155,155,240,0.8);
+	    box-shadow:0 0 4px #3664e2; 
+        -webkit-box-shadow:0 0 4px #3664e2; 
+        -moz-box-shadow:0 0 4px #3664e2;
+    }
+    .jqte_tool:active, .jqte_tool_depressed {
+	    background-color:#FFF;
+	    box-shadow:0 1px 4px #3664e2; 
+        -webkit-box-shadow:0 1px 4px #3664e2; 
+        -moz-box-shadow:0 1px 4px #3664e2;
+    }
+    .jqte_tool.jqte_tool_1:hover .jqte_tool_icon, 
+    .jqte_tool.jqte_tool_1:active .jqte_tool_icon {
+	    border:none
+    }
+    
+    /* adding link area */
+    .jqte_linkform { 
+        padding : 5px 10px;
+        background : #D5C5FF;
+        border-bottom : #3664e2 1px solid;
+    } /* adding link form */
+    .jqte_linkinput { } /* input of adding link */
+    .jqte_linkbutton { } /* button of adding link */
+    
+    .jqte_linktypeselect { } /* link type selector */
+    .jqte_linktypeview { } /* the link type selector's descriptive */
+    .jqte_linktypetext { } /* the link type selector's value */
+    .jqte_linktypearrow { } /* the link type selector's arrow icon */
+    .jqte_linktypes { } /* the link type selector's hidden menu */
+    
+    /* text format selector */
+    .jqte_formats { } /* text format list area */
+    .jqte_format { } /* selecting format item */
+    /* font size selector */
+    .jqte_fontsizes { } /* font list area */
+    .jqte_fontsize { } /* selecting font item */
+    
+    /* color palette */
+    .jqte_cpalette { } /* color palette */
+    .jqte_color { } /* button of adding color */
+    
+    /* editor area and source area */
+    .jqte_editor { } /* the editor area */
+    .jqte_source { } /* the source area */
+    
+    /* title bubble */
+    .jqte_title { } /* the title bubbles of buttons */
+    .jqte_titleArrow { } /* the title bubbles arrow */
+    .jqte_titleArrowIcon { } /* the title bubbles icon */
+    .jqte_titleText { } /* the text box in the title bubbles */
+    
+    /* placeholder */
+    .jqte_placeholder { } /* the placeholder */
+    .jqte_placeholder_text { } /* the text of the placeholder */
+    
+    /* hidden areas */
+    .jqte_hiddenField { } /* the hidden elements */

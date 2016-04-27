@@ -53,7 +53,12 @@ namespace Administration.Account
                             Person pson = (Person)Session["User"];
 
                             //FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
-                            Response.Redirect(ReturnUrl);
+                            if (string.IsNullOrWhiteSpace(ReturnUrl))
+                            {
+                                Response.Redirect("~/");
+                            }
+                            else { Response.Redirect(ReturnUrl); }
+                            
                         }
                         else
                         {
