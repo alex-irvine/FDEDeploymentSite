@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using System.Web.Security;
 
 [assembly: OwinStartupAttribute(typeof(Consumer.Startup))]
 namespace Consumer
