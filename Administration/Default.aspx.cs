@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Administration.ServiceReferenceNews;
+using System.Windows.Forms;
 
 namespace Administration
 {
@@ -16,11 +17,16 @@ namespace Administration
 
         }
 
-        public List<News> GetNews()
+        public List<Administration.ServiceReferenceNews.News> GetNews()
         {
             var _db = new Administration.ServiceReferenceNews.NewsServiceClient();
-            List<News> query = _db.GetNews().ToList();
+            List<Administration.ServiceReferenceNews.News> query = _db.GetNews();
             return query;
+        }
+
+        protected void NewNews_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Editing");
         }
 
         
