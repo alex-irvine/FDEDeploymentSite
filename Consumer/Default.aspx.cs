@@ -13,5 +13,33 @@ namespace Consumer
         {
 
         }
+
+        public List<Consumer.NewsItem> GetNews()
+        {
+            List<NewsItem> ret = new List<NewsItem>();
+
+            ret.Add(new NewsItem()
+            {
+                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
+                Text = "Lorem ipsum dolor sit amet"
+            });
+            ret.Add(new NewsItem()
+            {
+                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
+                Text = "Lorem ipsum dolor sit amet"
+            });
+            ret.Add(new NewsItem()
+            {
+                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
+                Text = "Lorem ipsum dolor sit amet"
+            });
+            ret.Add(new NewsItem()
+            {
+                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
+                Text = "Lorem ipsum dolor sit amet"
+            });
+
+            return ret;
+        }
     }
 }
