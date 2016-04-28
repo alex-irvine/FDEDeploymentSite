@@ -12,10 +12,8 @@ namespace Consumer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // !Request.IsAuthenticated
             if (Session["User"] == null)
             {
-                Account.Login.ReturnUrl = "~/Downloads";
                 FormsAuthentication.RedirectToLoginPage();
             }
         }
