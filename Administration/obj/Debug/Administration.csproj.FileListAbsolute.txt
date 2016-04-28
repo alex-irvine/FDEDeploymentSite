@@ -50,6 +50,7 @@ Z:\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.OAuth
 Z:\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache
 Z:\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.dll
 Z:\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Administration.dll.config
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Administration.dll
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Administration.pdb
@@ -84,7 +85,6 @@ Z:\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Antlr3.Runtime.pdb
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Newtonsoft.Json.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.AspNet.FriendlyUrls.xml
-\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.SqlServer.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.AspNet.Identity.Core.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.AspNet.Identity.Owin.xml
@@ -99,5 +99,6 @@ Z:\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.Twitter.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.OAuth.xml
+\\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.dll
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb

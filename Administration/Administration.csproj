@@ -166,6 +166,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\arrow-down.png" />
     <Content Include="Content\images\toolbar.png" />
     <Content Include="Content\jquery-te-1.4.0.css" />
     <Content Include="Content\Site.css" />
@@ -218,6 +219,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.AuthenticateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetNewsItemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ServiceReference1\Service1.disco" />
