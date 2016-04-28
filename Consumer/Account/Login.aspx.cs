@@ -18,6 +18,11 @@ namespace Consumer.Account
  
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"] != null)
+            {
+                Response.Redirect("~/"); // already logged in : redirected to the home page
+            }
+
             RegisterHyperLink.NavigateUrl = "Register";
             
 
@@ -32,7 +37,7 @@ namespace Consumer.Account
             if (IsValid)
             {
                 
-                using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
+                using (ServiceReference1.Service1Client client = new Consumer.ServiceReference1.Service1Client())
                 {
                     AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
                     {
@@ -47,25 +52,24 @@ namespace Consumer.Account
 
                     if(response.Authenticated)
                     {
-                        if (response.Person.IsAdmin)
-                        {
-                            Session["User"] = response.Person;
-                            Person pson = (Person)Session["User"];
+                        Session["User"] = response.Person;
+                        Person pson = (Person)Session["User"];
+                        FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
 
-                            //FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
-                            Response.Redirect(ReturnUrl);
-                        }
-                        else
-                        {
-                            FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
-                            ErrorMessage.Visible = true;
-                        }
+                        //if (redUrl == Request.Url.ToString())
+                        //{
+                        //    Response.Redirect("~/");
+                        //}
+                        //else
+                        //{
+                        //    Response.Redirect(redUrl);
+                        //}
+                        
                         
                     }
-
-                    if(!Request.IsAuthenticated)
+                    else
                     {
-                        FormsAuthentication.RedirectFromLoginPage("/Account/Login", true);
+                        // wrong user name or pword
                     }
 
                 }
