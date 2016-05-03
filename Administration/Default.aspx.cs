@@ -19,9 +19,13 @@ namespace Administration
 
         public List<Administration.ServiceReferenceNews.News> GetNews()
         {
-            var _db = new Administration.ServiceReferenceNews.NewsServiceClient();
-            List<Administration.ServiceReferenceNews.News> query = _db.GetNews();
-            return query;
+            
+            using(var _db = new Administration.ServiceReferenceNews.NewsServiceClient())
+            {
+                List<Administration.ServiceReferenceNews.News> query = _db.GetNews();
+                return query;
+            }
+            
         }
 
         protected void NewNews_Click(object sender, EventArgs e)

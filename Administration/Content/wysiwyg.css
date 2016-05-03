@@ -106,6 +106,9 @@
     .jqte_tool.jqte_tool_20 .jqte_tool_icon {
         background-position : -396px 0;
     }
+    .jqte_tool.jqte_tool_21 .jqte_tool_icon {
+        background-position : -418px 0;
+    }
     .jqte_tool:hover {
 	    background-color: rgba(155,155,240,0.8);
 	    box-shadow:0 0 4px #3664e2; 

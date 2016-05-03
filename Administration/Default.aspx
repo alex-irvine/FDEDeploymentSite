@@ -11,8 +11,9 @@
     <% }
     %>
     <!-- Display the news -->
+
     <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.News" SelectMethod="GetNews"
-        GroupItemCount="3">
+        GroupItemCount="1" >
         <EmptyDataTemplate>
             <table >
                 <tr>
@@ -20,18 +21,22 @@
                 </tr>
             </table>
         </EmptyDataTemplate>
-        <GroupTemplate>
+        <%--<GroupTemplate>
             <tr id="itemPlaceholderContainer" runat="server">
                 <td id="itemPlaceholder" runat="server"></td>
             </tr>
-        </GroupTemplate>
+        </GroupTemplate>--%>
         <ItemTemplate>
-            <td class="news_box" runat="server"><asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>'>
-                <img src="<%#: Item.picture %>" alt="" />
-                <h1 class="news_title"><%#: Item.title %></h1>
-                <p class="news_description"><%#: Item.description %></p>
-            </asp:HyperLink>
-            </td>
+            <%--<td class="news_box" runat="server"><asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>'>--%>
+                <!--<img src="<%#: Item.picture %>" alt="" />-->
+                <%--<h1 class="news_title"><%#: Item.title %></h1>--%>
+                <%--<p class="news_description"><%#: Item.description %></p>--%>
+            <td><%#: Item.title %></td>
+            <td><%#: Item.description %></td>
+            <td><asp:Button runat="server" Text="Edit"/></td>
+            <td><asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>'>See</asp:HyperLink></td>
+            <%--</asp:HyperLink>
+            </td>--%>
         </ItemTemplate>
         <LayoutTemplate>
             <table style="width:100%;">
@@ -39,7 +44,7 @@
                     <tr>
                         <td>
                             <table id="groupPlaceholderContainer" runat="server" style="width: 100%">
-                                <tr id="groupPlaceholder"></tr>
+                                <tr id="itemPlaceholder"></tr>
                             </table>
                         </td>
                     </tr>

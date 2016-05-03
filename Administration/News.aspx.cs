@@ -22,8 +22,15 @@ namespace Administration
             else
             {
                 NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetNewsById(Request.QueryString["id"]);
+                
+                
             }
             
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
