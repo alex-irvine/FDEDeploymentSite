@@ -17,5 +17,10 @@ namespace Consumer
                 FormsAuthentication.RedirectToLoginPage();
             }
         }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("fileDl.ashx");
+        }
     }
 }

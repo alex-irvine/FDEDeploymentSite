@@ -207,6 +207,7 @@
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetNewsItemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="fileDl.ashx" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -348,6 +349,9 @@
     </Compile>
     <Compile Include="Downloads.aspx.designer.cs">
       <DependentUpon>Downloads.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fileDl.ashx.cs">
+      <DependentUpon>fileDl.ashx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
