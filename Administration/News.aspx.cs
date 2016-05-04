@@ -13,6 +13,8 @@ namespace Administration
     {
         public Administration.ServiceReferenceNews.News NewsContent { get; private set; }
 
+        public bool isAdmin { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] == null || string.IsNullOrEmpty(Request.QueryString["id"]) || string.IsNullOrWhiteSpace(Request.QueryString["id"]) )
@@ -21,9 +23,29 @@ namespace Administration
             }
             else
             {
+                isAdmin = Session["User"]!=null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
                 NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetNewsById(Request.QueryString["id"]);
+                NewsTitle.Text = NewsContent.title;
+                NewsText.Text = NewsContent.text;
+                NewsFinal.Text = NewsContent.text;
+                NewsID.Text = Request.QueryString["id"];
             }
             
+        }
+
+        protected void Update_News(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Remove_News(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Edit_News(object sender, EventArgs e)
+        {
+
         }
     }
 }
