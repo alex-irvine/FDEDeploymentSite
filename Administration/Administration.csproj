@@ -173,6 +173,7 @@
     <Content Include="Content\wysiwyg.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="News.aspx" />
+    <Content Include="NewsEditor.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -413,6 +414,13 @@
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsEditor.aspx.cs">
+      <DependentUpon>NewsEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsEditor.aspx.designer.cs">
+      <DependentUpon>NewsEditor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">

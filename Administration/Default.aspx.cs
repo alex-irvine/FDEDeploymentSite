@@ -12,9 +12,11 @@ namespace Administration
 {
     public partial class _Default : Page
     {
+        public bool isAdmin {get; private set;}
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
         }
 
         public List<Administration.ServiceReferenceNews.News> GetNews()
@@ -30,7 +32,9 @@ namespace Administration
 
         protected void NewNews_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Editing");
+            // create a empty news
+
+            // Redirect to NewsEditor
         }
 
         

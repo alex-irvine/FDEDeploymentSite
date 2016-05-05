@@ -25,26 +25,20 @@ namespace Administration
             {
                 isAdmin = Session["User"]!=null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
                 NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetNewsById(Request.QueryString["id"]);
-                NewsTitle.Text = NewsContent.title;
-                NewsText.Text = NewsContent.text;
                 NewsFinal.Text = NewsContent.text;
                 NewsID.Text = Request.QueryString["id"];
             }
             
         }
 
-        protected void Update_News(object sender, EventArgs e)
-        {
-
-        }
-
         protected void Remove_News(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/");
         }
 
-        protected void Edit_News(object sender, EventArgs e)
+        protected void Publish_News(object sender, EventArgs e)
         {
+            // Set publish to true
 
         }
     }

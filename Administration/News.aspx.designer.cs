@@ -22,24 +22,6 @@ namespace Administration {
         protected global::System.Web.UI.WebControls.TextBox NewsID;
         
         /// <summary>
-        /// NewsTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewsTitle;
-        
-        /// <summary>
-        /// NewsText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewsText;
-        
-        /// <summary>
         /// NewsFinal control.
         /// </summary>
         /// <remarks>

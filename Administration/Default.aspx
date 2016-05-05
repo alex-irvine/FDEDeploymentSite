@@ -5,11 +5,9 @@
     <!-- Home page -->
     <h2>News</h2>
     <!-- Add news -->
-    <% if(Session["User"]!=null){
-    %>
-    <asp:Button runat="server" Text="Add a news" OnClick="NewNews_Click"/>
-    <% }
-    %>
+    <% if(isAdmin){ %>
+        <asp:Button runat="server" Text="Add a news" OnClick="NewNews_Click" CssClass="btn btn-default"/>
+    <% } %>
     <!-- Display the news -->
 
     <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.News" SelectMethod="GetNews"
