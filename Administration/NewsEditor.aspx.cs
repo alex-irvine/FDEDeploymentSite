@@ -24,6 +24,7 @@ namespace Administration
                 NewsTitle.Text = NewsContent.title;
                 NewsText.Text = NewsContent.text;
                 NewsFinal.Text = NewsContent.text;
+                Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(NewsContent.userId).UserName;
                 NewsID.Text = Request.QueryString["id"];
             }
         }
@@ -31,7 +32,7 @@ namespace Administration
 
         protected void Edit_News(object sender, EventArgs e)
         {
-            
+            // Send everything to Service
         }
     }
 }

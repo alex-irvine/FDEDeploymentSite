@@ -436,6 +436,12 @@ namespace Administration.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPerson", ReplyAction="http://tempuri.org/IService1/GetPersonResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersonById", ReplyAction="http://tempuri.org/IService1/GetPersonByIdResponse")]
+        Administration.ServiceReference1.Person GetPersonById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersonById", ReplyAction="http://tempuri.org/IService1/GetPersonByIdResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AuthenticateUser", ReplyAction="http://tempuri.org/IService1/AuthenticateUserResponse")]
         Administration.ServiceReference1.AuthenticateUserResponse AuthenticateUser(Administration.ServiceReference1.AuthenticateUserRequest request);
         
@@ -498,6 +504,14 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonAsync(string username) {
             return base.Channel.GetPersonAsync(username);
+        }
+        
+        public Administration.ServiceReference1.Person GetPersonById(int id) {
+            return base.Channel.GetPersonById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonByIdAsync(int id) {
+            return base.Channel.GetPersonByIdAsync(id);
         }
         
         public Administration.ServiceReference1.AuthenticateUserResponse AuthenticateUser(Administration.ServiceReference1.AuthenticateUserRequest request) {

@@ -49,6 +49,21 @@ namespace Services
         }
 
         /// <summary>
+        /// Test service
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Person GetPersonById(int id)
+        {
+            Person pson = new Person();
+            pson.UserName = "Test";
+            pson.Id = 1;
+            pson.IsAdmin = true;
+            pson.Company = "testCompany";
+            return pson;
+        }
+
+        /// <summary>
         /// Test authenticator
         /// </summary>
         /// <param name="request"></param>

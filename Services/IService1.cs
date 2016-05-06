@@ -24,6 +24,8 @@ namespace Services
         [OperationContract]
         Person GetPerson(string username);
         [OperationContract]
+        Person GetPersonById(int id);
+        [OperationContract]
         AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
         [OperationContract]
         GetNewsItemsResponse GetNewsItems();

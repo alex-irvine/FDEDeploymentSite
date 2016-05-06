@@ -87,10 +87,10 @@ namespace Administration.ServiceReferenceNews {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string descriptionField;
+        private System.DateTime date_modifiedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string pictureField;
+        private System.DateTime date_publishedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool publishedField;
@@ -100,6 +100,9 @@ namespace Administration.ServiceReferenceNews {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string titleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int userIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -125,27 +128,27 @@ namespace Administration.ServiceReferenceNews {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string description {
+        public System.DateTime date_modified {
             get {
-                return this.descriptionField;
+                return this.date_modifiedField;
             }
             set {
-                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("description");
+                if ((this.date_modifiedField.Equals(value) != true)) {
+                    this.date_modifiedField = value;
+                    this.RaisePropertyChanged("date_modified");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string picture {
+        public System.DateTime date_published {
             get {
-                return this.pictureField;
+                return this.date_publishedField;
             }
             set {
-                if ((object.ReferenceEquals(this.pictureField, value) != true)) {
-                    this.pictureField = value;
-                    this.RaisePropertyChanged("picture");
+                if ((this.date_publishedField.Equals(value) != true)) {
+                    this.date_publishedField = value;
+                    this.RaisePropertyChanged("date_published");
                 }
             }
         }
@@ -185,6 +188,19 @@ namespace Administration.ServiceReferenceNews {
                 if ((object.ReferenceEquals(this.titleField, value) != true)) {
                     this.titleField = value;
                     this.RaisePropertyChanged("title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                if ((this.userIdField.Equals(value) != true)) {
+                    this.userIdField = value;
+                    this.RaisePropertyChanged("userId");
                 }
             }
         }

@@ -27,6 +27,9 @@ namespace Administration
                 NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetNewsById(Request.QueryString["id"]);
                 NewsFinal.Text = NewsContent.text;
                 NewsID.Text = Request.QueryString["id"];
+                Author.Text = "Author : "+ new Administration.ServiceReference1.Service1Client().GetPersonById(NewsContent.userId).UserName;
+                Modified.Text = "Last modification : " + NewsContent.date_modified.ToString();
+                Published.Text = "Published : " + NewsContent.date_published.ToString();
             }
             
         }

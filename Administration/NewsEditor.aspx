@@ -16,6 +16,9 @@
     
     <!--<asp:Label runat="server" ID="NewsFinal" CssClass="news"></asp:Label>-->
     <br />
+    <div class="NewsData">
+        <asp:Label runat="server" ID="Author" ></asp:Label>
+    </div>
     <asp:Button runat="server" OnClick="Edit_News" Text="Submit" CssClass="btn btn-default" />
 
     <script src="Scripts/jquery-te-1.4.0.js"></script>

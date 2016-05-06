@@ -9,9 +9,10 @@ namespace Services.Model
     {
         public int Id { get; set; }
         public string title { get; set; }
-        public string description { get; set; }
-        public string picture { get; set; }
+        public int userId { get; set; }
         public string text { get; set; }
         public bool published { get; set; }
+        public DateTime date_published { get; set; }
+        public DateTime date_modified { get; set; }
     }
 }

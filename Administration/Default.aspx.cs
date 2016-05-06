@@ -32,8 +32,16 @@ namespace Administration
 
         protected void NewNews_Click(object sender, EventArgs e)
         {
-            // create a empty news
 
+            // create a empty news
+            Administration.ServiceReferenceNews.News nw = new Administration.ServiceReferenceNews.News()
+            {
+                userId = ((Administration.ServiceReference1.Person)Session["User"]).Id,
+                text = "Unnamed news",
+                title = "Empty",
+                published = false,
+                date_modified = DateTime.Now
+            };
             // Redirect to NewsEditor
         }
 
