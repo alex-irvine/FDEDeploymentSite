@@ -247,6 +247,7 @@
     </None>
     <Content Include="Site.Master" />
     <Content Include="Software.aspx" />
+    <Content Include="TutorialEditor.aspx" />
     <Content Include="Tutorials.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -455,6 +456,13 @@
       <DependentUpon>Software.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="TutorialEditor.aspx.cs">
+      <DependentUpon>TutorialEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorialEditor.aspx.designer.cs">
+      <DependentUpon>TutorialEditor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutorials.aspx.cs">
       <DependentUpon>Tutorials.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

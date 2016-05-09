@@ -64,16 +64,19 @@
       <DependentUpon>DB1.mdf</DependentUpon>
     </Content>
     <Content Include="Service1.svc" />
+    <Content Include="TutorialService.svc" />
     <Content Include="Web.config" />
     <Content Include="NewsService.svc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="INewsService.cs" />
+    <Compile Include="ITutorialService.cs" />
     <Compile Include="Model\ErrorInformation.cs" />
     <Compile Include="Model\News.cs" />
     <Compile Include="Model\NewsItem.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\RequestResponse.cs" />
+    <Compile Include="Model\Tutorial.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -81,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NewsService.svc.cs">
       <DependentUpon>NewsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="TutorialService.svc.cs">
+      <DependentUpon>TutorialService.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

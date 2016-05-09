@@ -7,7 +7,10 @@
         <asp:Button runat="server" Text="Add a tutorial" OnClick="New_Tutorial" CssClass="btn btn-default"/>
     <% } %>
     <!-- Display the news -->
-
+    <div class="form-inline" >
+        <asp:TextBox runat="server" ID="SearchBox" placeholder="Search ..." CssClass="form-control"></asp:TextBox>
+        <asp:Button runat="server" OnClick="Search_Click" Text="Search" CssClass="btn btn-default" />
+    </div>
     <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.News" SelectMethod="GetNews"
         GroupItemCount="1" >
         <EmptyDataTemplate>

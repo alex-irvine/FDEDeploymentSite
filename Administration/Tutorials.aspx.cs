@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Administration
 {
-    public partial class Tutorials : System.Web.UI.Page
+   public partial class Tutorials : System.Web.UI.Page
     {
         public bool isAdmin { get; private set; }
 
@@ -36,6 +36,11 @@ namespace Administration
         }
 
         protected void New_Tutorial(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Search_Click(object sender, EventArgs e)
         {
 
         }
