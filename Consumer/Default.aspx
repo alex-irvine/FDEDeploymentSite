@@ -2,41 +2,39 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Home</h1>
     <!-- news -->
-    <asp:ListView ID="news" runat="server" ItemType="Consumer.NewsItem" SelectMethod="GetNews" GroupItemCount="2">
+    <asp:ListView ID="LVNews" runat="server" ItemType="Consumer.ServiceReferenceNews.News" SelectMethod="GetNews"
+        GroupItemCount="1" >
         <EmptyDataTemplate>
-            <table >
+            <table>
                 <tr>
-                    <td>No data was returned.</td>
+                    <td>No news was returned.</td>
                 </tr>
             </table>
         </EmptyDataTemplate>
         <GroupTemplate>
             <tr id="itemPlaceholderContainer" runat="server">
-                <td id="itemPlaceholder" runat="server"></td>
+                <td id="itemPlaceholder" runat="server"> </td>
             </tr>
         </GroupTemplate>
-        <ItemTemplate>
-            <td runat="server">
-                <img src="<%#: Item.Picture %>" alt="" />
-                <p><%#: Item.Text %></p>
+        <ItemTemplate>           
+            
+            <td>
+                <div class="news">
+                    <div class="newsHeader">
+                        <h2 class="newsTitle"><%#: Item.title %></h2>
+                        <em class="newsDate"><%#: Item.date_modified %></em>
+                    </div> 
+                    <div class="newsText"><%# Item.text %></div>
+                </div>
             </td>
+
         </ItemTemplate>
         <LayoutTemplate>
-            <table style="width:100%;">
-                <tbody>
-                    <tr>
-                        <td>
-                            <table id="groupPlaceholderContainer" runat="server" style="width: 100%">
-                                <tr id="groupPlaceholder"></tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
-                    <tr></tr>
-                </tbody>
+            
+            <table id="groupPlaceholderContainer" runat="server" style="width: 100%" class="table">
+                <tr id="groupPlaceholder"></tr>
             </table>
+                        
         </LayoutTemplate>
     </asp:ListView>
 </asp:Content>

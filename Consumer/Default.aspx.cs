@@ -14,32 +14,15 @@ namespace Consumer
 
         }
 
-        public List<Consumer.NewsItem> GetNews()
+        public List<Consumer.ServiceReferenceNews.News> GetNews()
         {
-            List<NewsItem> ret = new List<NewsItem>();
 
-            ret.Add(new NewsItem()
+            using (var _db = new Consumer.ServiceReferenceNews.NewsServiceClient())
             {
-                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
-                Text = "Lorem ipsum dolor sit amet"
-            });
-            ret.Add(new NewsItem()
-            {
-                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
-                Text = "Lorem ipsum dolor sit amet"
-            });
-            ret.Add(new NewsItem()
-            {
-                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
-                Text = "Lorem ipsum dolor sit amet"
-            });
-            ret.Add(new NewsItem()
-            {
-                Picture = "http://i.fonts2u.com/li/lipsum_4.png",
-                Text = "Lorem ipsum dolor sit amet"
-            });
+                List<Consumer.ServiceReferenceNews.News> query = _db.GetNews();
+                return query;
+            }
 
-            return ret;
         }
     }
 }
