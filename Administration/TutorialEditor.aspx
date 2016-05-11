@@ -10,9 +10,9 @@
     <asp:Label runat="server">Tutorial title</asp:Label>
     <asp:TextBox runat="server" ID="TutorialTitle" CssClass="form-control" Text=""/>
 
-    <input type="text" placeholder="Youtube video url" id="VideoTextBox" class="form-control" />
+    <asp:TextBox runat="server" placeholder="Youtube video url" id="VideoTextBox" CssClass="form-control" />
 
-    <iframe id="VideoFrame" width="560" height="315" src="https://www.youtube.com/embed/2MayabeF5w"  allowfullscreen></iframe>
+    <iframe id="VideoFrame" width="560" height="315" src="<%: NewsContent.video %>"  allowfullscreen></iframe>
     
 
     <asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text=""/>
@@ -28,9 +28,9 @@
     <script src="Scripts/jquery-te-1.4.0.js"></script>
     <script>
 
-        $("#VideoTextBox").keyup(function () {
+        $("#MainContent_VideoTextBox").keyup(function () {
             // Get Url
-            var url = $("#VideoTextBox").val();
+            var url = $("#MainContent_VideoTextBox").val();
             var video = url;
             
             // Check link style

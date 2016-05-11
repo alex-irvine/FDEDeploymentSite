@@ -9,7 +9,7 @@ namespace Administration
 {
     public partial class TutorialEditor : System.Web.UI.Page
     {
-        public Administration.ServiceReferenceNews.News NewsContent { get; private set; }
+        public Administration.ServiceReferenceNews.Tutorial NewsContent { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,9 +20,10 @@ namespace Administration
             }
             else
             {
-                NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetNewsById(Request.QueryString["id"]);
+                NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetTutorialByIdAndPage(Request.QueryString["id"], Request.QueryString["page"]);
                 TutorialTitle.Text = NewsContent.title;
                 TutorialText.Text = NewsContent.text;
+                VideoTextBox.Text = NewsContent.video;
                 NewsFinal.Text = NewsContent.text;
                 Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(NewsContent.userId).UserName;
                 TutorialID.Text = Request.QueryString["id"];

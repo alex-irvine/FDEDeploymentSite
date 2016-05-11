@@ -19,44 +19,47 @@
                 <div class="News_option">
                     <asp:HyperLink runat="server" NavigateUrl="~/News/Publish_News" CssClass="btn btn-lg btn-success" ><span title="Publish" class="glyphicon glyphicon-remove-circle"></span></asp:HyperLink>
                     <asp:HyperLink runat="server" NavigateUrl="~/News/Remove_News" CssClass="btn btn-lg btn-danger" ><span class="glyphicon glyphicon-remove-circle"></span></asp:HyperLink>
-                    <a href="TutorialEditor?id=<%#: Item.Id %>&page=<%#: Item.page %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
+                    <a href="TutorialEditor?id=<%#: Item.Id %>&amp;page=<%#: Item.page %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
                 </div>
             <% } %>
-    
             
-            <asp:Label ID="TutorialText" runat="server" CssClass="editorEx"><%#: Item.text %></asp:Label>
-            <script>
-                /*var e = document.createElement('div');
-                e.innerHTML = $.parseHTML("");
-                $(".editorEx").append(e.toString());*/
-                //alert(e.innerHTML);
-                //$(".editorEx").innerHTML = $(".content").innerHTML;
-            </script>
-            <div class="NewsData">
-                <asp:Label runat="server" ID="Author" ><%#: Item.userId %></asp:Label>
-                <br />
-                <asp:Label runat="server" ID="Published" ><%#: Item.date_published %></asp:Label>
-                <br />
-                <asp:Label runat="server" ID="Modified" ><%#: Item.date_modified %></asp:Label>
+            <iframe id="VideoFrame<%#: Item.video %>" width="560" height="315" src="<%#: Item.video %>"  allowfullscreen></iframe>
+            <style>
+                #VideoFrame{
+                    display : none;
+                }
+            </style>
+            <div ID="TutorialText" class="editorEx" value="<%#: Item.text%>" >
+                Lol
             </div>
+
+            <script>
+                $('.editorEx').html($('.editorEx').attr("value"));
+            </script>
         </ItemTemplate>
         <LayoutTemplate>
             
-            <table runat="server" style="width: 100%" class="table table-hover">
-                <tbody>
-                    <tr id="itemPlaceholderContainer"  runat="server">
-                        <td id="itemPlaceholder" runat="server"> </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div runat="server" style="width: 100%" class="table table-hover">
+                
+                    <div id="itemPlaceholderContainer"  runat="server">
+                        <div id="itemPlaceholder" runat="server"> </div>
+                    </div>
+                
+            </div>
+            
+           
             <asp:DataPager ID="DataPagerProducts" runat="server" PagedControlID="LVTutorials" PageSize="1" OnPreRender="DataPagerProducts_PreRender">
             <Fields>
-                <asp:NextPreviousPagerField ShowFirstPageButton="True" ShowNextPageButton="False" />
+                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
                 <asp:NumericPagerField />
-                <asp:NextPreviousPagerField ShowLastPageButton="True" ShowPreviousPageButton="False" />
+                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
             </Fields>
         </asp:DataPager>
         </LayoutTemplate>
     </asp:ListView>
-
+    <asp:Label runat="server" ID="Author" ></asp:Label>
+    <br />
+    <asp:Label runat="server" ID="Published" ></asp:Label>
+    <br />
+    <asp:Label runat="server" ID="Modified" ></asp:Label>
 </asp:Content>
