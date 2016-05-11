@@ -22,14 +22,15 @@ namespace Services
 
         // TODO: Add your service operations here
         [OperationContract]
-        Person GetPerson(string username);
-        [OperationContract]
-        Person GetPersonById(int id);
+        GetPersonResponse GetPerson(GetPersonRequest request);
         [OperationContract]
         AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
         [OperationContract]
         GetNewsItemsResponse GetNewsItems();
-        
+        [OperationContract]
+        InsertNewsItemResponse InsertNewsItem(InsertNewsItemRequest request);
+        [OperationContract]
+        RegisterUserResponse RegisterUser(RegisterUserRequest request);
     }
 
 
