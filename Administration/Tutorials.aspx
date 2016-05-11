@@ -11,7 +11,7 @@
         <asp:TextBox runat="server" ID="SearchBox" placeholder="Search ..." CssClass="form-control"></asp:TextBox>
         <asp:Button runat="server" OnClick="Search_Click" Text="Search" CssClass="btn btn-default" />
     </div>
-    <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.News" SelectMethod="GetNews"
+    <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.Tutorial" SelectMethod="GetTutorials"
         GroupItemCount="1" >
         <EmptyDataTemplate>
             <table >
@@ -38,9 +38,9 @@
             <%--<td><asp:Button runat="server" Text="Edit" CssClass="btn btn-default"/></td>--%>
             <td class="published<%#: Item.published %>">
                 <% if(isAdmin){ %>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/NewsEditor?id={0}", Item.Id) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialEditor?id={0}&page={1}", Item.Id, Item.page) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
                 <% } %>
-                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>' CssClass="btn btn-default">See</asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialView?id={0}", Item.Id) %>' CssClass="btn btn-default">See</asp:HyperLink>
             </td>
             
             <%--</asp:HyperLink>

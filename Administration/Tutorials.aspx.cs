@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Administration.ServiceReferenceNews;
+using Administration.ServiceReference1;
 
 namespace Administration
 {
@@ -20,24 +22,23 @@ namespace Administration
             }
             else
             {
-                isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
+                isAdmin = Session["User"] != null ? ((Person)Session["User"]).IsAdmin : false;
             }
         }
 
-        public List<Administration.ServiceReferenceNews.News> GetNews()
+        public List<ServiceReferenceNews.Tutorial> GetTutorials()
         {
-
-            using (var _db = new Administration.ServiceReferenceNews.NewsServiceClient())
+            using (var _db = new NewsServiceClient())
             {
-                List<Administration.ServiceReferenceNews.News> query = _db.GetNews();
+                List<ServiceReferenceNews.Tutorial> query = _db.GetTutorials();
                 return query;
             }
-
+            
         }
 
         protected void New_Tutorial(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Search_Click(object sender, EventArgs e)

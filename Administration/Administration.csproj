@@ -238,6 +238,9 @@
     <Content Include="Service References\ServiceReferenceNews\Administration.ServiceReferenceNews.News.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ServiceReferenceNews\Administration.ServiceReferenceNews.Tutorial.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReferenceNews\NewsService.disco" />
     <None Include="Service References\ServiceReferenceNews\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceNews\configuration.svcinfo" />
@@ -249,6 +252,7 @@
     <Content Include="Software.aspx" />
     <Content Include="TutorialEditor.aspx" />
     <Content Include="Tutorials.aspx" />
+    <Content Include="TutorialView.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -469,6 +473,13 @@
     </Compile>
     <Compile Include="Tutorials.aspx.designer.cs">
       <DependentUpon>Tutorials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TutorialView.aspx.cs">
+      <DependentUpon>TutorialView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorialView.aspx.designer.cs">
+      <DependentUpon>TutorialView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

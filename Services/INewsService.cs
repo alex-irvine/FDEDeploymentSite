@@ -21,6 +21,16 @@ namespace Services
         // One news
         [OperationContract]
         News GetNewsById(string id);
+
+        // Temporary
+        [OperationContract]
+        List<Tutorial> GetTutorials();
+        // One Tutorial , all pages
+        [OperationContract]
+        List<Tutorial> GetTutorialById(string id);
+
+        [OperationContract]
+        Tutorial GetTutorialByIdAndPage(string id, string page);
     }
 
     
