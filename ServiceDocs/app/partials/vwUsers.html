@@ -1,0 +1,173 @@
+﻿<div>
+    <h3>Users</h3>
+    <br />
+    <h4>Description</h4>
+    <hr />
+    <p>
+        The Users API is to get, set, modify and authenticate users.
+    </p>
+    <hr />
+    <h4>GetPerson(GetPersonRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class GetPersonRequest
+            {
+                [DataMemberAttribute]
+                public string Username { get; set; }
+            }
+
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class GetPersonResponse : ErrorInformation
+            {
+                [DataMemberAttribute]
+                public Person User { get; set; }
+            }
+
+            public class Person
+            {
+                public ObjectId _id { get; set; }
+                public string Username { get; set; }
+                public string Company { get; set; }
+                public bool IsAdmin { get; set; }
+                public string Password { get; set; }
+                public string Salt { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            GetPersonRequest request = new GetPersonRequest()
+            {
+                Username = "test@userna.me"
+            };
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                GetPersonResponse response = client.GetPerson(request);
+            
+                if(!response.Errored)
+                {
+                    // extract data from response
+                }        
+            }
+        </code></pre>
+    </p>
+    <hr />
+    <h4>RegisterUser(RegisterUserRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class RegisterUserRequest
+            {
+                [DataMemberAttribute]
+                public Person User { get; set; }
+            }
+
+            public class Person
+            {
+                public ObjectId _id { get; set; }
+                public string Username { get; set; }
+                public string Company { get; set; }
+                public bool IsAdmin { get; set; }
+                public string Password { get; set; }
+                public string Salt { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class RegisterUserResponse : ErrorInformation
+            {
+                [DataMemberAttribute]
+                public ObjectId InsertedId { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            Person user = new Person()
+            {
+                Username = "test@userna.me",
+                Company = "Design Automations",
+                IsAdmin = true,
+                Password = "testPass01"
+            };
+
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                RegisterUserResponse response = client.RegisterUser(new RegisterUserRequest()
+                { 
+                    User = user 
+                });
+                
+                if(!response.Errored)
+                {
+                    // the user has been registered
+                }
+            }
+        </code></pre>
+    </p>
+    <hr />
+    <h4>AuthenticateUser(AuthenticateUserRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class AuthenticateUserRequest
+            {
+                [DataMemberAttribute]
+                public string Username { get; set; }
+                [DataMemberAttribute]
+                public string Password { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class AuthenticateUserResponse : ErrorInformation
+            {
+                [DataMemberAttribute]
+                public bool Authenticated { get; set; }
+                [DataMemberAttribute]
+                public Person Person { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest()
+                { 
+                    Username = "test@userna.me",
+                    Password = "testPass01" 
+                });
+                
+                if(!response.Errored)
+                {
+                    // the user has been authenticated
+                    // extract the person object
+                }
+            }
+        </code></pre>
+    </p>
+    <hr />
+
+</div>
