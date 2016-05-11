@@ -13,12 +13,12 @@ namespace Consumer {
     public partial class _Default {
         
         /// <summary>
-        /// news control.
+        /// LVNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView news;
+        protected global::System.Web.UI.WebControls.ListView LVNews;
     }
 }
