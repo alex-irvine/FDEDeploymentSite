@@ -72,7 +72,8 @@ namespace Administration
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null) { UserName = ((Administration.ServiceReference1.Person)Session["User"]).UserName; }
+            //Username = HttpContext.Current.User.Identity.Name;
+            if (Session["User"] != null) { UserName = HttpContext.Current.User.Identity.Name; }
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)

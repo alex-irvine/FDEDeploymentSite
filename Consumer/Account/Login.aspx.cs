@@ -18,62 +18,63 @@ namespace Consumer.Account
  
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null)
-            {
-                Response.Redirect("~/"); // already logged in : redirected to the home page
-            }
+            //if (Request.IsAuthenticated)
+            //{
+            //    Response.Redirect("~/"); // already logged in : redirected to the home page
+            //}
 
-            RegisterHyperLink.NavigateUrl = "Register";
+            //RegisterHyperLink.NavigateUrl = "Register";
             
 
             if (Request.IsAuthenticated)
             {
-                Response.Redirect(ReturnUrl);
+                FormsAuthentication.RedirectFromLoginPage(HttpContext.Current.User.Identity.ToString(),true);
             }
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
-            if (IsValid)
-            {
+            //if (IsValid)
+            //{
                 
-                using (ServiceReference1.Service1Client client = new Consumer.ServiceReference1.Service1Client())
-                {
-                    AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
-                    {
-                        Username = Email.Text,
-                        Password = Password.Text // Hash password
-                    });
+                //using (ServiceReference1.Service1Client client = new Consumer.ServiceReference1.Service1Client())
+                //{
+                //    AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
+                //    {
+                //        Username = Email.Text,
+                //        Password = Password.Text // Hash password
+                //    });
 
-                    if (response.Errored)
-                    {
-                        MessageBox.Show(response.Message);
-                    }
+                //    if (response.Errored)
+                //    {
+                //        MessageBox.Show(response.Message);
+                //    }
 
-                    if(response.Authenticated)
-                    {
-                        Session["User"] = response.Person;
-                        Person pson = (Person)Session["User"];
-                        FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
+                //    if(response.Authenticated)
+                //    {
+                //        Session["User"] = response.Person;
+                //        Person pson = (Person)Session["User"];
+                //        FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
 
-                        //if (redUrl == Request.Url.ToString())
-                        //{
-                        //    Response.Redirect("~/");
-                        //}
-                        //else
-                        //{
-                        //    Response.Redirect(redUrl);
-                        //}
+                //        //if (redUrl == Request.Url.ToString())
+                //        //{
+                //        //    Response.Redirect("~/");
+                //        //}
+                //        //else
+                //        //{
+                //        //    Response.Redirect(redUrl);
+                //        //}
                         
                         
-                    }
-                    else
-                    {
-                        // wrong user name or pword
-                    }
+                //    }
+                //    else
+                //    {
+                //        // wrong user name or pword
+                //    }
 
-                }
-            }
+                //}
+                FormsAuthentication.RedirectFromLoginPage(Email.Text, true);
+            //}
         }
     }
 }

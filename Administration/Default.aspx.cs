@@ -36,7 +36,7 @@ namespace Administration
             // create a empty news
             Administration.ServiceReferenceNews.News nw = new Administration.ServiceReferenceNews.News()
             {
-                userId = ((Administration.ServiceReference1.Person)Session["User"]).Id,
+                //userId = ((Administration.ServiceReference1.Person)Session["User"]).Id,
                 text = "Unnamed news",
                 title = "Empty",
                 published = false,

@@ -23,58 +23,60 @@ namespace Administration.Account
 
             if (Request.IsAuthenticated)
             {
-                Response.Redirect(ReturnUrl);
+                Response.Redirect("Account/Manage.aspx");
             }
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
-            if (IsValid)
-            {
+            //if (IsValid)
+            //{
                 
-                using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
-                {
-                    AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
-                    {
-                        Username = Email.Text,
-                        Password = Password.Text // Hash password
-                    });
+            //    using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
+            //    {
+            //        AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
+            //        {
+            //            Username = Email.Text,
+            //            Password = Password.Text // Hash password
+            //        });
 
-                    if (response.Errored)
-                    {
-                        MessageBox.Show(response.Message);
-                    }
+            //        if (response.Errored)
+            //        {
+            //            MessageBox.Show(response.Message);
+            //        }
 
-                    if(response.Authenticated)
-                    {
-                        if (response.Person.IsAdmin)
-                        {
-                            Session["User"] = response.Person;
-                            Person pson = (Person)Session["User"];
+            //        if(response.Authenticated)
+            //        {
+            //            if (response.Person.IsAdmin)
+            //            {
+            //                Session["User"] = response.Person;
+            //                Person pson = (Person)Session["User"];
 
-                            //FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
-                            if (string.IsNullOrWhiteSpace(ReturnUrl))
-                            {
-                                Response.Redirect("~/");
-                            }
-                            else { Response.Redirect(ReturnUrl); }
+            //                //FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
+            //                if (string.IsNullOrWhiteSpace(ReturnUrl))
+            //                {
+            //                    Response.Redirect("~/");
+            //                }
+            //                else { Response.Redirect(ReturnUrl); }
                             
-                        }
-                        else
-                        {
-                            FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
-                            ErrorMessage.Visible = true;
-                        }
+            //            }
+            //            else
+            //            {
+            //                FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
+            //                ErrorMessage.Visible = true;
+            //            }
                         
-                    }
+            //        }
 
-                    if(!Request.IsAuthenticated)
-                    {
-                        FormsAuthentication.RedirectFromLoginPage("/Account/Login", true);
-                    }
+            //        if(!Request.IsAuthenticated)
+            //        {
+            //            FormsAuthentication.RedirectFromLoginPage("/Account/Login", true);
+            //        }
 
-                }
-            }
+            //    }
+            //}
+            //string name = HttpContext.Current.User.Identity.Name;
+            FormsAuthentication.RedirectFromLoginPage(Email.Text, true);
         }
     }
 }
