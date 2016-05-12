@@ -12,7 +12,7 @@ namespace Consumer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] == null)
+            if (!Request.IsAuthenticated)
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
