@@ -76,6 +76,248 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetPersonRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class GetPersonRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ErrorInformation", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.AuthenticateUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemsResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.InsertNewsItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.RegisterUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPersonResponse))]
+    internal partial class ErrorInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ErroredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal bool Errored {
+            get {
+                return this.ErroredField;
+            }
+            set {
+                if ((this.ErroredField.Equals(value) != true)) {
+                    this.ErroredField = value;
+                    this.RaisePropertyChanged("Errored");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthenticateUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class AuthenticateUserResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AuthenticatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.Person PersonField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal bool Authenticated {
+            get {
+                return this.AuthenticatedField;
+            }
+            set {
+                if ((this.AuthenticatedField.Equals(value) != true)) {
+                    this.AuthenticatedField = value;
+                    this.RaisePropertyChanged("Authenticated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.Person Person {
+            get {
+                return this.PersonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonField, value) != true)) {
+                    this.PersonField = value;
+                    this.RaisePropertyChanged("Person");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetNewsItemsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class GetNewsItemsResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.NewsItem[] NewsItemsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.NewsItem[] NewsItems {
+            get {
+                return this.NewsItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NewsItemsField, value) != true)) {
+                    this.NewsItemsField = value;
+                    this.RaisePropertyChanged("NewsItems");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertNewsItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class InsertNewsItemResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.ObjectId InsertedIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.ObjectId InsertedId {
+            get {
+                return this.InsertedIdField;
+            }
+            set {
+                if ((this.InsertedIdField.Equals(value) != true)) {
+                    this.InsertedIdField = value;
+                    this.RaisePropertyChanged("InsertedId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class RegisterUserResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.ObjectId InsertedIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.ObjectId InsertedId {
+            get {
+                return this.InsertedIdField;
+            }
+            set {
+                if ((this.InsertedIdField.Equals(value) != true)) {
+                    this.InsertedIdField = value;
+                    this.RaisePropertyChanged("InsertedId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetPersonResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class GetPersonResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.Person UserField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.Person User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     internal partial class Person : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -87,13 +329,19 @@ namespace Administration.ServiceReference1 {
         private string CompanyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsAdminField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SaltField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.ObjectId _idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -119,19 +367,6 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         internal bool IsAdmin {
             get {
                 return this.IsAdminField;
@@ -145,14 +380,267 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string UserName {
+        internal string Password {
             get {
-                return this.UserNameField;
+                return this.PasswordField;
             }
             set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Salt {
+            get {
+                return this.SaltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SaltField, value) != true)) {
+                    this.SaltField = value;
+                    this.RaisePropertyChanged("Salt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.ObjectId _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((this._idField.Equals(value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ObjectId", Namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson")]
+    [System.SerializableAttribute()]
+    internal partial struct ObjectId : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int _aField;
+        
+        private int _bField;
+        
+        private int _cField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        internal int _a {
+            get {
+                return this._aField;
+            }
+            set {
+                if ((this._aField.Equals(value) != true)) {
+                    this._aField = value;
+                    this.RaisePropertyChanged("_a");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        internal int _b {
+            get {
+                return this._bField;
+            }
+            set {
+                if ((this._bField.Equals(value) != true)) {
+                    this._bField = value;
+                    this.RaisePropertyChanged("_b");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        internal int _c {
+            get {
+                return this._cField;
+            }
+            set {
+                if ((this._cField.Equals(value) != true)) {
+                    this._cField = value;
+                    this.RaisePropertyChanged("_c");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NewsItem", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class NewsItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Date_modifiedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Date_publishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.ObjectId _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Author {
+            get {
+                return this.AuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal System.DateTime Date_modified {
+            get {
+                return this.Date_modifiedField;
+            }
+            set {
+                if ((this.Date_modifiedField.Equals(value) != true)) {
+                    this.Date_modifiedField = value;
+                    this.RaisePropertyChanged("Date_modified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal System.DateTime Date_published {
+            get {
+                return this.Date_publishedField;
+            }
+            set {
+                if ((this.Date_publishedField.Equals(value) != true)) {
+                    this.Date_publishedField = value;
+                    this.RaisePropertyChanged("Date_published");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal bool Published {
+            get {
+                return this.PublishedField;
+            }
+            set {
+                if ((this.PublishedField.Equals(value) != true)) {
+                    this.PublishedField = value;
+                    this.RaisePropertyChanged("Published");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Text {
+            get {
+                return this.TextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextField, value) != true)) {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.ObjectId _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((this._idField.Equals(value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
                 }
             }
         }
@@ -230,20 +718,15 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ErrorInformation", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertNewsItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemsResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.AuthenticateUserResponse))]
-    internal partial class ErrorInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    internal partial class InsertNewsItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ErroredField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
+        private Administration.ServiceReference1.NewsItem NewsItemField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -256,27 +739,14 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal bool Errored {
+        internal Administration.ServiceReference1.NewsItem NewsItem {
             get {
-                return this.ErroredField;
+                return this.NewsItemField;
             }
             set {
-                if ((this.ErroredField.Equals(value) != true)) {
-                    this.ErroredField = value;
-                    this.RaisePropertyChanged("Errored");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
+                if ((object.ReferenceEquals(this.NewsItemField, value) != true)) {
+                    this.NewsItemField = value;
+                    this.RaisePropertyChanged("NewsItem");
                 }
             }
         }
@@ -293,80 +763,15 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GetNewsItemsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
-    internal partial class GetNewsItemsResponse : Administration.ServiceReference1.ErrorInformation {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.NewsItem[] NewstItemsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        internal Administration.ServiceReference1.NewsItem[] NewstItems {
-            get {
-                return this.NewstItemsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NewstItemsField, value) != true)) {
-                    this.NewstItemsField = value;
-                    this.RaisePropertyChanged("NewstItems");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthenticateUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
-    [System.SerializableAttribute()]
-    internal partial class AuthenticateUserResponse : Administration.ServiceReference1.ErrorInformation {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool AuthenticatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.Person PersonField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        internal bool Authenticated {
-            get {
-                return this.AuthenticatedField;
-            }
-            set {
-                if ((this.AuthenticatedField.Equals(value) != true)) {
-                    this.AuthenticatedField = value;
-                    this.RaisePropertyChanged("Authenticated");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        internal Administration.ServiceReference1.Person Person {
-            get {
-                return this.PersonField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PersonField, value) != true)) {
-                    this.PersonField = value;
-                    this.RaisePropertyChanged("Person");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="NewsItem", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
-    [System.SerializableAttribute()]
-    internal partial class NewsItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    internal partial class RegisterUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] PictureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TextField;
+        private Administration.ServiceReference1.Person UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -379,27 +784,14 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal byte[] Picture {
+        internal Administration.ServiceReference1.Person User {
             get {
-                return this.PictureField;
+                return this.UserField;
             }
             set {
-                if ((object.ReferenceEquals(this.PictureField, value) != true)) {
-                    this.PictureField = value;
-                    this.RaisePropertyChanged("Picture");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Text {
-            get {
-                return this.TextField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TextField, value) != true)) {
-                    this.TextField = value;
-                    this.RaisePropertyChanged("Text");
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
                 }
             }
         }
@@ -431,16 +823,10 @@ namespace Administration.ServiceReference1 {
         System.Threading.Tasks.Task<Administration.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Administration.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPerson", ReplyAction="http://tempuri.org/IService1/GetPersonResponse")]
-        Administration.ServiceReference1.Person GetPerson(string username);
+        Administration.ServiceReference1.GetPersonResponse GetPerson(Administration.ServiceReference1.GetPersonRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPerson", ReplyAction="http://tempuri.org/IService1/GetPersonResponse")]
-        System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonAsync(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersonById", ReplyAction="http://tempuri.org/IService1/GetPersonByIdResponse")]
-        Administration.ServiceReference1.Person GetPersonById(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPersonById", ReplyAction="http://tempuri.org/IService1/GetPersonByIdResponse")]
-        System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonByIdAsync(int id);
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetPersonResponse> GetPersonAsync(Administration.ServiceReference1.GetPersonRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AuthenticateUser", ReplyAction="http://tempuri.org/IService1/AuthenticateUserResponse")]
         Administration.ServiceReference1.AuthenticateUserResponse AuthenticateUser(Administration.ServiceReference1.AuthenticateUserRequest request);
@@ -453,6 +839,18 @@ namespace Administration.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItems", ReplyAction="http://tempuri.org/IService1/GetNewsItemsResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.GetNewsItemsResponse> GetNewsItemsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertNewsItem", ReplyAction="http://tempuri.org/IService1/InsertNewsItemResponse")]
+        Administration.ServiceReference1.InsertNewsItemResponse InsertNewsItem(Administration.ServiceReference1.InsertNewsItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertNewsItem", ReplyAction="http://tempuri.org/IService1/InsertNewsItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.InsertNewsItemResponse> InsertNewsItemAsync(Administration.ServiceReference1.InsertNewsItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
+        Administration.ServiceReference1.RegisterUserResponse RegisterUser(Administration.ServiceReference1.RegisterUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -498,20 +896,12 @@ namespace Administration.ServiceReference1 {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public Administration.ServiceReference1.Person GetPerson(string username) {
-            return base.Channel.GetPerson(username);
+        public Administration.ServiceReference1.GetPersonResponse GetPerson(Administration.ServiceReference1.GetPersonRequest request) {
+            return base.Channel.GetPerson(request);
         }
         
-        public System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonAsync(string username) {
-            return base.Channel.GetPersonAsync(username);
-        }
-        
-        public Administration.ServiceReference1.Person GetPersonById(int id) {
-            return base.Channel.GetPersonById(id);
-        }
-        
-        public System.Threading.Tasks.Task<Administration.ServiceReference1.Person> GetPersonByIdAsync(int id) {
-            return base.Channel.GetPersonByIdAsync(id);
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetPersonResponse> GetPersonAsync(Administration.ServiceReference1.GetPersonRequest request) {
+            return base.Channel.GetPersonAsync(request);
         }
         
         public Administration.ServiceReference1.AuthenticateUserResponse AuthenticateUser(Administration.ServiceReference1.AuthenticateUserRequest request) {
@@ -528,6 +918,22 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.GetNewsItemsResponse> GetNewsItemsAsync() {
             return base.Channel.GetNewsItemsAsync();
+        }
+        
+        public Administration.ServiceReference1.InsertNewsItemResponse InsertNewsItem(Administration.ServiceReference1.InsertNewsItemRequest request) {
+            return base.Channel.InsertNewsItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.InsertNewsItemResponse> InsertNewsItemAsync(Administration.ServiceReference1.InsertNewsItemRequest request) {
+            return base.Channel.InsertNewsItemAsync(request);
+        }
+        
+        public Administration.ServiceReference1.RegisterUserResponse RegisterUser(Administration.ServiceReference1.RegisterUserRequest request) {
+            return base.Channel.RegisterUser(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request) {
+            return base.Channel.RegisterUserAsync(request);
         }
     }
 }

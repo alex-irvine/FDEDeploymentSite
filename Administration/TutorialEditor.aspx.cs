@@ -25,7 +25,7 @@ namespace Administration
                 TutorialText.Text = NewsContent.text;
                 VideoTextBox.Text = NewsContent.video;
                 NewsFinal.Text = NewsContent.text;
-                Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(NewsContent.userId).UserName;
+                //Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(NewsContent.userId).UserName;
                 TutorialID.Text = Request.QueryString["id"];
             }
         }
