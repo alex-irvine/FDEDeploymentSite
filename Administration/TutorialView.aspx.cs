@@ -16,23 +16,23 @@ namespace Administration
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] == null 
-                || Request.QueryString["id"] == null 
-                || string.IsNullOrEmpty(Request.QueryString["id"]) 
-                || string.IsNullOrWhiteSpace(Request.QueryString["id"]) 
-            ){
-                Response.Redirect("~/");
-            }
-            else
-            {
+            //if (Session["User"] == null 
+            //    || Request.QueryString["id"] == null 
+            //    || string.IsNullOrEmpty(Request.QueryString["id"]) 
+            //    || string.IsNullOrWhiteSpace(Request.QueryString["id"]) 
+            //){
+            //    Response.Redirect("~/");
+            //}
+            //else
+            //{
                 isAdmin = Session["User"]!=null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
                 TutorialContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetTutorialById(Request.QueryString["id"]);
                 /*NewsFinal.Text = TutorialContent.text;
                 NewsID.Text = Request.QueryString["id"];*/
-                Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(TutorialContent[0].userId).UserName;
+                //Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(TutorialContent[0].userId).UserName;
                 Modified.Text = "Last modification : " + TutorialContent[0].date_modified.ToString();
                 Published.Text = "Published : " + TutorialContent[0].date_published.ToString();
-            }
+            //}
             
         }
 
