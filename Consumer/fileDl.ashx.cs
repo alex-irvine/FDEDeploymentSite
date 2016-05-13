@@ -24,7 +24,7 @@ namespace Consumer
         }
 
         private byte[] GetProgram () {
-            string absolutePath = "Z:/DesignGUI_PublishingPlatform/Consumer/files/test.txt";
+            string absolutePath = @"C:\Users\Public\Videos\Sample Videos\Wildlife.wmv";
             byte[] bytes = System.IO.File.ReadAllBytes(absolutePath);
             return bytes;
         }

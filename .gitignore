@@ -3,3 +3,5 @@
 *.cache
 *.txt
 *.dropbox*
+*.suo
+*.v12.suo

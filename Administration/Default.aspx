@@ -10,44 +10,30 @@
     <% } %>
     <!-- Display the news -->
 
-    <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.News" SelectMethod="GetNews"
-        GroupItemCount="1" >
+    <asp:ListView ID="LVNews" runat="server" ItemType="NewsItem">
         <EmptyDataTemplate>
-            <table >
+            <table>
                 <tr>
                     <td>No news was returned.</td>
                 </tr>
             </table>
         </EmptyDataTemplate>
-        <GroupTemplate>
-            <tr id="itemPlaceholderContainer" runat="server">
-                <td id="itemPlaceholder" runat="server"> </td>
-            </tr>
-        </GroupTemplate>
         <ItemTemplate>
-            <%--<td class="news_box" runat="server"><asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>'>--%>
-                
-                <%--<h1 class="news_title"><%#: Item.title %></h1>--%>
-                <%--<p class="news_description"><%#: Item.description %></p>--%>
-            
-            
-            <td class="published<%#: Item.published %>"><h4><%#: Item.title %></h4></td>
-            <td class="published<%#: Item.published %>"><%#: Regex.Replace(Item.text, "<.*?>", " ").Substring(0,140) %></td>
-            <td class="published<%#: Item.published %>"><%#: Item.date_modified %></td>
-            <%--<td><asp:Button runat="server" Text="Edit" CssClass="btn btn-default"/></td>--%>
-            <td class="published<%#: Item.published %>">
+            <h1>Test</h1>
+            <%--<td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
+            <td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Text, "<.*?>", " ").Substring(0,140) %></td>
+            <td class="published<%#: Item.Published %>"><%#: Item.Date_modified %></td>
+            <td class="published<%#: Item.Published %>">
                 <% if(isAdmin){ %>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/NewsEditor?id={0}", Item.Id) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/NewsEditor?id={0}", Item._id) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
                 <% } %>
-                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item.Id) %>' CssClass="btn btn-default">See</asp:HyperLink>
-            </td>
-            
-            <%--</asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item._id) %>' CssClass="btn btn-default">See</asp:HyperLink>
             </td>--%>
+            
         </ItemTemplate>
         <LayoutTemplate>
             
-            <table id="groupPlaceholderContainer" runat="server" style="width: 100%" class="table table-hover">
+            <table id="itemPlaceholderContainer" runat="server" style="width: 100%" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -57,35 +43,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="groupPlaceholder"></tr>
+                    <tr id="itemPlaceholder"></tr>
                 </tbody>
             </table>
-                        
+            
+           
+            <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="5" OnPreRender="DataPagerNews_PreRender">
+            <Fields>
+                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
+                <asp:NumericPagerField />
+                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
+            </Fields>
+        </asp:DataPager>
         </LayoutTemplate>
     </asp:ListView>
     <style>
         .publishedFalse{
             background : #f68181;
         }
-        /*.news_box{
-            vertical-align : top;
-            text-align : center;
-            max-width : 15%;
-            max-height : 15%;
-            margin : 10px;
-        }
-        .news_box img{
-            width : 100%;
-            height : 100%;
-            padding : 10px;
-        }
-        .news_box:hover{
-            box-shadow : 0px 0px 5px #CCC;
-            cursor:pointer;
-        }
-        .news_title{
-            font-size : 1.5em;
-        }*/
-
+        
     </style>
 </asp:Content>

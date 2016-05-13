@@ -62,4 +62,12 @@
             </section>
         </div>-->
     </div>
+
+    <%--<script>
+        $('#inputID').on('focus',function(){
+            check_password($('#inputID').InnerHTML(),seconed pasword box);
+
+        });
+
+    </script>--%>
 </asp:Content>
