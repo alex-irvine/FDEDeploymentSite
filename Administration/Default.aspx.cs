@@ -5,7 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Administration.ServiceReferenceNews;
+using Administration.ServiceReference1;
+//using Administration.ServiceReferenceNews;
 using System.Windows.Forms;
 
 namespace Administration
@@ -17,15 +18,27 @@ namespace Administration
         protected void Page_Load(object sender, EventArgs e)
         {
             isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
+            isAdmin = true;
         }
 
-        public List<Administration.ServiceReferenceNews.News> GetNews()
+        public void /*List<Administration.ServiceReference1.NewsItem>*/ GetNews()
         {
             
-            using(var _db = new Administration.ServiceReferenceNews.NewsServiceClient())
+            using(var _db = new Service1Client())
             {
-                List<Administration.ServiceReferenceNews.News> query = _db.GetNews();
-                return query;
+                List<NewsItem> query = new List<NewsItem>();
+                GetNewsItemsResponse response = _db.GetNewsItems();
+                if (!response.Errored)
+                {
+                    query = response.NewsItems.ToList();
+                }
+                foreach (NewsItem ni in query)
+                {
+                    MessageBox.Show(ni.Title);
+                }
+                this.LVNews.DataSource = response.NewsItems.ToList<NewsItem>();
+                this.LVNews.DataBind();
+                //return query;
             }
             
         }
@@ -34,15 +47,42 @@ namespace Administration
         {
 
             // create a empty news
-            Administration.ServiceReferenceNews.News nw = new Administration.ServiceReferenceNews.News()
+            NewsItem nw = new NewsItem()
             {
-                //userId = ((Administration.ServiceReference1.Person)Session["User"]).Id,
-                text = "Unnamed news",
-                title = "Empty",
-                published = false,
-                date_modified = DateTime.Now
+                Author =  HttpContext.Current.User.Identity.Name.ToString(),
+                Title = "Unnamed news",
+                Text = "Empty",
+                Published = false,
+                Date_modified = DateTime.Now,
             };
+            using (ServiceReference1.Service1Client client = new Service1Client())
+            {
+                InsertNewsItemResponse response = client.InsertNewsItem(new InsertNewsItemRequest()
+                {
+                    NewsItem = nw
+                });
+                if (!response.Errored)
+                {
+                    MessageBox.Show("News created");
+                }
+            }
             // Redirect to NewsEditor
+        }
+
+        protected void DataPagerNews_PreRender(object sender, EventArgs e)
+        {
+            using (var _db = new Service1Client())
+            {
+                List<NewsItem> query = new List<NewsItem>();
+                GetNewsItemsResponse response = _db.GetNewsItems();
+                if (!response.Errored)
+                {
+                    query = response.NewsItems.ToList();
+                }
+                this.LVNews.DataSource = query;
+                this.LVNews.DataBind();
+                //return query;
+            }
         }
 
         

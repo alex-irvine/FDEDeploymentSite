@@ -14,6 +14,15 @@ namespace Administration.Account
 {
     public partial class Register : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (HttpContext.Current.User.Identity.Name!=null)
+            {
+                Response.Redirect("~/");
+            }
+            
+        }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             if (checkMail(Email.Text))
