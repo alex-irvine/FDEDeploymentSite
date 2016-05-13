@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f950efb6-aef4-457e-95c7-36a361a9b816" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54544/StreamService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StreamService.xsd" MetadataType="Schema" ID="03e5a2fa-8495-445c-ad8d-755bb1a7a115" SourceId="1" SourceUrl="http://localhost:54544/StreamService.svc?xsd=xsd0" />
+    <MetadataFile FileName="StreamService1.xsd" MetadataType="Schema" ID="8b907825-b94c-4e4b-bbbf-c62978228e92" SourceId="1" SourceUrl="http://localhost:54544/StreamService.svc?xsd=xsd1" />
+    <MetadataFile FileName="StreamService2.xsd" MetadataType="Schema" ID="96ab9af9-b481-47f8-9528-aa3f26766a3d" SourceId="1" SourceUrl="http://localhost:54544/StreamService.svc?xsd=xsd2" />
+    <MetadataFile FileName="StreamService.wsdl" MetadataType="Wsdl" ID="bc119e6b-7e68-4996-923a-eb6c119697ba" SourceId="1" SourceUrl="http://localhost:54544/StreamService.svc?wsdl" />
+    <MetadataFile FileName="StreamService.disco" MetadataType="Disco" ID="31234a79-0a95-4972-a8e9-52c37770cc84" SourceId="1" SourceUrl="http://localhost:54544/StreamService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
