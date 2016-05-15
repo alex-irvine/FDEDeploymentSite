@@ -306,7 +306,98 @@ namespace Services
 
         }
 
+        /// <summary>
+        /// Insert or update the current file record
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public InsertFileRecordResponse InsertFileRecord(InsertFileRecordRequest request)
+        {
+            // init response
+            InsertFileRecordResponse response = new InsertFileRecordResponse();
 
+            // open DB and insert/update the record
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<FileRecord>("FileRecord");
+
+                // get old file name
+                List<FileRecord> fr = collection.Find(new BsonDocument()).ToList();
+                if(fr.Count > 0)
+                {
+                    response.OldFileName = fr[0].FileName;
+                    // if there is an old file and it has a different name flag the
+                    // old file should be deleted
+                    response.DeleteOldFile = request.FileName != response.OldFileName;
+                    // if old file name same as new file name return out here
+                    if (request.FileName == response.OldFileName)
+                    {
+                        response.Errored = false;
+                        response.Message = "Same file name no record created";
+                        return response;
+                    }
+                }
+                
+                // if first insert create the record else update the record (should only be one)
+                if(collection.Find(new BsonDocument()).Count()>0)
+                {
+                    collection.UpdateOne(new BsonDocument(), new BsonDocument("$set", new BsonDocument( "FileName", request.FileName)));
+                }
+                else
+                {
+                    collection.InsertOne(new FileRecord() { FileName = request.FileName });
+                }
+
+                response.Errored = false;
+                response.Message = "Record successfully updated";
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Get the dropbox key and name of current file from record
+        /// </summary>
+        /// <returns></returns>
+        public GetFileRecordResponse GetFileRecord()
+        {
+            GetFileRecordResponse response = new GetFileRecordResponse() 
+            {
+                DropboxKey = SysConfig.DBKey
+            };
+
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<FileRecord>("FileRecord");
+
+                // grab current file name
+                List<FileRecord> fr = new List<FileRecord>();
+                fr = collection.Find(new BsonDocument()).ToList();
+                response.FileName = fr[0].FileName;
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
 
     }
 }

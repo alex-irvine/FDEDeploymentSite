@@ -91,6 +91,7 @@
     <Compile Include="lib\AuthLib.cs" />
     <Compile Include="lib\Test.cs" />
     <Compile Include="Model\ErrorInformation.cs" />
+    <Compile Include="Model\FileRecord.cs" />
     <Compile Include="Model\News.cs" />
     <Compile Include="Model\NewsItem.cs" />
     <Compile Include="Model\Person.cs" />

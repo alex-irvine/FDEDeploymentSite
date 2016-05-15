@@ -134,4 +134,27 @@ namespace Services.Model
         public DropboxClient DropboxClient { get; set; }
     }
 
+    [DataContractAttribute]
+    public class InsertFileRecordRequest
+    {
+        [DataMemberAttribute]
+        public string FileName { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class InsertFileRecordResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public string OldFileName { get; set; }
+        [DataMemberAttribute]
+        public bool DeleteOldFile { get; set; }
+    }
+
+    public class GetFileRecordResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public string FileName { get; set; }
+        [DataMemberAttribute]
+        public string DropboxKey { get; set; }
+    }
 }

@@ -31,6 +31,10 @@ namespace Services
         InsertNewsItemResponse InsertNewsItem(InsertNewsItemRequest request);
         [OperationContract]
         RegisterUserResponse RegisterUser(RegisterUserRequest request);
+        [OperationContract]
+        GetFileRecordResponse GetFileRecord();
+        [OperationContract]
+        InsertFileRecordResponse InsertFileRecord(InsertFileRecordRequest request);
     }
 
 
