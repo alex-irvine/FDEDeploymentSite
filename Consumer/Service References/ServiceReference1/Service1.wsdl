@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services" />
       <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Services.Model" />
+      <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
@@ -38,6 +39,36 @@
   <wsdl:message name="IService1_GetNewsItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsItemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_InsertNewsItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewsItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertNewsItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewsItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFileRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileRecord" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFileRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertFileRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFileRecord" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertFileRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFileRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LogFileDownload_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogFileDownload" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LogFileDownload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogFileDownloadResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -58,6 +89,26 @@
     <wsdl:operation name="GetNewsItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNewsItems" message="tns:IService1_GetNewsItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNewsItemsResponse" message="tns:IService1_GetNewsItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewsItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertNewsItem" message="tns:IService1_InsertNewsItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertNewsItemResponse" message="tns:IService1_InsertNewsItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RegisterUserResponse" message="tns:IService1_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFileRecord" message="tns:IService1_GetFileRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetFileRecordResponse" message="tns:IService1_GetFileRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFileRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertFileRecord" message="tns:IService1_InsertFileRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertFileRecordResponse" message="tns:IService1_InsertFileRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileDownload">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogFileDownload" message="tns:IService1_LogFileDownload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogFileDownloadResponse" message="tns:IService1_LogFileDownload_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -100,6 +151,51 @@
     </wsdl:operation>
     <wsdl:operation name="GetNewsItems">
       <soap:operation soapAction="http://tempuri.org/IService1/GetNewsItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewsItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertNewsItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileRecord">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetFileRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFileRecord">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertFileRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileDownload">
+      <soap:operation soapAction="http://tempuri.org/IService1/LogFileDownload" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

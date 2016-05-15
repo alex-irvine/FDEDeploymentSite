@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+  <xs:complexType name="GetPersonRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPersonRequest" nillable="true" type="tns:GetPersonRequest" />
+  <xs:complexType name="GetPersonResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:Person" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPersonResponse" nillable="true" type="tns:GetPersonResponse" />
+  <xs:complexType name="ErrorInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Errored" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorInformation" nillable="true" type="tns:ErrorInformation" />
   <xs:complexType name="Person">
     <xs:sequence>
       <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Salt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q1:ObjectId" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Person" nillable="true" type="tns:Person" />
@@ -27,18 +53,11 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AuthenticateUserResponse" nillable="true" type="tns:AuthenticateUserResponse" />
-  <xs:complexType name="ErrorInformation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Errored" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ErrorInformation" nillable="true" type="tns:ErrorInformation" />
   <xs:complexType name="GetNewsItemsResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
         <xs:sequence>
-          <xs:element minOccurs="0" name="NewstItems" nillable="true" type="tns:ArrayOfNewsItem" />
+          <xs:element minOccurs="0" name="NewsItems" nillable="true" type="tns:ArrayOfNewsItem" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -52,9 +71,97 @@
   <xs:element name="ArrayOfNewsItem" nillable="true" type="tns:ArrayOfNewsItem" />
   <xs:complexType name="NewsItem">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Date_published" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Published" type="xs:boolean" />
       <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q2:ObjectId" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="NewsItem" nillable="true" type="tns:NewsItem" />
+  <xs:complexType name="InsertNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsItem" nillable="true" type="tns:NewsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertNewsItemRequest" nillable="true" type="tns:InsertNewsItemRequest" />
+  <xs:complexType name="InsertNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q3:ObjectId" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertNewsItemResponse" nillable="true" type="tns:InsertNewsItemResponse" />
+  <xs:complexType name="RegisterUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterUserRequest" nillable="true" type="tns:RegisterUserRequest" />
+  <xs:complexType name="RegisterUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q4:ObjectId" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RegisterUserResponse" nillable="true" type="tns:RegisterUserResponse" />
+  <xs:complexType name="GetFileRecordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DropboxKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFileRecordResponse" nillable="true" type="tns:GetFileRecordResponse" />
+  <xs:complexType name="InsertFileRecordRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertFileRecordRequest" nillable="true" type="tns:InsertFileRecordRequest" />
+  <xs:complexType name="InsertFileRecordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeleteOldFile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OldFileName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertFileRecordResponse" nillable="true" type="tns:InsertFileRecordResponse" />
+  <xs:complexType name="LogFileDownloadRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DownloadLog" nillable="true" type="tns:DownloadLog" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogFileDownloadRequest" nillable="true" type="tns:LogFileDownloadRequest" />
+  <xs:complexType name="DownloadLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateDownloaded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileDownloaded" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q5:ObjectId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadLog" nillable="true" type="tns:DownloadLog" />
+  <xs:complexType name="LogFileDownloadResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LogFileDownloadResponse" nillable="true" type="tns:LogFileDownloadResponse" />
 </xs:schema>

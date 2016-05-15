@@ -150,11 +150,25 @@ namespace Services.Model
         public bool DeleteOldFile { get; set; }
     }
 
+    [DataContractAttribute]
     public class GetFileRecordResponse : ErrorInformation
     {
         [DataMemberAttribute]
         public string FileName { get; set; }
         [DataMemberAttribute]
         public string DropboxKey { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class LogFileDownloadResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContractAttribute]
+    public class LogFileDownloadRequest
+    {
+        [DataMemberAttribute]
+        public DownloadLog DownloadLog { get; set; }
     }
 }

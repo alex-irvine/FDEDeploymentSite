@@ -1,0 +1,218 @@
+﻿<div>
+    <h3>News</h3>
+    <br />
+    <h4>Description</h4>
+    <hr />
+    <p>
+        The File API is used to get or set information about the files being handles by the system.
+        This includes: logging a new file has been uploaded, getting the latest file information and logging downloads.
+        This API is intended to be used in conjunction with the Dropbox API.
+    </p>
+    <hr />
+    <h4>GetFileRecord()</h4>
+    <hr />
+    <p>No request object.</p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class GetFileRecordResponse : ErrorInformation
+            {
+                [DataMemberAttribute]
+                public string FileName { get; set; }
+                [DataMemberAttribute]
+                public string DropboxKey { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                GetFileRecordResponse response = client.GetFileRecord();
+            
+                if(!response.Errored)
+                {
+                    // download file from dropbox as stream
+                    using (var dbx = new DropboxClient(response.DropboxKey))
+                    {
+                        using (var dbxRef = await dbx.Files.DownloadAsync("/" + response.FileName))
+                        {
+                            using (Stream stream = await dbxRef.GetContentAsStreamAsync())
+                            {
+                                // send stream to response output stream
+                            }
+                        }
+                    }
+                }        
+            }
+            // log the download once complete using APIs below
+        </code></pre>
+    </p>
+    <hr />
+    <h4>InsertFileRecord(InsertFileRecordRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class InsertFileRecordRequest
+            {
+                [DataMemberAttribute]
+                public string FileName { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class InsertFileRecordResponse : ErrorInformation
+            {
+                [DataMemberAttribute]
+                public string OldFileName { get; set; }
+                [DataMemberAttribute]
+                public bool DeleteOldFile { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            // get dropbox key from current file record
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                GetFileRecordResponse dbxKey = client.GetFileRecord();
+                
+                if(dbxKey.Errored)
+                {
+                    // handle no key error
+                    return;
+                }
+
+                // upload file before updating record (legacy dl requests handled)
+                using (var dbx = new DropboxClient(SysConfig.DBKey))
+                {
+                    string folder = // path to containing folder of file to be uploaded
+                    string fileName = // name of file to be uploaded
+                    
+                    // 128 kb chunks
+                    const int chunkSize = 128 * 1024;
+                    // create filestream
+                    using (FileStream stream = new FileStream(folder + "/" + fileName, 
+                        FileMode.Open, FileAccess.Read))
+                    {
+                        // generate information for loop
+                        int numChunks = (int)Math.Ceiling((double)stream.Length / chunkSize);
+                        byte[] buffer = new byte[chunkSize];
+                        string sessionId = null;
+                        // chunk sessions
+                        for (int i = 0; i < numChunks; i++)
+                        {
+                            var byteRead = stream.Read(buffer, 0, chunkSize);
+                            UploadSessionAppendArg arg = new UploadSessionAppendArg();
+                            using (MemoryStream memStream = new MemoryStream(buffer, 0, byteRead))
+                            {
+                                if (i == 0)
+                                {
+                                    var result = await dbx.Files.UploadSessionStartAsync(false, memStream);
+                                    sessionId = result.SessionId;
+                                }
+                                else
+                                {
+                                    var cursor = new UploadSessionCursor(sessionId, (ulong)(chunkSize * i));
+                                    if (i == numChunks - 1)
+                                    {
+                                        await dbx.Files.UploadSessionFinishAsync
+                                            (cursor, new CommitInfo("/" + fileName), memStream);
+                                    }
+                                    else
+                                    {
+                                        await dbx.Files.UploadSessionAppendV2Async(cursor, false, memStream);
+                                    }
+                                }
+                            }
+                            // provide feedback (progress bar) here
+                        }
+                    }
+
+                    // file upload finished log new file name
+                    InsertFileRecordResponse frResp = client.InsertFileRecord(new InsertFileRecordRequest()
+                    {
+                        FileName = fileName
+                    });
+
+                    // handle errors
+                    if (frResp.Errored)
+                    {
+                        // handle it
+                    }
+                    
+                    // if the file is a new version delete the old version
+                    if (rdResp.DeleteOldFile)
+                    {
+                        // untested
+                        dbx.DeleteArg("/"+rdResp.OldFileName);
+                    }
+                }
+            }
+        </code></pre>
+    </p>
+    <hr />
+    <h4>LogFileDownload(LogFileDownloadRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class LogFileDownloadRequest
+            {
+                [DataMemberAttribute]
+                public DownloadLog DownloadLog { get; set; }
+            }
+
+            public class DownloadLog
+            {
+                public ObjectId _id { get; set; }
+                public string Username { get; set; }
+                public DateTime DateDownloaded { get; set; }
+                public string FileDownloaded { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class LogFileDownloadResponse : ErrorInformation
+            {
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            // once file has been downloaded
+            using(ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
+            {
+                LogFileDownloadResponse response = client.LogFileDownload(new LogFileDownloadRequest()
+                {
+                    DownloadLog = new DownloadLog()
+                    {
+                        Username = HttpContext.Current.User.Identity.Name,
+                        DateDownloaded = DateTime.Now,
+                        FileDownloaded = // the FileName received from GetFileRecord
+                    }
+                });
+                
+                if(response.Errored)
+                {
+                    // dropped a log
+                }
+            }
+        </code></pre>
+    </p>
+    <hr />
+
+</div>

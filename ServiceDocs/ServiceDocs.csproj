@@ -110,6 +110,7 @@
     <Content Include="app\controllers\newsController.js" />
     <Content Include="app\controllers\rootController.js" />
     <Content Include="app\controllers\testController.js" />
+    <Content Include="app\partials\vwFiles.html" />
     <Content Include="app\partials\vwNews.html" />
     <Content Include="app\partials\vwRoot.html" />
     <Content Include="app\partials\vwUsers.html" />

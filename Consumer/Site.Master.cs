@@ -72,7 +72,7 @@ namespace Consumer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null) { UserName = ((Consumer.ServiceReference1.Person)Session["User"]).UserName; }
+            if (Session["User"] != null) { UserName = ((Consumer.ServiceReference1.Person)Session["User"]).Username; }
         }
 
         /*protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

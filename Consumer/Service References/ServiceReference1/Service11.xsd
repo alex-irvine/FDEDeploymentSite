@@ -33,28 +33,28 @@
   <xs:element name="GetPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q3:GetPersonRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetPersonResult" nillable="true" type="q3:Person" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetPersonResult" nillable="true" type="q4:GetPersonResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AuthenticateUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q4:AuthenticateUserRequest" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q5:AuthenticateUserRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AuthenticateUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="AuthenticateUserResult" nillable="true" type="q5:AuthenticateUserResponse" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="AuthenticateUserResult" nillable="true" type="q6:AuthenticateUserResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,7 +66,75 @@
   <xs:element name="GetNewsItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetNewsItemsResult" nillable="true" type="q6:GetNewsItemsResponse" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetNewsItemsResult" nillable="true" type="q7:GetNewsItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertNewsItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q8:InsertNewsItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertNewsItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertNewsItemResult" nillable="true" type="q9:InsertNewsItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q10:RegisterUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="RegisterUserResult" nillable="true" type="q11:RegisterUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileRecord">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetFileRecordResult" nillable="true" type="q12:GetFileRecordResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertFileRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q13:InsertFileRecordRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertFileRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertFileRecordResult" nillable="true" type="q14:InsertFileRecordResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogFileDownload">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q15:LogFileDownloadRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogFileDownloadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="LogFileDownloadResult" nillable="true" type="q16:LogFileDownloadResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

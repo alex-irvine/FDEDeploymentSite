@@ -399,5 +399,40 @@ namespace Services
             return response;
         }
 
+        /// <summary>
+        /// Logs the download of a file by username
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public LogFileDownloadResponse LogFileDownload(LogFileDownloadRequest request)
+        {
+            // init response
+            LogFileDownloadResponse response = new LogFileDownloadResponse();
+
+            // open DB and insert/update the record
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<DownloadLog>("DownloadLog");
+
+                // insert the log
+                collection.InsertOne(request.DownloadLog);
+
+                response.Errored = false;
+                response.Message = "Record successfully updated";
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
     }
 }

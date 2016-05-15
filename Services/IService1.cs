@@ -35,6 +35,8 @@ namespace Services
         GetFileRecordResponse GetFileRecord();
         [OperationContract]
         InsertFileRecordResponse InsertFileRecord(InsertFileRecordRequest request);
+        [OperationContract]
+        LogFileDownloadResponse LogFileDownload(LogFileDownloadRequest request);
     }
 
 

@@ -204,13 +204,28 @@
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.Person.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetNewsItemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="fileDl.ashx" />
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetFileRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.InsertFileRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.InsertNewsItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.RegisterUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.LogFileDownloadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -224,6 +239,9 @@
     <Content Include="Service References\ServiceReferenceNews\Consumer.ServiceReferenceNews.News.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\ServiceReference1\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReferenceNews\NewsService.disco" />
     <None Include="Service References\ServiceReferenceNews\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceNews\configuration.svcinfo" />

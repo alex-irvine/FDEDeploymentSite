@@ -17,12 +17,18 @@ apiDOCS.config(function ($routeProvider) {
             controller: 'rootController',
             templateUrl: 'app/partials/vwUsers.html'
         })
+        .when('/Files',
+        {
+            controller: 'rootController',
+            templateUrl: 'app/partials/vwFiles.html'
+        })
         .otherwise({ redirectTo: '/' });
 });
 
 apiDOCS.controller('sidebartestcontroller', function ($scope) {
     $scope.docs = [
         { name: 'News' },
-        { name: 'Users' }
+        { name: 'Users' },
+        { name: 'Files' }
     ];
 });
