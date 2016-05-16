@@ -108,6 +108,7 @@ C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Administration.pdb
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Antlr3.Runtime.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\AspNet.ScriptManager.bootstrap.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\AspNet.ScriptManager.jQuery.dll
+C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Dropbox.Api.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.SqlServer.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.AspNet.FriendlyUrls.dll
@@ -132,9 +133,10 @@ C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Owin.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\System.Web.Optimization.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\System.Web.Providers.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\WebGrease.dll
+C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Dropbox.Api.xml
+C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Newtonsoft.Json.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\System.Web.Optimization.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Antlr3.Runtime.pdb
-C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Newtonsoft.Json.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\EntityFramework.SqlServer.xml
@@ -151,6 +153,6 @@ C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache
 C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
+C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache

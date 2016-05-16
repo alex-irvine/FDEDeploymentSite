@@ -25,58 +25,51 @@ namespace Administration.Account
             {
                 Response.Redirect("Account/Manage.aspx");
             }
+            
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
-            //if (IsValid)
-            //{
-                
-            //    using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
-            //    {
-            //        AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
-            //        {
-            //            Username = Email.Text,
-            //            Password = Password.Text // Hash password
-            //        });
+            if (IsValid)
+            {
 
-            //        if (response.Errored)
-            //        {
-            //            MessageBox.Show(response.Message);
-            //        }
+                using (ServiceReference1.Service1Client client = new ServiceReference1.Service1Client())
+                {
+                    AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest()
+                    {
+                        Username = Email.Text,
+                        Password = Password.Text
+                    });
 
-            //        if(response.Authenticated)
-            //        {
-            //            if (response.Person.IsAdmin)
-            //            {
-            //                Session["User"] = response.Person;
-            //                Person pson = (Person)Session["User"];
+                    if (response.Errored)
+                    {
+                        MessageBox.Show(response.Message);
+                    }
 
-            //                //FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
-            //                if (string.IsNullOrWhiteSpace(ReturnUrl))
-            //                {
-            //                    Response.Redirect("~/");
-            //                }
-            //                else { Response.Redirect(ReturnUrl); }
-                            
-            //            }
-            //            else
-            //            {
-            //                FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
-            //                ErrorMessage.Visible = true;
-            //            }
-                        
-            //        }
+                    if (response.Authenticated)
+                    {
+                        if (response.Person.IsAdmin)
+                        {
+                            Session["User"] = response.Person;
+                            Person pson = (Person)Session["User"];
 
-            //        if(!Request.IsAuthenticated)
-            //        {
-            //            FormsAuthentication.RedirectFromLoginPage("/Account/Login", true);
-            //        }
+                        }
+                        else
+                        {
+                            FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
+                            ErrorMessage.Visible = true;
+                        }
 
-            //    }
-            //}
-            //string name = HttpContext.Current.User.Identity.Name;
-            FormsAuthentication.RedirectFromLoginPage(Email.Text, true);
+                    }
+
+                    if (!Request.IsAuthenticated)
+                    {
+                        Response.Redirect("/Account/Login");
+                    }
+
+                }
+            }
+            FormsAuthentication.RedirectFromLoginPage(((Person)Session["User"]).Username, true);
         }
     }
 }

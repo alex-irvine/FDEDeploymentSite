@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Administration.ServiceReference1;
-//using Administration.ServiceReferenceNews;
 using System.Windows.Forms;
 
 namespace Administration
@@ -73,13 +72,16 @@ namespace Administration
         {
             using (var _db = new Service1Client())
             {
-                List<NewsItem> query = new List<NewsItem>();
+                
                 GetNewsItemsResponse response = _db.GetNewsItems();
                 if (!response.Errored)
                 {
-                    query = response.NewsItems.ToList();
+                    this.LVNews.DataSource = response.NewsItems.ToList<NewsItem>();
                 }
-                this.LVNews.DataSource = query;
+                else
+                {
+                    this.LVNews.DataSource = new List<NewsItem>();
+                }
                 this.LVNews.DataBind();
                 //return query;
             }

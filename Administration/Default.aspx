@@ -10,7 +10,7 @@
     <% } %>
     <!-- Display the news -->
 
-    <asp:ListView ID="LVNews" runat="server" ItemType="NewsItem">
+    <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReference1.NewsItem" OnPreRender="DataPagerNews_PreRender">
         <EmptyDataTemplate>
             <table>
                 <tr>
@@ -19,7 +19,11 @@
             </table>
         </EmptyDataTemplate>
         <ItemTemplate>
-            <h1>Test</h1>
+            <tr>
+                <td>test</td>
+                <%--<td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>--%>
+            </tr>
+            
             <%--<td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
             <td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Text, "<.*?>", " ").Substring(0,140) %></td>
             <td class="published<%#: Item.Published %>"><%#: Item.Date_modified %></td>
@@ -49,12 +53,12 @@
             
            
             <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="5" OnPreRender="DataPagerNews_PreRender">
-            <Fields>
-                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
-                <asp:NumericPagerField />
-                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
-            </Fields>
-        </asp:DataPager>
+                <Fields>
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
+                    <asp:NumericPagerField />
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
+                </Fields>
+            </asp:DataPager>
         </LayoutTemplate>
     </asp:ListView>
     <style>

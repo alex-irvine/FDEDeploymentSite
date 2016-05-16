@@ -127,6 +127,9 @@ namespace Administration.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.InsertNewsItemResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.RegisterUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetFileRecordResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.InsertFileRecordResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.LogFileDownloadResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPersonResponse))]
     internal partial class ErrorInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -291,6 +294,91 @@ namespace Administration.ServiceReference1 {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetFileRecordResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class GetFileRecordResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DropboxKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string DropboxKey {
+            get {
+                return this.DropboxKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DropboxKeyField, value) != true)) {
+                    this.DropboxKeyField = value;
+                    this.RaisePropertyChanged("DropboxKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertFileRecordResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class InsertFileRecordResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeleteOldFileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OldFileNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal bool DeleteOldFile {
+            get {
+                return this.DeleteOldFileField;
+            }
+            set {
+                if ((this.DeleteOldFileField.Equals(value) != true)) {
+                    this.DeleteOldFileField = value;
+                    this.RaisePropertyChanged("DeleteOldFile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string OldFileName {
+            get {
+                return this.OldFileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OldFileNameField, value) != true)) {
+                    this.OldFileNameField = value;
+                    this.RaisePropertyChanged("OldFileName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LogFileDownloadResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class LogFileDownloadResponse : Administration.ServiceReference1.ErrorInformation {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -806,6 +894,189 @@ namespace Administration.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertFileRecordRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class InsertFileRecordRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LogFileDownloadRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class LogFileDownloadRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.DownloadLog DownloadLogField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.DownloadLog DownloadLog {
+            get {
+                return this.DownloadLogField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DownloadLogField, value) != true)) {
+                    this.DownloadLogField = value;
+                    this.RaisePropertyChanged("DownloadLog");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DownloadLog", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    internal partial class DownloadLog : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateDownloadedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileDownloadedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.ObjectId _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal System.DateTime DateDownloaded {
+            get {
+                return this.DateDownloadedField;
+            }
+            set {
+                if ((this.DateDownloadedField.Equals(value) != true)) {
+                    this.DateDownloadedField = value;
+                    this.RaisePropertyChanged("DateDownloaded");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string FileDownloaded {
+            get {
+                return this.FileDownloadedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileDownloadedField, value) != true)) {
+                    this.FileDownloadedField = value;
+                    this.RaisePropertyChanged("FileDownloaded");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal Administration.ServiceReference1.ObjectId _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((this._idField.Equals(value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     internal interface IService1 {
@@ -851,6 +1122,24 @@ namespace Administration.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFileRecord", ReplyAction="http://tempuri.org/IService1/GetFileRecordResponse")]
+        Administration.ServiceReference1.GetFileRecordResponse GetFileRecord();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFileRecord", ReplyAction="http://tempuri.org/IService1/GetFileRecordResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetFileRecordResponse> GetFileRecordAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertFileRecord", ReplyAction="http://tempuri.org/IService1/InsertFileRecordResponse")]
+        Administration.ServiceReference1.InsertFileRecordResponse InsertFileRecord(Administration.ServiceReference1.InsertFileRecordRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertFileRecord", ReplyAction="http://tempuri.org/IService1/InsertFileRecordResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.InsertFileRecordResponse> InsertFileRecordAsync(Administration.ServiceReference1.InsertFileRecordRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LogFileDownload", ReplyAction="http://tempuri.org/IService1/LogFileDownloadResponse")]
+        Administration.ServiceReference1.LogFileDownloadResponse LogFileDownload(Administration.ServiceReference1.LogFileDownloadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LogFileDownload", ReplyAction="http://tempuri.org/IService1/LogFileDownloadResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.LogFileDownloadResponse> LogFileDownloadAsync(Administration.ServiceReference1.LogFileDownloadRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -934,6 +1223,30 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request) {
             return base.Channel.RegisterUserAsync(request);
+        }
+        
+        public Administration.ServiceReference1.GetFileRecordResponse GetFileRecord() {
+            return base.Channel.GetFileRecord();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetFileRecordResponse> GetFileRecordAsync() {
+            return base.Channel.GetFileRecordAsync();
+        }
+        
+        public Administration.ServiceReference1.InsertFileRecordResponse InsertFileRecord(Administration.ServiceReference1.InsertFileRecordRequest request) {
+            return base.Channel.InsertFileRecord(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.InsertFileRecordResponse> InsertFileRecordAsync(Administration.ServiceReference1.InsertFileRecordRequest request) {
+            return base.Channel.InsertFileRecordAsync(request);
+        }
+        
+        public Administration.ServiceReference1.LogFileDownloadResponse LogFileDownload(Administration.ServiceReference1.LogFileDownloadRequest request) {
+            return base.Channel.LogFileDownload(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.LogFileDownloadResponse> LogFileDownloadAsync(Administration.ServiceReference1.LogFileDownloadRequest request) {
+            return base.Channel.LogFileDownloadAsync(request);
         }
     }
 }

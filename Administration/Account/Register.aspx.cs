@@ -16,10 +16,10 @@ namespace Administration.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.Identity.Name!=null)
-            {
-                Response.Redirect("~/");
-            }
+            //if (HttpContext.Current.User.Identity.Name!=null)
+            //{
+            //    Response.Redirect("~/");
+            //}
             
         }
 

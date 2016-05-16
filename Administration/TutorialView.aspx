@@ -23,14 +23,13 @@
                 </div>
             <% } %>
             
-            <iframe id="VideoFrame<%#: Item.video %>" width="560" height="315" src="<%#: Item.video %>"  allowfullscreen></iframe>
+            <iframe id="VideoFrame<%#: Item.video %>" width="560" height="315" src="<%#: Item.video %>"  allowfullscreen="true"></iframe>
             <style>
                 #VideoFrame{
                     display : none;
                 }
             </style>
             <div ID="TutorialText" class="editorEx" value="<%#: Item.text%>" >
-                Lol
             </div>
 
             <script>
@@ -49,12 +48,12 @@
             
            
             <asp:DataPager ID="DataPagerProducts" runat="server" PagedControlID="LVTutorials" PageSize="1" OnPreRender="DataPagerProducts_PreRender">
-            <Fields>
-                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
-                <asp:NumericPagerField />
-                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
-            </Fields>
-        </asp:DataPager>
+                <Fields>
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
+                    <asp:NumericPagerField />
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
+                </Fields>
+            </asp:DataPager>
         </LayoutTemplate>
     </asp:ListView>
     <asp:Label runat="server" ID="Author" ></asp:Label>
