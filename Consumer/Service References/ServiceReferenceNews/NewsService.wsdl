@@ -26,6 +26,24 @@
   <wsdl:message name="INewsService_GetNewsById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="INewsService_GetTutorials_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorials" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetTutorials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetTutorialById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialById" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetTutorialById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetTutorialByIdAndPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialByIdAndPage" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetTutorialByIdAndPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialByIdAndPageResponse" />
+  </wsdl:message>
   <wsdl:portType name="INewsService">
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetDataUsingDataContract" message="tns:INewsService_GetDataUsingDataContract_InputMessage" />
@@ -38,6 +56,18 @@
     <wsdl:operation name="GetNewsById">
       <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetNewsById" message="tns:INewsService_GetNewsById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INewsService/GetNewsByIdResponse" message="tns:INewsService_GetNewsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorials">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetTutorials" message="tns:INewsService_GetTutorials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/GetTutorialsResponse" message="tns:INewsService_GetTutorials_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialById">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetTutorialById" message="tns:INewsService_GetTutorialById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/GetTutorialByIdResponse" message="tns:INewsService_GetTutorialById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialByIdAndPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetTutorialByIdAndPage" message="tns:INewsService_GetTutorialByIdAndPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/GetTutorialByIdAndPageResponse" message="tns:INewsService_GetTutorialByIdAndPage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INewsService" type="tns:INewsService">
@@ -62,6 +92,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetNewsById">
       <soap:operation soapAction="http://tempuri.org/INewsService/GetNewsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorials">
+      <soap:operation soapAction="http://tempuri.org/INewsService/GetTutorials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialById">
+      <soap:operation soapAction="http://tempuri.org/INewsService/GetTutorialById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialByIdAndPage">
+      <soap:operation soapAction="http://tempuri.org/INewsService/GetTutorialByIdAndPage" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
