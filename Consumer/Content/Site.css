@@ -61,3 +61,10 @@ input[type="select"] {
     overflow: auto;
     margin: 10px 0px;
 }
+.tutoClick {
+    cursor: pointer;
+}
+.tutoTitle {
+    margin: 0;
+    margin-bottom: 10px;
+}

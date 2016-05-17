@@ -198,17 +198,17 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Account\Web.config" />
+    <Content Include="fileDl.ashx" />
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.AuthenticateUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetNewsItemsResponse.datasource">
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetFileRecordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="fileDl.ashx" />
-    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetFileRecordResponse.datasource">
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetNewsItemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetPersonResponse.datasource">
@@ -220,10 +220,10 @@
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.InsertNewsItemResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.RegisterUserResponse.datasource">
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.LogFileDownloadResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.LogFileDownloadResponse.datasource">
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.RegisterUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ServiceReference1\Service1.disco" />
@@ -239,21 +239,6 @@
     <Content Include="Service References\ServiceReferenceNews\Consumer.ServiceReferenceNews.News.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ServiceReference1\Service14.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReferenceNews\NewsService.disco" />
-    <None Include="Service References\ServiceReferenceNews\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReferenceNews\configuration.svcinfo" />
-    <None Include="Service References\ServiceReferenceNews\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Tutorials.aspx" />
-    <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
-    <Content Include="Views\web.config" />
-    <Content Include="Site.Master" />
     <None Include="Service References\ServiceReference1\Service1.wsdl" />
     <None Include="Service References\ServiceReference1\Service1.xsd">
       <SubType>Designer</SubType>
@@ -267,6 +252,25 @@
     <None Include="Service References\ServiceReference1\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference1\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\ServiceReferenceNews\Consumer.ServiceReferenceNews.Tutorial1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceReferenceNews\NewsService.disco" />
+    <None Include="Service References\ServiceReferenceNews\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferenceNews\configuration.svcinfo" />
+    <None Include="Service References\ServiceReferenceNews\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Tutorials.aspx" />
+    <Content Include="Tutorials.js" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Views\web.config" />
+    <Content Include="Site.Master" />
     <None Include="Service References\ServiceReferenceNews\NewsService.wsdl" />
     <None Include="Service References\ServiceReferenceNews\NewsService.xsd" />
     <None Include="Service References\ServiceReferenceNews\NewsService1.xsd" />
@@ -398,7 +402,6 @@
     <Compile Include="lib\AsynchOperation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\SysConfig.cs" />
-    <Compile Include="NewsItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
