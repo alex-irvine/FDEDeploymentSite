@@ -77,6 +77,7 @@ namespace Administration
                 if (!response.Errored)
                 {
                     this.LVNews.DataSource = response.NewsItems.ToList<NewsItem>();
+                    
                 }
                 else
                 {
@@ -85,6 +86,11 @@ namespace Administration
                 this.LVNews.DataBind();
                 //return query;
             }
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Session["NewsId"] = ((System.Web.UI.WebControls.Button)sender).Attributes["Value"];
         }
 
         

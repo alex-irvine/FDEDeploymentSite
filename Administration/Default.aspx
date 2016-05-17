@@ -20,19 +20,19 @@
         </EmptyDataTemplate>
         <ItemTemplate>
             <tr>
-                <td>test</td>
-                <%--<td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>--%>
+                <td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
+                <td class="published<%#: Item.Published %>"><%#:Item.Text %></td>
+                <td class="published<%#: Item.Published %>"><%#: Item.Date_modified %></td>
+                <td class="published<%#: Item.Published %>">
+                    <% if(isAdmin){ %>
+                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/NewsEditor?id="+Item._id %>' CssClass="btn btn-default">Edit</asp:HyperLink>
+                    <% } %>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "~/News?id="+Item._id._a.ToString() %>' CssClass="btn btn-default">See</asp:HyperLink>
+                    <asp:Button runat="server" OnClick="Unnamed_Click" value="<%#: Item %>" Text="TEST"/>
+                </td>
             </tr>
             
-            <%--<td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
-            <td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Text, "<.*?>", " ").Substring(0,140) %></td>
-            <td class="published<%#: Item.Published %>"><%#: Item.Date_modified %></td>
-            <td class="published<%#: Item.Published %>">
-                <% if(isAdmin){ %>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/NewsEditor?id={0}", Item._id) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
-                <% } %>
-                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/News?id={0}", Item._id) %>' CssClass="btn btn-default">See</asp:HyperLink>
-            </td>--%>
+            
             
         </ItemTemplate>
         <LayoutTemplate>

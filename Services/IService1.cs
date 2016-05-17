@@ -28,6 +28,8 @@ namespace Services
         [OperationContract]
         GetNewsItemsResponse GetNewsItems();
         [OperationContract]
+        GetNewsItemByIdResponse GetNewsItemById(GetNewsItemByIdRequest request);
+        [OperationContract]
         InsertNewsItemResponse InsertNewsItem(InsertNewsItemRequest request);
         [OperationContract]
         RegisterUserResponse RegisterUser(RegisterUserRequest request);

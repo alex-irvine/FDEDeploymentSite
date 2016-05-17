@@ -201,6 +201,51 @@ namespace Services
         }
 
         /// <summary>
+        /// Get all news items as a list
+        /// </summary>
+        /// /// <param name="request"></param>
+        /// <returns></returns>
+        public GetNewsItemByIdResponse GetNewsItemById(GetNewsItemByIdRequest request)
+        {
+            // init response
+            GetNewsItemByIdResponse response = new GetNewsItemByIdResponse() { News = new NewsItem() };
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<NewsItem>("NewsItems");
+
+                // query collection for all results
+                List<NewsItem> temp = collection.Find(item => item._id==request._id).ToList();
+                
+
+                // generate error data
+                if (temp.Count > 0)
+                {
+                    response.Errored = false;
+                    response.Message = "News items found";
+                    response.News = temp[0];
+                }
+                else
+                {
+                    response.Errored = true;
+                    response.Message = "No news items found";
+                }
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.Message = ex.Message;
+            }
+
+            // respond
+            return response;
+        }
+
+        /// <summary>
         /// Inserts a single news story
         /// </summary>
         /// <param name="request"></param>

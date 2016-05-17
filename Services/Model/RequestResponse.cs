@@ -40,6 +40,20 @@ namespace Services.Model
     }
 
     [DataContractAttribute]
+    public class GetNewsItemByIdRequest
+    {
+        [DataMemberAttribute]
+        public ObjectId _id { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class GetNewsItemByIdResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public NewsItem News { get; set; }
+    }
+
+    [DataContractAttribute]
     public class InsertNewsItemRequest
     {
         [DataMemberAttribute]

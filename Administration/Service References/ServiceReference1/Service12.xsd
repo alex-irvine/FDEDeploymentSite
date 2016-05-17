@@ -81,6 +81,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="NewsItem" nillable="true" type="tns:NewsItem" />
+  <xs:complexType name="GetNewsItemByIdRequest">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q3:ObjectId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNewsItemByIdRequest" nillable="true" type="tns:GetNewsItemByIdRequest" />
+  <xs:complexType name="GetNewsItemByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="News" nillable="true" type="tns:NewsItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNewsItemByIdResponse" nillable="true" type="tns:GetNewsItemByIdResponse" />
   <xs:complexType name="InsertNewsItemRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="NewsItem" nillable="true" type="tns:NewsItem" />
@@ -91,7 +107,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
         <xs:sequence>
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q3:ObjectId" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q4:ObjectId" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -107,7 +123,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
         <xs:sequence>
-          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q4:ObjectId" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q5:ObjectId" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -152,7 +168,7 @@
       <xs:element minOccurs="0" name="DateDownloaded" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FileDownloaded" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q5:ObjectId" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q6:ObjectId" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DownloadLog" nillable="true" type="tns:DownloadLog" />
