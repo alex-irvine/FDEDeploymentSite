@@ -113,6 +113,7 @@
     <Content Include="app\partials\vwFiles.html" />
     <Content Include="app\partials\vwNews.html" />
     <Content Include="app\partials\vwRoot.html" />
+    <Content Include="app\partials\vwTutorials.html" />
     <Content Include="app\partials\vwUsers.html" />
     <Content Include="CSS\mainSheet.css" />
     <Content Include="Index.html" />

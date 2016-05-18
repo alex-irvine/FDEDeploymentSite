@@ -243,7 +243,88 @@ namespace Services.Model
     #endregion 
 
     #region Tutorials
+    [DataContract]
+    public class InsertTutorialItemRequest
+    {
+        [DataMember]
+        public TutorialItem TutorialItem { get; set; }
+    }
 
+    [DataContract]
+    public class InsertTutorialItemResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContract]
+    public class GetTutorialItemsResponse : ErrorInformation
+    {
+        [DataMember]
+        public List<TutorialItem> TutorialItems { get; set; }
+    }
+
+    [DataContract]
+    public class GetPublishedTutorialItemsResponse : ErrorInformation
+    {
+        [DataMember]
+        public List<TutorialItem> TutorialItems { get; set; }
+    }
+
+    [DataContract]
+    public class PublishTutorialItemRequest
+    {
+        [DataMember]
+        public string _id { get; set; }
+
+        [DataMember]
+        public bool IsPublished { get; set; }
+    }
+
+    [DataContract]
+    public class PublishTutorialItemResponse : ErrorInformation
+    {
+        
+    }
+
+    [DataContract]
+    public class GetTutorialItemByIdRequest
+    {
+        [DataMember]
+        public string _id { get; set; }
+    }
+
+    [DataContract]
+    public class GetTutorialItemByIdResponse : ErrorInformation
+    {
+        [DataMember]
+        public TutorialItem TutorialItem { get; set; }
+    }
+
+    [DataContract]
+    public class DeleteTutorialItemRequest
+    {
+        [DataMember]
+        public string _id { get; set; }
+    }
+
+    [DataContract]
+    public class DeleteTutorialItemResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContract]
+    public class UpdateTutorialItemRequest
+    {
+        [DataMember]
+        public TutorialItem TutorialItem { get; set; }
+    }
+
+    [DataContract]
+    public class UpdateTutorialItemResponse : ErrorInformation
+    {
+
+    }
 
     #endregion
 

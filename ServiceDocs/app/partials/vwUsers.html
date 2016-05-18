@@ -33,7 +33,9 @@
 
             public class Person
             {
-                public ObjectId _id { get; set; }
+                [BsonId]
+                [BsonRepresentation(BsonType.ObjectId)]
+                public string _id { get; set; }
                 public string Username { get; set; }
                 public string Company { get; set; }
                 public bool IsAdmin { get; set; }
@@ -75,7 +77,9 @@
 
             public class Person
             {
-                public ObjectId _id { get; set; }
+                [BsonId]
+                [BsonRepresentation(BsonType.ObjectId)]
+                public string _id { get; set; }
                 public string Username { get; set; }
                 public string Company { get; set; }
                 public bool IsAdmin { get; set; }
@@ -91,7 +95,7 @@
             public class RegisterUserResponse : ErrorInformation
             {
                 [DataMemberAttribute]
-                public ObjectId InsertedId { get; set; }
+                public string InsertedId { get; set; }
             }
         </code></pre>
     </p>

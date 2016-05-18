@@ -20,7 +20,7 @@ namespace Services
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
+        // service operations here
         #region Users
         [OperationContract]
         GetPersonResponse GetPerson(GetPersonRequest request);
@@ -57,7 +57,20 @@ namespace Services
         #endregion
 
         #region Tutorials
-
+        [OperationContract]
+        InsertTutorialItemResponse InsertTutorialItem(InsertTutorialItemRequest request);
+        [OperationContract]
+        GetTutorialItemsResponse GetTutorialItems();
+        [OperationContract]
+        GetPublishedTutorialItemsResponse GetPublishedTutorialItems();
+        [OperationContract]
+        PublishTutorialItemResponse PublishTutorialItem(PublishTutorialItemRequest request);
+        [OperationContract]
+        GetTutorialItemByIdResponse GetTutorialItemById(GetTutorialItemByIdRequest request);
+        [OperationContract]
+        DeleteTutorialItemResponse DeleteTutorialItem(DeleteTutorialItemRequest request);
+        [OperationContract]
+        UpdateTutorialItemResponse UpdateTutorialItem(UpdateTutorialItemRequest request);
         #endregion
     }
 

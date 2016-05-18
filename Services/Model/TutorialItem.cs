@@ -13,7 +13,7 @@ namespace Services.Model
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
         public string Title { get; set; }
-        public string Username { get; set; }
+        public string Author { get; set; }
         public bool Published { get; set; }
         public DateTime DatePublished { get; set; }
         public DateTime DateModified { get; set; }

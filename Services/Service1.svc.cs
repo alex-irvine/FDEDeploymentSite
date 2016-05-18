@@ -418,7 +418,17 @@ namespace Services
 
                 // update the record
                 var updated = col.UpdateOne
-                    (new BsonDocument("_id",ObjectId.Parse(request._id)), new BsonDocument("$set", new BsonDocument("Published",request.IsPublished)));
+                    (new BsonDocument("_id",ObjectId.Parse(request._id)), 
+                     new BsonDocument("$set", 
+                     new BsonDocument("Published",request.IsPublished)));
+
+                // set date if being published
+                if (request.IsPublished)
+                {
+                    col.UpdateOne(new BsonDocument("_id",ObjectId.Parse(request._id)),
+                                  new BsonDocument("$set",
+                                  new BsonDocument("Date_published",DateTime.Now)));
+                }
 
                 if (updated.ModifiedCount == 1)
                 {
@@ -676,6 +686,305 @@ namespace Services
 
         #region Tutorials
 
+        /// <summary>
+        /// Inserts a tutorial item object to the DB
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public InsertTutorialItemResponse InsertTutorialItem(InsertTutorialItemRequest request)
+        {
+            // try and insert the new object
+            try
+            {
+                // get mongo DB
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // insert the new object
+                col.InsertOne(request.TutorialItem);
+
+                // no exception means success
+                return new InsertTutorialItemResponse()
+                {
+                    Errored = false,
+                    Message = "Tutorial created"
+                };
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new InsertTutorialItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// grab all the tutorial items
+        /// </summary>
+        /// <returns></returns>
+        public GetTutorialItemsResponse GetTutorialItems()
+        {
+            // try and open DB and get all tutorial items
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // grab list and return it
+                return new GetTutorialItemsResponse()
+                {
+                    Errored = false,
+                    Message = "Success",
+                    TutorialItems = col.Find(new BsonDocument()).ToList()
+                };
+            }
+            // DB errors    
+            catch (Exception ex)
+            {
+                return new GetTutorialItemsResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// gets all published tutorial items
+        /// </summary>
+        /// <returns></returns>
+        public GetPublishedTutorialItemsResponse GetPublishedTutorialItems()
+        {
+            // try and get published tutorials
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // collection
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // find and return publish tutorials
+                return new GetPublishedTutorialItemsResponse()
+                {
+                    TutorialItems = col.Find(new BsonDocument("Published", true)).ToList(),
+                    Errored = false,
+                    Message = "Success"
+                };
+            }
+            // DB errors
+            catch(Exception ex)
+            {
+                return new GetPublishedTutorialItemsResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// sets the publish flag as per the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public PublishTutorialItemResponse PublishTutorialItem(PublishTutorialItemRequest request)
+        {
+            // try and change the publish flag on the sent _id
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // update the item
+                var updated = col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)), 
+                                            new BsonDocument("$set", 
+                                            new BsonDocument("Published",request.IsPublished)));
+
+                // check if we need to update published date
+                if (request.IsPublished)
+                {
+                    col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)), 
+                                  new BsonDocument("$set", 
+                                  new BsonDocument("DatePublished", DateTime.Now)));
+                }
+
+                // error stuff
+                if (updated.ModifiedCount == 1)
+                {
+                    return new PublishTutorialItemResponse()
+                    {
+                        Errored = false,
+                        Message = "Success"
+                    };
+                }
+                else
+                {
+                    return new PublishTutorialItemResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching document or no update to process"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new PublishTutorialItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// get a single tutorial item by _id
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public GetTutorialItemByIdResponse GetTutorialItemById(GetTutorialItemByIdRequest request)
+        {
+            // try and get the tutorial item requestes
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // find our item (if _id not passed correctly index out of range error)
+                return new GetTutorialItemByIdResponse()
+                {
+                    TutorialItem = col.Find(new BsonDocument("_id",ObjectId.Parse(request._id))).ToList()[0],
+                    Errored = false,
+                    Message = "Success"
+                };
+            }
+            // DB Errors
+            catch (Exception ex)
+            {
+                return new GetTutorialItemByIdResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// delete the item by _id requested
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DeleteTutorialItemResponse DeleteTutorialItem(DeleteTutorialItemRequest request)
+        {
+            // try and delete the requested item
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // buhbye
+                var deleted = col.DeleteOne(new BsonDocument("_id", ObjectId.Parse(request._id)));
+
+                // error stuff
+                if (deleted.DeletedCount == 1)
+                {
+                    return new DeleteTutorialItemResponse()
+                    {
+                        Errored = false,
+                        Message = "Success"
+                    };
+                }
+                else
+                {
+                    return new DeleteTutorialItemResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching record"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new DeleteTutorialItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// updates a single tutorial item as per the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public UpdateTutorialItemResponse UpdateTutorialItem(UpdateTutorialItemRequest request)
+        {
+            // try and update the requested item
+            try
+            {
+                // db client collection
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+                var col = db.GetCollection<TutorialItem>("TutorialItems");
+
+                // update
+                var updated = col.ReplaceOne(new BsonDocument("_id", ObjectId.Parse(request.TutorialItem._id)), 
+                                                                     request.TutorialItem);
+
+                // error stuff
+                if (updated.ModifiedCount == 1)
+                {
+                    return new UpdateTutorialItemResponse()
+                    {
+                        Errored = false,
+                        Message = "Success"
+                    };
+                }
+                else
+                {
+                    return new UpdateTutorialItemResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching item or no update required"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new UpdateTutorialItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
 
         #endregion
     }

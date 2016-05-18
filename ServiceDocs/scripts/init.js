@@ -22,6 +22,11 @@ apiDOCS.config(function ($routeProvider) {
             controller: 'rootController',
             templateUrl: 'app/partials/vwFiles.html'
         })
+        .when('/Tutorials',
+        {
+            controller: 'rootController',
+            templateUrl: 'app/partials/vwTutorials.html'
+        })
         .otherwise({ redirectTo: '/' });
 });
 
@@ -29,6 +34,7 @@ apiDOCS.controller('sidebartestcontroller', function ($scope) {
     $scope.docs = [
         { name: 'News' },
         { name: 'Users' },
-        { name: 'Files' }
+        { name: 'Files' },
+        { name: 'Tutorials' }
     ];
 });
