@@ -1,5 +1,6 @@
 ﻿using Dropbox.Api;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,8 @@ namespace Services.Model
     public class RequestResponse
     {
     }
+
+    #region Users
 
     [DataContractAttribute]
     public class AuthenticateUserRequest
@@ -32,6 +35,37 @@ namespace Services.Model
         public Person Person { get; set; }
     }
 
+    [DataContractAttribute]
+    public class RegisterUserResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public string InsertedId { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class RegisterUserRequest
+    {
+        [DataMemberAttribute]
+        public Person User { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class GetPersonResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public Person User { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class GetPersonRequest
+    {
+        [DataMemberAttribute]
+        public string Username { get; set; }
+    }
+
+    #endregion
+
+    #region News
     [DataContractAttribute]
     public class GetNewsItemsResponse : ErrorInformation
     {
@@ -75,33 +109,47 @@ namespace Services.Model
     }
 
     [DataContractAttribute]
-    public class RegisterUserResponse : ErrorInformation
+    public class PublishNewsItemRequest
     {
         [DataMemberAttribute]
-        public ObjectId InsertedId { get; set; }
+        public string _id { get; set; }
+        [DataMemberAttribute]
+        public bool IsPublished { get; set; }
     }
 
     [DataContractAttribute]
-    public class RegisterUserRequest
+    public class PublishNewsItemResponse : ErrorInformation
     {
-        [DataMemberAttribute]
-        public Person User { get; set; }
+
     }
 
-    [DataContractAttribute]
-    public class GetPersonResponse : ErrorInformation
+    [DataContract]
+    public class DeleteNewsItemRequest
     {
-        [DataMemberAttribute]
-        public Person User { get; set; }
+        [DataMember]
+        public string _id { get; set; }
     }
 
-    [DataContractAttribute]
-    public class GetPersonRequest
+    [DataContract]
+    public class DeleteNewsItemResponse : ErrorInformation
     {
-        [DataMemberAttribute]
-        public string Username { get; set; }
+
     }
 
+    [DataContract]
+    public class UpdateNewsItemRequest
+    {
+        [DataMember]
+        public NewsItem NewsItem { get; set; }
+    }
+
+    public class UpdateNewsItemResponse : ErrorInformation
+    {
+
+    }
+    #endregion
+
+    #region Files
     [DataContractAttribute]
     public class UploadRequest
     {
@@ -192,6 +240,11 @@ namespace Services.Model
         [DataMemberAttribute]
         public DownloadLog DownloadLog { get; set; }
     }
+    #endregion 
 
+    #region Tutorials
+
+
+    #endregion
 
 }

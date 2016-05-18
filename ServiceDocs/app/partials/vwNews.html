@@ -203,4 +203,147 @@
         </code></pre>
     </p>
     <hr />
+    <h4>PublishNewsItem(PublishNewsItemRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class PublishNewsItemRequest
+            {
+                [DataMemberAttribute]
+                public string _id { get; set; }
+                [DataMemberAttribute]
+                public bool IsPublished { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContractAttribute]
+            public class PublishNewsItemResponse : ErrorInformation
+            {
+
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                PublishNewsItemResponse response = client.PublishNewsItem(
+                    new PublishNewsItemRequest()
+                    {
+                        _id = // news item _id to publish
+                        IsPublished = // true/false
+                    });
+            
+                if(!response.Errored)
+                {
+                    // the news item is published flag has been updated
+                }        
+            }
+        </code></pre>
+    </p>
+    <hr />
+    <h4>DeleteNewsItem(DeleteNewsItemRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContract]
+            public class DeleteNewsItemRequest
+            {
+                [DataMember]
+                public string _id { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContract]
+            public class DeleteNewsItemResponse : ErrorInformation
+            {
+
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                DeleteNewsItemResponse response = client.DeleteNewsItem(
+                    new DeleteNewsItemRequest()
+                    {
+                        _id = // news item _id to delete
+                    });
+            
+                if(!response.Errored)
+                {
+                    // the news item is now deleted
+                }        
+            }
+        </code></pre>
+    </p>
+    <hr />
+    <h4>UpdateNewsItem(UpdateNewsItemRequest)</h4>
+    <hr />
+    <p>
+        Request Object:
+        <pre><code>
+            [DataContract]
+            public class UpdateNewsItemRequest
+            {
+                [DataMember]
+                public NewsItem NewsItem { get; set; }
+            }
+
+            public class NewsItem
+            {
+                public ObjectId _id { get; set; }
+                public string Title { get; set; }
+                public string Author { get; set; }
+                public string Text { get; set; }
+                public bool Published { get; set; }
+                public DateTime Date_published { get; set; }
+                public DateTime Date_modified { get; set; }
+            }
+        </code></pre>
+    </p>
+    <p>
+        Response Object:
+        <pre><code>
+            [DataContract]
+            public class UpdateNewsItemResponse : ErrorInformation
+            {
+
+            }
+        </code></pre>
+    </p>
+    <p>
+        Example:
+        <pre><code>
+            using(ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient())
+            {
+                UpdateNewsItemResponse response = client.UpdateNewsItem(
+                    new UpdateNewsItemRequest()
+                    {
+                        NewsItem = new NewsItem()
+                        {
+                            // the new news item object (with same _id)
+                        }
+                    });
+            
+                if(!response.Errored)
+                {
+                    // the news item is now updated
+                }        
+            }
+        </code></pre>
+    </p>
+    <hr />
 </div>

@@ -21,10 +21,16 @@ namespace Services
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+        #region Users
         [OperationContract]
         GetPersonResponse GetPerson(GetPersonRequest request);
         [OperationContract]
         AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
+        [OperationContract]
+        RegisterUserResponse RegisterUser(RegisterUserRequest request);
+        #endregion
+
+        #region News
         [OperationContract]
         GetNewsItemsResponse GetNewsItems();
         [OperationContract]
@@ -34,13 +40,25 @@ namespace Services
         [OperationContract]
         InsertNewsItemResponse InsertNewsItem(InsertNewsItemRequest request);
         [OperationContract]
-        RegisterUserResponse RegisterUser(RegisterUserRequest request);
+        PublishNewsItemResponse PublishNewsItem(PublishNewsItemRequest request);
+        [OperationContract]
+        DeleteNewsItemResponse DeleteNewsItem(DeleteNewsItemRequest request);
+        [OperationContract]
+        UpdateNewsItemResponse UpdateNewsItem(UpdateNewsItemRequest request);
+        #endregion
+       
+        #region Files
         [OperationContract]
         GetFileRecordResponse GetFileRecord();
         [OperationContract]
         InsertFileRecordResponse InsertFileRecord(InsertFileRecordRequest request);
         [OperationContract]
         LogFileDownloadResponse LogFileDownload(LogFileDownloadRequest request);
+        #endregion
+
+        #region Tutorials
+
+        #endregion
     }
 
 

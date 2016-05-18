@@ -327,9 +327,8 @@ namespace Services
                 var collection = database.GetCollection<NewsItem>("NewsItems");
 
                 // query collection for all results
-                List<NewsItem> temp = collection.Find(item => item._id==request._id).ToList();
+                List<NewsItem> temp = collection.Find(new BsonDocument("_id",ObjectId.Parse(request._id))).ToList();
                 
-
                 // generate error data
                 if (temp.Count > 0)
                 {
@@ -400,6 +399,149 @@ namespace Services
                 };
             }
         }
+
+        /// <summary>
+        /// changes the news items published state to that of the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public PublishNewsItemResponse PublishNewsItem(PublishNewsItemRequest request)
+        {
+            // open DB and update the record
+            try
+            {
+                // open client
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+                // get collection
+                var col = db.GetCollection<NewsItem>("NewsItems");
+
+                // update the record
+                var updated = col.UpdateOne
+                    (new BsonDocument("_id",ObjectId.Parse(request._id)), new BsonDocument("$set", new BsonDocument("Published",request.IsPublished)));
+
+                if (updated.ModifiedCount == 1)
+                {
+                    return new PublishNewsItemResponse()
+                    {
+                        Errored = false,
+                        Message = "Record updated"
+                    };
+                }
+                else
+                {
+                    return new PublishNewsItemResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching _id"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new PublishNewsItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// Deletes the NewsItem associated with the request._id
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DeleteNewsItemResponse DeleteNewsItem(DeleteNewsItemRequest request)
+        {
+            // try to delete the item
+            try
+            {
+                // open DB client and get DB
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+                // get collection
+                var col = db.GetCollection<NewsItem>("NewsItems");
+
+                // delete the item matching request._id
+                var deleted = col.DeleteOne(new BsonDocument("_id", ObjectId.Parse(request._id)));
+
+                if(deleted.DeletedCount == 1)
+                {
+                    return new DeleteNewsItemResponse()
+                    {
+                        Errored = false,
+                        Message = "Item deleted"
+                    };
+                }
+                else
+                {
+                    return new DeleteNewsItemResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching _id"
+                    };
+                }
+            }
+            catch(Exception ex)
+            {
+                return new DeleteNewsItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// Updates an entire News Item object
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public UpdateNewsItemResponse UpdateNewsItem(UpdateNewsItemRequest request)
+        {
+            // try open DB and update record
+            try
+            {
+                // get client and database
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<NewsItem>("NewsItems");
+
+                // update the record
+                var updated = col.ReplaceOne(
+                    new BsonDocument("_id", ObjectId.Parse(request.NewsItem._id)), request.NewsItem);
+
+                // check the update was successful
+                if (updated.ModifiedCount == 1)
+                {
+                    return new UpdateNewsItemResponse()
+                    {
+                        Errored = false,
+                        Message = "News item updated"
+                    };
+                }
+                else
+                {
+                    return new UpdateNewsItemResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching item found"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new UpdateNewsItemResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
         #endregion
 
         #region Files
@@ -418,7 +560,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<FileRecord>("FileRecord");
 
