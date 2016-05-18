@@ -155,3 +155,4 @@ C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
+C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache

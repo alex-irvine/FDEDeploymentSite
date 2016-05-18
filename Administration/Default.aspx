@@ -28,7 +28,7 @@
                         <asp:HyperLink runat="server" NavigateUrl='<%# "~/NewsEditor?id="+Item._id %>' CssClass="btn btn-default">Edit</asp:HyperLink>
                     <% } %>
                     <asp:HyperLink runat="server" NavigateUrl='<%# "~/News?id="+Item._id._a.ToString() %>' CssClass="btn btn-default">See</asp:HyperLink>
-                    <asp:Button runat="server" OnClick="Unnamed_Click" value="<%#: Item %>" Text="TEST"/>
+                    <asp:Button runat="server" OnClick="Unnamed_Click" value="<%#: Item._id._b %>" Text="TEST"/>
                 </td>
             </tr>
             
