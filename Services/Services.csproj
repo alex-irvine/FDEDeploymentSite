@@ -99,6 +99,8 @@
     <Compile Include="Model\RequestResponse.cs" />
     <Compile Include="Model\SysConfig.cs" />
     <Compile Include="Model\Tutorial.cs" />
+    <Compile Include="Model\TutorialItem.cs" />
+    <Compile Include="Model\TutorialPage.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

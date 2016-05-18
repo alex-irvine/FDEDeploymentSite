@@ -43,7 +43,7 @@ namespace Services.Model
     public class GetNewsItemByIdRequest
     {
         [DataMemberAttribute]
-        public ObjectId _id { get; set; }
+        public string _id { get; set; }
     }
 
     [DataContractAttribute]
@@ -51,6 +51,13 @@ namespace Services.Model
     {
         [DataMemberAttribute]
         public NewsItem News { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class GetPublishedNewsItemsResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public List<NewsItem> NewsItems { get; set; }
     }
 
     [DataContractAttribute]
@@ -64,7 +71,7 @@ namespace Services.Model
     public class InsertNewsItemResponse : ErrorInformation
     {
         [DataMemberAttribute]
-        public ObjectId InsertedId { get; set; }
+        public string InsertedId { get; set; }
     }
 
     [DataContractAttribute]
@@ -185,4 +192,6 @@ namespace Services.Model
         [DataMemberAttribute]
         public DownloadLog DownloadLog { get; set; }
     }
+
+
 }
