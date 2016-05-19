@@ -11,7 +11,7 @@
         <asp:TextBox runat="server" ID="SearchBox" placeholder="Search ..." CssClass="form-control"></asp:TextBox>
         <asp:Button runat="server" OnClick="Search_Click" Text="Search" CssClass="btn btn-default" />
     </div>
-    <asp:ListView ID="LVNews" runat="server" ItemType="Administration.ServiceReferenceNews.Tutorial" SelectMethod="GetTutorials"
+    <asp:ListView ID="LVTuto" runat="server" ItemType="Administration.ServiceReference1.TutorialItem" OnPreRender="LVTuto_PreRender"
         GroupItemCount="1" >
         <EmptyDataTemplate>
             <table >
@@ -32,15 +32,15 @@
                 <%--<p class="news_description"><%#: Item.description %></p>--%>
             
             
-            <td class="published<%#: Item.published %>"><h4><%#: Item.title %></h4></td>
-            <td class="published<%#: Item.published %>"><%#: Regex.Replace(Item.text, "<.*?>", " ").Substring(0,140) %></td>
-            <td class="published<%#: Item.published %>"><%#: Item.date_modified %></td>
+            <td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
+            <%--<td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Pages[0].Text, "<.*?>", " ").Substring(0,140) %></td>--%>
+            <td class="published<%#: Item.Published %>"><%#: Item.DateModified %></td>
             <%--<td><asp:Button runat="server" Text="Edit" CssClass="btn btn-default"/></td>--%>
-            <td class="published<%#: Item.published %>">
+            <td class="published<%#: Item.Published %>">
                 <% if(isAdmin){ %>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialEditor?id={0}&page={1}", Item.Id, Item.page) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialEditor?id={0}&page={1}", Item._id, Item.Pages[0].PageNumber) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
                 <% } %>
-                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialView?id={0}", Item.Id) %>' CssClass="btn btn-default">See</asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialView?id={0}", Item._id) %>' CssClass="btn btn-default">See</asp:HyperLink>
             </td>
             
             <%--</asp:HyperLink>
