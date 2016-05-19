@@ -12,7 +12,7 @@ namespace Administration
 {
     public partial class NewsEditor : System.Web.UI.Page
     {
-        public Administration.ServiceReferenceNews.News NewsContent { get; private set; }
+        public Administration.ServiceReference1.NewsItem NewsContent { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,7 +47,7 @@ namespace Administration
                         });
                         if (!response.Errored)
                         {
-                            NewsItem NewsContent = response.News;
+                            NewsContent = response.News;
                             NewsTitle.Text = NewsContent.Title;
                             NewsText.Text = NewsContent.Text;
                             NewsFinal.Text = NewsContent.Text;
@@ -83,7 +83,7 @@ namespace Administration
                 if (!response.Errored)
                 {
                     MessageBox.Show("News updated");
-                    Response.Redirect("~/NewsEditor?id=" + news._id);
+                    Response.Redirect("~/News?id=" + news._id);
                 }
                 else
                 {
