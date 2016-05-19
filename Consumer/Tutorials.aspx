@@ -3,9 +3,9 @@
     <h1>Tutorials</h1>
     <div class="col-md-3">
         <ul class="list-unstyled">
-        <asp:ListView ID="LVTuto" runat="server" ItemType="Consumer.ServiceReferenceNews.Tutorial" SelectMethod="GetTutorials" GroupItemCount="1" >
+        <asp:ListView ID="LVTuto" runat="server" ItemType="Consumer.ServiceReference1.TutorialItem" SelectMethod="GetTutorials" GroupItemCount="1" >
             <ItemTemplate>            
-                <li class="tutoClick" onclick="showTuto(<%#: Item.Id %>)"><a><%#: Item.title %></a></li>
+                <li class="tutoClick" onclick="showTuto('<%#: Item._id %>')"><a><%#: Item.Title %></a></li>
             </ItemTemplate>
         </asp:ListView>
         </ul>

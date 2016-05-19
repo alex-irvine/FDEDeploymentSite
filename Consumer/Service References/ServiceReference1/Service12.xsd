@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
   <xs:complexType name="GetPersonRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
@@ -31,7 +30,7 @@
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Salt" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q1:ObjectId" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Person" nillable="true" type="tns:Person" />
@@ -53,6 +52,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AuthenticateUserResponse" nillable="true" type="tns:AuthenticateUserResponse" />
+  <xs:complexType name="RegisterUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterUserRequest" nillable="true" type="tns:RegisterUserRequest" />
+  <xs:complexType name="RegisterUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InsertedId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RegisterUserResponse" nillable="true" type="tns:RegisterUserResponse" />
   <xs:complexType name="GetNewsItemsResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
@@ -77,10 +92,36 @@
       <xs:element minOccurs="0" name="Published" type="xs:boolean" />
       <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q2:ObjectId" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="NewsItem" nillable="true" type="tns:NewsItem" />
+  <xs:complexType name="GetPublishedNewsItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewsItems" nillable="true" type="tns:ArrayOfNewsItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPublishedNewsItemsResponse" nillable="true" type="tns:GetPublishedNewsItemsResponse" />
+  <xs:complexType name="GetNewsItemByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNewsItemByIdRequest" nillable="true" type="tns:GetNewsItemByIdRequest" />
+  <xs:complexType name="GetNewsItemByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="News" nillable="true" type="tns:NewsItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNewsItemByIdResponse" nillable="true" type="tns:GetNewsItemByIdResponse" />
   <xs:complexType name="InsertNewsItemRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="NewsItem" nillable="true" type="tns:NewsItem" />
@@ -91,28 +132,55 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
         <xs:sequence>
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q3:ObjectId" />
+          <xs:element minOccurs="0" name="InsertedId" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="InsertNewsItemResponse" nillable="true" type="tns:InsertNewsItemResponse" />
-  <xs:complexType name="RegisterUserRequest">
+  <xs:complexType name="PublishNewsItemRequest">
     <xs:sequence>
-      <xs:element minOccurs="0" name="User" nillable="true" type="tns:Person" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="RegisterUserRequest" nillable="true" type="tns:RegisterUserRequest" />
-  <xs:complexType name="RegisterUserResponse">
+  <xs:element name="PublishNewsItemRequest" nillable="true" type="tns:PublishNewsItemRequest" />
+  <xs:complexType name="PublishNewsItemResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
-        <xs:sequence>
-          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="InsertedId" type="q4:ObjectId" />
-        </xs:sequence>
+        <xs:sequence />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="RegisterUserResponse" nillable="true" type="tns:RegisterUserResponse" />
+  <xs:element name="PublishNewsItemResponse" nillable="true" type="tns:PublishNewsItemResponse" />
+  <xs:complexType name="DeleteNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteNewsItemRequest" nillable="true" type="tns:DeleteNewsItemRequest" />
+  <xs:complexType name="DeleteNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteNewsItemResponse" nillable="true" type="tns:DeleteNewsItemResponse" />
+  <xs:complexType name="UpdateNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsItem" nillable="true" type="tns:NewsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateNewsItemRequest" nillable="true" type="tns:UpdateNewsItemRequest" />
+  <xs:complexType name="UpdateNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateNewsItemResponse" nillable="true" type="tns:UpdateNewsItemResponse" />
   <xs:complexType name="GetFileRecordResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
@@ -152,7 +220,7 @@
       <xs:element minOccurs="0" name="DateDownloaded" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FileDownloaded" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q5:ObjectId" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DownloadLog" nillable="true" type="tns:DownloadLog" />
@@ -164,4 +232,129 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="LogFileDownloadResponse" nillable="true" type="tns:LogFileDownloadResponse" />
+  <xs:complexType name="InsertTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertTutorialItemRequest" nillable="true" type="tns:InsertTutorialItemRequest" />
+  <xs:complexType name="TutorialItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatePublished" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Pages" nillable="true" type="tns:ArrayOfTutorialPage" />
+      <xs:element minOccurs="0" name="Published" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+  <xs:complexType name="ArrayOfTutorialPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TutorialPage" nillable="true" type="tns:TutorialPage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTutorialPage" nillable="true" type="tns:ArrayOfTutorialPage" />
+  <xs:complexType name="TutorialPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Video" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TutorialPage" nillable="true" type="tns:TutorialPage" />
+  <xs:complexType name="InsertTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertTutorialItemResponse" nillable="true" type="tns:InsertTutorialItemResponse" />
+  <xs:complexType name="GetTutorialItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TutorialItems" nillable="true" type="tns:ArrayOfTutorialItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTutorialItemsResponse" nillable="true" type="tns:GetTutorialItemsResponse" />
+  <xs:complexType name="ArrayOfTutorialItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTutorialItem" nillable="true" type="tns:ArrayOfTutorialItem" />
+  <xs:complexType name="GetPublishedTutorialItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TutorialItems" nillable="true" type="tns:ArrayOfTutorialItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPublishedTutorialItemsResponse" nillable="true" type="tns:GetPublishedTutorialItemsResponse" />
+  <xs:complexType name="PublishTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PublishTutorialItemRequest" nillable="true" type="tns:PublishTutorialItemRequest" />
+  <xs:complexType name="PublishTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PublishTutorialItemResponse" nillable="true" type="tns:PublishTutorialItemResponse" />
+  <xs:complexType name="GetTutorialItemByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTutorialItemByIdRequest" nillable="true" type="tns:GetTutorialItemByIdRequest" />
+  <xs:complexType name="GetTutorialItemByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTutorialItemByIdResponse" nillable="true" type="tns:GetTutorialItemByIdResponse" />
+  <xs:complexType name="DeleteTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteTutorialItemRequest" nillable="true" type="tns:DeleteTutorialItemRequest" />
+  <xs:complexType name="DeleteTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteTutorialItemResponse" nillable="true" type="tns:DeleteTutorialItemResponse" />
+  <xs:complexType name="UpdateTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateTutorialItemRequest" nillable="true" type="tns:UpdateTutorialItemRequest" />
+  <xs:complexType name="UpdateTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateTutorialItemResponse" nillable="true" type="tns:UpdateTutorialItemResponse" />
 </xs:schema>

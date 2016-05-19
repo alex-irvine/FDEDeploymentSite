@@ -68,3 +68,6 @@ input[type="select"] {
     margin: 0;
     margin-bottom: 10px;
 }
+.page {
+    clear: both;
+}

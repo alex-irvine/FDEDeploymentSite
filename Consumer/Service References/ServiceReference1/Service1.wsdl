@@ -6,7 +6,6 @@
       <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services" />
       <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Services.Model" />
-      <xsd:import schemaLocation="http://localhost:54544/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
@@ -33,11 +32,29 @@
   <wsdl:message name="IService1_AuthenticateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetNewsItems_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsItems" />
   </wsdl:message>
   <wsdl:message name="IService1_GetNewsItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPublishedNewsItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublishedNewsItems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPublishedNewsItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublishedNewsItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetNewsItemById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsItemById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetNewsItemById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsItemByIdResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_InsertNewsItem_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertNewsItem" />
@@ -45,11 +62,23 @@
   <wsdl:message name="IService1_InsertNewsItem_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertNewsItemResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_RegisterUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  <wsdl:message name="IService1_PublishNewsItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishNewsItem" />
   </wsdl:message>
-  <wsdl:message name="IService1_RegisterUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  <wsdl:message name="IService1_PublishNewsItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishNewsItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteNewsItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNewsItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteNewsItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNewsItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateNewsItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewsItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateNewsItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewsItemResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetFileRecord_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFileRecord" />
@@ -69,6 +98,48 @@
   <wsdl:message name="IService1_LogFileDownload_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogFileDownloadResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_InsertTutorialItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTutorialItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertTutorialItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTutorialItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTutorialItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialItems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTutorialItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPublishedTutorialItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublishedTutorialItems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPublishedTutorialItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublishedTutorialItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PublishTutorialItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishTutorialItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PublishTutorialItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishTutorialItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTutorialItemById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialItemById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTutorialItemById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTutorialItemByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTutorialItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTutorialItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTutorialItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTutorialItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTutorialItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTutorialItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTutorialItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTutorialItemResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -86,17 +157,37 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AuthenticateUser" message="tns:IService1_AuthenticateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AuthenticateUserResponse" message="tns:IService1_AuthenticateUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RegisterUserResponse" message="tns:IService1_RegisterUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetNewsItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNewsItems" message="tns:IService1_GetNewsItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNewsItemsResponse" message="tns:IService1_GetNewsItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishedNewsItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPublishedNewsItems" message="tns:IService1_GetPublishedNewsItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPublishedNewsItemsResponse" message="tns:IService1_GetPublishedNewsItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsItemById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNewsItemById" message="tns:IService1_GetNewsItemById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNewsItemByIdResponse" message="tns:IService1_GetNewsItemById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertNewsItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertNewsItem" message="tns:IService1_InsertNewsItem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertNewsItemResponse" message="tns:IService1_InsertNewsItem_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RegisterUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RegisterUserResponse" message="tns:IService1_RegisterUser_OutputMessage" />
+    <wsdl:operation name="PublishNewsItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PublishNewsItem" message="tns:IService1_PublishNewsItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PublishNewsItemResponse" message="tns:IService1_PublishNewsItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNewsItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteNewsItem" message="tns:IService1_DeleteNewsItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteNewsItemResponse" message="tns:IService1_DeleteNewsItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewsItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateNewsItem" message="tns:IService1_UpdateNewsItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateNewsItemResponse" message="tns:IService1_UpdateNewsItem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetFileRecord">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFileRecord" message="tns:IService1_GetFileRecord_InputMessage" />
@@ -109,6 +200,34 @@
     <wsdl:operation name="LogFileDownload">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogFileDownload" message="tns:IService1_LogFileDownload_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogFileDownloadResponse" message="tns:IService1_LogFileDownload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTutorialItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertTutorialItem" message="tns:IService1_InsertTutorialItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertTutorialItemResponse" message="tns:IService1_InsertTutorialItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTutorialItems" message="tns:IService1_GetTutorialItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTutorialItemsResponse" message="tns:IService1_GetTutorialItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishedTutorialItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPublishedTutorialItems" message="tns:IService1_GetPublishedTutorialItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPublishedTutorialItemsResponse" message="tns:IService1_GetPublishedTutorialItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishTutorialItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PublishTutorialItem" message="tns:IService1_PublishTutorialItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PublishTutorialItemResponse" message="tns:IService1_PublishTutorialItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialItemById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTutorialItemById" message="tns:IService1_GetTutorialItemById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTutorialItemByIdResponse" message="tns:IService1_GetTutorialItemById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTutorialItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteTutorialItem" message="tns:IService1_DeleteTutorialItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteTutorialItemResponse" message="tns:IService1_DeleteTutorialItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTutorialItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTutorialItem" message="tns:IService1_UpdateTutorialItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTutorialItemResponse" message="tns:IService1_UpdateTutorialItem_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -149,8 +268,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetNewsItems">
       <soap:operation soapAction="http://tempuri.org/IService1/GetNewsItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishedNewsItems">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPublishedNewsItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsItemById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetNewsItemById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -167,8 +313,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RegisterUser">
-      <soap:operation soapAction="http://tempuri.org/IService1/RegisterUser" style="document" />
+    <wsdl:operation name="PublishNewsItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/PublishNewsItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNewsItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteNewsItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewsItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateNewsItem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -196,6 +360,69 @@
     </wsdl:operation>
     <wsdl:operation name="LogFileDownload">
       <soap:operation soapAction="http://tempuri.org/IService1/LogFileDownload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTutorialItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertTutorialItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialItems">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTutorialItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishedTutorialItems">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPublishedTutorialItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishTutorialItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/PublishTutorialItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTutorialItemById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTutorialItemById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTutorialItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteTutorialItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTutorialItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTutorialItem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

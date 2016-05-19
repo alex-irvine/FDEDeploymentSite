@@ -58,6 +58,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q7:RegisterUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="RegisterUserResult" nillable="true" type="q8:RegisterUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetNewsItems">
     <xs:complexType>
       <xs:sequence />
@@ -66,35 +80,89 @@
   <xs:element name="GetNewsItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetNewsItemsResult" nillable="true" type="q7:GetNewsItemsResponse" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetNewsItemsResult" nillable="true" type="q9:GetNewsItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublishedNewsItems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublishedNewsItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetPublishedNewsItemsResult" nillable="true" type="q10:GetPublishedNewsItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewsItemById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q11:GetNewsItemByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewsItemByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetNewsItemByIdResult" nillable="true" type="q12:GetNewsItemByIdResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertNewsItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q8:InsertNewsItemRequest" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q13:InsertNewsItemRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertNewsItemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertNewsItemResult" nillable="true" type="q9:InsertNewsItemResponse" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertNewsItemResult" nillable="true" type="q14:InsertNewsItemResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegisterUser">
+  <xs:element name="PublishNewsItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q10:RegisterUserRequest" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q15:PublishNewsItemRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegisterUserResponse">
+  <xs:element name="PublishNewsItemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="RegisterUserResult" nillable="true" type="q11:RegisterUserResponse" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="PublishNewsItemResult" nillable="true" type="q16:PublishNewsItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNewsItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q17:DeleteNewsItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNewsItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="DeleteNewsItemResult" nillable="true" type="q18:DeleteNewsItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewsItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q19:UpdateNewsItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewsItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="UpdateNewsItemResult" nillable="true" type="q20:UpdateNewsItemResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,35 +174,129 @@
   <xs:element name="GetFileRecordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetFileRecordResult" nillable="true" type="q12:GetFileRecordResponse" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetFileRecordResult" nillable="true" type="q21:GetFileRecordResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertFileRecord">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q13:InsertFileRecordRequest" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q22:InsertFileRecordRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertFileRecordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertFileRecordResult" nillable="true" type="q14:InsertFileRecordResponse" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertFileRecordResult" nillable="true" type="q23:InsertFileRecordResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LogFileDownload">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q15:LogFileDownloadRequest" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q24:LogFileDownloadRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LogFileDownloadResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="LogFileDownloadResult" nillable="true" type="q16:LogFileDownloadResponse" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="LogFileDownloadResult" nillable="true" type="q25:LogFileDownloadResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertTutorialItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q26:InsertTutorialItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertTutorialItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertTutorialItemResult" nillable="true" type="q27:InsertTutorialItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTutorialItems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTutorialItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetTutorialItemsResult" nillable="true" type="q28:GetTutorialItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublishedTutorialItems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublishedTutorialItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetPublishedTutorialItemsResult" nillable="true" type="q29:GetPublishedTutorialItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishTutorialItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q30:PublishTutorialItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishTutorialItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="PublishTutorialItemResult" nillable="true" type="q31:PublishTutorialItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTutorialItemById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q32:GetTutorialItemByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTutorialItemByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetTutorialItemByIdResult" nillable="true" type="q33:GetTutorialItemByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTutorialItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q34:DeleteTutorialItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTutorialItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="DeleteTutorialItemResult" nillable="true" type="q35:DeleteTutorialItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTutorialItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q36:UpdateTutorialItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTutorialItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="UpdateTutorialItemResult" nillable="true" type="q37:UpdateTutorialItemResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
