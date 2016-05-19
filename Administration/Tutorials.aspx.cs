@@ -26,15 +26,7 @@ namespace Administration
             }
         }
 
-        public List<ServiceReferenceNews.Tutorial> GetTutorials()
-        {
-            using (var _db = new NewsServiceClient())
-            {
-                List<ServiceReferenceNews.Tutorial> query = _db.GetTutorials();
-                return query;
-            }
-            
-        }
+        
 
         protected void New_Tutorial(object sender, EventArgs e)
         {
@@ -44,6 +36,25 @@ namespace Administration
         protected void Search_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void LVTuto_PreRender(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+                GetTutorialItemsResponse response = client.GetTutorialItems();
+                if (!response.Errored)
+                {
+                    this.LVTuto.DataSource = response.TutorialItems.ToList<TutorialItem>();
+
+                }
+                else
+                {
+                    this.LVTuto.DataSource = new List<TutorialItem>();
+                }
+
+            }
+            this.LVTuto.DataBind();
         }
     }
 }

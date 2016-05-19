@@ -48,11 +48,12 @@ namespace Administration
             // create a empty news
             NewsItem nw = new NewsItem()
             {
-                Author =  HttpContext.Current.User.Identity.Name.ToString(),
+                Author =  ((Person) Session["User"]).Username,
                 Title = "Unnamed news",
                 Text = "Empty",
                 Published = false,
                 Date_modified = DateTime.Now,
+                Date_published = DateTime.Now,
             };
             using (ServiceReference1.Service1Client client = new Service1Client())
             {

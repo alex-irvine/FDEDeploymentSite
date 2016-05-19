@@ -43,6 +43,7 @@ namespace Administration
                         else
                         {
                             MessageBox.Show("Fail to load news");
+                            Response.Redirect("~/");
                         }
                     }
                 }
@@ -62,7 +63,66 @@ namespace Administration
 
         protected void PublishClick(object sender, EventArgs e)
         {
+            using (Service1Client client = new Service1Client())
+            {
 
+                PublishNewsItemResponse response = client.PublishNewsItem(new PublishNewsItemRequest()
+                {
+                    _id = NewsID.Text,
+                    IsPublished = true
+                });
+                if (!response.Errored)
+                {
+                    MessageBox.Show("News has been published");
+                    Response.Redirect("~/");
+                }
+                else
+                {
+                    MessageBox.Show("Fail");
+                }
+            }
+        }
+
+        protected void UnPublishClick(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+
+                PublishNewsItemResponse response = client.PublishNewsItem(new PublishNewsItemRequest()
+                {
+                    _id = NewsID.Text,
+                    IsPublished = false
+                });
+                if (!response.Errored)
+                {
+                    MessageBox.Show("News has been published");
+                    Response.Redirect("~/");
+                }
+                else
+                {
+                    MessageBox.Show("Fail");
+                }
+            }
+        }
+
+        protected void DeleteClick(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+                DeleteNewsItemResponse response = client.DeleteNewsItem(new DeleteNewsItemRequest()
+                {
+                    _id = NewsID.Text,
+                });
+                if (!response.Errored)
+                {
+                    MessageBox.Show("News has been deleted");
+                    Response.Redirect("~/");
+                }
+                else
+                {
+                    MessageBox.Show("Fail");
+                }
+            }
         }
     }
 }
