@@ -246,6 +246,39 @@
     <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetNewsItemByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.DeleteNewsItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.DeleteTutorialItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetPublishedNewsItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetPublishedTutorialItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetTutorialItemByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetTutorialItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.InsertTutorialItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.PublishNewsItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.PublishTutorialItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.UpdateNewsItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.UpdateTutorialItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -262,9 +295,6 @@
     <Content Include="Service References\ServiceReferenceNews\Administration.ServiceReferenceNews.Tutorial.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ServiceReference1\Service14.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServiceReferenceNews\NewsService.disco" />
     <None Include="Service References\ServiceReferenceNews\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceNews\configuration.svcinfo" />

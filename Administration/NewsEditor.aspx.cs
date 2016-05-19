@@ -37,25 +37,27 @@ namespace Administration
             }
             else
             {
-                using (Service1Client client = new Service1Client())
+                if (!IsPostBack)
                 {
-                    //MessageBox.Show(Session["NewsId"].ToString());
-                    GetNewsItemByIdResponse response = client.GetNewsItemById(new GetNewsItemByIdRequest()
+                    using (Service1Client client = new Service1Client())
                     {
-                        _id = (ObjectId)Session["NewsId"]
-                    });
-                    if (!response.Errored)
-                    {
-                        NewsItem NewsContent = response.News;
-                        NewsTitle.Text = NewsContent.Title;
-                        NewsText.Text = NewsContent.Text;
-                        NewsFinal.Text = NewsContent.Text;
-                        Author.Text = "Author : " + NewsContent.Author;
-                        NewsID.Text = Request.QueryString["id"];
-                    }
-                    else
-                    {
-                        MessageBox.Show("Fail to load news");
+                        GetNewsItemByIdResponse response = client.GetNewsItemById(new GetNewsItemByIdRequest()
+                        {
+                            _id = Request.QueryString["id"]
+                        });
+                        if (!response.Errored)
+                        {
+                            NewsItem NewsContent = response.News;
+                            NewsTitle.Text = NewsContent.Title;
+                            NewsText.Text = NewsContent.Text;
+                            NewsFinal.Text = NewsContent.Text;
+                            Author.Text = NewsContent.Author;
+                            NewsID.Text = NewsContent._id;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fail to load news");
+                        }
                     }
                 }
             }
@@ -64,7 +66,32 @@ namespace Administration
 
         protected void Edit_News(object sender, EventArgs e)
         {
-            // Send everything to Service
+            NewsItem news = new NewsItem()
+            {
+                _id = NewsID.Text,
+                Title = NewsTitle.Text,
+                Text = NewsText.Text,
+                Author = Author.Text,
+                Date_modified = DateTime.Now,
+            };
+            using (Service1Client client = new Service1Client())
+            {
+                UpdateNewsItemResponse response = client.UpdateNewsItem(new UpdateNewsItemRequest()
+                {
+                    NewsItem = news
+                });
+                if (!response.Errored)
+                {
+                    MessageBox.Show("News updated");
+                    Response.Redirect("~/NewsEditor?id=" + news._id);
+                }
+                else
+                {
+                    MessageBox.Show("Fail to update news");
+                    Response.Redirect("~/");
+                }
+            }
+            
         }
     }
 }

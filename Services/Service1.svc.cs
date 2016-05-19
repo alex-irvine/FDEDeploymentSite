@@ -12,6 +12,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
+
 namespace Services
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
@@ -327,7 +328,8 @@ namespace Services
                 var collection = database.GetCollection<NewsItem>("NewsItems");
 
                 // query collection for all results
-                List<NewsItem> temp = collection.Find(new BsonDocument("_id",ObjectId.Parse(request._id))).ToList();
+                //List<NewsItem> temp = collection.Find(new BsonDocument("_id",ObjectId.Parse(request._id))).ToList();
+                List<NewsItem> temp = collection.Find(item => item._id.Equals(request._id)).ToList();
                 
                 // generate error data
                 if (temp.Count > 0)
@@ -523,7 +525,8 @@ namespace Services
 
                 // update the record
                 var updated = col.ReplaceOne(
-                    new BsonDocument("_id", ObjectId.Parse(request.NewsItem._id)), request.NewsItem);
+                    //new BsonDocument("_id", ObjectId.Parse(request.NewsItem._id)), request.NewsItem);
+                    item => item._id==request.NewsItem._id, request.NewsItem);
 
                 // check the update was successful
                 if (updated.ModifiedCount == 1)

@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewsEditor.aspx.cs" Inherits="Administration.NewsEditor" ValidateRequest="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    
     <asp:TextBox runat="server" ID="NewsID" Style="display:none;" Text=""/>
     
     <div class="News_option">
@@ -16,7 +15,7 @@
     
     <!--<asp:Label runat="server" ID="NewsFinal" CssClass="news"></asp:Label>-->
     <br />
-    <div class="NewsData">
+    <div class="NewsData">Author :
         <asp:Label runat="server" ID="Author" ></asp:Label>
     </div>
     <asp:Button runat="server" OnClick="Edit_News" Text="Submit" CssClass="btn btn-default" />

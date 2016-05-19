@@ -3,13 +3,14 @@
 
     
     <asp:TextBox runat="server" ID="NewsID" style="display:none;" CssClass="form-control" Text=""/>
-    <h1><%: NewsContent.title %></h1>
+    <h1><%: NewsContent.Title %></h1>
 
     <% if(isAdmin){ %>
         <div class="News_option">
+            <asp:LinkButton runat="server" OnClick="PublishClick"><span title="Publish" class="glyphicon glyphicon-remove-circle"></span></asp:LinkButton>
             <asp:HyperLink runat="server" NavigateUrl="~/News/Publish_News" CssClass="btn btn-lg btn-success" ><span title="Publish" class="glyphicon glyphicon-remove-circle"></span></asp:HyperLink>
             <asp:HyperLink runat="server" NavigateUrl="~/News/Remove_News" CssClass="btn btn-lg btn-danger" ><span class="glyphicon glyphicon-remove-circle"></span></asp:HyperLink>
-            <a href="NewsEditor?id=<%: NewsContent.Id %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
+            <a href="NewsEditor?id=<%: NewsContent._id %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
         </div>
     <% } %>
     

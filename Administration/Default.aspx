@@ -21,14 +21,13 @@
         <ItemTemplate>
             <tr>
                 <td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
-                <td class="published<%#: Item.Published %>"><%#:Item.Text %></td>
+                <td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Text, "<.*?>", String.Empty) %></td>
                 <td class="published<%#: Item.Published %>"><%#: Item.Date_modified %></td>
                 <td class="published<%#: Item.Published %>">
                     <% if(isAdmin){ %>
                         <asp:HyperLink runat="server" NavigateUrl='<%# "~/NewsEditor?id="+Item._id %>' CssClass="btn btn-default">Edit</asp:HyperLink>
                     <% } %>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# "~/News?id="+Item._id._a.ToString() %>' CssClass="btn btn-default">See</asp:HyperLink>
-                    <asp:Button runat="server" OnClick="Unnamed_Click" value="<%#: Item._id._b %>" Text="TEST"/>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "~/News?id="+Item._id %>' CssClass="btn btn-default">See</asp:HyperLink>
                 </td>
             </tr>
             
@@ -52,7 +51,7 @@
             </table>
             
            
-            <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="5" OnPreRender="DataPagerNews_PreRender">
+            <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="10" OnPreRender="DataPagerNews_PreRender">
                 <Fields>
                     <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
                     <asp:NumericPagerField />

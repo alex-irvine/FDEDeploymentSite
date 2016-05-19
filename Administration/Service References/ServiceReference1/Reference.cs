@@ -124,13 +124,24 @@ namespace Administration.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="ErrorInformation", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.AuthenticateUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.RegisterUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemsResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPublishedNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemByIdResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.InsertNewsItemResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.RegisterUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.PublishNewsItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.DeleteNewsItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.UpdateNewsItemResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetFileRecordResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.InsertFileRecordResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.LogFileDownloadResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.InsertTutorialItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetTutorialItemsResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPublishedTutorialItemsResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.PublishTutorialItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetTutorialItemByIdResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.DeleteTutorialItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.UpdateTutorialItemResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPersonResponse))]
     public partial class ErrorInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -230,9 +241,55 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class RegisterUserResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InsertedIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InsertedId {
+            get {
+                return this.InsertedIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InsertedIdField, value) != true)) {
+                    this.InsertedIdField = value;
+                    this.RaisePropertyChanged("InsertedId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GetNewsItemsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class GetNewsItemsResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.NewsItem[] NewsItemsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.NewsItem[] NewsItems {
+            get {
+                return this.NewsItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NewsItemsField, value) != true)) {
+                    this.NewsItemsField = value;
+                    this.RaisePropertyChanged("NewsItems");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetPublishedNewsItemsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetPublishedNewsItemsResponse : Administration.ServiceReference1.ErrorInformation {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Administration.ServiceReference1.NewsItem[] NewsItemsField;
@@ -281,15 +338,15 @@ namespace Administration.ServiceReference1 {
     public partial class InsertNewsItemResponse : Administration.ServiceReference1.ErrorInformation {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.ObjectId InsertedIdField;
+        private string InsertedIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.ObjectId InsertedId {
+        public string InsertedId {
             get {
                 return this.InsertedIdField;
             }
             set {
-                if ((this.InsertedIdField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.InsertedIdField, value) != true)) {
                     this.InsertedIdField = value;
                     this.RaisePropertyChanged("InsertedId");
                 }
@@ -299,25 +356,23 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublishNewsItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
-    public partial class RegisterUserResponse : Administration.ServiceReference1.ErrorInformation {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.ObjectId InsertedIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.ObjectId InsertedId {
-            get {
-                return this.InsertedIdField;
-            }
-            set {
-                if ((this.InsertedIdField.Equals(value) != true)) {
-                    this.InsertedIdField = value;
-                    this.RaisePropertyChanged("InsertedId");
-                }
-            }
-        }
+    public partial class PublishNewsItemResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteNewsItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class DeleteNewsItemResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateNewsItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class UpdateNewsItemResponse : Administration.ServiceReference1.ErrorInformation {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -407,6 +462,103 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertTutorialItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class InsertTutorialItemResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetTutorialItemsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetTutorialItemsResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.TutorialItem[] TutorialItemsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.TutorialItem[] TutorialItems {
+            get {
+                return this.TutorialItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TutorialItemsField, value) != true)) {
+                    this.TutorialItemsField = value;
+                    this.RaisePropertyChanged("TutorialItems");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetPublishedTutorialItemsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetPublishedTutorialItemsResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.TutorialItem[] TutorialItemsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.TutorialItem[] TutorialItems {
+            get {
+                return this.TutorialItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TutorialItemsField, value) != true)) {
+                    this.TutorialItemsField = value;
+                    this.RaisePropertyChanged("TutorialItems");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublishTutorialItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class PublishTutorialItemResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetTutorialItemByIdResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetTutorialItemByIdResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.TutorialItem TutorialItemField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.TutorialItem TutorialItem {
+            get {
+                return this.TutorialItemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TutorialItemField, value) != true)) {
+                    this.TutorialItemField = value;
+                    this.RaisePropertyChanged("TutorialItem");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteTutorialItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class DeleteTutorialItemResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateTutorialItemResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class UpdateTutorialItemResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GetPersonResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class GetPersonResponse : Administration.ServiceReference1.ErrorInformation {
@@ -453,7 +605,7 @@ namespace Administration.ServiceReference1 {
         private string UsernameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.ObjectId _idField;
+        private string _idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -531,12 +683,12 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.ObjectId _id {
+        public string _id {
             get {
                 return this._idField;
             }
             set {
-                if ((this._idField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
                     this._idField = value;
                     this.RaisePropertyChanged("_id");
                 }
@@ -546,79 +698,6 @@ namespace Administration.ServiceReference1 {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ObjectId", Namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson")]
-    [System.SerializableAttribute()]
-    public partial struct ObjectId : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int _aField;
-        
-        private int _bField;
-        
-        private int _cField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _a {
-            get {
-                return this._aField;
-            }
-            set {
-                if ((this._aField.Equals(value) != true)) {
-                    this._aField = value;
-                    this.RaisePropertyChanged("_a");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _b {
-            get {
-                return this._bField;
-            }
-            set {
-                if ((this._bField.Equals(value) != true)) {
-                    this._bField = value;
-                    this.RaisePropertyChanged("_b");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _c {
-            get {
-                return this._cField;
-            }
-            set {
-                if ((this._cField.Equals(value) != true)) {
-                    this._cField = value;
-                    this.RaisePropertyChanged("_c");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -654,7 +733,7 @@ namespace Administration.ServiceReference1 {
         private string TitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.ObjectId _idField;
+        private string _idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -745,14 +824,232 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.ObjectId _id {
+        public string _id {
             get {
                 return this._idField;
             }
             set {
-                if ((this._idField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
                     this._idField = value;
                     this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TutorialItem", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class TutorialItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateModifiedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DatePublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.TutorialPage[] PagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Author {
+            get {
+                return this.AuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateModified {
+            get {
+                return this.DateModifiedField;
+            }
+            set {
+                if ((this.DateModifiedField.Equals(value) != true)) {
+                    this.DateModifiedField = value;
+                    this.RaisePropertyChanged("DateModified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DatePublished {
+            get {
+                return this.DatePublishedField;
+            }
+            set {
+                if ((this.DatePublishedField.Equals(value) != true)) {
+                    this.DatePublishedField = value;
+                    this.RaisePropertyChanged("DatePublished");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.TutorialPage[] Pages {
+            get {
+                return this.PagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PagesField, value) != true)) {
+                    this.PagesField = value;
+                    this.RaisePropertyChanged("Pages");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Published {
+            get {
+                return this.PublishedField;
+            }
+            set {
+                if ((this.PublishedField.Equals(value) != true)) {
+                    this.PublishedField = value;
+                    this.RaisePropertyChanged("Published");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TutorialPage", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class TutorialPage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PageNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VideoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PageNumber {
+            get {
+                return this.PageNumberField;
+            }
+            set {
+                if ((this.PageNumberField.Equals(value) != true)) {
+                    this.PageNumberField = value;
+                    this.RaisePropertyChanged("PageNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text {
+            get {
+                return this.TextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextField, value) != true)) {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Video {
+            get {
+                return this.VideoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VideoField, value) != true)) {
+                    this.VideoField = value;
+                    this.RaisePropertyChanged("Video");
                 }
             }
         }
@@ -830,15 +1127,15 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GetNewsItemByIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
-    public partial class GetNewsItemByIdRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class RegisterUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.ObjectId _idField;
+        private Administration.ServiceReference1.Person UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -851,12 +1148,57 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.ObjectId _id {
+        public Administration.ServiceReference1.Person User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetNewsItemByIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetNewsItemByIdRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
             get {
                 return this._idField;
             }
             set {
-                if ((this._idField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
                     this._idField = value;
                     this.RaisePropertyChanged("_id");
                 }
@@ -920,15 +1262,18 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublishNewsItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
-    public partial class RegisterUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PublishNewsItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.Person UserField;
+        private bool IsPublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -941,14 +1286,117 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.Person User {
+        public bool IsPublished {
             get {
-                return this.UserField;
+                return this.IsPublishedField;
             }
             set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
+                if ((this.IsPublishedField.Equals(value) != true)) {
+                    this.IsPublishedField = value;
+                    this.RaisePropertyChanged("IsPublished");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteNewsItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class DeleteNewsItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateNewsItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class UpdateNewsItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.NewsItem NewsItemField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.NewsItem NewsItem {
+            get {
+                return this.NewsItemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NewsItemField, value) != true)) {
+                    this.NewsItemField = value;
+                    this.RaisePropertyChanged("NewsItem");
                 }
             }
         }
@@ -1072,7 +1520,7 @@ namespace Administration.ServiceReference1 {
         private string UsernameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Administration.ServiceReference1.ObjectId _idField;
+        private string _idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1124,14 +1572,255 @@ namespace Administration.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Administration.ServiceReference1.ObjectId _id {
+        public string _id {
             get {
                 return this._idField;
             }
             set {
-                if ((this._idField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
                     this._idField = value;
                     this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertTutorialItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class InsertTutorialItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.TutorialItem TutorialItemField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.TutorialItem TutorialItem {
+            get {
+                return this.TutorialItemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TutorialItemField, value) != true)) {
+                    this.TutorialItemField = value;
+                    this.RaisePropertyChanged("TutorialItem");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublishTutorialItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class PublishTutorialItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsPublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsPublished {
+            get {
+                return this.IsPublishedField;
+            }
+            set {
+                if ((this.IsPublishedField.Equals(value) != true)) {
+                    this.IsPublishedField = value;
+                    this.RaisePropertyChanged("IsPublished");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetTutorialItemByIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetTutorialItemByIdRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteTutorialItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class DeleteTutorialItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateTutorialItemRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class UpdateTutorialItemRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.TutorialItem TutorialItemField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.TutorialItem TutorialItem {
+            get {
+                return this.TutorialItemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TutorialItemField, value) != true)) {
+                    this.TutorialItemField = value;
+                    this.RaisePropertyChanged("TutorialItem");
                 }
             }
         }
@@ -1174,11 +1863,23 @@ namespace Administration.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AuthenticateUser", ReplyAction="http://tempuri.org/IService1/AuthenticateUserResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.AuthenticateUserResponse> AuthenticateUserAsync(Administration.ServiceReference1.AuthenticateUserRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
+        Administration.ServiceReference1.RegisterUserResponse RegisterUser(Administration.ServiceReference1.RegisterUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItems", ReplyAction="http://tempuri.org/IService1/GetNewsItemsResponse")]
         Administration.ServiceReference1.GetNewsItemsResponse GetNewsItems();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItems", ReplyAction="http://tempuri.org/IService1/GetNewsItemsResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.GetNewsItemsResponse> GetNewsItemsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublishedNewsItems", ReplyAction="http://tempuri.org/IService1/GetPublishedNewsItemsResponse")]
+        Administration.ServiceReference1.GetPublishedNewsItemsResponse GetPublishedNewsItems();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublishedNewsItems", ReplyAction="http://tempuri.org/IService1/GetPublishedNewsItemsResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetPublishedNewsItemsResponse> GetPublishedNewsItemsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItemById", ReplyAction="http://tempuri.org/IService1/GetNewsItemByIdResponse")]
         Administration.ServiceReference1.GetNewsItemByIdResponse GetNewsItemById(Administration.ServiceReference1.GetNewsItemByIdRequest request);
@@ -1192,11 +1893,23 @@ namespace Administration.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertNewsItem", ReplyAction="http://tempuri.org/IService1/InsertNewsItemResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.InsertNewsItemResponse> InsertNewsItemAsync(Administration.ServiceReference1.InsertNewsItemRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
-        Administration.ServiceReference1.RegisterUserResponse RegisterUser(Administration.ServiceReference1.RegisterUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PublishNewsItem", ReplyAction="http://tempuri.org/IService1/PublishNewsItemResponse")]
+        Administration.ServiceReference1.PublishNewsItemResponse PublishNewsItem(Administration.ServiceReference1.PublishNewsItemRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
-        System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PublishNewsItem", ReplyAction="http://tempuri.org/IService1/PublishNewsItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.PublishNewsItemResponse> PublishNewsItemAsync(Administration.ServiceReference1.PublishNewsItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteNewsItem", ReplyAction="http://tempuri.org/IService1/DeleteNewsItemResponse")]
+        Administration.ServiceReference1.DeleteNewsItemResponse DeleteNewsItem(Administration.ServiceReference1.DeleteNewsItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteNewsItem", ReplyAction="http://tempuri.org/IService1/DeleteNewsItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.DeleteNewsItemResponse> DeleteNewsItemAsync(Administration.ServiceReference1.DeleteNewsItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateNewsItem", ReplyAction="http://tempuri.org/IService1/UpdateNewsItemResponse")]
+        Administration.ServiceReference1.UpdateNewsItemResponse UpdateNewsItem(Administration.ServiceReference1.UpdateNewsItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateNewsItem", ReplyAction="http://tempuri.org/IService1/UpdateNewsItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.UpdateNewsItemResponse> UpdateNewsItemAsync(Administration.ServiceReference1.UpdateNewsItemRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFileRecord", ReplyAction="http://tempuri.org/IService1/GetFileRecordResponse")]
         Administration.ServiceReference1.GetFileRecordResponse GetFileRecord();
@@ -1215,6 +1928,48 @@ namespace Administration.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LogFileDownload", ReplyAction="http://tempuri.org/IService1/LogFileDownloadResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.LogFileDownloadResponse> LogFileDownloadAsync(Administration.ServiceReference1.LogFileDownloadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertTutorialItem", ReplyAction="http://tempuri.org/IService1/InsertTutorialItemResponse")]
+        Administration.ServiceReference1.InsertTutorialItemResponse InsertTutorialItem(Administration.ServiceReference1.InsertTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertTutorialItem", ReplyAction="http://tempuri.org/IService1/InsertTutorialItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.InsertTutorialItemResponse> InsertTutorialItemAsync(Administration.ServiceReference1.InsertTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTutorialItems", ReplyAction="http://tempuri.org/IService1/GetTutorialItemsResponse")]
+        Administration.ServiceReference1.GetTutorialItemsResponse GetTutorialItems();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTutorialItems", ReplyAction="http://tempuri.org/IService1/GetTutorialItemsResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetTutorialItemsResponse> GetTutorialItemsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublishedTutorialItems", ReplyAction="http://tempuri.org/IService1/GetPublishedTutorialItemsResponse")]
+        Administration.ServiceReference1.GetPublishedTutorialItemsResponse GetPublishedTutorialItems();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublishedTutorialItems", ReplyAction="http://tempuri.org/IService1/GetPublishedTutorialItemsResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetPublishedTutorialItemsResponse> GetPublishedTutorialItemsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PublishTutorialItem", ReplyAction="http://tempuri.org/IService1/PublishTutorialItemResponse")]
+        Administration.ServiceReference1.PublishTutorialItemResponse PublishTutorialItem(Administration.ServiceReference1.PublishTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PublishTutorialItem", ReplyAction="http://tempuri.org/IService1/PublishTutorialItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.PublishTutorialItemResponse> PublishTutorialItemAsync(Administration.ServiceReference1.PublishTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTutorialItemById", ReplyAction="http://tempuri.org/IService1/GetTutorialItemByIdResponse")]
+        Administration.ServiceReference1.GetTutorialItemByIdResponse GetTutorialItemById(Administration.ServiceReference1.GetTutorialItemByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTutorialItemById", ReplyAction="http://tempuri.org/IService1/GetTutorialItemByIdResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetTutorialItemByIdResponse> GetTutorialItemByIdAsync(Administration.ServiceReference1.GetTutorialItemByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTutorialItem", ReplyAction="http://tempuri.org/IService1/DeleteTutorialItemResponse")]
+        Administration.ServiceReference1.DeleteTutorialItemResponse DeleteTutorialItem(Administration.ServiceReference1.DeleteTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTutorialItem", ReplyAction="http://tempuri.org/IService1/DeleteTutorialItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.DeleteTutorialItemResponse> DeleteTutorialItemAsync(Administration.ServiceReference1.DeleteTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTutorialItem", ReplyAction="http://tempuri.org/IService1/UpdateTutorialItemResponse")]
+        Administration.ServiceReference1.UpdateTutorialItemResponse UpdateTutorialItem(Administration.ServiceReference1.UpdateTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTutorialItem", ReplyAction="http://tempuri.org/IService1/UpdateTutorialItemResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.UpdateTutorialItemResponse> UpdateTutorialItemAsync(Administration.ServiceReference1.UpdateTutorialItemRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1276,12 +2031,28 @@ namespace Administration.ServiceReference1 {
             return base.Channel.AuthenticateUserAsync(request);
         }
         
+        public Administration.ServiceReference1.RegisterUserResponse RegisterUser(Administration.ServiceReference1.RegisterUserRequest request) {
+            return base.Channel.RegisterUser(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request) {
+            return base.Channel.RegisterUserAsync(request);
+        }
+        
         public Administration.ServiceReference1.GetNewsItemsResponse GetNewsItems() {
             return base.Channel.GetNewsItems();
         }
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.GetNewsItemsResponse> GetNewsItemsAsync() {
             return base.Channel.GetNewsItemsAsync();
+        }
+        
+        public Administration.ServiceReference1.GetPublishedNewsItemsResponse GetPublishedNewsItems() {
+            return base.Channel.GetPublishedNewsItems();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetPublishedNewsItemsResponse> GetPublishedNewsItemsAsync() {
+            return base.Channel.GetPublishedNewsItemsAsync();
         }
         
         public Administration.ServiceReference1.GetNewsItemByIdResponse GetNewsItemById(Administration.ServiceReference1.GetNewsItemByIdRequest request) {
@@ -1300,12 +2071,28 @@ namespace Administration.ServiceReference1 {
             return base.Channel.InsertNewsItemAsync(request);
         }
         
-        public Administration.ServiceReference1.RegisterUserResponse RegisterUser(Administration.ServiceReference1.RegisterUserRequest request) {
-            return base.Channel.RegisterUser(request);
+        public Administration.ServiceReference1.PublishNewsItemResponse PublishNewsItem(Administration.ServiceReference1.PublishNewsItemRequest request) {
+            return base.Channel.PublishNewsItem(request);
         }
         
-        public System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request) {
-            return base.Channel.RegisterUserAsync(request);
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.PublishNewsItemResponse> PublishNewsItemAsync(Administration.ServiceReference1.PublishNewsItemRequest request) {
+            return base.Channel.PublishNewsItemAsync(request);
+        }
+        
+        public Administration.ServiceReference1.DeleteNewsItemResponse DeleteNewsItem(Administration.ServiceReference1.DeleteNewsItemRequest request) {
+            return base.Channel.DeleteNewsItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.DeleteNewsItemResponse> DeleteNewsItemAsync(Administration.ServiceReference1.DeleteNewsItemRequest request) {
+            return base.Channel.DeleteNewsItemAsync(request);
+        }
+        
+        public Administration.ServiceReference1.UpdateNewsItemResponse UpdateNewsItem(Administration.ServiceReference1.UpdateNewsItemRequest request) {
+            return base.Channel.UpdateNewsItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.UpdateNewsItemResponse> UpdateNewsItemAsync(Administration.ServiceReference1.UpdateNewsItemRequest request) {
+            return base.Channel.UpdateNewsItemAsync(request);
         }
         
         public Administration.ServiceReference1.GetFileRecordResponse GetFileRecord() {
@@ -1330,6 +2117,62 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.LogFileDownloadResponse> LogFileDownloadAsync(Administration.ServiceReference1.LogFileDownloadRequest request) {
             return base.Channel.LogFileDownloadAsync(request);
+        }
+        
+        public Administration.ServiceReference1.InsertTutorialItemResponse InsertTutorialItem(Administration.ServiceReference1.InsertTutorialItemRequest request) {
+            return base.Channel.InsertTutorialItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.InsertTutorialItemResponse> InsertTutorialItemAsync(Administration.ServiceReference1.InsertTutorialItemRequest request) {
+            return base.Channel.InsertTutorialItemAsync(request);
+        }
+        
+        public Administration.ServiceReference1.GetTutorialItemsResponse GetTutorialItems() {
+            return base.Channel.GetTutorialItems();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetTutorialItemsResponse> GetTutorialItemsAsync() {
+            return base.Channel.GetTutorialItemsAsync();
+        }
+        
+        public Administration.ServiceReference1.GetPublishedTutorialItemsResponse GetPublishedTutorialItems() {
+            return base.Channel.GetPublishedTutorialItems();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetPublishedTutorialItemsResponse> GetPublishedTutorialItemsAsync() {
+            return base.Channel.GetPublishedTutorialItemsAsync();
+        }
+        
+        public Administration.ServiceReference1.PublishTutorialItemResponse PublishTutorialItem(Administration.ServiceReference1.PublishTutorialItemRequest request) {
+            return base.Channel.PublishTutorialItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.PublishTutorialItemResponse> PublishTutorialItemAsync(Administration.ServiceReference1.PublishTutorialItemRequest request) {
+            return base.Channel.PublishTutorialItemAsync(request);
+        }
+        
+        public Administration.ServiceReference1.GetTutorialItemByIdResponse GetTutorialItemById(Administration.ServiceReference1.GetTutorialItemByIdRequest request) {
+            return base.Channel.GetTutorialItemById(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetTutorialItemByIdResponse> GetTutorialItemByIdAsync(Administration.ServiceReference1.GetTutorialItemByIdRequest request) {
+            return base.Channel.GetTutorialItemByIdAsync(request);
+        }
+        
+        public Administration.ServiceReference1.DeleteTutorialItemResponse DeleteTutorialItem(Administration.ServiceReference1.DeleteTutorialItemRequest request) {
+            return base.Channel.DeleteTutorialItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.DeleteTutorialItemResponse> DeleteTutorialItemAsync(Administration.ServiceReference1.DeleteTutorialItemRequest request) {
+            return base.Channel.DeleteTutorialItemAsync(request);
+        }
+        
+        public Administration.ServiceReference1.UpdateTutorialItemResponse UpdateTutorialItem(Administration.ServiceReference1.UpdateTutorialItemRequest request) {
+            return base.Channel.UpdateTutorialItem(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.UpdateTutorialItemResponse> UpdateTutorialItemAsync(Administration.ServiceReference1.UpdateTutorialItemRequest request) {
+            return base.Channel.UpdateTutorialItemAsync(request);
         }
     }
 }
