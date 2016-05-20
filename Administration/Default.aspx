@@ -21,7 +21,7 @@
         <ItemTemplate>
             <tr>
                 <td class="published<%#: Item.Published %>"><h4><%#: Item.Title %></h4></td>
-                <td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Text, "<.*?>", String.Empty) %></td>
+                <td class="published<%#: Item.Published %>"><%#: Regex.Replace(Item.Text, "<.*?>", " ") %></td>
                 <td class="published<%#: Item.Published %>"><%#: Item.Date_modified %></td>
                 <td class="published<%#: Item.Published %>">
                     <% if(isAdmin){ %>

@@ -36,7 +36,7 @@ namespace Administration
                         {
                             NewsContent = response.TutorialItem;
                             TutorialTitle.Text = NewsContent.Title;
-                            TutoPages = NewsContent.Pages.ToList<TutorialPage>();
+                            TutoPages = NewsContent.Pages.OrderBy(x=> x.PageNumber).ToList<TutorialPage>();
                             TutorialID.Text = NewsContent._id;
                         }
                     }
@@ -91,11 +91,58 @@ namespace Administration
 
         protected void NewPage(object sender, EventArgs e)
         {
-            // create a new Page
+            
+            List<TutorialPage> pages = new List<TutorialPage>();
+            // Send everything to Service
+            int i = 0;
+            foreach (var item in LVTuto.Items)
+            {
+                
+                i+=1;
+                pages.Add(new TutorialPage()
+                {
+                    Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
+                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
+                });
+
+                
+            }
+
+            pages.Add(new TutorialPage()
+            {
+                Text = "Type your text here",
+                Video = "",
+                PageNumber = pages.Count+1
+            });
+            using (Service1Client client = new Service1Client())
+            {
+
+                UpdateTutorialItemResponse response = client.UpdateTutorialItem(
+                    new UpdateTutorialItemRequest()
+                    {
+                        TutorialItem = new TutorialItem()
+                        {
+                            // the new Tutorial item object (with same _id)
+                            _id = TutorialID.Text,
+                            Title = TutorialTitle.Text,
+                            Author = Author.Text,
+                            DateModified = DateTime.Now,
+                            Pages = pages.ToArray()
+                        }
+                    });
+
+                if (!response.Errored)
+                {
+                    // the Tutorial item is now updated
+                    Response.Redirect("~/TutorialEditor?id=" + Request.QueryString["id"]);
+                }
+            }
         }
 
         protected void LVTuto_PreRender(object sender, EventArgs e)
         {
+            
             this.LVTuto.DataSource = TutoPages;
             this.LVTuto.DataBind();
         }

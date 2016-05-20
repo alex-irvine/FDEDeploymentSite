@@ -10,15 +10,6 @@
     <asp:Label runat="server">Tutorial title</asp:Label>
     <asp:TextBox runat="server" ID="TutorialTitle" CssClass="form-control" Text=""/>
 
-    <%--<asp:TextBox runat="server" placeholder="Youtube video url" id="VideoTextBox" CssClass="form-control" />--%>
-
-    <%--<iframe id="VideoFrame" width="560" height="315" src="<%: NewsContent.video %>"  allowfullscreen></iframe>--%>
-    
-
-    <%--<asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text=""/>--%>
-    
-    <!--<asp:Label runat="server" ID="NewsFinal" CssClass="news"></asp:Label>-->
-
     <asp:ListView ID="LVTuto" runat="server" ItemType="Administration.ServiceReference1.TutorialPage" OnPreRender="LVTuto_PreRender" >
         <EmptyDataTemplate>
             <table >
@@ -30,6 +21,7 @@
         
         <ItemTemplate>
             <div>
+                <asp:TextBox runat="server" CssClass="form-control" Text="<%#: Item.PageNumber %>" type="number" min="1"/>
                 <asp:TextBox runat="server" placeholder="Youtube video url" CssClass="VideoTextBox form-control" Text="<%#: Item.Video %>"/>
 
                 <iframe class="VideoFrame" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen></iframe>

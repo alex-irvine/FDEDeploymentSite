@@ -17,7 +17,6 @@ namespace Administration
         protected void Page_Load(object sender, EventArgs e)
         {
             isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
-            isAdmin = true;
         }
 
         public void /*List<Administration.ServiceReference1.NewsItem>*/ GetNews()
