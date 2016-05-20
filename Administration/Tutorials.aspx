@@ -38,7 +38,7 @@
             <%--<td><asp:Button runat="server" Text="Edit" CssClass="btn btn-default"/></td>--%>
             <td class="published<%#: Item.Published %>">
                 <% if(isAdmin){ %>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialEditor?id={0}&page={1}", Item._id, Item.Pages[0].PageNumber) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialEditor?id={0}", Item._id) %>' CssClass="btn btn-default">Edit</asp:HyperLink>
                 <% } %>
                 <asp:HyperLink runat="server" NavigateUrl='<%# string.Format("~/TutorialView?id={0}", Item._id) %>' CssClass="btn btn-default">See</asp:HyperLink>
             </td>

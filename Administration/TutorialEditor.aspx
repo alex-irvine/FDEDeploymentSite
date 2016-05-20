@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TutorialEditor.aspx.cs" Inherits="Administration.TutorialEditor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TutorialEditor.aspx.cs" Inherits="Administration.TutorialEditor" ValidateRequest="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <asp:TextBox runat="server" ID="TutorialID" Style="display:none;" Text=""/>
@@ -10,14 +10,44 @@
     <asp:Label runat="server">Tutorial title</asp:Label>
     <asp:TextBox runat="server" ID="TutorialTitle" CssClass="form-control" Text=""/>
 
-    <asp:TextBox runat="server" placeholder="Youtube video url" id="VideoTextBox" CssClass="form-control" />
+    <%--<asp:TextBox runat="server" placeholder="Youtube video url" id="VideoTextBox" CssClass="form-control" />--%>
 
-    <iframe id="VideoFrame" width="560" height="315" src="<%: NewsContent.video %>"  allowfullscreen></iframe>
+    <%--<iframe id="VideoFrame" width="560" height="315" src="<%: NewsContent.video %>"  allowfullscreen></iframe>--%>
     
 
-    <asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text=""/>
+    <%--<asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text=""/>--%>
     
     <!--<asp:Label runat="server" ID="NewsFinal" CssClass="news"></asp:Label>-->
+
+    <asp:ListView ID="LVTuto" runat="server" ItemType="Administration.ServiceReference1.TutorialPage" OnPreRender="LVTuto_PreRender" >
+        <EmptyDataTemplate>
+            <table >
+                <tr>
+                    <td>No news was returned.</td>
+                </tr>
+            </table>
+        </EmptyDataTemplate>
+        
+        <ItemTemplate>
+            <div>
+                <asp:TextBox runat="server" placeholder="Youtube video url" CssClass="VideoTextBox form-control" Text="<%#: Item.Video %>"/>
+
+                <iframe class="VideoFrame" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen></iframe>
+    
+
+                <asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text="<%#: Item.Text %>"/>
+            </div>
+        </ItemTemplate>
+        <LayoutTemplate>
+            
+            <div id="itemPlaceholderContainer" runat="server">
+                <div id="itemPlaceholder" runat="server"> </div>
+            </div>
+                        
+        </LayoutTemplate>
+    </asp:ListView>
+
+
     <br />
     <div class="NewsData">
         <asp:Label runat="server" ID="Author" ></asp:Label>
@@ -28,9 +58,10 @@
     <script src="Scripts/jquery-te-1.4.0.js"></script>
     <script>
 
-        $("#MainContent_VideoTextBox").keyup(function () {
+        $(".VideoTextBox").keyup(function () {
+            //alert("test");
             // Get Url
-            var url = $("#MainContent_VideoTextBox").val();
+            var url = $(this).val();
             var video = url;
             
             // Check link style
@@ -45,7 +76,7 @@
                 video = "http://www.youtube.com/embed/" + video;
             }
             
-            $("#VideoFrame").attr("src", video);
+            $(this).parent().children(".VideoFrame").attr("src", video);
         });
 
         $(".editorEx").jqte({

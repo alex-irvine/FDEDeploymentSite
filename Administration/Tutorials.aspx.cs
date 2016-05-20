@@ -30,7 +30,35 @@ namespace Administration
 
         protected void New_Tutorial(object sender, EventArgs e)
         {
-            
+            List<TutorialPage> pages = new List<TutorialPage>()
+            {
+                    new TutorialPage(){
+                    PageNumber = 1,
+                    Text = "Some text",
+                    Video = "vid url"}
+            };
+            TutorialItem item = new TutorialItem()
+            {
+                Title = "Title",
+                Author = ((Person)Session["User"]).Username,
+                Published = false,
+                DatePublished = DateTime.Now,
+                DateModified = DateTime.Now,
+                Pages = pages.ToArray()
+            };
+
+            using (Service1Client client = new Service1Client())
+            {
+                InsertTutorialItemResponse response = client.InsertTutorialItem(new InsertTutorialItemRequest()
+                {
+                    TutorialItem = item
+                });
+
+                if (!response.Errored)
+                {
+                    // the tutorial was inserted correctly
+                }
+            }
         }
 
         protected void Search_Click(object sender, EventArgs e)

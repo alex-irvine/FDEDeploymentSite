@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TutorialView.aspx.cs" Inherits="Administration.TutorialView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    
-    <asp:ListView ID="LVTutorials" runat="server" ItemType="Administration.ServiceReferenceNews.Tutorial" OnPreRender="DataPagerProducts_PreRender">
+    <asp:TextBox runat="server" ID="TutorialID" style="display:none;" CssClass="form-control" Text="<%#: TutorialContent._id %>"/>
+    <%--<asp:TextBox runat="server" ID="TutorialPage" style="display:none;" CssClass="form-control" Text="<%#: Item.page %>"/>--%>
+
+    <asp:ListView ID="LVTuto" runat="server" ItemType="Administration.ServiceReference1.TutorialPage" OnPreRender="DataPagerProducts_PreRender">
         <EmptyDataTemplate>
             <table>
                 <tr>
@@ -11,34 +13,34 @@
             </table>
         </EmptyDataTemplate>
         <ItemTemplate>
-            <asp:TextBox runat="server" ID="TutorialID" style="display:none;" CssClass="form-control" Text="<%#: Item.Id %>"/>
-            <asp:TextBox runat="server" ID="TutorialPage" style="display:none;" CssClass="form-control" Text="<%#: Item.page %>"/>
-            <h1><%#: Item.title %></h1>
-
-            <% if(isAdmin){ %>
-                <div class="News_option">
-                    <asp:HyperLink runat="server" NavigateUrl="~/News/Publish_News" CssClass="btn btn-lg btn-success" ><span title="Publish" class="glyphicon glyphicon-remove-circle"></span></asp:HyperLink>
-                    <asp:HyperLink runat="server" NavigateUrl="~/News/Remove_News" CssClass="btn btn-lg btn-danger" ><span class="glyphicon glyphicon-remove-circle"></span></asp:HyperLink>
-                    <a href="TutorialEditor?id=<%#: Item.Id %>&amp;page=<%#: Item.page %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
-                </div>
-            <% } %>
             
-            <iframe id="VideoFrame<%#: Item.video %>" width="560" height="315" src="<%#: Item.video %>"  allowfullscreen="true"></iframe>
-            <style>
-                #VideoFrame{
-                    display : none;
-                }
-            </style>
-            <div ID="TutorialText" class="editorEx" value="<%#: Item.text%>" >
-            </div>
+            <div>
+                <iframe id="VideoFrame<%#: Item.Video %>" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen="true"></iframe>
+                <style>
+                    #VideoFrame{
+                        display : none;
+                    }
+                </style>
+                <div  class="editorEx" value="<%#: Item.Text %>"><%#: Item.Text%>
+                </div>
 
-            <script>
-                $('.editorEx').html($('.editorEx').attr("value"));
-            </script>
+
+                <script>
+                    $('.editorEx').html($('.editorEx').attr("value"));
+                </script>
+            </div>
         </ItemTemplate>
         <LayoutTemplate>
             
             <div runat="server" style="width: 100%" class="table table-hover">
+                    <h1><%: TutorialContent.Title %></h1>
+                
+                    <div class="News_option">
+                        <asp:LinkButton runat="server" OnClick="PublishClick" CssClass="btn btn-lg btn-success"><span title="Publish" class="glyphicon glyphicon-remove-circle"></span></asp:LinkButton>
+                        <asp:LinkButton runat="server" OnClick="UnPublishClick" CssClass="btn btn-lg btn-warning"><span title="unpublish" class="glyphicon glyphicon-remove-circle"></span></asp:LinkButton>
+                        <asp:LinkButton runat="server" OnClick="DeleteClick" CssClass="btn btn-lg btn-danger"><span title="Delete" class="glyphicon glyphicon-remove-circle"></span></asp:LinkButton>
+                        <a href="TutorialEditor?id=<%: TutorialContent._id %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
+                    </div>
                 
                     <div id="itemPlaceholderContainer"  runat="server">
                         <div id="itemPlaceholder" runat="server"> </div>
@@ -47,7 +49,7 @@
             </div>
             
            
-            <asp:DataPager ID="DataPagerProducts" runat="server" PagedControlID="LVTutorials" PageSize="1" OnPreRender="DataPagerProducts_PreRender">
+            <asp:DataPager ID="DataPagerProducts" runat="server" PagedControlID="LVTuto" PageSize="1" OnPreRender="DataPagerProducts_PreRender">
                 <Fields>
                     <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
                     <asp:NumericPagerField />

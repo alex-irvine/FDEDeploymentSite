@@ -13,13 +13,22 @@ namespace Administration {
     public partial class TutorialView {
         
         /// <summary>
-        /// LVTutorials control.
+        /// TutorialID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LVTutorials;
+        protected global::System.Web.UI.WebControls.TextBox TutorialID;
+        
+        /// <summary>
+        /// LVTuto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView LVTuto;
         
         /// <summary>
         /// Author control.

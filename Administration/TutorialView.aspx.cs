@@ -4,66 +4,106 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Administration.ServiceReferenceNews;
+using Administration.ServiceReference1;
 
 namespace Administration
 {
     public partial class TutorialView : System.Web.UI.Page
     {
-        public List<ServiceReferenceNews.Tutorial> TutorialContent { get; private set; }
+        public TutorialItem TutorialContent { get; private set; }
+        public List<TutorialPage> TutoPages { get; private set; }
 
         public bool isAdmin { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["User"] == null 
-            //    || Request.QueryString["id"] == null 
-            //    || string.IsNullOrEmpty(Request.QueryString["id"]) 
-            //    || string.IsNullOrWhiteSpace(Request.QueryString["id"]) 
-            //){
-            //    Response.Redirect("~/");
-            //}
-            //else
-            //{
-                isAdmin = Session["User"]!=null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
-                TutorialContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetTutorialById(Request.QueryString["id"]);
-                /*NewsFinal.Text = TutorialContent.text;
-                NewsID.Text = Request.QueryString["id"];*/
-                //Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(TutorialContent[0].userId).UserName;
-                Modified.Text = "Last modification : " + TutorialContent[0].date_modified.ToString();
-                Published.Text = "Published : " + TutorialContent[0].date_published.ToString();
-            //}
-            
+            bool isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
+            if (!isAdmin)
+            {
+                Response.Redirect("~/");
+            }
+            else
+            {
+                using (Service1Client client = new Service1Client())
+                    {
+                        GetTutorialItemByIdResponse response = client.GetTutorialItemById(new GetTutorialItemByIdRequest()
+                        {
+                            _id = Request.QueryString["id"]
+                        });
+
+                        if (!response.Errored)
+                        {
+                            TutorialContent = response.TutorialItem;
+                            TutoPages = TutorialContent.Pages.ToList<TutorialPage>();
+                            TutorialID.Text = TutorialContent._id;
+                        }
+                    }
+             }
         }
 
-        public List<ServiceReferenceNews.Tutorial> GetTutorials()
+
+        protected void DeleteClick(object sender, EventArgs e)
         {
-            using (var _db = new NewsServiceClient())
+            using(Service1Client client = new Service1Client())
             {
-                List<ServiceReferenceNews.Tutorial> query = _db.GetTutorialById(Request.QueryString["id"]);
-                return query;
+                DeleteTutorialItemResponse response = client.DeleteTutorialItem(
+                    new DeleteTutorialItemRequest()
+                    {
+                        _id = TutorialID.Text
+                    });
+            
+                if(!response.Errored)
+                {
+                    Response.Redirect("~/Tutorials");
+                }
+                
+            }
+        }
+
+        protected void PublishClick(object sender, EventArgs e)
+        {
+            using(Service1Client client = new Service1Client())
+            {
+                PublishTutorialItemResponse response = client.PublishTutorialItem(
+                    new PublishTutorialItemRequest()
+                    {
+                        _id = TutorialID.Text,
+                        IsPublished = true
+                    });
+            
+                if(!response.Errored)
+                {
+                    // the Tutorial item is published flag has been updated
+                    Response.Redirect("~/Tutorials");
+                }        
             }
 
         }
 
-        protected void Remove_News(object sender, EventArgs e)
+        protected void UnPublishClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/");
-        }
-
-        protected void Publish_News(object sender, EventArgs e)
-        {
-            // Set publish to true
+            using(Service1Client client = new Service1Client())
+            {
+                PublishTutorialItemResponse response = client.PublishTutorialItem(
+                    new PublishTutorialItemRequest()
+                    {
+                        _id = TutorialID.Text,
+                        IsPublished = false
+                    });
+            
+                if(!response.Errored)
+                {
+                    // the Tutorial item is published flag has been updated
+                    Response.Redirect("~/Tutorials");
+                }        
+            }
 
         }
 
         protected void DataPagerProducts_PreRender(object sender, EventArgs e)
         {
-            using (var _db = new NewsServiceClient())
-            {
-                this.LVTutorials.DataSource = _db.GetTutorialById(Request.QueryString["id"]);
-                this.LVTutorials.DataBind();
-            }
+            this.LVTuto.DataSource = TutoPages;
+            this.LVTuto.DataBind();
         }
 
         
