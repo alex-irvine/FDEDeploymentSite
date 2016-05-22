@@ -8,15 +8,17 @@ var showTuto = function (id) {
     var html = "<h2 class='tutoTitle'>" + tuto.title + "</h2>";
     html += "<em>Author: " + tuto.author + "</em>";
     html += "<p>Date: " + tuto.date_published + "</p>";
-    html += "<span id='prev'><< prev</span>  <span id='next' style='float: right'>>> next</span>";
-    html += "<div class='page'>"
-    html += "<strong>Page <span id='page_number'>" + tuto.pages[0].page_number + "</span></strong><br>";
-    html += "<em>Video: <span id='tuto_video'>" + tuto.pages[0].video + "</span></em>";
+    html += "<div class='videoplayer'><span id='prev_cont'></span>";
+    html += "<strong class='page_info'>Page <span id='page_number'>" + tuto.pages[0].page_number + "</span></strong>";
+    html += "<span id='next_cont' style='text-align: right'><span id='next'>>> next</span></span>";
+    html += "<br>";
+    html += "<iframe class='tutovideo' width='560' height='315' src='" + tuto.pages[0].video + "'  allowfullscreen='true'></iframe></div>";
     html += "<div id='tuto_text'>" + tuto.pages[0].text + "</div>";
     html += "</div>";
 
     $("#tutoPlaceholder").html(html);
-    $("#prev").hide();
+    if (typeof tutorials[CURRENT_TUTO].pages[1] != 'undefined') $("#next_cont").html("<span id='next'>>> next</span>");
+    else $("#next_cont").html("");
 }
 
 var showPage = function (page) {
@@ -24,13 +26,17 @@ var showPage = function (page) {
     $("#page_number").html(page);
     $("#tuto_text").html(tutorials[CURRENT_TUTO].pages[page - 1].text);
     $("#tuto_video").html(tutorials[CURRENT_TUTO].pages[page - 1].video);
-    if (page <= 1) $("#prev").hide();
-    else $("#prev").show();
+    if (page <= 1) $("#prev_cont").html("");
+    else $("#prev_cont").html("<span id='prev'><< prev</span>");
+    if (typeof tutorials[CURRENT_TUTO].pages[page] != 'undefined') $("#next_cont").html("<span id='next'>>> next</span>");
+    else $("#next_cont").html("");
 }
 
-$(document).on("click", "#prev", function () {
+$(document).on("click", "#prev", function (e) {
+    e.stopPropagation();
     showPage(CURRENT_PAGE - 1);
 });
-$(document).on("click", "#next", function () {
+$(document).on("click", "#next", function (e) {
+    e.stopPropagation();
     showPage(CURRENT_PAGE + 1);
 });
