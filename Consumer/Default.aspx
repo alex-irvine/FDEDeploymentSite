@@ -44,4 +44,5 @@
                         
         </LayoutTemplate>
     </asp:ListView>
+    <script type="text/javascript" src="News.js"></script>
 </asp:Content>

@@ -17,17 +17,6 @@ namespace Consumer
 
         }
 
-        /*public List<Consumer.ServiceReferenceNews.News> GetNews()
-        {
-
-            using (var _db = new Consumer.ServiceReferenceNews.NewsServiceClient())
-            {
-                List<Consumer.ServiceReferenceNews.News> query = _db.GetNews();
-                return query;
-            }
-
-        }*/
-
         protected void DataPagerNews_PreRender(object sender, EventArgs e)
         {
             using (var _db = new Service1Client())
@@ -43,8 +32,6 @@ namespace Consumer
                     this.LVNews.DataSource = new List<NewsItem>();
                 }
                 this.LVNews.DataBind();
-                //return query;
-
             }
         }
     }

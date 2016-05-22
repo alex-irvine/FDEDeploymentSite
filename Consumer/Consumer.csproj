@@ -196,6 +196,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="News.js" />
     <Content Include="packages.config" />
     <Content Include="Account\Web.config" />
     <Content Include="fileDl.ashx" />
