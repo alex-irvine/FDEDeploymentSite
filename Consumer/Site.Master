@@ -54,12 +54,12 @@
                         <li><a runat="server" href="~/Tutorials">Tutorials</a></li>
                         <li><a runat="server" href="~/Downloads">Downloads</a></li>
                     </ul>
-                    <% if(Session["User"]==null){ %>
+                    <% if (!Request.IsAuthenticated) { %>
                     <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
-                    <% }else{ %>
+                    <% } else { %>
                         <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: UserName %> !</a></li>
                                 <li><a runat="server" href="~/Account/Logout">Log out</a></li>
