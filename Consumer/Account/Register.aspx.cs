@@ -8,6 +8,7 @@ using Owin;
 using Consumer.Models;
 using System.Text.RegularExpressions;
 using Consumer.ServiceReference1;
+using System.Windows.Forms;
 
 namespace Consumer.Account
 {
@@ -15,48 +16,73 @@ namespace Consumer.Account
     {
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            //var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            //IdentityResult result = manager.Create(user, Password.Text);
-            /*if (result.Succeeded)
-            {
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-                
-                //signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
-                //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else 
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }*/
             if (checkMail(Email.Text))
             {
+
+                GetPersonRequest rqt = new GetPersonRequest()
+                {
+                    Username = Email.Text
+                };
                 using (Service1Client client = new Service1Client())
                 {
+                    GetPersonResponse rsp = client.GetPerson(rqt);
                     //Check mail is not already used
+                    if (rsp.Errored)
+                    {
+                        //Check password and Hash
+                        if (check_password(Password.Text) && Password.Text == ConfirmPassword.Text)
+                        {
+                            // Add to database
+                            Person user = new Person()
+                            {
+                                Username = Email.Text,
+                                Company = Company.Text,
+                                IsAdmin = true,
+                                Password = Password.Text
+                            };
 
-                    //Check password and Hash
-                    
-                    // Add to database
-                    
+                            RegisterUserResponse response = client.RegisterUser(new RegisterUserRequest()
+                            {
+                                User = user
+                            });
+                            if (!response.Errored)
+                            {
+                                ErrorMessage.Text = "Your account has been created";
+                                // clear all the fields
+                                Email.Text = "";
+                                Password.Text = "";
+                                ConfirmPassword.Text = "";
+                                Company.Text = "";
+                            }
+                            else
+                            {
+                                ErrorMessage.Text = "Fail to create your account";
+                            }
+                        }
+                        else
+                        {
+                            ErrorMessage.Text = "Wrong Password";
+                        }
+
+                    }
+                    else
+                    {
+                        ErrorMessage.Text = "This email adress is already used";
+                    }
+
+
                 }
             }
             else
             {
                 ErrorMessage.Text = "Wrong email address format";
-            }
-            
+            }            
         }
 
         private bool check_password(string password)
         {
-            string cNumber = @"[\w\.\-]*[0-9]+[\w\.\-]*";
-            string cLetter = @"[0-9]*[\w\.\-]+[0-9]*";
-            return Regex.IsMatch(cNumber, password) && Regex.IsMatch(cLetter, password) && password.Length>=6;
+            string alphanumeric = "^[a-zA-Z0-9]*$";
+            return Regex.IsMatch(password, alphanumeric) && password.Length>=6;
         }
 
         private bool checkMail(string mail) {

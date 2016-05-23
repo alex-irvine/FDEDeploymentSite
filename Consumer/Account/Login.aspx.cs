@@ -8,6 +8,7 @@ using Consumer.Models;
 using Consumer.ServiceReference1;
 using System.Windows.Forms;
 using System.Web.Security;
+using System.Collections.Generic;
 
 
 namespace Consumer.Account
@@ -18,15 +19,7 @@ namespace Consumer.Account
  
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.IsAuthenticated)
-            //{
-            //    Response.Redirect("~/"); // already logged in : redirected to the home page
-            //}
-
-            //RegisterHyperLink.NavigateUrl = "Register";
-            
-
-            if (Request.IsAuthenticated)
+            if (Session["User"] != null)
             {
                 FormsAuthentication.RedirectFromLoginPage(HttpContext.Current.User.Identity.ToString(),true);
             }
@@ -34,47 +27,33 @@ namespace Consumer.Account
 
         protected void LogIn(object sender, EventArgs e)
         {
-            //if (IsValid)
-            //{
-                
-                //using (ServiceReference1.Service1Client client = new Consumer.ServiceReference1.Service1Client())
-                //{
-                //    AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
-                //    {
-                //        Username = Email.Text,
-                //        Password = Password.Text // Hash password
-                //    });
+            using (ServiceReference1.Service1Client client = new Consumer.ServiceReference1.Service1Client())
+            {
+                AuthenticateUserResponse response = client.AuthenticateUser(new AuthenticateUserRequest() 
+                {
+                    Username = Email.Text,
+                    Password = Password.Text
+                });
 
-                //    if (response.Errored)
-                //    {
-                //        MessageBox.Show(response.Message);
-                //    }
+                if (response.Errored)
+                {
+                    FailureText.Text = response.Message;
+                }
+                else
+                {
+                    if (response.Authenticated)
+                    {
+                        Session["User"] = response.Person;
+                        Person pson = (Person)Session["User"];
+                        FormsAuthentication.RedirectFromLoginPage(pson.Username, RememberMe.Checked);
+                    }
+                    else
+                    {
+                        FailureText.Text = "can't authenticate";
+                    }
+                }
 
-                //    if(response.Authenticated)
-                //    {
-                //        Session["User"] = response.Person;
-                //        Person pson = (Person)Session["User"];
-                //        FormsAuthentication.RedirectFromLoginPage(pson.UserName, RememberMe.Checked);
-
-                //        //if (redUrl == Request.Url.ToString())
-                //        //{
-                //        //    Response.Redirect("~/");
-                //        //}
-                //        //else
-                //        //{
-                //        //    Response.Redirect(redUrl);
-                //        //}
-                        
-                        
-                //    }
-                //    else
-                //    {
-                //        // wrong user name or pword
-                //    }
-
-                //}
-                FormsAuthentication.RedirectFromLoginPage(Email.Text, true);
-            //}
+            }
         }
     }
 }

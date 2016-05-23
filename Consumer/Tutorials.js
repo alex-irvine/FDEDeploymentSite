@@ -1,6 +1,14 @@
 CURRENT_PAGE = 0;
 CURRENT_TUTO = "";
 
+$(document).ready(function () {
+    $.each(tutorials, function (index, value) {
+        value.pages.sort(function (a, b) {
+            return a.page_number - b.page_number;
+        })
+    });
+});
+
 var showTuto = function (id) {
     CURRENT_TUTO = id;
     CURRENT_PAGE = 1;
@@ -25,11 +33,12 @@ var showPage = function (page) {
     CURRENT_PAGE = page;
     $("#page_number").html(page);
     $("#tuto_text").html(tutorials[CURRENT_TUTO].pages[page - 1].text);
-    $("#tuto_video").html(tutorials[CURRENT_TUTO].pages[page - 1].video);
+    $(".tutovideo")[0].src = tutorials[CURRENT_TUTO].pages[page - 1].video;
     if (page <= 1) $("#prev_cont").html("");
     else $("#prev_cont").html("<span id='prev'><< prev</span>");
     if (typeof tutorials[CURRENT_TUTO].pages[page] != 'undefined') $("#next_cont").html("<span id='next'>>> next</span>");
     else $("#next_cont").html("");
+    console.log(tutorials[CURRENT_TUTO].pages[page - 1])
 }
 
 $(document).on("click", "#prev", function (e) {
