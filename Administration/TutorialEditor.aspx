@@ -24,7 +24,7 @@
                 <asp:TextBox runat="server" CssClass="form-control" Text="<%#: Item.PageNumber %>" style="display:none"/>
                 <asp:TextBox runat="server" placeholder="Youtube video url" CssClass="VideoTextBox form-control" Text="<%#: Item.Video %>"/>
 
-                <iframe class="VideoFrame" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen></iframe>
+                <iframe class="VideoFrame" src="<%#: Item.Video %>"  allowfullscreen></iframe>
     
 
                 <asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text="<%#: Item.Text %>"/>

@@ -15,7 +15,7 @@
         <ItemTemplate>
             
             <div>
-                <iframe id="VideoFrame<%#: Item.Video %>" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen="true"></iframe>
+                <iframe id="VideoFrame<%#: Item.Video %>" class="VideoFrame" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen="true"></iframe>
                 <style>
                     #VideoFrame{
                         display : none;

@@ -45,3 +45,7 @@ input[type="select"] {
 {
     text-align:center;
 }
+.VideoFrame{
+    min-height: 480px;
+    width : 100%;
+}
