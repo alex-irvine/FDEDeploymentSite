@@ -36,30 +36,23 @@ namespace Consumer.Account
 
                 if (response.Errored)
                 {
-                    MessageBox.Show(response.Message);
-                }
-
-                if(response.Authenticated)
-                {
-                    Session["User"] = response.Person;
-                    Person pson = (Person) Session["User"];
-                    FormsAuthentication.RedirectFromLoginPage(pson.Username, RememberMe.Checked);
+                    FailureText.Text = response.Message;
                 }
                 else
                 {
-                    // wrong user name or pword
-                    FailureText.Text = "wrong username or password";
+                    if (response.Authenticated)
+                    {
+                        Session["User"] = response.Person;
+                        Person pson = (Person)Session["User"];
+                        FormsAuthentication.RedirectFromLoginPage(pson.Username, RememberMe.Checked);
+                    }
+                    else
+                    {
+                        FailureText.Text = "can't authenticate";
+                    }
                 }
 
             }
-
-            /*Person user = new Person()
-            {
-                Username = "alex@test.com",
-                Company = "Alex Michelet Inc.",
-                IsAdmin = true,
-                Password = "testtest"
-            };*/
             
         }
     }
