@@ -36,3 +36,12 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+.LV_Tuto_Edit
+{
+    text-align:center;
+}
+.LV_Tuto_View
+{
+    text-align:center;
+}

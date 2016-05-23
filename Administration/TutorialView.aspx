@@ -42,7 +42,7 @@
                         <a href="TutorialEditor?id=<%: TutorialContent._id %>" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
                     </div>
                 
-                    <div id="itemPlaceholderContainer"  runat="server">
+                    <div id="itemPlaceholderContainer"  class="LV_Tuto_View" runat="server">
                         <div id="itemPlaceholder" runat="server"> </div>
                     </div>
                 

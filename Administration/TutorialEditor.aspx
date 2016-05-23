@@ -21,18 +21,23 @@
         
         <ItemTemplate>
             <div>
-                <asp:TextBox runat="server" CssClass="form-control" Text="<%#: Item.PageNumber %>" type="number" min="1"/>
+                <asp:TextBox runat="server" CssClass="form-control" Text="<%#: Item.PageNumber %>" style="display:none"/>
                 <asp:TextBox runat="server" placeholder="Youtube video url" CssClass="VideoTextBox form-control" Text="<%#: Item.Video %>"/>
 
                 <iframe class="VideoFrame" width="560" height="315" src="<%#: Item.Video %>"  allowfullscreen></iframe>
     
 
                 <asp:TextBox runat="server" ID="TutorialText" CssClass="editorEx" Text="<%#: Item.Text %>"/>
+
+                <asp:LinkButton runat="server" OnClick="DeletePage" CssClass="btn btn-lg btn-danger" CommandArgument="<%#: Item.PageNumber %>">Remove page </asp:LinkButton>
+                <asp:LinkButton runat="server" OnClick="RankDown" CssClass="btn btn-lg" CommandArgument="<%#: Item.PageNumber %>">-1 </asp:LinkButton>
+                <asp:LinkButton runat="server" OnClick="RankUp" CssClass="btn btn-lg" CommandArgument="<%#: Item.PageNumber %>">+1 </asp:LinkButton>
+
             </div>
         </ItemTemplate>
         <LayoutTemplate>
             
-            <div id="itemPlaceholderContainer" runat="server">
+            <div id="itemPlaceholderContainer" class="LV_Tuto_Edit" runat="server">
                 <div id="itemPlaceholder" runat="server"> </div>
             </div>
                         

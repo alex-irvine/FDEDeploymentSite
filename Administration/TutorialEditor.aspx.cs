@@ -49,16 +49,13 @@ namespace Administration
         {
             List<TutorialPage> pages = new List<TutorialPage>();
             // Send everything to Service
-            int i = 0;
             foreach (var item in LVTuto.Items)
             {
-                i += 1;
-
                 pages.Add(new TutorialPage()
                 {
-                    Text = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
-                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text,
-                    PageNumber = i
+                    Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
+                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
 
 
@@ -146,5 +143,174 @@ namespace Administration
             this.LVTuto.DataSource = TutoPages;
             this.LVTuto.DataBind();
         }
+
+        protected void DeletePage(object sender, EventArgs e)
+        {
+            string todelete = ((System.Web.UI.WebControls.LinkButton)sender).CommandArgument;
+            List<TutorialPage> pages = new List<TutorialPage>();
+            // Send everything to Service
+            int i = 0;
+            foreach (var item in LVTuto.Items)
+            {
+
+                i += 1;
+                pages.Add(new TutorialPage()
+                {
+                    Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
+                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
+                });
+
+
+            }
+            pages.RemoveAll(item => item.PageNumber.ToString()==todelete);
+
+            if (pages.Count > 0)
+            {
+                pages.FindAll(x => x.PageNumber > int.Parse(todelete)).ForEach(x => x.PageNumber = x.PageNumber-1);
+                using (Service1Client client = new Service1Client())
+                {
+
+                    UpdateTutorialItemResponse response = client.UpdateTutorialItem(
+                        new UpdateTutorialItemRequest()
+                        {
+                            TutorialItem = new TutorialItem()
+                            {
+                                // the new Tutorial item object (with same _id)
+                                _id = TutorialID.Text,
+                                Title = TutorialTitle.Text,
+                                Author = Author.Text,
+                                DateModified = DateTime.Now,
+                                Pages = pages.ToArray()
+                            }
+                        });
+
+                    if (!response.Errored)
+                    {
+                        // the Tutorial item is now updated
+                        Response.Redirect("~/TutorialEditor?id=" + Request.QueryString["id"]);
+                    }
+                }
+            }
+            else
+            {
+                using (Service1Client client = new Service1Client())
+                {
+                    DeleteTutorialItemResponse response = client.DeleteTutorialItem(
+                        new DeleteTutorialItemRequest()
+                        {
+                            _id = TutorialID.Text
+                        });
+
+                    if (!response.Errored)
+                    {
+                        Response.Redirect("~/Tutorials");
+                    }
+
+                }
+            }
+        }
+
+        protected void RankDown(object sender, EventArgs e)
+        {
+            int rank = int.Parse(((System.Web.UI.WebControls.LinkButton)sender).CommandArgument);
+            List<TutorialPage> pages = new List<TutorialPage>();
+            // Send everything to Service
+            int i = 0;
+            foreach (var item in LVTuto.Items)
+            {
+
+                i += 1;
+                pages.Add(new TutorialPage()
+                {
+                    Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
+                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
+                });
+
+
+            }
+            if (rank > 1)
+            {
+                pages.FindAll(x => x.PageNumber == rank).ForEach(x => x.PageNumber = -1);
+                pages.FindAll(x => x.PageNumber == rank - 1).ForEach(x => x.PageNumber = rank);
+                pages.FindAll(x => x.PageNumber == -1).ForEach(x => x.PageNumber = rank -1);
+
+                using (Service1Client client = new Service1Client())
+                {
+
+                    UpdateTutorialItemResponse response = client.UpdateTutorialItem(
+                        new UpdateTutorialItemRequest()
+                        {
+                            TutorialItem = new TutorialItem()
+                            {
+                                // the new Tutorial item object (with same _id)
+                                _id = TutorialID.Text,
+                                Title = TutorialTitle.Text,
+                                Author = Author.Text,
+                                DateModified = DateTime.Now,
+                                Pages = pages.ToArray()
+                            }
+                        });
+
+                    if (!response.Errored)
+                    {
+                        // the Tutorial item is now updated
+                        Response.Redirect("~/TutorialEditor?id=" + Request.QueryString["id"]);
+                    }
+                }
+            }
+        }
+
+        protected void RankUp(object sender, EventArgs e)
+        {
+            int rank = int.Parse(((System.Web.UI.WebControls.LinkButton)sender).CommandArgument);
+            List<TutorialPage> pages = new List<TutorialPage>();
+            // Send everything to Service
+            int i = 0;
+            foreach (var item in LVTuto.Items)
+            {
+
+                i += 1;
+                pages.Add(new TutorialPage()
+                {
+                    Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
+                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
+                });
+            }
+            if (rank < pages.Count)
+            {
+                pages.FindAll(x => x.PageNumber == rank).ForEach(x => x.PageNumber = -1);
+                pages.FindAll(x => x.PageNumber == rank+1).ForEach(x => x.PageNumber = rank);
+                pages.FindAll(x => x.PageNumber == -1).ForEach(x => x.PageNumber = rank+1);
+
+                using (Service1Client client = new Service1Client())
+                {
+
+                    UpdateTutorialItemResponse response = client.UpdateTutorialItem(
+                        new UpdateTutorialItemRequest()
+                        {
+                            TutorialItem = new TutorialItem()
+                            {
+                                // the new Tutorial item object (with same _id)
+                                _id = TutorialID.Text,
+                                Title = TutorialTitle.Text,
+                                Author = Author.Text,
+                                DateModified = DateTime.Now,
+                                Pages = pages.ToArray()
+                            }
+                        });
+
+                    if (!response.Errored)
+                    {
+                        // the Tutorial item is now updated
+                        Response.Redirect("~/TutorialEditor?id=" + Request.QueryString["id"]);
+                    }
+                }
+            }
+
+        }
+            
     }
 }
