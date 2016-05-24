@@ -44,7 +44,6 @@ var showPage = function (page) {
     else $("#prev_cont").html("<span id='prev'><< prev</span>");
     if (typeof tutorials[CURRENT_TUTO].pages[page] != 'undefined') $("#next_cont").html("<span id='next'>>> next</span>");
     else $("#next_cont").html("");
-    console.log(tutorials[CURRENT_TUTO].pages[page - 1])
 }
 
 /**
