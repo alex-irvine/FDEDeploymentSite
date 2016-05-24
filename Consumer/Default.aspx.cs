@@ -25,7 +25,12 @@ namespace Consumer
                 GetNewsItemsResponse response = _db.GetNewsItems();
                 if (!response.Errored)
                 {
-                    this.LVNews.DataSource = response.NewsItems.ToList<NewsItem>();
+                    NewsItem[] items = response.NewsItems;
+                    Array.Sort(items, delegate(NewsItem n1, NewsItem n2)
+                    {
+                        return DateTime.Compare(n2.Date_modified, n1.Date_modified);
+                    });
+                    this.LVNews.DataSource = items.ToList<NewsItem>();
                 }
                 else
                 {
