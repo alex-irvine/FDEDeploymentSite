@@ -103,3 +103,12 @@ input[type="select"] {
 .newsHeader {
     cursor: pointer;
 }
+
+.btn-addcomment {
+    float: right;
+    margin: 10px;
+    margin-right: 0;
+}
+.list_comments {
+    clear: both;
+}

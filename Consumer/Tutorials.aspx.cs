@@ -59,6 +59,10 @@ namespace Consumer
                 }
             }
 
+            res.Sort(delegate(TutorialItem t1, TutorialItem t2)
+            {
+                return DateTime.Compare(t2.DateModified, t1.DateModified);
+            });
             return res;
         }
     }
