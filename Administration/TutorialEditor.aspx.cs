@@ -54,7 +54,7 @@ namespace Administration
                 pages.Add(new TutorialPage()
                 {
                     Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
-                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    Video = checkVideo(((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text),
                     PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
 
@@ -99,7 +99,7 @@ namespace Administration
                 pages.Add(new TutorialPage()
                 {
                     Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
-                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    Video = checkVideo(((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text),
                     PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
 
@@ -157,7 +157,7 @@ namespace Administration
                 pages.Add(new TutorialPage()
                 {
                     Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
-                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    Video = checkVideo(((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text),
                     PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
 
@@ -224,7 +224,7 @@ namespace Administration
                 pages.Add(new TutorialPage()
                 {
                     Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
-                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    Video = checkVideo(((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text),
                     PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
 
@@ -275,7 +275,7 @@ namespace Administration
                 pages.Add(new TutorialPage()
                 {
                     Text = ((System.Web.UI.WebControls.TextBox)item.Controls[5]).Text,
-                    Video = ((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text,
+                    Video = checkVideo(((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text),
                     PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
             }
@@ -311,6 +311,22 @@ namespace Administration
             }
 
         }
-            
+
+        protected string checkVideo(string url)
+        {
+            string video;
+            if (url.Contains("?v="))
+            {
+                video = url.Substring(url.IndexOf("?v=")+3);
+            }
+            else
+            {
+                video = url;
+            }
+            if(!url.Contains("/embed/")){
+                video = "http://www.youtube.com/embed/" + video;
+            }
+            return video;
+        }
     }
 }
