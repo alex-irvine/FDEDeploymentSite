@@ -92,6 +92,11 @@ input[type="select"] {
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
+.tuto_search {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
 .newsText {
     display: none;
 }

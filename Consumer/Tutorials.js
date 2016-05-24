@@ -9,6 +9,9 @@ $(document).ready(function () {
     });
 });
 
+/**
+ * Show a tutorial in the main view
+ */
 var showTuto = function (id) {
     CURRENT_TUTO = id;
     CURRENT_PAGE = 1;
@@ -29,6 +32,9 @@ var showTuto = function (id) {
     else $("#next_cont").html("");
 }
 
+/**
+ * Show a new page of the current tutorial in the main view
+ */
 var showPage = function (page) {
     CURRENT_PAGE = page;
     $("#page_number").html(page);
@@ -41,6 +47,9 @@ var showPage = function (page) {
     console.log(tutorials[CURRENT_TUTO].pages[page - 1])
 }
 
+/**
+ * Listeners: click on prev and next page
+ */
 $(document).on("click", "#prev", function (e) {
     e.stopPropagation();
     showPage(CURRENT_PAGE - 1);
@@ -49,3 +58,38 @@ $(document).on("click", "#next", function (e) {
     e.stopPropagation();
     showPage(CURRENT_PAGE + 1);
 });
+
+/**
+ * Listener: search
+ */
+$(".tuto_search").on("keyup", function (e) {
+    var tutorialsFound = new Array();
+    var search = $(".tuto_search").val().toUpperCase();
+    $.each(tutorials, function (index, value) {
+        var titleUpper = value.title.toUpperCase();
+        if (titleUpper.indexOf(search) != -1) {
+            var t = value;
+            t["id"] = index;
+            tutorialsFound.push(t);
+        }
+    });
+    
+    if (search != "") {
+        updateTutoList(tutorialsFound);
+    } else updateTutoList("all");
+});
+
+var updateTutoList = function (tutorialsFound) {
+    $("#list_tuto").html("");
+    if (tutorialsFound == "all") {
+        $.each(tutorials, function (index, value) {
+            var idstring = "'" + index + "'";
+            $("#list_tuto").append("<li class='tutoClick' onclick=\"showTuto(" + idstring + ")\"><a>" + value.title + "</a></li>");
+        });
+    } else {
+        $.each(tutorialsFound, function (index, value) {
+            var idstring = "'" + value.id + "'";
+            $("#list_tuto").append("<li class='tutoClick' onclick=\"showTuto(" + idstring + ")\"><a>" + value.title + "</a></li>");
+        });
+    }
+}

@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Tutorials</h1>
     <div class="col-md-3">
-        <ul class="list-unstyled">
+        <input type="text" class="form-control tuto_search" placeholder="Search">
+        <ul id="list_tuto" class="list-unstyled">
         <asp:ListView ID="LVTuto" runat="server" ItemType="Consumer.ServiceReference1.TutorialItem" SelectMethod="GetTutorials" GroupItemCount="1" >
             <ItemTemplate>            
                 <li class="tutoClick" onclick="showTuto('<%#: Item._id %>')"><a><%#: Item.Title %></a></li>
