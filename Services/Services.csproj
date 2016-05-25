@@ -90,6 +90,7 @@
     <Compile Include="ITutorialService.cs" />
     <Compile Include="lib\AuthLib.cs" />
     <Compile Include="lib\Test.cs" />
+    <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\DownloadLog.cs" />
     <Compile Include="Model\ErrorInformation.cs" />
     <Compile Include="Model\FileRecord.cs" />

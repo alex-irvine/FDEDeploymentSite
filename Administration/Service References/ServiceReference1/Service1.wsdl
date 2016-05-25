@@ -140,6 +140,30 @@
   <wsdl:message name="IService1_UpdateTutorialItem_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTutorialItemResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_InsertComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertComment" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPublishedComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublishedComments" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPublishedComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublishedCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUnpublishedComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpublishedComments" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUnpublishedComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpublishedCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PublishComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishComment" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PublishComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishCommentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -228,6 +252,22 @@
     <wsdl:operation name="UpdateTutorialItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTutorialItem" message="tns:IService1_UpdateTutorialItem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTutorialItemResponse" message="tns:IService1_UpdateTutorialItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertComment" message="tns:IService1_InsertComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCommentResponse" message="tns:IService1_InsertComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishedComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPublishedComments" message="tns:IService1_GetPublishedComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPublishedCommentsResponse" message="tns:IService1_GetPublishedComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpublishedComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUnpublishedComments" message="tns:IService1_GetUnpublishedComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUnpublishedCommentsResponse" message="tns:IService1_GetUnpublishedComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PublishComment" message="tns:IService1_PublishComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PublishCommentResponse" message="tns:IService1_PublishComment_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -423,6 +463,42 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateTutorialItem">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateTutorialItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertComment">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishedComments">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPublishedComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpublishedComments">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUnpublishedComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishComment">
+      <soap:operation soapAction="http://tempuri.org/IService1/PublishComment" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

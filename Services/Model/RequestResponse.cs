@@ -328,4 +328,50 @@ namespace Services.Model
 
     #endregion
 
+    #region Comments
+
+    [DataContract]
+    public class InsertCommentRequest
+    {
+        [DataMember]
+        public Comment Comment { get; set; }
+    }
+
+    [DataContract]
+    public class InsertCommentResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContract]
+    public class GetPublishedCommentsResponse : ErrorInformation
+    {
+        [DataMember]
+        public List<Comment> Comments { get; set; }
+    }
+
+    [DataContract]
+    public class GetUnpublishedCommentsResponse : ErrorInformation
+    {
+        [DataMember]
+        public List<Comment> Comments { get; set; }
+    }
+
+    [DataContract]
+    public class PublishCommentResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContract]
+    public class PublishCommentRequest
+    {
+        [DataMember]
+        public string _id { get; set; }
+
+        [DataMember]
+        public bool IsPublished { get; set; }
+    }
+
+    #endregion
 }

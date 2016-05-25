@@ -72,6 +72,21 @@ namespace Services
         [OperationContract]
         UpdateTutorialItemResponse UpdateTutorialItem(UpdateTutorialItemRequest request);
         #endregion
+
+        #region Comments
+
+        [OperationContract]
+        InsertCommentResponse InsertComment(InsertCommentRequest request);
+        [OperationContract]
+        GetPublishedCommentsResponse GetPublishedComments();
+        [OperationContract]
+        GetUnpublishedCommentsResponse GetUnpublishedComments();
+        [OperationContract]
+        PublishCommentResponse PublishComment(PublishCommentRequest request);
+        //[OperationContract]
+        //void DeleteComments();
+        
+        #endregion
     }
 
 

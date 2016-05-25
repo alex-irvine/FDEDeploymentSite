@@ -990,5 +990,204 @@ namespace Services
         }
 
         #endregion
+
+        #region Comments
+
+        /// <summary>
+        /// Inserts a tutorial item object to the DB
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public InsertCommentResponse InsertComment(InsertCommentRequest request)
+        {
+            // try and insert the new object
+            try
+            {
+                // get mongo DB
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Comment>("Comment");
+
+                // insert the new object
+                col.InsertOne(request.Comment);
+
+                // no exception means success
+                return new InsertCommentResponse()
+                {
+                    Errored = false,
+                    Message = "Comment sent"
+                };
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new InsertCommentResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// gets all published tutorial items
+        /// </summary>
+        /// <returns></returns>
+        public GetPublishedCommentsResponse GetPublishedComments()
+        {
+            // try and get published tutorials
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // collection
+                var col = db.GetCollection<Comment>("Comment");
+
+                // find and return publish tutorials
+                return new GetPublishedCommentsResponse()
+                {
+                    Comments = col.Find(new BsonDocument("Published", true)).ToList(),
+                    Errored = false,
+                    Message = "Success"
+                };
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new GetPublishedCommentsResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// gets all published tutorial items
+        /// </summary>
+        /// <returns></returns>
+        public GetUnpublishedCommentsResponse GetUnpublishedComments()
+        {
+            // try and get published tutorials
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // collection
+                var col = db.GetCollection<Comment>("Comment");
+
+                // find and return publish tutorials
+                return new GetUnpublishedCommentsResponse()
+                {
+                    Comments = col.Find(new BsonDocument("Published", false)).ToList(),
+                    Errored = false,
+                    Message = "Success"
+                };
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new GetUnpublishedCommentsResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// sets the publish flag as per the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public PublishCommentResponse PublishComment(PublishCommentRequest request)
+        {
+            // try and change the publish flag on the sent _id
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Comment>("Comment");
+
+                // update the item
+                var updated = col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)),
+                                            new BsonDocument("$set",
+                                            new BsonDocument("Published", request.IsPublished)));
+
+                // check if we need to update published date
+                if (request.IsPublished)
+                {
+                    col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)),
+                                  new BsonDocument("$set",
+                                  new BsonDocument("Date_published", DateTime.Now)));
+                }
+
+                // error stuff
+                if (updated.ModifiedCount == 1)
+                {
+                    return new PublishCommentResponse()
+                    {
+                        Errored = false,
+                        Message = "Success"
+                    };
+                }
+                else
+                {
+                    return new PublishCommentResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching document or no update to process"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new PublishCommentResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        ///// <summary>
+        ///// delete the item by _id requested
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //public void DeleteComments()
+        //{
+        //    // try and delete the requested item
+        //    try
+        //    {
+        //        // client and db
+        //        var client = new MongoClient(SysConfig.DBconn);
+        //        var db = client.GetDatabase(SysConfig.DBname);
+
+        //        // get collection
+        //        var col = db.GetCollection<Comment>("Comment");
+
+        //        // buhbye
+        //        var deleted = col.DeleteMany(new BsonDocument("Published",true));
+
+                
+        //    }
+        //    // DB errors
+        //    catch (Exception ex)
+        //    {
+                
+        //    }
+        //}
+        #endregion
     }
 }

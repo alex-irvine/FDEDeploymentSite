@@ -55,6 +55,7 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Software">Software</a></li>
                         <li><a runat="server" href="~/Tutorials">Tutorials</a></li>
+                        <li><a runat="server" href="~/Comments">Comments</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>

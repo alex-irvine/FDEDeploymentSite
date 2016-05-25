@@ -102,8 +102,6 @@ Z:\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.dll
 \\fs3\Year15$\S15005622\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
-C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
-C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Administration.dll.config
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Administration.dll
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Administration.pdb
@@ -155,4 +153,6 @@ C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Tony\DesignGUI_PublishingPlatform\Administration\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.csprojResolveAssemblyReference.cache
 C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.dll
+C:\Tony\DesignGUI_PublishingPlatform\Administration\obj\Debug\Administration.pdb
