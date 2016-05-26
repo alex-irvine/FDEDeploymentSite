@@ -63,6 +63,57 @@ namespace Services.Model
         public string Username { get; set; }
     }
 
+    [DataContractAttribute]
+    public class GetApprovedUsersResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public List<Person> Users { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class GetNotApprovedUsersResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public List<Person> Users { get; set; }
+    }
+    [DataContractAttribute]
+    public class ApproveUserResponse : ErrorInformation
+    {
+
+    }
+    [DataContractAttribute]
+    public class ApproveUserRequest
+    {
+        [DataMemberAttribute]
+        public string _id { get; set; }
+        [DataMemberAttribute]
+        public bool Approve { get; set; }
+    }
+    [DataContractAttribute]
+    public class DeleteUsersResponse : ErrorInformation
+    {
+        
+    }
+
+    [DataContractAttribute]
+    public class DeleteUsersRequest
+    {
+        [DataMemberAttribute]
+        public string _id { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class SetAdminResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContractAttribute]
+    public class SetAdminRequest
+    {
+        [DataMemberAttribute]
+        public string _id { get; set; }
+    }
     #endregion
 
     #region News

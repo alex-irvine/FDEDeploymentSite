@@ -28,6 +28,13 @@ namespace Services
         AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
         [OperationContract]
         RegisterUserResponse RegisterUser(RegisterUserRequest request);
+        [OperationContract]
+        GetApprovedUsersResponse GetApprovedUsers();
+        [OperationContract]
+        GetNotApprovedUsersResponse GetNotApprovedUsers();
+        [OperationContract]
+        ApproveUserResponse ApproveUser(ApproveUserRequest request);
+        
         #endregion
 
         #region News

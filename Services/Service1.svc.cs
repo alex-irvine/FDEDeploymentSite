@@ -92,6 +92,108 @@ namespace Services
         }
 
         /// <summary>
+        /// Test service
+        /// </summary>
+        /// <returns></returns>
+        public GetApprovedUsersResponse GetApprovedUsers()
+        {
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<Person>("Users");
+
+                // get person
+                List<Person> user = collection.Find(new BsonDocument("IsApproved", true)).ToList<Person>();
+
+                if (user != null)
+                {
+                    // cleanse password data
+                    user.ForEach(x => x.Password = null);
+                    user.ForEach(x => x.Salt = null);
+                    
+                    // return the user
+                    return new GetApprovedUsersResponse()
+                    {
+                        Users = user,
+                        Errored = false,
+                        Message = "Person found"
+                    };
+                }
+                else
+                {
+                    return new GetApprovedUsersResponse()
+                    {
+                        Errored = true,
+                        Message = "Person not found"
+                    };
+                }
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                return new GetApprovedUsersResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// Test service
+        /// </summary>
+        /// <returns></returns>
+        public GetNotApprovedUsersResponse GetNotApprovedUsers()
+        {
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<Person>("Users");
+
+                // get person
+                List<Person> user = collection.Find(new BsonDocument("IsApproved", false)).ToList<Person>();
+
+                if (user != null)
+                {
+                    // cleanse password data
+                    user.ForEach(x => x.Password = null);
+                    user.ForEach(x => x.Salt = null);
+
+                    // return the user
+                    return new GetNotApprovedUsersResponse()
+                    {
+                        Users = user,
+                        Errored = false,
+                        Message = "Person found"
+                    };
+                }
+                else
+                {
+                    return new GetNotApprovedUsersResponse()
+                    {
+                        Errored = true,
+                        Message = "Person not found"
+                    };
+                }
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                return new GetNotApprovedUsersResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
         /// Test authenticator
         /// </summary>
         /// <param name="request"></param>
@@ -218,6 +320,59 @@ namespace Services
             }
 
         }
+
+        /// <summary>
+        /// sets the publish flag as per the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public ApproveUserResponse ApproveUser(ApproveUserRequest request)
+        {
+            // try and change the publish flag on the sent _id
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Comment>("Users");
+
+                // update the item
+                var updated = col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)),
+                                            new BsonDocument("$set",
+                                            new BsonDocument("IsApproved", request.Approve)));
+
+                
+                // error stuff
+                if (updated.ModifiedCount == 1)
+                {
+                    return new ApproveUserResponse()
+                    {
+                        Errored = false,
+                        Message = "Success"
+                    };
+                }
+                else
+                {
+                    return new ApproveUserResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching document or no update to process"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new ApproveUserResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
         #endregion
 
         #region News
@@ -1160,34 +1315,7 @@ namespace Services
             }
         }
 
-        ///// <summary>
-        ///// delete the item by _id requested
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //public void DeleteComments()
-        //{
-        //    // try and delete the requested item
-        //    try
-        //    {
-        //        // client and db
-        //        var client = new MongoClient(SysConfig.DBconn);
-        //        var db = client.GetDatabase(SysConfig.DBname);
-
-        //        // get collection
-        //        var col = db.GetCollection<Comment>("Comment");
-
-        //        // buhbye
-        //        var deleted = col.DeleteMany(new BsonDocument("Published",true));
-
-                
-        //    }
-        //    // DB errors
-        //    catch (Exception ex)
-        //    {
-                
-        //    }
-        //}
+        
         #endregion
     }
 }
