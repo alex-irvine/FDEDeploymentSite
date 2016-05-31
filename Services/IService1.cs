@@ -34,6 +34,8 @@ namespace Services
         GetNotApprovedUsersResponse GetNotApprovedUsers();
         [OperationContract]
         ApproveUserResponse ApproveUser(ApproveUserRequest request);
+        [OperationContract]
+        void RemoveAllUsers();
         
         #endregion
 

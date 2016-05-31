@@ -277,6 +277,7 @@ namespace Services
             byte[] pass = AuthLib.CreateHash(request.User.Password, salt);
             request.User.Password = Convert.ToBase64String(pass);
 
+            request.User.IsApproved = false;
             // add user to DB
             try
             {
@@ -373,6 +374,37 @@ namespace Services
             }
         }
 
+        public void RemoveAllUsers()
+        {
+            // try and delete the requested item
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Person>("Users");
+
+                // buhbye
+                var deleted = col.DeleteMany(new BsonDocument("IsAdmin",true));
+
+                // error stuff
+                if (deleted.DeletedCount == 1)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                
+            }
+        }
         #endregion
 
         #region News

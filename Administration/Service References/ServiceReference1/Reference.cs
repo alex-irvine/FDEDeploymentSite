@@ -125,6 +125,9 @@ namespace Administration.ServiceReference1 {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.AuthenticateUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.RegisterUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetApprovedUsersResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNotApprovedUsersResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.ApproveUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPublishedNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemByIdResponse))]
@@ -264,6 +267,59 @@ namespace Administration.ServiceReference1 {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetApprovedUsersResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetApprovedUsersResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.Person[] UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.Person[] Users {
+            get {
+                return this.UsersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
+                    this.UsersField = value;
+                    this.RaisePropertyChanged("Users");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetNotApprovedUsersResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetNotApprovedUsersResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.Person[] UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.Person[] Users {
+            get {
+                return this.UsersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
+                    this.UsersField = value;
+                    this.RaisePropertyChanged("Users");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApproveUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class ApproveUserResponse : Administration.ServiceReference1.ErrorInformation {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -660,6 +716,9 @@ namespace Administration.ServiceReference1 {
         private bool IsAdminField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -703,6 +762,19 @@ namespace Administration.ServiceReference1 {
                 if ((this.IsAdminField.Equals(value) != true)) {
                     this.IsAdminField = value;
                     this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsApproved {
+            get {
+                return this.IsApprovedField;
+            }
+            set {
+                if ((this.IsApprovedField.Equals(value) != true)) {
+                    this.IsApprovedField = value;
+                    this.RaisePropertyChanged("IsApproved");
                 }
             }
         }
@@ -1329,6 +1401,67 @@ namespace Administration.ServiceReference1 {
                 if ((object.ReferenceEquals(this.UserField, value) != true)) {
                     this.UserField = value;
                     this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApproveUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class ApproveUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ApproveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Approve {
+            get {
+                return this.ApproveField;
+            }
+            set {
+                if ((this.ApproveField.Equals(value) != true)) {
+                    this.ApproveField = value;
+                    this.RaisePropertyChanged("Approve");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
                 }
             }
         }
@@ -2148,6 +2281,24 @@ namespace Administration.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetApprovedUsersResponse")]
+        Administration.ServiceReference1.GetApprovedUsersResponse GetApprovedUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetApprovedUsersResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetApprovedUsersResponse> GetApprovedUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNotApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetNotApprovedUsersResponse")]
+        Administration.ServiceReference1.GetNotApprovedUsersResponse GetNotApprovedUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNotApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetNotApprovedUsersResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetNotApprovedUsersResponse> GetNotApprovedUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ApproveUser", ReplyAction="http://tempuri.org/IService1/ApproveUserResponse")]
+        Administration.ServiceReference1.ApproveUserResponse ApproveUser(Administration.ServiceReference1.ApproveUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ApproveUser", ReplyAction="http://tempuri.org/IService1/ApproveUserResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.ApproveUserResponse> ApproveUserAsync(Administration.ServiceReference1.ApproveUserRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItems", ReplyAction="http://tempuri.org/IService1/GetNewsItemsResponse")]
         Administration.ServiceReference1.GetNewsItemsResponse GetNewsItems();
         
@@ -2340,6 +2491,30 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Administration.ServiceReference1.RegisterUserRequest request) {
             return base.Channel.RegisterUserAsync(request);
+        }
+        
+        public Administration.ServiceReference1.GetApprovedUsersResponse GetApprovedUsers() {
+            return base.Channel.GetApprovedUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetApprovedUsersResponse> GetApprovedUsersAsync() {
+            return base.Channel.GetApprovedUsersAsync();
+        }
+        
+        public Administration.ServiceReference1.GetNotApprovedUsersResponse GetNotApprovedUsers() {
+            return base.Channel.GetNotApprovedUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetNotApprovedUsersResponse> GetNotApprovedUsersAsync() {
+            return base.Channel.GetNotApprovedUsersAsync();
+        }
+        
+        public Administration.ServiceReference1.ApproveUserResponse ApproveUser(Administration.ServiceReference1.ApproveUserRequest request) {
+            return base.Channel.ApproveUser(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.ApproveUserResponse> ApproveUserAsync(Administration.ServiceReference1.ApproveUserRequest request) {
+            return base.Channel.ApproveUserAsync(request);
         }
         
         public Administration.ServiceReference1.GetNewsItemsResponse GetNewsItems() {

@@ -292,6 +292,15 @@
     <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.PublishCommentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.ApproveUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetApprovedUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetNotApprovedUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -320,6 +329,7 @@
     <Content Include="TutorialEditor.aspx" />
     <Content Include="Tutorials.aspx" />
     <Content Include="TutorialView.aspx" />
+    <Content Include="UsersManagement.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -556,6 +566,13 @@
     </Compile>
     <Compile Include="TutorialView.aspx.designer.cs">
       <DependentUpon>TutorialView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsersManagement.aspx.cs">
+      <DependentUpon>UsersManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsersManagement.aspx.designer.cs">
+      <DependentUpon>UsersManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

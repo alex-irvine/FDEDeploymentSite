@@ -38,6 +38,24 @@
   <wsdl:message name="IService1_RegisterUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetApprovedUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovedUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetApprovedUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovedUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetNotApprovedUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotApprovedUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetNotApprovedUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotApprovedUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ApproveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ApproveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetNewsItems_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsItems" />
   </wsdl:message>
@@ -185,6 +203,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RegisterUserResponse" message="tns:IService1_RegisterUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetApprovedUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetApprovedUsers" message="tns:IService1_GetApprovedUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetApprovedUsersResponse" message="tns:IService1_GetApprovedUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotApprovedUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNotApprovedUsers" message="tns:IService1_GetNotApprovedUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNotApprovedUsersResponse" message="tns:IService1_GetNotApprovedUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ApproveUser" message="tns:IService1_ApproveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ApproveUserResponse" message="tns:IService1_ApproveUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetNewsItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNewsItems" message="tns:IService1_GetNewsItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNewsItemsResponse" message="tns:IService1_GetNewsItems_OutputMessage" />
@@ -310,6 +340,33 @@
     </wsdl:operation>
     <wsdl:operation name="RegisterUser">
       <soap:operation soapAction="http://tempuri.org/IService1/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovedUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetApprovedUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotApprovedUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetNotApprovedUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/ApproveUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

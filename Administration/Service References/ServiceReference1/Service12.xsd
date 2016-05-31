@@ -27,6 +27,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Salt" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
@@ -68,6 +69,47 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="RegisterUserResponse" nillable="true" type="tns:RegisterUserResponse" />
+  <xs:complexType name="GetApprovedUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApprovedUsersResponse" nillable="true" type="tns:GetApprovedUsersResponse" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="GetNotApprovedUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNotApprovedUsersResponse" nillable="true" type="tns:GetNotApprovedUsersResponse" />
+  <xs:complexType name="ApproveUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Approve" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApproveUserRequest" nillable="true" type="tns:ApproveUserRequest" />
+  <xs:complexType name="ApproveUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApproveUserResponse" nillable="true" type="tns:ApproveUserResponse" />
   <xs:complexType name="GetNewsItemsResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">
