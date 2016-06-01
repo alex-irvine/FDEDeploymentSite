@@ -6,9 +6,10 @@
     <asp:Button id="btnAddComment" runat="server" text="Add"  OnClick="btnAddComment_Click" CssClass="btn btn-success btn-addcomment"/>
 
     <ul class="list_comments">
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
+        <asp:ListView ID="LVComments" runat="server" ItemType="Consumer.ServiceReference1.Comment" SelectMethod="GetComments" GroupItemCount="1" >
+            <ItemTemplate>            
+                <li><strong><%#: Item.Author %></strong> : <%#: Item.Text %></li>
+            </ItemTemplate>
+        </asp:ListView>
     </ul>
 </asp:Content>

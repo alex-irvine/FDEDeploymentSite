@@ -125,6 +125,9 @@ namespace Consumer.ServiceReference1 {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.AuthenticateUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.RegisterUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetApprovedUsersResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetNotApprovedUsersResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.ApproveUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetPublishedNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetNewsItemByIdResponse))]
@@ -142,6 +145,10 @@ namespace Consumer.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetTutorialItemByIdResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.DeleteTutorialItemResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.UpdateTutorialItemResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.InsertCommentResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetPublishedCommentsResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetUnpublishedCommentsResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.PublishCommentResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Consumer.ServiceReference1.GetPersonResponse))]
     public partial class ErrorInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -260,6 +267,59 @@ namespace Consumer.ServiceReference1 {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetApprovedUsersResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetApprovedUsersResponse : Consumer.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Consumer.ServiceReference1.Person[] UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Consumer.ServiceReference1.Person[] Users {
+            get {
+                return this.UsersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
+                    this.UsersField = value;
+                    this.RaisePropertyChanged("Users");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetNotApprovedUsersResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetNotApprovedUsersResponse : Consumer.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Consumer.ServiceReference1.Person[] UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Consumer.ServiceReference1.Person[] Users {
+            get {
+                return this.UsersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
+                    this.UsersField = value;
+                    this.RaisePropertyChanged("Users");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApproveUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class ApproveUserResponse : Consumer.ServiceReference1.ErrorInformation {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -559,6 +619,66 @@ namespace Consumer.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertCommentResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class InsertCommentResponse : Consumer.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetPublishedCommentsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetPublishedCommentsResponse : Consumer.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Consumer.ServiceReference1.Comment[] CommentsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Consumer.ServiceReference1.Comment[] Comments {
+            get {
+                return this.CommentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentsField, value) != true)) {
+                    this.CommentsField = value;
+                    this.RaisePropertyChanged("Comments");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetUnpublishedCommentsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetUnpublishedCommentsResponse : Consumer.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Consumer.ServiceReference1.Comment[] CommentsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Consumer.ServiceReference1.Comment[] Comments {
+            get {
+                return this.CommentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentsField, value) != true)) {
+                    this.CommentsField = value;
+                    this.RaisePropertyChanged("Comments");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublishCommentResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class PublishCommentResponse : Consumer.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GetPersonResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class GetPersonResponse : Consumer.ServiceReference1.ErrorInformation {
@@ -594,6 +714,9 @@ namespace Consumer.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsAdminField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsApprovedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -639,6 +762,19 @@ namespace Consumer.ServiceReference1 {
                 if ((this.IsAdminField.Equals(value) != true)) {
                     this.IsAdminField = value;
                     this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsApproved {
+            get {
+                return this.IsApprovedField;
+            }
+            set {
+                if ((this.IsApprovedField.Equals(value) != true)) {
+                    this.IsApprovedField = value;
+                    this.RaisePropertyChanged("IsApproved");
                 }
             }
         }
@@ -1066,6 +1202,115 @@ namespace Consumer.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Comment", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class Comment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Date_publishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Author {
+            get {
+                return this.AuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date_published {
+            get {
+                return this.Date_publishedField;
+            }
+            set {
+                if ((this.Date_publishedField.Equals(value) != true)) {
+                    this.Date_publishedField = value;
+                    this.RaisePropertyChanged("Date_published");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Published {
+            get {
+                return this.PublishedField;
+            }
+            set {
+                if ((this.PublishedField.Equals(value) != true)) {
+                    this.PublishedField = value;
+                    this.RaisePropertyChanged("Published");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text {
+            get {
+                return this.TextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextField, value) != true)) {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AuthenticateUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class AuthenticateUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1156,6 +1401,67 @@ namespace Consumer.ServiceReference1 {
                 if ((object.ReferenceEquals(this.UserField, value) != true)) {
                     this.UserField = value;
                     this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApproveUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class ApproveUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ApproveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Approve {
+            get {
+                return this.ApproveField;
+            }
+            set {
+                if ((this.ApproveField.Equals(value) != true)) {
+                    this.ApproveField = value;
+                    this.RaisePropertyChanged("Approve");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
                 }
             }
         }
@@ -1835,6 +2141,112 @@ namespace Consumer.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertCommentRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class InsertCommentRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Consumer.ServiceReference1.Comment CommentField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Consumer.ServiceReference1.Comment Comment {
+            get {
+                return this.CommentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentField, value) != true)) {
+                    this.CommentField = value;
+                    this.RaisePropertyChanged("Comment");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublishCommentRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class PublishCommentRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsPublishedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsPublished {
+            get {
+                return this.IsPublishedField;
+            }
+            set {
+                if ((this.IsPublishedField.Equals(value) != true)) {
+                    this.IsPublishedField = value;
+                    this.RaisePropertyChanged("IsPublished");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -1868,6 +2280,30 @@ namespace Consumer.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegisterUser", ReplyAction="http://tempuri.org/IService1/RegisterUserResponse")]
         System.Threading.Tasks.Task<Consumer.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Consumer.ServiceReference1.RegisterUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetApprovedUsersResponse")]
+        Consumer.ServiceReference1.GetApprovedUsersResponse GetApprovedUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetApprovedUsersResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.GetApprovedUsersResponse> GetApprovedUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNotApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetNotApprovedUsersResponse")]
+        Consumer.ServiceReference1.GetNotApprovedUsersResponse GetNotApprovedUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNotApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetNotApprovedUsersResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.GetNotApprovedUsersResponse> GetNotApprovedUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ApproveUser", ReplyAction="http://tempuri.org/IService1/ApproveUserResponse")]
+        Consumer.ServiceReference1.ApproveUserResponse ApproveUser(Consumer.ServiceReference1.ApproveUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ApproveUser", ReplyAction="http://tempuri.org/IService1/ApproveUserResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.ApproveUserResponse> ApproveUserAsync(Consumer.ServiceReference1.ApproveUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAllUsers", ReplyAction="http://tempuri.org/IService1/RemoveAllUsersResponse")]
+        void RemoveAllUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAllUsers", ReplyAction="http://tempuri.org/IService1/RemoveAllUsersResponse")]
+        System.Threading.Tasks.Task RemoveAllUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItems", ReplyAction="http://tempuri.org/IService1/GetNewsItemsResponse")]
         Consumer.ServiceReference1.GetNewsItemsResponse GetNewsItems();
@@ -1970,6 +2406,30 @@ namespace Consumer.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTutorialItem", ReplyAction="http://tempuri.org/IService1/UpdateTutorialItemResponse")]
         System.Threading.Tasks.Task<Consumer.ServiceReference1.UpdateTutorialItemResponse> UpdateTutorialItemAsync(Consumer.ServiceReference1.UpdateTutorialItemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertComment", ReplyAction="http://tempuri.org/IService1/InsertCommentResponse")]
+        Consumer.ServiceReference1.InsertCommentResponse InsertComment(Consumer.ServiceReference1.InsertCommentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertComment", ReplyAction="http://tempuri.org/IService1/InsertCommentResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.InsertCommentResponse> InsertCommentAsync(Consumer.ServiceReference1.InsertCommentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublishedComments", ReplyAction="http://tempuri.org/IService1/GetPublishedCommentsResponse")]
+        Consumer.ServiceReference1.GetPublishedCommentsResponse GetPublishedComments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublishedComments", ReplyAction="http://tempuri.org/IService1/GetPublishedCommentsResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.GetPublishedCommentsResponse> GetPublishedCommentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUnpublishedComments", ReplyAction="http://tempuri.org/IService1/GetUnpublishedCommentsResponse")]
+        Consumer.ServiceReference1.GetUnpublishedCommentsResponse GetUnpublishedComments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUnpublishedComments", ReplyAction="http://tempuri.org/IService1/GetUnpublishedCommentsResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.GetUnpublishedCommentsResponse> GetUnpublishedCommentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PublishComment", ReplyAction="http://tempuri.org/IService1/PublishCommentResponse")]
+        Consumer.ServiceReference1.PublishCommentResponse PublishComment(Consumer.ServiceReference1.PublishCommentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PublishComment", ReplyAction="http://tempuri.org/IService1/PublishCommentResponse")]
+        System.Threading.Tasks.Task<Consumer.ServiceReference1.PublishCommentResponse> PublishCommentAsync(Consumer.ServiceReference1.PublishCommentRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2037,6 +2497,38 @@ namespace Consumer.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Consumer.ServiceReference1.RegisterUserResponse> RegisterUserAsync(Consumer.ServiceReference1.RegisterUserRequest request) {
             return base.Channel.RegisterUserAsync(request);
+        }
+        
+        public Consumer.ServiceReference1.GetApprovedUsersResponse GetApprovedUsers() {
+            return base.Channel.GetApprovedUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.GetApprovedUsersResponse> GetApprovedUsersAsync() {
+            return base.Channel.GetApprovedUsersAsync();
+        }
+        
+        public Consumer.ServiceReference1.GetNotApprovedUsersResponse GetNotApprovedUsers() {
+            return base.Channel.GetNotApprovedUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.GetNotApprovedUsersResponse> GetNotApprovedUsersAsync() {
+            return base.Channel.GetNotApprovedUsersAsync();
+        }
+        
+        public Consumer.ServiceReference1.ApproveUserResponse ApproveUser(Consumer.ServiceReference1.ApproveUserRequest request) {
+            return base.Channel.ApproveUser(request);
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.ApproveUserResponse> ApproveUserAsync(Consumer.ServiceReference1.ApproveUserRequest request) {
+            return base.Channel.ApproveUserAsync(request);
+        }
+        
+        public void RemoveAllUsers() {
+            base.Channel.RemoveAllUsers();
+        }
+        
+        public System.Threading.Tasks.Task RemoveAllUsersAsync() {
+            return base.Channel.RemoveAllUsersAsync();
         }
         
         public Consumer.ServiceReference1.GetNewsItemsResponse GetNewsItems() {
@@ -2173,6 +2665,38 @@ namespace Consumer.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Consumer.ServiceReference1.UpdateTutorialItemResponse> UpdateTutorialItemAsync(Consumer.ServiceReference1.UpdateTutorialItemRequest request) {
             return base.Channel.UpdateTutorialItemAsync(request);
+        }
+        
+        public Consumer.ServiceReference1.InsertCommentResponse InsertComment(Consumer.ServiceReference1.InsertCommentRequest request) {
+            return base.Channel.InsertComment(request);
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.InsertCommentResponse> InsertCommentAsync(Consumer.ServiceReference1.InsertCommentRequest request) {
+            return base.Channel.InsertCommentAsync(request);
+        }
+        
+        public Consumer.ServiceReference1.GetPublishedCommentsResponse GetPublishedComments() {
+            return base.Channel.GetPublishedComments();
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.GetPublishedCommentsResponse> GetPublishedCommentsAsync() {
+            return base.Channel.GetPublishedCommentsAsync();
+        }
+        
+        public Consumer.ServiceReference1.GetUnpublishedCommentsResponse GetUnpublishedComments() {
+            return base.Channel.GetUnpublishedComments();
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.GetUnpublishedCommentsResponse> GetUnpublishedCommentsAsync() {
+            return base.Channel.GetUnpublishedCommentsAsync();
+        }
+        
+        public Consumer.ServiceReference1.PublishCommentResponse PublishComment(Consumer.ServiceReference1.PublishCommentRequest request) {
+            return base.Channel.PublishComment(request);
+        }
+        
+        public System.Threading.Tasks.Task<Consumer.ServiceReference1.PublishCommentResponse> PublishCommentAsync(Consumer.ServiceReference1.PublishCommentRequest request) {
+            return base.Channel.PublishCommentAsync(request);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consumer.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,40 @@ namespace Consumer
         protected void btnAddComment_Click(object sender, EventArgs e)
         {
             string comm = comment.Value;
+            using (Service1Client client = new Service1Client())
+            {
+                InsertCommentResponse response = client.InsertComment(new InsertCommentRequest()
+                {
+                    Comment = new Comment()
+                    {
+                        Text = comm,
+                        Author = ((Person)Session["User"]).Username
+                    }
+                });
+                if (!response.Errored)
+                {
+                    Response.Redirect("~/Comments");
+                }
+            }
+        }
+
+        public List<ServiceReference1.Comment> GetComments()
+        {
+            List<ServiceReference1.Comment> res = new List<ServiceReference1.Comment> ();
+            using (var client = new Service1Client())
+            {
+                GetPublishedCommentsResponse response = client.GetPublishedComments();
+                if (!response.Errored)
+                {
+                    Comment[] comms = response.Comments;
+                    foreach (Comment c in comms)
+                    {
+                        res.Add(c);
+                    }
+                }
+            }
+
+            return res;
         }
     }
 }
