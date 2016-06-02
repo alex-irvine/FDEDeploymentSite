@@ -10,98 +10,118 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="NotApproved">
-        <asp:ListView runat="server" ID="NotApprovedUsers" ItemType="Administration.ServiceReference1.Person" OnPreRender="Users_PreRender">
-            <EmptyDataTemplate>
-                <table>
-                    <tr>
-                        <td>No news was returned.</td>
-                    </tr>
-                </table>
-            </EmptyDataTemplate>
-            <ItemTemplate>            
+        <table id="NotApprovedTable" class="display" >
+            <thead>
                 <tr>
-                    <td><%#: Item.Username %></td>
-                    <td><%#: Item.IsAdmin %></td>
-                    <td><%#: Item.Company %></td>
-                    <td><asp:LinkButton runat="server" OnClick="Approve_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default">Approve</asp:LinkButton></td>
+                    <th>Username</th>
+                    <th>Administrator</th>
+                    <th>Company</th>
+                    <th>Action</th>
                 </tr>
-            </ItemTemplate>
-            <LayoutTemplate>
-            
-                <table id="itemPlaceholderContainer" class="table table-hover" runat="server">
-                    <thead>
-                        <tr>
-                            <th>Text</th>
-                            <th>Author</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Username</th>
+                    <th>Administrator</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+            <asp:ListView runat="server" ID="NotApprovedUsers" ItemType="Administration.ServiceReference1.Person" OnPreRender="Users_PreRender">
+                <EmptyDataTemplate>
                     <tbody>
-                        <tr id="itemPlaceholder" runat="server"> </tr>
+                        <tr>
+                            <td>No news was returned.</td>
+                        </tr>
                     </tbody>
-                </table>
-                <asp:DataPager ID="DataPagerUsers" runat="server" PagedControlID="NotApprovedUsers" PageSize="15" OnPreRender="Users_PreRender">
-                    <Fields>
-                        <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
-                        <asp:NumericPagerField />
-                        <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
-                    </Fields>
-                </asp:DataPager>
-            </LayoutTemplate>
-        </asp:ListView>
+                </EmptyDataTemplate>
+                <ItemTemplate>            
+                    <tr>
+                        <td><%#: Item.Username %></td>
+                        <td><%#: Item.IsAdmin %></td>
+                        <td><%#: Item.Company %></td>
+                        <td>
+                            <asp:LinkButton runat="server" OnClick="Approve_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Approve</asp:LinkButton>
+                            <asp:LinkButton runat="server" OnClick="Delete_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <LayoutTemplate>
+            
+                
+                        <tbody id="itemPlaceholderContainer">
+                            <tr id="itemPlaceholder" runat="server"></tr>
+                        </tbody>
+                
+                </LayoutTemplate>
+            </asp:ListView>
+        </table>
     </div>
     <div role="tabpanel" class="tab-pane" id="Approved">
-        <asp:ListView runat="server" ID="ApprovedUsers" ItemType="Administration.ServiceReference1.Person" OnPreRender="ApprovedUsers_PreRender">
-            <EmptyDataTemplate>
-                <table>
-                    <tr>
-                        <td>No news was returned.</td>
-                    </tr>
-                </table>
-            </EmptyDataTemplate>
-            <ItemTemplate>            
+        <table id="ApprovedTable" class="display" >
+            <thead>
                 <tr>
-                    <td><%#: Item.Username %></td>
-                    <td><%#: Item.IsAdmin %></td>
-                    <td><%#: Item.Company %></td>
-                    <td><asp:LinkButton runat="server" OnClick="NotApprove_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default">Don't approve</asp:LinkButton></td>
+                    <th>Username</th>
+                    <th>Administrator</th>
+                    <th>Company</th>
+                    <th>Action</th>
                 </tr>
-            </ItemTemplate>
-            <LayoutTemplate>
-            
-                <table id="itemPlaceholderContainer" class="table table-hover" runat="server">
-                    <thead>
-                        <tr>
-                            <th>Text</th>
-                            <th>Author</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Username</th>
+                    <th>Administrator</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+            <asp:ListView runat="server" ID="ApprovedUsers" ItemType="Administration.ServiceReference1.Person" OnPreRender="ApprovedUsers_PreRender">
+                <EmptyDataTemplate>
                     <tbody>
-                        <tr id="itemPlaceholder" runat="server"></tr>
+                        <tr>
+                            <td>No news was returned.</td>
+                        </tr>
                     </tbody>
-                </table>
-                <asp:DataPager ID="DataPagerApprovedUsers" runat="server" PagedControlID="ApprovedUsers" PageSize="15" OnPreRender="ApprovedUsers_PreRender">
-                    <Fields>
-                        <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
-                        <asp:NumericPagerField />
-                        <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
-                    </Fields>
-                </asp:DataPager>
-            </LayoutTemplate>
-        </asp:ListView>
+                </EmptyDataTemplate>
+                <ItemTemplate>            
+                    <tr>
+                        <td><%#: Item.Username %></td>
+                        <td><%#: Item.IsAdmin %></td>
+                        <td><%#: Item.Company %></td>
+                        <td>
+                            <asp:LinkButton runat="server" OnClick="NotApprove_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-warning">Disapprove</asp:LinkButton>
+                            <asp:LinkButton runat="server" OnClick="Delete_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <LayoutTemplate>
+            
+                
+                        <tbody id="itemPlaceholderContainer">
+                            <tr id="itemPlaceholder" runat="server"></tr>
+                        </tbody>
+                
+                </LayoutTemplate>
+            </asp:ListView>
+        </table>
     </div>
     <div role="tabpanel" class="tab-pane" id="Admin">
 
     </div>
   </div>
     
+  
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
     <script>
         $('#myTabs a').click(function (e) {
             e.preventDefault()
             $(this).tab('show')
-        })
+        });
+        $(document).ready(function () {
+            $("#ApprovedTable").DataTable();
+        });
+        $(document).ready(function () {
+            $("#NotApprovedTable").DataTable();
+        });
     </script>
 </asp:Content>

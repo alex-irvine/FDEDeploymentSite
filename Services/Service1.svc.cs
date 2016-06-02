@@ -374,7 +374,12 @@ namespace Services
             }
         }
 
-        public void RemoveAllUsers()
+        /// <summary>
+        /// sets the publish flag as per the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DeleteUserResponse DeleteUser(DeleteUserRequest request)
         {
             // try and delete the requested item
             try
@@ -387,24 +392,37 @@ namespace Services
                 var col = db.GetCollection<Person>("Users");
 
                 // buhbye
-                var deleted = col.DeleteMany(new BsonDocument("IsAdmin",true));
+                var deleted = col.DeleteOne(new BsonDocument("_id", ObjectId.Parse(request._id)));
 
                 // error stuff
-                if (deleted.DeletedCount == 1)
+                if(deleted.DeletedCount == 1)
                 {
-                    
+                    return new DeleteUserResponse()
+                    {
+                        Errored = false,
+                        Message = "Item deleted"
+                    };
                 }
                 else
                 {
-                    
+                    return new DeleteUserResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching _id"
+                    };
                 }
             }
             // DB errors
             catch (Exception ex)
             {
-                
+                return new DeleteUserResponse()
+                {
+                    Errored = true,
+                    Message = "Errored while deleting"
+                };
             }
         }
+        
         #endregion
 
         #region News

@@ -90,13 +90,13 @@ namespace Services.Model
         public bool Approve { get; set; }
     }
     [DataContractAttribute]
-    public class DeleteUsersResponse : ErrorInformation
+    public class DeleteUserResponse : ErrorInformation
     {
         
     }
 
     [DataContractAttribute]
-    public class DeleteUsersRequest
+    public class DeleteUserRequest
     {
         [DataMemberAttribute]
         public string _id { get; set; }

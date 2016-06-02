@@ -110,6 +110,20 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ApproveUserResponse" nillable="true" type="tns:ApproveUserResponse" />
+  <xs:complexType name="DeleteUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteUserRequest" nillable="true" type="tns:DeleteUserRequest" />
+  <xs:complexType name="DeleteUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserResponse" nillable="true" type="tns:DeleteUserResponse" />
   <xs:complexType name="GetNewsItemsResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">

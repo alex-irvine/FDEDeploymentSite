@@ -35,7 +35,7 @@ namespace Services
         [OperationContract]
         ApproveUserResponse ApproveUser(ApproveUserRequest request);
         [OperationContract]
-        void RemoveAllUsers();
+        DeleteUserResponse DeleteUser(DeleteUserRequest request);
         
         #endregion
 

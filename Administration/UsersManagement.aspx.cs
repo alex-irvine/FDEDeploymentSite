@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Administration.ServiceReference1;
+using System.Windows.Forms;
 
 namespace Administration
 {
@@ -72,6 +73,26 @@ namespace Administration
                 });
                 if (response.Errored)
                 {
+                    Response.Redirect("~/UsersManagement");
+                }
+            }
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+                DeleteUserResponse response = client.DeleteUser(new DeleteUserRequest()
+                {
+                    _id = ((LinkButton)sender).CommandArgument,
+                });
+                if (response.Errored)
+                {
+                    Response.Redirect("~/UsersManagement");
+                }
+                else
+                {
+                    MessageBox.Show("User deleted !");
                     Response.Redirect("~/UsersManagement");
                 }
             }

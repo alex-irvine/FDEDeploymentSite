@@ -128,6 +128,7 @@ namespace Administration.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetApprovedUsersResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNotApprovedUsersResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.ApproveUserResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.DeleteUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetPublishedNewsItemsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNewsItemByIdResponse))]
@@ -320,6 +321,13 @@ namespace Administration.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="ApproveUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class ApproveUserResponse : Administration.ServiceReference1.ErrorInformation {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteUserResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class DeleteUserResponse : Administration.ServiceReference1.ErrorInformation {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1478,6 +1486,51 @@ namespace Administration.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteUserRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class DeleteUserRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _id {
+            get {
+                return this._idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._idField, value) != true)) {
+                    this._idField = value;
+                    this.RaisePropertyChanged("_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GetNewsItemByIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class GetNewsItemByIdRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2299,6 +2352,12 @@ namespace Administration.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ApproveUser", ReplyAction="http://tempuri.org/IService1/ApproveUserResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.ApproveUserResponse> ApproveUserAsync(Administration.ServiceReference1.ApproveUserRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUser", ReplyAction="http://tempuri.org/IService1/DeleteUserResponse")]
+        Administration.ServiceReference1.DeleteUserResponse DeleteUser(Administration.ServiceReference1.DeleteUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUser", ReplyAction="http://tempuri.org/IService1/DeleteUserResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.DeleteUserResponse> DeleteUserAsync(Administration.ServiceReference1.DeleteUserRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNewsItems", ReplyAction="http://tempuri.org/IService1/GetNewsItemsResponse")]
         Administration.ServiceReference1.GetNewsItemsResponse GetNewsItems();
         
@@ -2515,6 +2574,14 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.ApproveUserResponse> ApproveUserAsync(Administration.ServiceReference1.ApproveUserRequest request) {
             return base.Channel.ApproveUserAsync(request);
+        }
+        
+        public Administration.ServiceReference1.DeleteUserResponse DeleteUser(Administration.ServiceReference1.DeleteUserRequest request) {
+            return base.Channel.DeleteUser(request);
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.DeleteUserResponse> DeleteUserAsync(Administration.ServiceReference1.DeleteUserRequest request) {
+            return base.Channel.DeleteUserAsync(request);
         }
         
         public Administration.ServiceReference1.GetNewsItemsResponse GetNewsItems() {
