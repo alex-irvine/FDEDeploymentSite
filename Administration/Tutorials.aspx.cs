@@ -61,11 +61,6 @@ namespace Administration
             }
         }
 
-        protected void Search_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void LVTuto_PreRender(object sender, EventArgs e)
         {
             using (Service1Client client = new Service1Client())

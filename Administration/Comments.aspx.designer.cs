@@ -13,15 +13,6 @@ namespace Administration {
     public partial class Comments {
         
         /// <summary>
-        /// Published_Comments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView Published_Comments;
-        
-        /// <summary>
         /// Unpublished_Comments control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace Administration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView Unpublished_Comments;
+        
+        /// <summary>
+        /// Published_Comments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView Published_Comments;
     }
 }
