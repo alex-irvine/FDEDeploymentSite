@@ -17,19 +17,6 @@ namespace Administration
         protected void Page_Load(object sender, EventArgs e)
         {
             bool isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
-            //if (!isAdmin)
-            //{
-            //    Response.Redirect("~/");
-            //}
-            //else
-            //{
-            //    NewsContent = new Administration.ServiceReferenceNews.NewsServiceClient().GetNewsById(Request.QueryString["id"]);
-            //    NewsTitle.Text = NewsContent.title;
-            //    NewsText.Text = NewsContent.text;
-            //    NewsFinal.Text = NewsContent.text;
-            //    Author.Text = "Author : " + new Administration.ServiceReference1.Service1Client().GetPersonById(NewsContent.userId).UserName;
-            //    NewsID.Text = Request.QueryString["id"];
-            //}
 
             if(!isAdmin)
             {

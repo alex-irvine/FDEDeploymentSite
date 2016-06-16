@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Text;
 using System.Net;
-
+using System.Web.Security;
 
 namespace Administration
 {
@@ -24,11 +24,11 @@ namespace Administration
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["User"]==null)
-            //{
-            //    Account.Login.ReturnUrl = "~/Software";
-            //    Response.Redirect("~/Account/Login");
-            //}
+            if (Session["User"] == null)
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
+            
         }
 
         async Task<int> Upload()

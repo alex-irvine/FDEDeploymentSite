@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Administration.ServiceReference1;
 using System.Windows.Forms;
+using System.Web.Security;
 
 namespace Administration
 {
@@ -13,7 +14,10 @@ namespace Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] == null)
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
         }
 
         protected void Users_PreRender(object sender, EventArgs e)

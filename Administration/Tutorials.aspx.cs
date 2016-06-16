@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Administration.ServiceReferenceNews;
+using System.Web.Security;
 using Administration.ServiceReference1;
 
 namespace Administration
@@ -17,8 +17,7 @@ namespace Administration
         {
             if (Session["User"] == null)
             {
-                Account.Login.ReturnUrl = "~/Tutorials";
-                Response.Redirect("~/Account/Login");
+                FormsAuthentication.RedirectToLoginPage();
             }
             else
             {

@@ -14,16 +14,14 @@ namespace Administration.Account
 {
     public partial class Login : Page
     {
-        static public string ReturnUrl = "";
+        
  
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register";
-            
 
-            if (Request.IsAuthenticated)
+            if (Session["User"] != null)
             {
-                Response.Redirect("Account/Manage.aspx");
+                FormsAuthentication.RedirectFromLoginPage(((Person)Session["User"]).Username, true);
             }
             
         }
@@ -48,11 +46,11 @@ namespace Administration.Account
 
                     if (response.Authenticated)
                     {
-                        if (response.Person.IsAdmin)
+                        if (response.Person.IsAdmin && response.Person.IsApproved)
                         {
                             Session["User"] = response.Person;
                             Person pson = (Person)Session["User"];
-
+                            FormsAuthentication.RedirectFromLoginPage(response.Person.Username, RememberMe.Checked);
                         }
                         else
                         {
@@ -62,14 +60,9 @@ namespace Administration.Account
 
                     }
 
-                    if (!Request.IsAuthenticated)
-                    {
-                        Response.Redirect("/Account/Login");
-                    }
-
                 }
             }
-            FormsAuthentication.RedirectFromLoginPage(((Person)Session["User"]).Username, true);
+            
         }
     }
 }

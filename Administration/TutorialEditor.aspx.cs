@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Administration.ServiceReference1;
 using System.Windows.Forms;
+using System.Web.Security;
 
 namespace Administration
 {
@@ -19,7 +20,7 @@ namespace Administration
             bool isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
             if (!isAdmin)
             {
-                Response.Redirect("~/");
+                FormsAuthentication.RedirectToLoginPage();
             }
             else
             {
@@ -43,7 +44,6 @@ namespace Administration
                 }
             }
         }
-
 
         protected void Edit_Tutorial(object sender, EventArgs e)
         {
