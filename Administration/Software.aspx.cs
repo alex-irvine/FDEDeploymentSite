@@ -14,14 +14,15 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Text;
 using System.Net;
-using System.Web.Security;
+using System.Web.Services;
 
 namespace Administration
 {
     public partial class Software : System.Web.UI.Page
     {
         public ProgressBar pgb = new ProgressBar();
-
+        public static float percent = 0;
+ 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -47,6 +48,7 @@ namespace Administration
 
                 FileInput.SaveAs(logoPath + filename);
                 MessageBox.Show("File copied");
+                percent = 0;
                 // upload file before updating record (legacy dl requests handled)
                 using (var dbx = new DropboxClient("G4qoGWDyk1YAAAAAAACTXbIRhucbsIjnww3RP4Mszu2Q6QxcP_TFdO4HYcuIz9Xn"/*SysConfig.DBKey*/))
                 {
@@ -78,6 +80,7 @@ namespace Administration
                             Test.Attributes["style"] = "width: 50%";
                             var byteRead = stream.Read(buffer, 0, chunkSize);
                             UploadSessionAppendArg arg = new UploadSessionAppendArg();
+                            percent = i / numChunks;
                             using (MemoryStream memStream = new MemoryStream(buffer, 0, byteRead))
                             {
                                 
@@ -159,6 +162,24 @@ namespace Administration
 
             //string folder = Status.Text.Substring(5); // path to containing folder of file to be uploaded
             //MessageBox.Show(folder);
+        }
+
+        [WebMethod]
+        public static string GetPercent()
+        {
+            StringWriter s = new StringWriter();
+            s.WriteLine(percent.ToString());
+            //MessageBox.Show(percent.ToString());
+            //percent.ToString();
+            return percent.ToString();
+        }
+
+
+        [WebMethod]
+        public static string GetCurrentTime(string name)
+        {
+            return "Hello " + name + Environment.NewLine + "The Current Time is: "
+                + DateTime.Now.ToString();
         }
 
     }

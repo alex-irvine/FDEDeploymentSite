@@ -76,11 +76,6 @@ namespace Administration
             if (Session["User"] != null) { UserName = HttpContext.Current.User.Identity.Name; }
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-            Account.Login.ReturnUrl = Request.Url.AbsoluteUri;
-            Response.Redirect("~/Account/Login");
-        }
 
         /*protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
