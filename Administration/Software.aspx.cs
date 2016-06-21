@@ -20,15 +20,14 @@ namespace Administration
 {
     public partial class Software : System.Web.UI.Page
     {
-        public ProgressBar pgb = new ProgressBar();
-        public static float percent = 0;
- 
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
+            System.Diagnostics.Debug.WriteLine("Test");
             
         }
 
@@ -47,14 +46,12 @@ namespace Administration
                 string filename = FileInput.FileName;
 
                 FileInput.SaveAs(logoPath + filename);
-                MessageBox.Show("File copied");
-                percent = 0;
                 // upload file before updating record (legacy dl requests handled)
                 using (var dbx = new DropboxClient("G4qoGWDyk1YAAAAAAACTXbIRhucbsIjnww3RP4Mszu2Q6QxcP_TFdO4HYcuIz9Xn"/*SysConfig.DBKey*/))
                 {
                     string folder = Path.GetDirectoryName(Server.MapPath(FileInput.FileName)); // path to containing folder of file to be uploaded
                     string fileName = FileInput.FileName; // name of file to be uploaded
-                    MessageBox.Show(folder + "/" + filename);
+                    
                     // 128 kb chunks
                     const int chunkSize = 128 * 1024;
                     // create filestream
@@ -66,21 +63,16 @@ namespace Administration
                         byte[] buffer = new byte[chunkSize];
                         string sessionId = null;
                         // chunk sessions
-                        
-                        pgb.Visible = true;
-                        pgb.Minimum = 0;
-                        pgb.Maximum = numChunks;
-                        pgb.Value = 0;
-                        
-                        pgb.Step = 1;
-                        
-                        Status.Text = "0 / " + numChunks.ToString();
+
+
+                        System.Diagnostics.Debug.WriteLine(numChunks.ToString());
                         for (int i = 0; i < numChunks; i++)
                         {
-                            Test.Attributes["style"] = "width: 50%";
+                            Console.WriteLine(i.ToString() + " / " + numChunks.ToString());
+                            
                             var byteRead = stream.Read(buffer, 0, chunkSize);
                             UploadSessionAppendArg arg = new UploadSessionAppendArg();
-                            percent = i / numChunks;
+                            
                             using (MemoryStream memStream = new MemoryStream(buffer, 0, byteRead))
                             {
                                 
@@ -93,9 +85,7 @@ namespace Administration
                                 {
                                     var cursor = new UploadSessionCursor(sessionId, (ulong)(chunkSize * i));
                                     Status.Text = i.ToString() + " / " + numChunks.ToString();
-                                    MessageBox.Show(i.ToString()+" / " + numChunks.ToString());
-                                    pgb.PerformStep();
-                                    
+                                    System.Diagnostics.Debug.WriteLine(i.ToString() + " / " + numChunks.ToString());
                                     if (i == numChunks - 1)
                                     {
                                         await dbx.Files.UploadSessionFinishAsync
@@ -146,7 +136,8 @@ namespace Administration
             if (FileInput.HasFile)
             {
                 int val = await Upload();
-
+                Bar.Visible = true;
+                MessageBox.Show(val.ToString());
             }
             else
             {
@@ -155,32 +146,11 @@ namespace Administration
         }
 
         protected void Upload_Click(object sender, EventArgs e)
-        {
+        {           
             Upload_Launch();
-
-
-
-            //string folder = Status.Text.Substring(5); // path to containing folder of file to be uploaded
-            //MessageBox.Show(folder);
         }
 
-        [WebMethod]
-        public static string GetPercent()
-        {
-            StringWriter s = new StringWriter();
-            s.WriteLine(percent.ToString());
-            //MessageBox.Show(percent.ToString());
-            //percent.ToString();
-            return percent.ToString();
-        }
-
-
-        [WebMethod]
-        public static string GetCurrentTime(string name)
-        {
-            return "Hello " + name + Environment.NewLine + "The Current Time is: "
-                + DateTime.Now.ToString();
-        }
+       
 
     }
 }
