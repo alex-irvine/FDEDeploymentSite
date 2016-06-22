@@ -98,7 +98,6 @@
     <Compile Include="Model\NewsItem.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\RequestResponse.cs" />
-    <Compile Include="Model\SysConfig.cs" />
     <Compile Include="Model\Tutorial.cs" />
     <Compile Include="Model\TutorialItem.cs" />
     <Compile Include="Model\TutorialPage.cs" />
@@ -125,6 +124,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\Lib.csproj">
+      <Project>{3aa940ed-dc3e-42e2-98b0-b07d04c43a8a}</Project>
+      <Name>Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

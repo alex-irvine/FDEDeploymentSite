@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Net;
 using System.Web.Services;
+using Services.Model;
+
 
 namespace Administration
 {
@@ -47,11 +49,12 @@ namespace Administration
 
                 FileInput.SaveAs(logoPath + filename);
                 // upload file before updating record (legacy dl requests handled)
-                using (var dbx = new DropboxClient("G4qoGWDyk1YAAAAAAACTXbIRhucbsIjnww3RP4Mszu2Q6QxcP_TFdO4HYcuIz9Xn"/*SysConfig.DBKey*/))
+                using (var dbx = new DropboxClient(SysConfig.DBKey))
                 {
                     string folder = Path.GetDirectoryName(Server.MapPath(FileInput.FileName)); // path to containing folder of file to be uploaded
                     string fileName = FileInput.FileName; // name of file to be uploaded
-                    
+                    //TODO: convert file into FileStream directly from FileInput control
+                    //FileStream fs = (FileStream)FileInput.FileContent; // try this way instead of moving file to server access file stream immediately
                     // 128 kb chunks
                     const int chunkSize = 128 * 1024;
                     // create filestream
@@ -148,6 +151,7 @@ namespace Administration
         protected void Upload_Click(object sender, EventArgs e)
         {           
             Upload_Launch();
+
         }
 
        

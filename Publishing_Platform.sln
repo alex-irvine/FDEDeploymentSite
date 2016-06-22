@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consumer.csproj", "{4DCE2A81-4105-4F14-BF77-640D1F2B992D}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{D8835DA7-366E-43B3-B99F-1EDA9C808430}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDocs", "ServiceDocs\ServiceDocs.csproj", "{B355FAA8-B060-4349-9E97-B585E1C054D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{3AA940ED-DC3E-42E2-98B0-B07D04C43A8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B355FAA8-B060-4349-9E97-B585E1C054D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B355FAA8-B060-4349-9E97-B585E1C054D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B355FAA8-B060-4349-9E97-B585E1C054D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA940ED-DC3E-42E2-98B0-B07D04C43A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA940ED-DC3E-42E2-98B0-B07D04C43A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA940ED-DC3E-42E2-98B0-B07D04C43A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA940ED-DC3E-42E2-98B0-B07D04C43A8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
