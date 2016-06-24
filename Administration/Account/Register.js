@@ -10,8 +10,8 @@ document.getElementById("MainContent_BtnReg").disabled = false;
 $(function () { $('[data-toggle="popover"]').popover() });
 
 function check_email(txtbox) {
-    var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (txtbox.value.match(mail_format)) {
+    var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regular expression for an e;ail address
+    if (txtbox.value.match(mail_format)) { // if input and regular expression match change the color of the input's border
         document.getElementById("MainContent_Email").style.border = "1px solid green";
         gbl_email = true;
     } else {
@@ -20,7 +20,7 @@ function check_email(txtbox) {
     }
     check_all();
 }
-function check_password(txtbox) {
+function check_password(txtbox) { // check format of a password, must contain numbers, letters and at least 6 characters
     var pass_format_number = /\w*[0-9]+\w*/;
     var pass_format_letter = /[0-9]*\w+[0-9]*/;
     if (txtbox.value.match(pass_format_number) && txtbox.value.match(pass_format_letter) && txtbox.value.length >= 6) {
@@ -38,7 +38,7 @@ function check_password(txtbox) {
     }
     check_all();
 }
-function check_passwords() {
+function check_passwords() { // Check that password  and confirmation match
     if (document.getElementById("MainContent_ConfirmPassword").value != "") {
         if (document.getElementById("MainContent_ConfirmPassword").value == document.getElementById("MainContent_Password").value) {
             document.getElementById("MainContent_ConfirmPassword").style.border = "1px solid green";
@@ -64,7 +64,7 @@ function check_company() {
     check_all();
 }
 
-function check_all() {
+function check_all() { // If every input is complete, enable the registration button
     if (gbl_company && gbl_email && gbl_pass && gbl_pass_conf) {
         document.getElementById("MainContent_BtnReg").disabled = false;
     } else {

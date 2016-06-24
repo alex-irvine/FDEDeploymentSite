@@ -50,16 +50,6 @@ namespace Administration
             }
         }
 
-        protected void Remove_News(object sender, EventArgs e)
-        {
-            Response.Redirect("~/");
-        }
-
-        protected void Publish_News(object sender, EventArgs e)
-        {
-            // Set publish to true
-
-        }
 
         protected void PublishClick(object sender, EventArgs e)
         {

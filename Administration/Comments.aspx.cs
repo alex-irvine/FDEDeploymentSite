@@ -31,6 +31,7 @@ namespace Administration
                     comments = response.Comments.ToList<Comment>();
                 }
             }
+            // Fill the listview with data
             Published_Comments.DataSource = comments;
             Published_Comments.DataBind();
         }
@@ -46,11 +47,12 @@ namespace Administration
                     comments = response.Comments.ToList<Comment>();
                 }
             }
+            // Fill the listview with data
             Unpublished_Comments.DataSource = comments;
             Unpublished_Comments.DataBind();
         }
 
-        protected void Publish_Click(object sender, EventArgs e)
+        protected void Publish_Click(object sender, EventArgs e) // Approve a comment
         {
             MessageBox.Show(((LinkButton)sender).CommandArgument);
             using (Service1Client client = new Service1Client())
@@ -67,7 +69,7 @@ namespace Administration
             }
         }
 
-        protected void Unpublish_Click(object sender, EventArgs e)
+        protected void Unpublish_Click(object sender, EventArgs e) // Unpublish an approved comment
         {
             MessageBox.Show(((LinkButton)sender).CommandArgument);
             using (Service1Client client = new Service1Client())
@@ -84,6 +86,6 @@ namespace Administration
             }
         }
 
-        
+        //TODO: Delete a comment
     }
 }

@@ -19,32 +19,10 @@ namespace Administration
             isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
         }
 
-        public void /*List<Administration.ServiceReference1.NewsItem>*/ GetNews()
-        {
-            
-            using(var _db = new Service1Client())
-            {
-                List<NewsItem> query = new List<NewsItem>();
-                GetNewsItemsResponse response = _db.GetNewsItems();
-                if (!response.Errored)
-                {
-                    query = response.NewsItems.ToList();
-                }
-                foreach (NewsItem ni in query)
-                {
-                    MessageBox.Show(ni.Title);
-                }
-                this.LVNews.DataSource = response.NewsItems.ToList<NewsItem>();
-                this.LVNews.DataBind();
-                //return query;
-            }
-            
-        }
-
         protected void NewNews_Click(object sender, EventArgs e)
         {
 
-            // create a empty news
+            // create an empty news
             NewsItem nw = new NewsItem()
             {
                 Author =  ((Person) Session["User"]).Username,
@@ -60,10 +38,10 @@ namespace Administration
                 {
                     NewsItem = nw
                 });
-                if (!response.Errored)
-                {
-                    MessageBox.Show("News created");
-                }
+                //if (!response.Errored)
+                //{
+                //    MessageBox.Show("News created");
+                //}
             }
             // Redirect to NewsEditor
         }
@@ -84,7 +62,6 @@ namespace Administration
                     this.LVNews.DataSource = new List<NewsItem>();
                 }
                 this.LVNews.DataBind();
-                //return query;
             }
         }
 

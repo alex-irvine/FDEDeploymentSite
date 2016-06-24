@@ -21,7 +21,7 @@ namespace Administration.Account
 
             if (Session["User"] != null)
             {
-                FormsAuthentication.RedirectFromLoginPage(((Person)Session["User"]).Username, true);
+                FormsAuthentication.RedirectFromLoginPage(((Person)Session["User"]).Username, true); // If user is already connected, he's redirected
             }
             
         }
@@ -37,7 +37,7 @@ namespace Administration.Account
                     {
                         Username = Email.Text,
                         Password = Password.Text
-                    });
+                    }); // see doc
 
                     if (response.Errored)
                     {
