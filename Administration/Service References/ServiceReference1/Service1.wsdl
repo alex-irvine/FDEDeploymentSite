@@ -188,6 +188,18 @@
   <wsdl:message name="IService1_PublishComment_OutputMessage">
     <wsdl:part name="parameters" element="tns:PublishCommentResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetUrlYoutube_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUrlYoutube" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUrlYoutube_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUrlYoutubeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertUrlYoutube_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUrlYoutube" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertUrlYoutube_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUrlYoutubeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -308,6 +320,14 @@
     <wsdl:operation name="PublishComment">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PublishComment" message="tns:IService1_PublishComment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PublishCommentResponse" message="tns:IService1_PublishComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUrlYoutube">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUrlYoutube" message="tns:IService1_GetUrlYoutube_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUrlYoutubeResponse" message="tns:IService1_GetUrlYoutube_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUrlYoutube">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertUrlYoutube" message="tns:IService1_InsertUrlYoutube_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertUrlYoutubeResponse" message="tns:IService1_InsertUrlYoutube_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -575,6 +595,24 @@
     </wsdl:operation>
     <wsdl:operation name="PublishComment">
       <soap:operation soapAction="http://tempuri.org/IService1/PublishComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUrlYoutube">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUrlYoutube" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUrlYoutube">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertUrlYoutube" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -46,7 +46,7 @@ namespace Administration.Account
 
                     if (response.Authenticated)
                     {
-                        if (response.Person.IsAdmin && response.Person.IsApproved)
+                        if (response.Person.IsAdmin && response.Person.IsApproved)   
                         {
                             Session["User"] = response.Person;
                             Person pson = (Person)Session["User"];

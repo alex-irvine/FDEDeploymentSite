@@ -1,6 +1,7 @@
 ﻿using Dropbox.Api;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Services.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -92,7 +93,7 @@ namespace Services.Model
     [DataContractAttribute]
     public class DeleteUserResponse : ErrorInformation
     {
-        
+
     }
 
     [DataContractAttribute]
@@ -206,7 +207,7 @@ namespace Services.Model
     {
         [MessageHeader(MustUnderstand = true)]
         public string FileName { get; set; }
-     
+
         [MessageBodyMember(Order = 1)]
         public Stream Stream { get; set; }
     }
@@ -291,7 +292,7 @@ namespace Services.Model
         [DataMemberAttribute]
         public DownloadLog DownloadLog { get; set; }
     }
-    #endregion 
+    #endregion
 
     #region Tutorials
     [DataContract]
@@ -334,7 +335,7 @@ namespace Services.Model
     [DataContract]
     public class PublishTutorialItemResponse : ErrorInformation
     {
-        
+
     }
 
     [DataContract]
@@ -422,6 +423,34 @@ namespace Services.Model
 
         [DataMember]
         public bool IsPublished { get; set; }
+    }
+
+
+    #endregion
+
+
+    #region Youtube
+    [DataContractAttribute]
+    public class InsertUrlYoutubeRequest
+    {
+        [DataMemberAttribute]
+        public string urlyoutube { get; set; }
+    }
+
+    [DataContractAttribute]
+    public class InsertUrlYoutubeResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public string OldUrlYoutube { get; set; }
+        [DataMemberAttribute]
+        public bool DeleteOldUrl { get; set; }
+    }
+
+    [DataContract]
+    public class GetUrlYoutubeResponse : ErrorInformation
+    {
+        [DataMember]
+        public string urlyoutube { get; set; }
     }
 
     #endregion

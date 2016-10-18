@@ -13,9 +13,60 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+     <style>
+html, body {
+    height: 100%;
+}
 
+.navbar {
+    margin-bottom: 0;
+    background-color: #000000;
+    z-index: 9999;
+    border: 0;
+    font-size: 15px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 2px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #808080 !important;
+    background-color: #000000 !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+#page {
+    min-height: 100%;
+    position: relative;
+}
+#page .blocprincipal {
+    padding-bottom: 100px;
+}
+
+footer{
+    background-color:#24242a;
+    color:#fff;
+    text-align:center;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    margin-top:50px;
+}
+
+
+</style> 
 </head>
 <body>
+    <div id="page">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -37,7 +88,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
+            <div id="blocprincipal">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -57,13 +108,13 @@
                     </ul>
                     <% if (!Request.IsAuthenticated) { %>
                     <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                                <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in"></span>  Log in</a></li>
                             </ul>
                     <% } else { %>
                         <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: UserName %> !</a></li>
-                                <li><a runat="server" href="~/Account/Logout">Log out</a></li>
+                                <li><a runat="server" href="~/Account/Logout"><span class="glyphicon glyphicon-log-out"></span>  Log out</a></li>
                             </ul>
                     <% } %>
 
@@ -74,10 +125,13 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Design automations</p>
-            </footer>
         </div>
+    </div>
     </form>
+    
+    <footer>
+       <p>&copy; <%: DateTime.Now.Year %> - Design automations</p>
+    </footer>
+</div>
 </body>
 </html>

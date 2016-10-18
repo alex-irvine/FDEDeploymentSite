@@ -1,7 +1,151 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Consumer._Default" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Home</h1>
+    <link rel="stylesheet" href="Content/carousel.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
+    <link rel="stylesheet" href="fonts/style.css" />
+ <style>
+     .btn-transparent {
+         background: transparent;
+         border: 3px solid #fff;
+         padding: 15px 30px;
+         font-size: 14px;
+         border-radius: 0;
+         color: #fff;
+         font-weight: 700;
+         letter-spacing: 0.05em;
+         text-transform: uppercase;
+     }
+     .btnnews{
+         background: #fff;
+         border-radius: 0;
+         color: #24242a;
+         border: 3px solid #24242a;
+         text-transform: uppercase;
+     }
+     .btnnews:hover{
+         background: #24242a;
+         border-radius: 0;
+         color: #fff;
+         border: 3px solid #24242a;
+         text-transform: uppercase;
+     }
+     #newspartie .news .newsHeader:hover{
+        background-color: rgba(36, 36, 42, 1);
+        border-bottom: 1px solid #24242a;
+        color:#fff;
+    }
+    .grpbtnnews{
+        text-align:center;
+        margin-bottom:100px;
+    }
+
+	</style>
+        <div class="carousel slide" id="myCarousel">
+            <!--Indicator-->
+              <ol class="carousel-indicators">
+                  <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+            <!--Wrapper for slides-->
+            <div class="carousel-inner">
+                <div class="item active" id="slide1">
+                        <div class="carousel-caption">
+                            <h4>Qualité / Solide / Usefull</h4>
+                            <h1>This is <span>NameSoftware</span></h1>
+                            <a class="btn btn-transparent" href="/Software">Download</a>
+                        </div>
+                </div>
+                <div class="item" id="slide2">
+                        <div class="carousel-caption">
+                            <h4>Free documentation / Tutoriel</h4>
+                            <h1>This is <span>NameSoftware</span></h1>
+                            <a class="btn btn-transparent" href="/Tutorials">Tutorials</a>
+                        </div>
+                </div>
+                <div class="item" id="slide3">
+                        <div class="carousel-caption">
+                            <h4>Contact / Commentaire</h4>
+                            <h1>This is <span>NameSoftware</span></h1>
+                            <a class="btn btn-transparent" href="/Comments">Comments</a>
+                        </div>
+                </div>
+            </div>
+            <!--Control-->
+            <a class="left carousel-control" data-slide="prev" href="#myCarousel"><span class="icon-prev"></span></a>
+            <a class="right carousel-control" data-slide="next" href="#myCarousel"><span class="icon-next"></span></a>
+        </div>
+    <!-- END CAROUSEL-->
+    <!--ABOUT-->
+        <section id="services">
+        <div class="container">
+            <h2>Name Software</h2>
+            <hr class="light-sep">
+            <p>A software who can change your life</p>
+            <iframe runat="server" id="ifYt" class='tutovideo' width='560' height='315' src="https://www.youtube.com/embed/ERuEmzVcTTg" ></iframe>
+            <div class="services-box">
+                <div class="row wow fadeInUp" >
+                    <div class="col-md-4">
+                        <div class="media-left"><span class="icon-uniE030"></span></div>
+                        <div class="media-body">
+                            <h3>The Idea</h3>
+                            <p>The purpose of the software is to blablablabla</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="media-left"><span class="icon-connection"></span></div>
+                        <div class="media-body">
+                            <h3>Connect</h3>
+                            <p>Blab labla blabla. Blablablab labla blabla aablabla</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="media-left"><span class="icon-uniE049"></span></div>
+                        <div class="media-body">
+                            <h3>Contact</h3>
+                            <p>You can contact us blabl ablabla.Blablab lablabla.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row wow fadeInUp" >
+                        <div class="col-md-4">
+                            <div class="media-left"><span class="icon-uniE00E"></span></div>
+                            <div class="media-body">
+                                <h3>Improve your design</h3>
+                                <p>Software Blablabla blabla Blablab lablabla Blablablablabla</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="media-left"><span class="icon-uniE04D"></span></div>
+                            <div class="media-body">
+                                <h3>Download now</h3>
+                                <p>You can find on this website Blabla blablablaBlablabla blabla</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="media-left"><span class="icon-uniE02B"></span></div>
+                            <div class="media-body">
+                                <h3>Tutorial</h3>
+                                <p>Some tutorial are available Blabla blablablaBla blablablabla.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
     <!-- news -->
+    <section id="newspartie">
+    <div class="newstitre">
+        <h2>News</h2>
+        <hr class="sep">
+    </div>
     <asp:ListView ID="LVNews" runat="server" ItemType="Consumer.ServiceReference1.NewsItem" OnPreRender="DataPagerNews_PreRender">
         <EmptyDataTemplate>
             <table>
@@ -33,16 +177,20 @@
             <table id="groupPlaceholderContainer" runat="server" style="width: 100%" class="table">
                 <tr id="groupPlaceholder"></tr>
             </table>
-
+            <div class="grpbtnnews">
             <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="5" OnPreRender="DataPagerNews_PreRender">
                 <Fields>
-                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="True" ShowNextPageButton="False" />
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btnnews" ShowFirstPageButton="True" ShowNextPageButton="False" />
                     <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="True" ShowPreviousPageButton="False" />
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btnnews" ShowLastPageButton="True" ShowPreviousPageButton="False" />
                 </Fields>
             </asp:DataPager>
-                        
+           </div>
         </LayoutTemplate>
     </asp:ListView>
     <script type="text/javascript" src="News.js"></script>
+        </section>
+
+
 </asp:Content>
+

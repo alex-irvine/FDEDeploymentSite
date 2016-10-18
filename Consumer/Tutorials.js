@@ -24,7 +24,7 @@ var showTuto = function (id) {
     html += "<span id='next_cont' style='text-align: right'><span id='next'>>> next</span></span>";
     html += "<br>";
     html += "<iframe class='tutovideo' width='560' height='315' src='" + tuto.pages[0].video + "'  allowfullscreen='true'></iframe></div>";
-    html += "<div id='tuto_text'>" + tuto.pages[0].text + "</div>";
+    html += "<div id='tuto_text' class='tutotext'>" + tuto.pages[0].text + "</div>";
     html += "</div>";
 
     $("#tutoPlaceholder").html(html);

@@ -7,12 +7,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Administration.ServiceReference1;
 using System.Windows.Forms;
+using Services.Model;
+using System.Web.Security;
+
 
 namespace Administration
 {
     public partial class _Default : Page
     {
-        public bool isAdmin {get; private set;}
+        public bool isAdmin { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +28,7 @@ namespace Administration
             // create an empty news
             NewsItem nw = new NewsItem()
             {
-                Author =  ((Person) Session["User"]).Username,
+                Author = ((Person)Session["User"]).Username,
                 Title = "Unnamed news",
                 Text = "Empty",
                 Published = false,
@@ -50,12 +53,12 @@ namespace Administration
         {
             using (var _db = new Service1Client())
             {
-                
+
                 GetNewsItemsResponse response = _db.GetNewsItems();
                 if (!response.Errored)
                 {
                     this.LVNews.DataSource = response.NewsItems.ToList<NewsItem>();
-                    
+
                 }
                 else
                 {
@@ -70,6 +73,67 @@ namespace Administration
             Session["NewsId"] = ((System.Web.UI.WebControls.Button)sender).Attributes["Value"];
         }
 
-        
+        protected void Ytb_URL_Save_Click(object sender, EventArgs e)
+        {
+            string urlvar = UrlYtb.Text;
+            using (Service1Client client = new Service1Client())
+            {
+                InsertUrlYoutubeResponse response = client.InsertUrlYoutube(new InsertUrlYoutubeRequest()
+                {
+                    Youtube = new Youtube()
+                    {
+                        urlyoutube = urlvar
+                    }
+                });
+                if (!response.Errored)
+                {
+                    //Response.Redirect("~/Youtube");
+                    MessageBox.Show("erroned1");
+                }
+            }
+        }
+        //public string GetUrlYoutubeinDb()
+        //{
+        //    using (var client = new Service1Client())
+        //    {
+        //        GetUrlYoutubeResponse response = client.GetUrlYoutube();
+        //        if (!response.Errored)
+        //        {
+        //            MessageBox.Show("erroned2");
+        //        }
+        //    }
+
+        //    return response;
+        //}
+        //public List<ServiceReference1.Youtube> GetUrlYoutubeinDb()
+        //{
+        //    List<ServiceReference1.Youtube> res = new List<ServiceReference1.Youtube>();
+        //    using (var client = new Service1Client())
+        //    {
+        //        GetUrlYoutubeResponse response = client.GetUrlYoutube();
+        //        if (!response.Errored)
+        //        {
+        //            MessageBox.Show("erroned2");
+
+        //        }
+        //    }
+
+        //    return res;
+        //}
+        protected void Bouton_Show_Url_Click(object sender, EventArgs e)
+        {
+            using (var client = new Service1Client())
+            {
+                GetUrlYoutubeResponse response = client.GetUrlYoutube();
+                ///string urltext = response.Youtube.
+                if (!response.Errored)
+                {
+                    MessageBox.Show("erroned2");
+
+                }
+                TextBoxUrl.Text = response.urlyoutube;
+            }
+
+        }
     }
 }

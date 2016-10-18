@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Consumer.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <link rel="stylesheet" href="AccountCss.css" />
+    <div class="titre">
     <h2><%: Title %>.</h2>
-    <p class="text-danger">
-        <asp:Literal runat="server" ID="ErrorMessage" />
-    </p>
-
+        <p class="text-danger">
+            <asp:Literal runat="server" ID="ErrorMessage" />
+        </p>
+            <hr class="sep">
+    </div>
     <div class="form-horizontal">
         <h4>Create a new account</h4>
         <hr />
@@ -49,7 +52,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button ID="BtnReg" runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button ID="BtnReg" runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btnlogin" />
             </div>
         </div>
     </div>

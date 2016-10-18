@@ -58,4 +58,15 @@
             $("#NewsTable").DataTable();
         });
     </script>
+
+     <div class="ytb_input">
+         <asp:TextBox runat="server" ID="UrlYtb"/>
+        <asp:Button ID="BtnYtb" runat="server" OnClick="Ytb_URL_Save_Click" Text="Save" CssClass="btnlogin" />
+        <h3>Link already in memory :
+         </h3>
+         <asp:Button ID="ButtonShowUrl" runat="server" OnClick="Bouton_Show_Url_Click" Text="Show Video Url in memory" CssClass="btnlogin" />
+         <asp:TextBox ID="TextBoxUrl" runat="server"></asp:TextBox>
+
+        
+    </div>
 </asp:Content>

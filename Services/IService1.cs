@@ -96,6 +96,14 @@ namespace Services
         //void DeleteComments();
         
         #endregion
+
+        #region Youtube
+        [OperationContract]
+        GetUrlYoutubeResponse GetUrlYoutube();
+        [OperationContract]
+        InsertUrlYoutubeResponse InsertUrlYoutube(InsertUrlYoutubeRequest request);
+        #endregion
+
     }
 
 

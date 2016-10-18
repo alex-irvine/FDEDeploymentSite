@@ -478,4 +478,31 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PublishCommentResponse" nillable="true" type="tns:PublishCommentResponse" />
+  <xs:complexType name="GetUrlYoutubeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="urlyoutube" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUrlYoutubeResponse" nillable="true" type="tns:GetUrlYoutubeResponse" />
+  <xs:complexType name="InsertUrlYoutubeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="urlyoutube" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertUrlYoutubeRequest" nillable="true" type="tns:InsertUrlYoutubeRequest" />
+  <xs:complexType name="InsertUrlYoutubeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeleteOldUrl" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OldUrlYoutube" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertUrlYoutubeResponse" nillable="true" type="tns:InsertUrlYoutubeResponse" />
 </xs:schema>

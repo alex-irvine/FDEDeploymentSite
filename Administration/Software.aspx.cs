@@ -16,13 +16,18 @@ using System.Text;
 using System.Net;
 using System.Web.Services;
 using Services.Model;
-
+//using System.IO.Directory;
+using System.Security.AccessControl;
+using System.Security.Principal;
+//using System.IO.Stream;
 
 namespace Administration
 {
     public partial class Software : System.Web.UI.Page
     {
-        
+
+        public int pValue;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -42,26 +47,52 @@ namespace Administration
 
                 if (dbxKey.Errored)
                 {
-                    // handle no key error
+                    // handle no key errorcm
                     return -1;
                 }
-                string logoPath = Server.MapPath("~/");
-                string filename = FileInput.FileName;
 
-                FileInput.SaveAs(logoPath + filename);
+                string logoPath = Server.MapPath("~/TemporaryFolder");
+                string filename = FileInput.FileName;
+                MessageBox.Show("filename1: " + filename);
+                
+                if (!Directory.Exists(logoPath))
+                {
+                    //string userServer = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                    DirectorySecurity securityRules = new DirectorySecurity();
+                    securityRules.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), 
+                                                FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
+                                                PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                    DirectoryInfo di = Directory.CreateDirectory(logoPath); //Création directory
+                    di.SetAccessControl(securityRules);
+                    MessageBox.Show("directory create");
+                }
+                
+                //FileInput.SaveAs(logoPath + "/" + filename);
+                //MessageBox.Show("save as");
                 // upload file before updating record (legacy dl requests handled)
                 using (var dbx = new DropboxClient(SysConfig.DBKey))
                 {
                     string folder = Path.GetDirectoryName(Server.MapPath(FileInput.FileName)); // path to containing folder of file to be uploaded
                     string fileName = FileInput.FileName; // name of file to be uploaded
+                    MessageBox.Show("filename2: " + filename);
                     //TODO: convert file into FileStream directly from FileInput control
                     //FileStream fs = (FileStream)FileInput.FileContent; // try this way instead of moving file to server access file stream immediately
+                                      
+                    //FileStream fs = new FileStream(@"C:\Users\Thomas Repussard\Documents", FileMode.CreateNew);
+                    FileStream fs = new FileStream(@logoPath + "\\data.dat", FileMode.CreateNew, FileAccess.ReadWrite);
+                    //FileInput.InputStream.CopyTo(f);
+                    //FileStream fs;
+                    FileInput.PostedFile.InputStream.CopyTo(fs);
+                    fs.Close();
+                    MessageBox.Show("folder : "+ folder);
+                    MessageBox.Show("logoPath : "+ logoPath);
                     // 128 kb chunks
                     const int chunkSize = 128 * 1024;
                     // create filestream
-                    using (FileStream stream = new FileStream(folder + "/" + fileName,
-                        FileMode.Open, FileAccess.Read))
+                    using (FileStream stream = new FileStream(@logoPath + "\\data.dat", FileMode.Open, FileAccess.ReadWrite)) 
+                    //using (FileStream stream = File.Create(logoPath))
                     {
+                        //FileInput.PostedFile.InputStream.CopyTo(stream);
                         // generate information for loop
                         int numChunks = (int)Math.Ceiling((double)stream.Length / chunkSize);
                         byte[] buffer = new byte[chunkSize];
@@ -84,51 +115,78 @@ namespace Administration
                                 {
                                     var result = await dbx.Files.UploadSessionStartAsync(false, memStream);
                                     sessionId = result.SessionId;
+                                    MessageBox.Show("dbx start");
+                                    
                                 }
                                 else
                                 {
                                     var cursor = new UploadSessionCursor(sessionId, (ulong)(chunkSize * i));
                                     Status.Text = i.ToString() + " / " + numChunks.ToString();
+                                    //ProgressBar 
+                                    
                                     System.Diagnostics.Debug.WriteLine(i.ToString() + " / " + numChunks.ToString());
+                                    //MessageBox.Show("dbx 2");
                                     if (i == numChunks - 1)
                                     {
                                         await dbx.Files.UploadSessionFinishAsync
                                             (cursor, new CommitInfo("/" + fileName), memStream);
+                                        //MessageBox.Show("dbx 3");
                                     }
                                     else
                                     {
                                         await dbx.Files.UploadSessionAppendV2Async(cursor, false, memStream);
+                                        //MessageBox.Show("dbx 4");
                                     }
 
                                 }
                             }
-                            
+                            //MessageBox.Show("dbx 5");
+                            Bar.Visible = true;
+                            //var percentage = 100 * ((chunkSize * i) / (double)stream.Length);
+                            //pValue = (int)Math.Ceiling((decimal)percentage);
+                            //Status.Text = pValue.ToString() + " % ";
+                            //ProgressBar pBar1 = new ProgressBar();
+                            //pBar1.Visible = true;
+                            //pBar1.Minimum = 0;
+                            //pBar1.Maximum = 100;
+                            //pBar1.Value = pValue;
+                            //ProgressPercentage.Text = pValue.ToString();
+                            //Bar.Visible = true;
                             // provide feedback (progress bar) here
                         }
-                        
+                        //MessageBox.Show("dbx 6");
                     }
-
                     // file upload finished log new file name
-                    InsertFileRecordResponse frResp = client.InsertFileRecord(new InsertFileRecordRequest()
-                    {
-                        FileName = fileName
-                    });
-
+                    InsertFileRecordResponse frResp = client.InsertFileRecord(new InsertFileRecordRequest(){FileName = fileName});
+                    //var filerec = new InsertFileRecordRequest() { FileName = fileName };
+                    //InsertFileRecordResponse frResp = client.InsertFileRecord(filerec);
+                    //MessageBox.Show("dbx 7");
                     // handle errors
                     if (frResp.Errored)
                     {
                         // handle it
-                        MessageBox.Show("Error");
-
+                        MessageBox.Show("Error, frResp = "+ frResp);
+                        //MessageBox.Show("Error, filerec = " + filerec);
                     }
 
                     // if the file is a new version delete the old version
                     if (frResp.DeleteOldFile)
                     {
                         // untested
+                        //new DeleteArg("/" + frResp.OldFileName);
                         //dbx.DeleteArg("/" + frResp.OldFileName);
+                        MessageBox.Show("dbx 8");
 
                     }
+                    ///DELETE THE TEMPORARY FILE ///
+                    if (Directory.Exists(logoPath))
+                    {
+                        System.IO.DirectoryInfo di = new DirectoryInfo(logoPath);
+                        di.Delete(true);
+                        
+                        MessageBox.Show("temporaryfolder delete");
+                    }
+
                     return 0;
                 }
             }
@@ -139,9 +197,10 @@ namespace Administration
             // get dropbox key from current file record
             if (FileInput.HasFile)
             {
+                //Bar.Visible = true;
                 int val = await Upload();
-                Bar.Visible = true;
                 MessageBox.Show(val.ToString());
+                MessageBox.Show("fin1");
             }
             else
             {
@@ -152,8 +211,10 @@ namespace Administration
         protected void Upload_Click(object sender, EventArgs e)
         {           
             Upload_Launch();
-
+            Bar.Visible = true;
+            //pBar1 = new ProgressBar();
         }
+
 
        
 

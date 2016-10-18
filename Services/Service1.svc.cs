@@ -1236,6 +1236,7 @@ namespace Services
             }
         }
 
+
         /// <summary>
         /// gets all published tutorial items
         /// </summary>
@@ -1366,6 +1367,98 @@ namespace Services
         }
 
         
+        #endregion
+
+        #region Youtube
+
+        /// <summary>
+        /// Insert or update the current UrlYoutube
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public InsertUrlYoutubeResponse InsertUrlYoutube(InsertUrlYoutubeRequest request)
+        {
+            // init response
+            InsertUrlYoutubeResponse response = new InsertUrlYoutubeResponse();
+
+            // open DB and insert/update the record
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase(SysConfig.DBname);
+                // get the collection
+                var collection = database.GetCollection<Youtube>("Youtube");
+
+                // get old youtube name
+                List<Youtube> ytb = collection.Find(new BsonDocument()).ToList();
+                if (ytb.Count > 0)
+                {
+                    response.OldUrlYoutube = ytb[0].urlyoutube;
+                    // if there is an old url and it has a different name flag the
+                    // old url should be deleted
+                    response.DeleteOldUrl = request.urlyoutube != response.OldUrlYoutube;
+                    // if old url name same as new url name return out here
+                    if (request.urlyoutube == response.OldUrlYoutube)
+                    {
+                        response.Errored = false;
+                        response.Message = "Same url name no record created";
+                        return response;
+                    }
+                }
+
+                // if first insert create the record else update the record (should only be one)
+                if (collection.Find(new BsonDocument()).Count() > 0)
+                {
+                    collection.UpdateOne(new BsonDocument(), new BsonDocument("$set", new BsonDocument("urlyoutube", request.urlyoutube)));
+                }
+                else
+                {
+                    collection.InsertOne(new Youtube() { urlyoutube = request.urlyoutube });
+                }
+
+                response.Errored = false;
+                response.Message = "url successfully updated";
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+        /// <summary>
+        /// Get the dropbox key and name of current file from record
+        /// </summary>
+        /// <returns></returns>
+        public GetUrlYoutubeResponse GetUrlYoutube()
+        {
+            GetUrlYoutubeResponse response = new GetUrlYoutubeResponse();
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<Youtube>("Youtube");
+
+                // grab current file name
+                List<Youtube> ytb = new List<Youtube>();
+                ytb = collection.Find(new BsonDocument()).ToList();
+                response.urlyoutube = ytb[0].urlyoutube;
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
         #endregion
     }
 }
