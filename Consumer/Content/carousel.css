@@ -18,11 +18,11 @@
     height: 400px;
 }
 #slide1{
-    background: url("../img/imgCaroussel1.jpg") top center no-repeat;
+    background: url("../img/imgCaroussel2.jpg") top center no-repeat;
     width:100%;
 }
 #slide2{
-    background: url("../img/imgCaroussel2.jpg") top center no-repeat;
+    background: url("../img/imgCaroussel1.jpg") top center no-repeat;
     width:100%;
 }
 #slide3{

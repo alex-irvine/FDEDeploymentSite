@@ -1,0 +1,35 @@
+﻿body {
+}
+
+#corps {
+    text-align: center;
+    margin-top:70px;
+}
+
+#corps h2 {
+    text-transform: uppercase;
+    font-size: 36px;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#corps h2 span {
+    font-weight: 700;
+}
+
+#corps .sep {
+    max-width: 80px;
+    border: 2px solid #0d0d0d;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+#corps p{
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+}

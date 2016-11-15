@@ -31,12 +31,21 @@ namespace Administration {
         protected global::System.Web.UI.WebControls.Label Status;
         
         /// <summary>
-        /// Bar control.
+        /// EndMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Bar;
+        protected global::System.Web.UI.WebControls.Label EndMessage;
+        
+        /// <summary>
+        /// theProgressBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl theProgressBar;
     }
 }

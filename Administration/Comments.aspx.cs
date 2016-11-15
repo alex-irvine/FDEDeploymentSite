@@ -87,5 +87,24 @@ namespace Administration
         }
 
         //TODO: Delete a comment
+        protected void DeleteComment_Click(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+                DeleteCommentResponse response = client.DeleteComment(new DeleteCommentRequest()
+                {
+                    _id = ((LinkButton)sender).CommandArgument,
+                });
+                if (response.Errored)
+                {
+                    Response.Redirect("~/Comment");
+
+                }
+                else
+                {
+                    Response.Redirect("~/Comment");
+                }
+            }
+        }
     }
 }

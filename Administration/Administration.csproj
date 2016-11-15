@@ -170,7 +170,6 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\arrow-down.png" />
     <Content Include="Content\images\toolbar.png" />
     <Content Include="Content\jquery-te-1.4.0.css" />
     <Content Include="Content\Site.css" />
@@ -183,7 +182,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <None Include="Properties\PublishProfiles\cust.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="PDFpage.aspx" />
     <Content Include="ProgressBar.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -257,9 +258,6 @@
     <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetPublishedNewsItemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetPublishedTutorialItemsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetTutorialItemByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -311,12 +309,27 @@
     <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.InsertUrlYoutubeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.InsertContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.DeleteContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.DeleteCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Administration.ServiceReference1.GetPublishTutoItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
     </None>
     <Content Include="Service References\ServiceReferenceNews\Administration.ServiceReferenceNews.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -523,8 +536,15 @@
     <Compile Include="NewsEditor.aspx.designer.cs">
       <DependentUpon>NewsEditor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PDFpage.aspx.cs">
+      <DependentUpon>PDFpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PDFpage.aspx.designer.cs">
+      <DependentUpon>PDFpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\ServiceReference1\Reference1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>

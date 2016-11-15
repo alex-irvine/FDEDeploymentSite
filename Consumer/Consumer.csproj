@@ -172,6 +172,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
     <Content Include="Account\AccountCss.css" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -187,16 +188,21 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="carousel.js" />
     <Content Include="Comments.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\carousel.css" />
+    <Content Include="Content\logo2navbar.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\icomoon.svg" />
     <Content Include="fonts\style.css" />
     <Content Include="img\imgCaroussel1.jpg" />
     <Content Include="img\imgCaroussel2.jpg" />
     <Content Include="img\imgCaroussel3.jpg" />
+    <Content Include="img\imgSoftware.png" />
+    <Content Include="KeyFeatures.aspx" />
     <Content Include="Software.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -247,9 +253,6 @@
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetPublishedNewsItemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetPublishedTutorialItemsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetTutorialItemByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -295,6 +298,31 @@
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.DeleteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetUrlYoutubeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.InsertUrlYoutubeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.InsertContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.DeleteCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.DeleteContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\Consumer.ServiceReference1.GetPublishTutoItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\cust.pubxml" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -335,7 +363,6 @@
     <Content Include="Tutorials.js" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
-    <Content Include="Views\web.config" />
     <Content Include="Site.Master" />
     <None Include="Service References\ServiceReferenceNews\NewsService.wsdl" />
     <None Include="Service References\ServiceReferenceNews\NewsService.xsd" />
@@ -350,6 +377,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Confirm.aspx.cs">
       <DependentUpon>Confirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -452,12 +486,26 @@
     <Compile Include="Comments.aspx.designer.cs">
       <DependentUpon>Comments.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KeyFeatures.aspx.cs">
+      <DependentUpon>KeyFeatures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KeyFeatures.aspx.designer.cs">
+      <DependentUpon>KeyFeatures.aspx</DependentUpon>
     </Compile>
     <Compile Include="Software.aspx.cs">
       <DependentUpon>Software.aspx</DependentUpon>
@@ -505,6 +553,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

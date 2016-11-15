@@ -1,0 +1,117 @@
+﻿body {
+}
+
+/*Carousel*/
+#myCarousel{
+    margin-top:0px;
+    width:100%;
+}
+.carousel-caption{
+    color:white;
+    position: static;
+    top: 50%;
+    max-width: 100%;
+    text-align: center;
+    margin:auto;
+}
+#myCarousel .item {
+    height: 400px;
+}
+#slide1{
+    background: url("../img/imgCaroussel1.jpg") top center no-repeat;
+    width:100%;
+}
+#slide2{
+    background: url("../img/imgCaroussel2.jpg") top center no-repeat;
+    width:100%;
+}
+#slide3{
+    background: url("../img/imgCaroussel3.jpg") top center no-repeat;
+    width:100%;
+}
+
+#services {
+  background: #24242a;
+  padding: 60px 0;
+  text-align: center;
+}
+
+#services h2 {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+#services p {
+  color: #fff;
+}
+
+#services .services-box {
+  margin-top: 40px;
+}
+
+#services .services-box .col-md-4 {
+  margin-bottom: 20px;
+}
+
+#services .services-box .col-md-4 .media-left,
+#services .services-box .col-md-4 .media-right,
+#services .services-box .col-md-4 .media-body {
+  padding-right: 30px;
+  vertical-align: baseline;
+}
+
+#services .services-box .col-md-4 .media-left p,
+#services .services-box .col-md-4 .media-right p,
+#services .services-box .col-md-4 .media-body p {
+  text-align: center;
+}
+
+#services .services-box .col-md-4 .media-left h3,
+#services .services-box .col-md-4 .media-right h3,
+#services .services-box .col-md-4 .media-body h3 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+
+#services .services-box .col-md-4 .media-left span,
+#services .services-box .col-md-4 .media-right span,
+#services .services-box .col-md-4 .media-body span {
+  font-size: 36px;
+  color: #fff;
+}
+
+.light-sep {
+    max-width: 80px;
+    border: 2px solid #fff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#newspartie .newstitre h2 {
+  margin-top: 40px;
+  text-transform: uppercase;
+  color: #000;
+  text-align: center;
+}
+
+.sep {
+    max-width: 80px;
+    border: 2px solid #0d0d0d;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#newspartie .news{
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px solid #24242a;
+}
+
+#newspartie .news .newsHeader{
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #24242a;
+    color:#24242a;
+}
+
+
+

@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> | Design Automations</title>
+    <title><%: Page.Title %> | CADES Em Design Explorer</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -25,11 +25,18 @@ html, body {
     border: 0;
     font-size: 15px !important;
     line-height: 1.42857143 !important;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     border-radius: 0;
     text-align: center;
+    max-height:51px;
 }
-
+.navbar-collapse{
+    background-color: #000000;
+}
+.navbar-brand{
+    margin-top:7px;
+    padding:0px 0px;
+}
 .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
 }
@@ -38,11 +45,30 @@ html, body {
     color: #808080 !important;
     background-color: #000000 !important;
 }
-
-.navbar-default .navbar-toggle {
-    border-color: transparent;
+.nav navbar-nav navbar-right .btnmenulogin{
     color: #fff !important;
 }
+.nav navbar-nav navbar-right .btnmenulogin:hover {
+    color: #808080 !important;
+    background-color: #000000 !important;
+}
+
+.nav navbar-nav navbar-right .dropdown-toggle{
+    color: #fff !important;
+}
+.nav navbar-nav navbar-right .dropdown-toggle:hover {
+    color: #808080 !important;
+    background-color: #000000 !important;
+}
+.dropdown-menu{
+    color: #fff !important;
+    background-color: #000000 !important;
+}
+.dropdown-menu:hover {
+    color: #808080 !important;
+    background-color: #000000 !important;
+}
+
 #page {
     min-height: 100%;
     position: relative;
@@ -61,7 +87,12 @@ footer{
     width:100%;
     margin-top:50px;
 }
-
+.logomenu{
+    margin:0;
+    padding:0;
+    width: auto;
+    height: 35px;
+}
 
 </style> 
 </head>
@@ -89,38 +120,58 @@ footer{
             </Scripts>
         </asp:ScriptManager>
             <div id="blocprincipal">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Design automations</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Tutorials">Tutorials</a></li>
-                        <li><a runat="server" href="~/Software">Software</a></li>
-                        <li><a runat="server" href="~/Comments">Comments</a></li>
-                    </ul>
-                    <% if (!Request.IsAuthenticated) { %>
-                    <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                                <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in"></span>  Log in</a></li>
-                            </ul>
-                    <% } else { %>
-                        <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: UserName %> !</a></li>
-                                <li><a runat="server" href="~/Account/Logout"><span class="glyphicon glyphicon-log-out"></span>  Log out</a></li>
-                            </ul>
-                    <% } %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" runat="server" href="~/"><img src="/Content/logo2navbar.png" alt="LogoCades" class="logomenu" /></a>
+    </div>
 
-                </div>
-            </div>
-        </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                        <a href="~/Home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">A.D.E<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+							<li><a runat="server" href="~/Default">Home</a></li>
+                            <li><a runat="server" href="~/About">About</a></li>
+                            <li><a runat="server" href="~/KeyFeatures">Key Features</a></li>
+                        </ul>
+                   </li>
+                   <li class="dropdown">
+                        <a href="~/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Software<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+							<li><a runat="server" href="~/Software">Download</a></li>
+                            <li><a runat="server" href="~/Tutorials">Tutorials</a></li>
+                            <li><a runat="server" href="~/Comments">Comments</a></li>
+                        </ul>
+                   </li>
+                    <li><a runat="server" href="~/Contact">Contact us</a></li>
+      </ul>
+      <% if (!Request.IsAuthenticated) { %>
+      <ul class="nav navbar-nav navbar-right">
+            <li><a runat="server" href="~/Account/Register" class="btnmenulogin"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <li><a runat="server" href="~/Account/Login" class="btnmenulogin"><span class="glyphicon glyphicon-log-in"></span>  Log in</a></li>
+    </ul>
+        <% } else { %>
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%: UserName %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a runat="server" href="~/Account/Logout"><span class="glyphicon glyphicon-log-out"></span>  Log out</a></li>
+          </ul>
+        </li>
+      </ul>
+        <% } %>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

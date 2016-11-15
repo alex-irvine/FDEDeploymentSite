@@ -284,15 +284,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPublishedTutorialItems">
+  <xs:element name="GetPublishTutoItems">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPublishedTutorialItemsResponse">
+  <xs:element name="GetPublishTutoItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetPublishedTutorialItemsResult" nillable="true" type="q35:GetPublishedTutorialItemsResponse" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetPublishTutoItemsResult" nillable="true" type="q35:GetPublishTutoItemsResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -404,6 +404,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DeleteComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q50:DeleteCommentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="DeleteCommentResult" nillable="true" type="q51:DeleteCommentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetUrlYoutube">
     <xs:complexType>
       <xs:sequence />
@@ -412,21 +426,61 @@
   <xs:element name="GetUrlYoutubeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetUrlYoutubeResult" nillable="true" type="q50:GetUrlYoutubeResponse" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetUrlYoutubeResult" nillable="true" type="q52:GetUrlYoutubeResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertUrlYoutube">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q51:InsertUrlYoutubeRequest" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q53:InsertUrlYoutubeRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertUrlYoutubeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertUrlYoutubeResult" nillable="true" type="q52:InsertUrlYoutubeResponse" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertUrlYoutubeResult" nillable="true" type="q54:InsertUrlYoutubeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContacts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="GetContactsResult" nillable="true" type="q55:GetContactsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q56:InsertContactRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="InsertContactResult" nillable="true" type="q57:InsertContactResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="request" nillable="true" type="q58:DeleteContactRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="DeleteContactResult" nillable="true" type="q59:DeleteContactResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

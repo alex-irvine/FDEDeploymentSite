@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Net;
 
 namespace Consumer
 {
@@ -15,7 +16,7 @@ namespace Consumer
         {
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBundles(BundleTable.Bundles); 
         }
     }
 }

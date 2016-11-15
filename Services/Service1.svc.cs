@@ -913,12 +913,13 @@ namespace Services
 
                 // insert the new object
                 col.InsertOne(request.TutorialItem);
-
+                string idlink = request.TutorialItem._id;
                 // no exception means success
                 return new InsertTutorialItemResponse()
                 {
                     Errored = false,
-                    Message = "Tutorial created"
+                    Message = "Tutorial created",
+                    _idtutorial = idlink
                 };
             }
             // DB errors
@@ -971,7 +972,7 @@ namespace Services
         /// gets all published tutorial items
         /// </summary>
         /// <returns></returns>
-        public GetPublishedTutorialItemsResponse GetPublishedTutorialItems()
+        public GetPublishTutoItemsResponse GetPublishTutoItems()
         {
             // try and get published tutorials
             try
@@ -984,7 +985,7 @@ namespace Services
                 var col = db.GetCollection<TutorialItem>("TutorialItems");
 
                 // find and return publish tutorials
-                return new GetPublishedTutorialItemsResponse()
+                return new GetPublishTutoItemsResponse()
                 {
                     TutorialItems = col.Find(new BsonDocument("Published", true)).ToList(),
                     Errored = false,
@@ -994,7 +995,7 @@ namespace Services
             // DB errors
             catch(Exception ex)
             {
-                return new GetPublishedTutorialItemsResponse()
+                return new GetPublishTutoItemsResponse()
                 {
                     Errored = true,
                     Message = ex.Message
@@ -1199,7 +1200,7 @@ namespace Services
         #region Comments
 
         /// <summary>
-        /// Inserts a tutorial item object to the DB
+        /// Inserts a comment item object to the DB
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -1366,6 +1367,54 @@ namespace Services
             }
         }
 
+        /// <summary>
+        /// delete a comment
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DeleteCommentResponse DeleteComment(DeleteCommentRequest request)
+        {
+            // try and delete the requested item
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Comment>("Comment");
+
+                // buhbye
+                var deleted = col.DeleteOne(new BsonDocument("_id", ObjectId.Parse(request._id)));
+
+                // error stuff
+                if (deleted.DeletedCount == 1)
+                {
+                    return new DeleteCommentResponse()
+                    {
+                        Errored = false,
+                        Message = "Item deleted"
+                    };
+                }
+                else
+                {
+                    return new DeleteCommentResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching _id"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new DeleteCommentResponse()
+                {
+                    Errored = true,
+                    Message = "Errored while deleting"
+                };
+            }
+        }
         
         #endregion
 
@@ -1460,5 +1509,136 @@ namespace Services
         }
 
         #endregion
+
+        #region Contact
+
+        /// <summary>
+        /// Inserts a contact item object to the DB
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public InsertContactResponse InsertContact(InsertContactRequest request)
+        {
+            // try and insert the new object
+            try
+            {
+                // get mongo DB
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Contact>("Contact");
+                //Contact ct = new Contact(){
+                //    request.Author,
+                //    request.Email,
+                //    request.Text,
+                //};
+                // insert the new object
+                col.InsertOne(request.Contact);
+
+                // no exception means success
+                return new InsertContactResponse()
+                {
+                    Errored = false,
+                    Message = "Contact sent"
+                };
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new InsertContactResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// gets all contact message
+        /// </summary>
+        /// <returns></returns>
+        public GetContactsResponse GetContacts()
+        {
+            // try and get contact message
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // collection
+                var col = db.GetCollection<Contact>("Contact");
+
+                // find and return publish tutorials
+                return new GetContactsResponse()
+                {
+                    Contacts = col.Find(new BsonDocument()).ToList(),
+                    Errored = false,
+                    Message = "Success"
+                };
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new GetContactsResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+        /// <summary>
+        /// delete the contact message
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DeleteContactResponse DeleteContact(DeleteContactRequest request)
+        {
+            // try and delete the requested item
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Contact>("Contact");
+
+                // buhbye
+                var deleted = col.DeleteOne(new BsonDocument("_id", ObjectId.Parse(request._id)));
+
+                // error stuff
+                if (deleted.DeletedCount == 1)
+                {
+                    return new DeleteContactResponse()
+                    {
+                        Errored = false,
+                        Message = "Item deleted"
+                    };
+                }
+                else
+                {
+                    return new DeleteContactResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching _id"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception excep)
+            {
+                return new DeleteContactResponse()
+                {
+                    Errored = true,
+                    Message = "Errored while deleting"
+                };
+            }
+        }
+
+        #endregion
+
+       
     }
 }

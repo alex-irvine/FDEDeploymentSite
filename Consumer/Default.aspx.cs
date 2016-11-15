@@ -14,7 +14,7 @@ namespace Consumer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ifYt.Src = GeturlVideo().Replace("watch?v=", "embed/");
         }
 
         protected void DataPagerNews_PreRender(object sender, EventArgs e)
@@ -38,6 +38,28 @@ namespace Consumer
                 }
                 this.LVNews.DataBind();
             }
+        }
+
+        protected string GeturlVideo()
+        {
+            using (var client = new Service1Client())
+            {
+                GetUrlYoutubeResponse response = client.GetUrlYoutube();
+                if (response.Errored)
+                {
+                    MessageBox.Show("erroned 2 : " + response.Message.ToString());
+
+                }
+                string srcvideo = response.urlyoutube;
+                //ScriptManager.RegisterStartupScript(this, GetType(), "YoutubeEmbed", "replace();", true);
+                //string output = srcvideo.Replace("watch?v=", "embed/");
+                return srcvideo;
+           }
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("fileDl.ashx");
         }
     }
 }

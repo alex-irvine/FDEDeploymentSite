@@ -305,7 +305,8 @@ namespace Services.Model
     [DataContract]
     public class InsertTutorialItemResponse : ErrorInformation
     {
-
+        [DataMemberAttribute]
+        public string _idtutorial { get; set; }
     }
 
     [DataContract]
@@ -316,7 +317,7 @@ namespace Services.Model
     }
 
     [DataContract]
-    public class GetPublishedTutorialItemsResponse : ErrorInformation
+    public class GetPublishTutoItemsResponse : ErrorInformation
     {
         [DataMember]
         public List<TutorialItem> TutorialItems { get; set; }
@@ -424,10 +425,21 @@ namespace Services.Model
         [DataMember]
         public bool IsPublished { get; set; }
     }
+    [DataContractAttribute]
+    public class DeleteCommentResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContractAttribute]
+    public class DeleteCommentRequest
+    {
+        [DataMemberAttribute]
+        public string _id { get; set; }
+    }
 
 
     #endregion
-
 
     #region Youtube
     [DataContractAttribute]
@@ -454,4 +466,41 @@ namespace Services.Model
     }
 
     #endregion
+
+    #region Contact
+
+    [DataContract]
+    public class InsertContactRequest
+    {
+        [DataMember]
+        public Contact Contact { get; set; }
+    }
+
+    [DataContract]
+    public class InsertContactResponse : ErrorInformation
+    {
+    }
+
+    [DataContractAttribute]
+    public class GetContactsResponse : ErrorInformation
+    {
+        [DataMember]
+        public List<Contact> Contacts { get; set; }
+    }
+    [DataContractAttribute]
+    public class DeleteContactResponse : ErrorInformation
+    {
+
+    }
+
+    [DataContractAttribute]
+    public class DeleteContactRequest
+    {
+        [DataMemberAttribute]
+        public string _id { get; set; }
+    }
+
+    #endregion
+
+    
 }

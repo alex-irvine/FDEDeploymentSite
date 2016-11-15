@@ -71,7 +71,7 @@ namespace Services
         [OperationContract]
         GetTutorialItemsResponse GetTutorialItems();
         [OperationContract]
-        GetPublishedTutorialItemsResponse GetPublishedTutorialItems();
+        GetPublishTutoItemsResponse GetPublishTutoItems();
         [OperationContract]
         PublishTutorialItemResponse PublishTutorialItem(PublishTutorialItemRequest request);
         [OperationContract]
@@ -92,8 +92,8 @@ namespace Services
         GetUnpublishedCommentsResponse GetUnpublishedComments();
         [OperationContract]
         PublishCommentResponse PublishComment(PublishCommentRequest request);
-        //[OperationContract]
-        //void DeleteComments();
+        [OperationContract]
+        DeleteCommentResponse DeleteComment(DeleteCommentRequest request);
         
         #endregion
 
@@ -104,6 +104,16 @@ namespace Services
         InsertUrlYoutubeResponse InsertUrlYoutube(InsertUrlYoutubeRequest request);
         #endregion
 
+        #region Contact
+        [OperationContract]
+        GetContactsResponse GetContacts();
+        [OperationContract]
+        InsertContactResponse InsertContact(InsertContactRequest request);
+        [OperationContract]
+        DeleteContactResponse DeleteContact(DeleteContactRequest request);
+        #endregion
+
+        
     }
 
 

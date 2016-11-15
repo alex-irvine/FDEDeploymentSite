@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Administration.ServiceReference1;
 using System.Windows.Forms;
 using System.Web.Security;
+using System.IO;
 
 namespace Administration
 {
@@ -14,7 +15,7 @@ namespace Administration
     {
         public Administration.ServiceReference1.TutorialItem NewsContent { get; private set; }
         public List<TutorialPage> TutoPages { get; private set; }
-
+        public string urlPDF;
         protected void Page_Load(object sender, EventArgs e)
         {
             bool isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
@@ -41,6 +42,7 @@ namespace Administration
                             TutorialID.Text = NewsContent._id;
                         }
                     }
+                    GetListPDF();
                 }
             }
         }
@@ -62,7 +64,7 @@ namespace Administration
             }
             using (Service1Client client = new Service1Client())
             {
-
+               
                 UpdateTutorialItemResponse response = client.UpdateTutorialItem(
                     new UpdateTutorialItemRequest()
                     {
@@ -102,7 +104,6 @@ namespace Administration
                     Video = checkVideo(((System.Web.UI.WebControls.TextBox)item.Controls[3]).Text),
                     PageNumber = int.Parse(((System.Web.UI.WebControls.TextBox)item.Controls[1]).Text),
                 });
-
                 
             }
 
@@ -314,7 +315,12 @@ namespace Administration
 
         protected string checkVideo(string url)
         {
-            string video;
+            string video = url;
+            if (string.IsNullOrEmpty(url) == true)
+            {
+                video = url;
+                return video;
+            }
             if (url.Contains("?v="))
             {
                 video = url.Substring(url.IndexOf("?v=")+3);
@@ -323,10 +329,44 @@ namespace Administration
             {
                 video = url;
             }
-            if(!url.Contains("/embed/")){
+            if((!url.Contains("/embed/"))&(url.Length==11)){
                 video = "http://www.youtube.com/embed/" + video;
+            }
+            else if ((url.Contains("/embed/")) & (url.Length == 41)){
+                video = url;
+            }else{
+                video = "";
             }
             return video;
         }
+
+
+
+        protected void GetListPDF()
+        {
+            string logopath = Server.MapPath("~/PDFFolder");
+            List<string> listPDFname = new List<string>();
+            string[] listPDFpath;
+            List<string> listPDFurl = new List<string>();
+            listPDFpath = Directory.GetFiles(@logopath, "*.pdf",
+                                     SearchOption.AllDirectories);
+            //Create list of url and name
+            foreach (string PDFpath in listPDFpath)
+            {
+                int found = PDFpath.IndexOf("PDFFolder");
+                string onlyname = PDFpath.Substring(found + 10);
+                listPDFname.Add(onlyname);
+                listPDFurl.Add("/PDFFolder/" + onlyname);
+
+            }
+            DropDownListID.Items.Insert(0, new ListItem("Choose a pdf", ""));
+            for (int i = 0; i < listPDFpath.Length; i++)
+            {
+                DropDownListID.Items.Insert((i + 1), new ListItem(listPDFname[i], listPDFurl[i]));
+            }
+            DropDownListID.DataBind();
+        }
+
+
     }
 }

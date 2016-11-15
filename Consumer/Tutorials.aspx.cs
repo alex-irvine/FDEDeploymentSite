@@ -25,7 +25,7 @@ namespace Consumer
             List<ServiceReference1.TutorialItem> res = new List<ServiceReference1.TutorialItem> ();
             using (var client = new Service1Client())
             {
-                GetPublishedTutorialItemsResponse response = client.GetPublishedTutorialItems();
+                GetPublishTutoItemsResponse response = client.GetPublishTutoItems();
                 if (!response.Errored)
                 {
                     string script = "tutorials = { \n";
