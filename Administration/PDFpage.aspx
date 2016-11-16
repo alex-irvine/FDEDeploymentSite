@@ -38,12 +38,20 @@
         </div>
     </div>
     <div class="div3">
-        <asp:TextBox runat="server" ID="txtbox1" CssClass="txt1"></asp:TextBox>
         <div>
-            <asp:Button runat="server" OnClick="GetUrl" Text="Show Url of the PDF Selected" />
+            <asp:Button ID="btnGet" runat="server" Text="Show URL"></asp:Button>
         </div>
     </div>
-
-
-    
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[id*=btnGet]").click(function () {
+            var values = "";
+            var selected = $("[id*=listbox1] option:selected").html();
+            values = "PDF name Selected : " + selected + "\n\n You can copy and paste this url : \n" +window.location.host+"/PDFFolder/"+ selected;
+            alert(values);
+            return false;
+        });
+    });
+</script>
 </asp:Content>

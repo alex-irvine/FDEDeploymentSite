@@ -85,6 +85,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="GetApprovedAdminsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApprovedAdminsResponse" nillable="true" type="tns:GetApprovedAdminsResponse" />
   <xs:complexType name="GetNotApprovedUsersResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ErrorInformation">

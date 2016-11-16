@@ -44,6 +44,12 @@
   <wsdl:message name="IService1_GetApprovedUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetApprovedUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetApprovedAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovedAdmins" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetApprovedAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovedAdminsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetNotApprovedUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNotApprovedUsers" />
   </wsdl:message>
@@ -249,6 +255,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetApprovedUsers" message="tns:IService1_GetApprovedUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetApprovedUsersResponse" message="tns:IService1_GetApprovedUsers_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetApprovedAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetApprovedAdmins" message="tns:IService1_GetApprovedAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetApprovedAdminsResponse" message="tns:IService1_GetApprovedAdmins_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetNotApprovedUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNotApprovedUsers" message="tns:IService1_GetNotApprovedUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNotApprovedUsersResponse" message="tns:IService1_GetNotApprovedUsers_OutputMessage" />
@@ -419,6 +429,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetApprovedUsers">
       <soap:operation soapAction="http://tempuri.org/IService1/GetApprovedUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovedAdmins">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetApprovedAdmins" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

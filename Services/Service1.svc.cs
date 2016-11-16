@@ -95,6 +95,65 @@ namespace Services
         /// Test service
         /// </summary>
         /// <returns></returns>
+        public GetApprovedAdminsResponse GetApprovedAdmins()
+        {
+            try
+            {
+                // open DB client and get DB reference
+                MongoClient client = new MongoClient(SysConfig.DBconn);
+                var database = client.GetDatabase("da_pp_db");
+                // get the collection
+                var collection = database.GetCollection<Person>("Users");
+
+
+                // get person
+                List<Person> user = collection.Find(new BsonDocument("IsAdmin", true)).ToList<Person>();
+                List<Person> user2 = new List<Person> ();
+                foreach (Person gens in user)
+                {
+                    if (gens.IsApproved == true)
+                    {
+                        user2.Add(gens);
+                    }
+                }
+                if (user2 != null)
+                {
+                    // cleanse password data
+                    user2.ForEach(x => x.Password = null);
+                    user2.ForEach(x => x.Salt = null);
+
+                    // return the user
+                    return new GetApprovedAdminsResponse()
+                    {
+                        Users = user2,
+                        Errored = false,
+                        Message = "Person found"
+                    };
+                }
+                else
+                {
+                    return new GetApprovedAdminsResponse()
+                    {
+                        Errored = true,
+                        Message = "Person not found"
+                    };
+                }
+            }
+            // db errors    
+            catch (Exception ex)
+            {
+                return new GetApprovedAdminsResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// Test service
+        /// </summary>
+        /// <returns></returns>
         public GetApprovedUsersResponse GetApprovedUsers()
         {
             try
@@ -107,17 +166,24 @@ namespace Services
 
                 // get person
                 List<Person> user = collection.Find(new BsonDocument("IsApproved", true)).ToList<Person>();
-
-                if (user != null)
+                List<Person> user2 = new List<Person>();
+                foreach (Person gens in user)
+                {
+                    if (gens.IsAdmin == false)
+                    {
+                        user2.Add(gens);
+                    }
+                }
+                if (user2 != null)
                 {
                     // cleanse password data
-                    user.ForEach(x => x.Password = null);
-                    user.ForEach(x => x.Salt = null);
+                    user2.ForEach(x => x.Password = null);
+                    user2.ForEach(x => x.Salt = null);
                     
                     // return the user
                     return new GetApprovedUsersResponse()
                     {
-                        Users = user,
+                        Users = user2,
                         Errored = false,
                         Message = "Person found"
                     };

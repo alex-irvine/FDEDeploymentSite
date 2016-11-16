@@ -58,7 +58,7 @@ namespace Administration
                 foreach (string filename in listPDF)
                 {
                     int found = filename.IndexOf("PDFFolder");
-                    string onlyname = filename.Substring(found);
+                    string onlyname = filename.Substring(found+10);
                     listbox1.Items.Add(onlyname);
                 }
         }
@@ -74,15 +74,6 @@ namespace Administration
              }
             
         }
-
-        protected void GetUrl(object sender, EventArgs e)
-        {
-            var fileName = this.listbox1.SelectedItem.Value;
-            string completePath = Server.MapPath("PDFFolder/" + fileName);
-            txtbox1.Text = new Uri(completePath).AbsoluteUri;
-        }
-
-
 
     }
 }

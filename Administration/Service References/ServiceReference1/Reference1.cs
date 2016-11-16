@@ -126,6 +126,7 @@ namespace Administration.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.AuthenticateUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.RegisterUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetApprovedUsersResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetApprovedAdminsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.GetNotApprovedUsersResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.ApproveUserResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Administration.ServiceReference1.DeleteUserResponse))]
@@ -281,6 +282,29 @@ namespace Administration.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="GetApprovedUsersResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
     [System.SerializableAttribute()]
     public partial class GetApprovedUsersResponse : Administration.ServiceReference1.ErrorInformation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Administration.ServiceReference1.Person[] UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Administration.ServiceReference1.Person[] Users {
+            get {
+                return this.UsersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
+                    this.UsersField = value;
+                    this.RaisePropertyChanged("Users");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetApprovedAdminsResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.SerializableAttribute()]
+    public partial class GetApprovedAdminsResponse : Administration.ServiceReference1.ErrorInformation {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Administration.ServiceReference1.Person[] UsersField;
@@ -2757,6 +2781,12 @@ namespace Administration.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetApprovedUsersResponse")]
         System.Threading.Tasks.Task<Administration.ServiceReference1.GetApprovedUsersResponse> GetApprovedUsersAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedAdmins", ReplyAction="http://tempuri.org/IService1/GetApprovedAdminsResponse")]
+        Administration.ServiceReference1.GetApprovedAdminsResponse GetApprovedAdmins();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApprovedAdmins", ReplyAction="http://tempuri.org/IService1/GetApprovedAdminsResponse")]
+        System.Threading.Tasks.Task<Administration.ServiceReference1.GetApprovedAdminsResponse> GetApprovedAdminsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNotApprovedUsers", ReplyAction="http://tempuri.org/IService1/GetNotApprovedUsersResponse")]
         Administration.ServiceReference1.GetNotApprovedUsersResponse GetNotApprovedUsers();
         
@@ -3011,6 +3041,14 @@ namespace Administration.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Administration.ServiceReference1.GetApprovedUsersResponse> GetApprovedUsersAsync() {
             return base.Channel.GetApprovedUsersAsync();
+        }
+        
+        public Administration.ServiceReference1.GetApprovedAdminsResponse GetApprovedAdmins() {
+            return base.Channel.GetApprovedAdmins();
+        }
+        
+        public System.Threading.Tasks.Task<Administration.ServiceReference1.GetApprovedAdminsResponse> GetApprovedAdminsAsync() {
+            return base.Channel.GetApprovedAdminsAsync();
         }
         
         public Administration.ServiceReference1.GetNotApprovedUsersResponse GetNotApprovedUsers() {

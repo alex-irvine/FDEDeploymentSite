@@ -53,18 +53,21 @@ namespace Administration
                 string logoPath = Server.MapPath("~/TemporaryFolder");
                 string filename = FileInput.FileName;
                 //MessageBox.Show("filename1: " + filename);
-                
-                if (!Directory.Exists(logoPath))
+                if (Directory.Exists(logoPath))
                 {
+                    System.IO.DirectoryInfo di = new DirectoryInfo(logoPath);
+                    di.Delete(true);
+                }
+                
                     //string userServer = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                     DirectorySecurity securityRules = new DirectorySecurity();
                     securityRules.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), 
                                                 FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
                                                 PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-                    DirectoryInfo di = Directory.CreateDirectory(logoPath); //Création directory
-                    di.SetAccessControl(securityRules);
+                    DirectoryInfo dir = Directory.CreateDirectory(logoPath); //Création directory
+                    dir.SetAccessControl(securityRules);
                     //MessageBox.Show("directory create");
-                }
+                
                 
                 //FileInput.SaveAs(logoPath + "/" + filename);
                 //MessageBox.Show("save as");
@@ -109,7 +112,7 @@ namespace Administration
                                 {
                                     var result = await dbx.Files.UploadSessionStartAsync(false, memStream);
                                     sessionId = result.SessionId;
-                                    MessageBox.Show("dbx start");
+                                    //MessageBox.Show("dbx start");
                                     
                                 }
                                 else
@@ -184,11 +187,11 @@ namespace Administration
                 
                 int val = await Upload();
                 //MessageBox.Show(val.ToString());
-                MessageBox.Show("fin1");
+                //MessageBox.Show("fin1");
             }
             else
             {
-                MessageBox.Show("No file selected");
+                //MessageBox.Show("No file selected");
             }
         }
 

@@ -31,6 +31,8 @@ namespace Services
         [OperationContract]
         GetApprovedUsersResponse GetApprovedUsers();
         [OperationContract]
+        GetApprovedAdminsResponse GetApprovedAdmins();
+        [OperationContract]
         GetNotApprovedUsersResponse GetNotApprovedUsers();
         [OperationContract]
         ApproveUserResponse ApproveUser(ApproveUserRequest request);

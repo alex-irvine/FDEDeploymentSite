@@ -15,6 +15,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Administrator</th>
+                    <th>Approved</th>
                     <th>Company</th>
                     <th>Action</th>
                 </tr>
@@ -23,6 +24,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Administrator</th>
+                    <th>Approved</th>
                     <th>Company</th>
                     <th>Action</th>
                 </tr>
@@ -39,6 +41,7 @@
                     <tr>
                         <td><%#: Item.Username %></td>
                         <td><%#: Item.IsAdmin %></td>
+                        <td><%#: Item.IsApproved %></td>
                         <td><%#: Item.Company %></td>
                         <td>
                             <asp:LinkButton runat="server" OnClick="Approve_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Approve</asp:LinkButton>
@@ -63,6 +66,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Administrator</th>
+                    <th>Approved</th>
                     <th>Company</th>
                     <th>Action</th>
                 </tr>
@@ -71,6 +75,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Administrator</th>
+                    <th>Approved</th>
                     <th>Company</th>
                     <th>Action</th>
                 </tr>
@@ -87,6 +92,7 @@
                     <tr>
                         <td><%#: Item.Username %></td>
                         <td><%#: Item.IsAdmin %></td>
+                        <td><%#: Item.IsApproved %></td>
                         <td><%#: Item.Company %></td>
                         <td>
                             <asp:LinkButton runat="server" OnClick="NotApprove_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-warning">Disapprove</asp:LinkButton>
@@ -106,7 +112,55 @@
         </table>
     </div>
     <div role="tabpanel" class="tab-pane" id="Admin">
-
+        <table id="AdminTable" class="display" >
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Administrator</th>
+                    <th>Approved</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Username</th>
+                    <th>Administrator</th>
+                    <th>Approved</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+            <asp:ListView runat="server" ID="AdminUsers" ItemType="Administration.ServiceReference1.Person" OnPreRender="Admin_PreRender">
+                <EmptyDataTemplate>
+                    <tbody>
+                        <tr>
+                            <td>No news was returned.</td>
+                        </tr>
+                    </tbody>
+                </EmptyDataTemplate>
+                <ItemTemplate>            
+                    <tr>
+                        <td><%#: Item.Username %></td>
+                        <td><%#: Item.IsAdmin %></td>
+                        <td><%#: Item.IsApproved %></td>
+                        <td><%#: Item.Company %></td>
+                        <td>
+                            <asp:LinkButton runat="server" OnClick="Approve_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Approve</asp:LinkButton>
+                            <asp:LinkButton runat="server" OnClick="Delete_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <LayoutTemplate>
+            
+                
+                        <tbody id="itemPlaceholderContainer">
+                            <tr id="itemPlaceholder" runat="server"></tr>
+                        </tbody>
+                
+                </LayoutTemplate>
+            </asp:ListView>
+        </table>
     </div>
   </div>
     
@@ -122,6 +176,9 @@
         });
         $(document).ready(function () {
             $("#NotApprovedTable").DataTable();
+        });
+        $(document).ready(function () {
+            $("#AdminTable").DataTable();
         });
     </script>
 </asp:Content>

@@ -35,6 +35,23 @@ namespace Administration
             try { NotApprovedUsers.DataBind(); }catch(Exception ex){}
         }
 
+        protected void Admin_PreRender(object sender, EventArgs e)
+        {
+            List<Person> users = new List<Person>();
+            using (Service1Client client = new Service1Client())
+            {
+                GetApprovedAdminsResponse response = client.GetApprovedAdmins();
+                if (!response.Errored)
+                {
+                    users = response.Users.ToList<Person>();
+                }
+            }
+            AdminUsers.DataSource = users;
+            try { AdminUsers.DataBind(); }
+            catch (Exception ex) { }
+        }
+
+
         protected void ApprovedUsers_PreRender(object sender, EventArgs e)
         {
             List<Person> users = new List<Person>();

@@ -78,6 +78,12 @@ namespace Services.Model
         public List<Person> Users { get; set; }
     }
     [DataContractAttribute]
+    public class GetApprovedAdminsResponse : ErrorInformation
+    {
+        [DataMemberAttribute]
+        public List<Person> Users { get; set; }
+    }
+    [DataContractAttribute]
     public class ApproveUserResponse : ErrorInformation
     {
 

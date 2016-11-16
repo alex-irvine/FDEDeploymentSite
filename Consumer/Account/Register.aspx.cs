@@ -37,7 +37,7 @@ namespace Consumer.Account
                             {
                                 Username = Email.Text,
                                 Company = Company.Text,
-                                IsAdmin = true,
+                                IsAdmin = false,
                                 Password = Password.Text
                             };
 
