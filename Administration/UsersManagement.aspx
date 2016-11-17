@@ -45,6 +45,7 @@
                         <td><%#: Item.Company %></td>
                         <td>
                             <asp:LinkButton runat="server" OnClick="Approve_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Approve</asp:LinkButton>
+                            <asp:LinkButton runat="server" OnClick="ApproveAdmin_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Make Admin</asp:LinkButton>
                             <asp:LinkButton runat="server" OnClick="Delete_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
                         </td>
                     </tr>
@@ -96,6 +97,7 @@
                         <td><%#: Item.Company %></td>
                         <td>
                             <asp:LinkButton runat="server" OnClick="NotApprove_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-warning">Disapprove</asp:LinkButton>
+                            <asp:LinkButton runat="server" OnClick="ApproveAdmin_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Make Admin</asp:LinkButton>
                             <asp:LinkButton runat="server" OnClick="Delete_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
                         </td>
                     </tr>
@@ -146,7 +148,7 @@
                         <td><%#: Item.IsApproved %></td>
                         <td><%#: Item.Company %></td>
                         <td>
-                            <asp:LinkButton runat="server" OnClick="Approve_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-success">Approve</asp:LinkButton>
+                            <asp:LinkButton runat="server" OnClick="NotApproveAdmin_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-warning">Remove Admin</asp:LinkButton>
                             <asp:LinkButton runat="server" OnClick="Delete_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
                         </td>
                     </tr>

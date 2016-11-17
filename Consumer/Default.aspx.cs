@@ -12,8 +12,10 @@ namespace Consumer
 {
     public partial class _Default : Page
     {
+        public bool isApproved { get; private set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            isApproved = Session["User"] != null ? ((Consumer.ServiceReference1.Person)Session["User"]).IsApproved : false;
             ifYt.Src = GeturlVideo().Replace("watch?v=", "embed/");
         }
 

@@ -19,6 +19,10 @@ namespace Administration
         protected void Page_Load(object sender, EventArgs e)
         {
             bool isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
+            if (Session["User"] == null)
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
             if (!isAdmin)
             {
                 FormsAuthentication.RedirectToLoginPage();

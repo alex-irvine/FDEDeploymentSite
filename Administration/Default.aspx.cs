@@ -26,6 +26,9 @@ namespace Administration
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
+            if(!isAdmin){
+                FormsAuthentication.RedirectToLoginPage();
+            }
         }
 
         protected void NewNews_Click(object sender, EventArgs e)

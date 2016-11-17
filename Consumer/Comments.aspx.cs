@@ -11,9 +11,16 @@ namespace Consumer
 {
     public partial class Comments : System.Web.UI.Page
     {
+        public bool isApproved { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsAuthenticated)
+            isApproved = Session["User"] != null ? ((Consumer.ServiceReference1.Person)Session["User"]).IsApproved : false;
+            if (Session["User"] == null)
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
+            if (!isApproved)
             {
                 FormsAuthentication.RedirectToLoginPage();
             }

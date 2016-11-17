@@ -37,6 +37,8 @@ namespace Services
         [OperationContract]
         ApproveUserResponse ApproveUser(ApproveUserRequest request);
         [OperationContract]
+        ApproveAdminResponse ApproveAdmin(ApproveAdminRequest request);
+        [OperationContract]
         DeleteUserResponse DeleteUser(DeleteUserRequest request);
         
         #endregion

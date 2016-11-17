@@ -120,6 +120,21 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ApproveUserResponse" nillable="true" type="tns:ApproveUserResponse" />
+  <xs:complexType name="ApproveAdminRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Admin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApproveAdminRequest" nillable="true" type="tns:ApproveAdminRequest" />
+  <xs:complexType name="ApproveAdminResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApproveAdminResponse" nillable="true" type="tns:ApproveAdminResponse" />
   <xs:complexType name="DeleteUserRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />

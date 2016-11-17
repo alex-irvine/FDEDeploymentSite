@@ -403,7 +403,7 @@ namespace Services
                 var db = client.GetDatabase(SysConfig.DBname);
 
                 // get collection
-                var col = db.GetCollection<Comment>("Users");
+                var col = db.GetCollection<Person>("Users");
 
                 // update the item
                 var updated = col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)),
@@ -433,6 +433,58 @@ namespace Services
             catch (Exception ex)
             {
                 return new ApproveUserResponse()
+                {
+                    Errored = true,
+                    Message = ex.Message
+                };
+            }
+        }
+
+        /// <summary>
+        /// sets the publish flag as per the request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public ApproveAdminResponse ApproveAdmin(ApproveAdminRequest request)
+        {
+            // try and change the publish flag on the sent _id
+            try
+            {
+                // client and db
+                var client = new MongoClient(SysConfig.DBconn);
+                var db = client.GetDatabase(SysConfig.DBname);
+
+                // get collection
+                var col = db.GetCollection<Person>("Users");
+
+                // update the item
+                var updated = col.UpdateOne(new BsonDocument("_id", ObjectId.Parse(request._id)),
+                                            new BsonDocument("$set",
+                                            new BsonDocument("IsAdmin", request.Admin)));
+
+
+                // error stuff
+                if (updated.ModifiedCount == 1)
+                {
+                    return new ApproveAdminResponse()
+                    {
+                        Errored = false,
+                        Message = "Success"
+                    };
+                }
+                else
+                {
+                    return new ApproveAdminResponse()
+                    {
+                        Errored = true,
+                        Message = "No matching document or no update to process"
+                    };
+                }
+            }
+            // DB errors
+            catch (Exception ex)
+            {
+                return new ApproveAdminResponse()
                 {
                     Errored = true,
                     Message = ex.Message

@@ -16,13 +16,14 @@ namespace Administration
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
             if (Session["User"] == null)
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
-            else
+            if (!isAdmin)
             {
-                isAdmin = Session["User"] != null ? ((Person)Session["User"]).IsAdmin : false;
+                FormsAuthentication.RedirectToLoginPage();
             }
         }
 

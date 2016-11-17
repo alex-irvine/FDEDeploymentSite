@@ -12,9 +12,16 @@ namespace Administration
 {
     public partial class UsersManagement : System.Web.UI.Page
     {
+        public bool isAdmin { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
             if (Session["User"] == null)
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
+            if (!isAdmin)
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
@@ -91,6 +98,47 @@ namespace Administration
                 {
                     _id = ((LinkButton)sender).CommandArgument,
                     Approve = false
+                });
+                if (response.Errored)
+                {
+                    Response.Redirect("~/UsersManagement");
+                }
+            }
+        }
+
+        protected void ApproveAdmin_Click(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+                ApproveAdminResponse response = client.ApproveAdmin(new ApproveAdminRequest()
+                {
+                    _id = ((LinkButton)sender).CommandArgument,
+                    Admin = true
+                });
+                ApproveUserResponse response2 = client.ApproveUser(new ApproveUserRequest()
+                {
+                    _id = ((LinkButton)sender).CommandArgument,
+                    Approve = true
+                });
+                if (response.Errored)
+                {
+                    Response.Redirect("~/UsersManagement");
+                }
+                if (response2.Errored)
+                {
+                    Response.Redirect("~/UsersManagement");
+                }
+            }
+        }
+
+        protected void NotApproveAdmin_Click(object sender, EventArgs e)
+        {
+            using (Service1Client client = new Service1Client())
+            {
+                ApproveAdminResponse response = client.ApproveAdmin(new ApproveAdminRequest()
+                {
+                    _id = ((LinkButton)sender).CommandArgument,
+                    Admin = false
                 });
                 if (response.Errored)
                 {

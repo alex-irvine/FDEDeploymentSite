@@ -97,6 +97,19 @@ namespace Services.Model
         public bool Approve { get; set; }
     }
     [DataContractAttribute]
+    public class ApproveAdminResponse : ErrorInformation
+    {
+
+    }
+    [DataContractAttribute]
+    public class ApproveAdminRequest
+    {
+        [DataMemberAttribute]
+        public string _id { get; set; }
+        [DataMemberAttribute]
+        public bool Admin { get; set; }
+    }
+    [DataContractAttribute]
     public class DeleteUserResponse : ErrorInformation
     {
 

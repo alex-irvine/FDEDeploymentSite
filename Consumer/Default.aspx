@@ -105,7 +105,7 @@
                     </div>
                         <div class="col-md-4">
                             <div class="media-left">
-                           <% if (!Request.IsAuthenticated) { %>
+                           <% if (!isApproved) { %>
                                 <a href="/Account/Login"><span class="icon-uniE04D"></span></a>
                             <% } else { %>
                                 <asp:LinkButton ID="LinkButton1" 
@@ -122,7 +122,7 @@
 
                     </div>
                     <div class="col-md-4">
-                        <div class="media-left"><a href="/Comment"><span class="icon-connection"></span></a></div>
+                        <div class="media-left"><a href="/Comments"><span class="icon-connection"></span></a></div>
                         <div class="media-body">
                             <h3>Comment</h3>
                             <p>You can comment blabl ablabla.Blablab lablabla.</p>

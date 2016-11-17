@@ -28,14 +28,19 @@ namespace Administration
 
         public int pValue;
 
+        public bool isAdmin { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            isAdmin = Session["User"] != null ? ((Administration.ServiceReference1.Person)Session["User"]).IsAdmin : false;
             if (Session["User"] == null)
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
-            System.Diagnostics.Debug.WriteLine("Test");
-            
+            if (!isAdmin)
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
         }
 
 
