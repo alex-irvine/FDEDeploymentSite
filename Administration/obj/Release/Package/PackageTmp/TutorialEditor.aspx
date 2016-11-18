@@ -7,6 +7,14 @@
         <button runat="server" OnClick="Remove_Tutorial" class="btn btn-default" ><span class="glyphicon glyphicon-remove-circle"></span></button>
     </div>
     
+    <div class="dropdownPDF">
+        <p> Add a PDF ?</p>
+        <asp:DropDownList ID="DropDownListID"  runat="server"></asp:DropDownList>
+        <asp:Button ID="btnGet" runat="server" Text="Show URL"></asp:Button>
+        <%--<p id="urlPDFdisplay" runat="server"></p>--%>
+
+    </div>
+
     <asp:Label runat="server">Tutorial title</asp:Label>
     <asp:TextBox runat="server" ID="TutorialTitle" CssClass="form-control" Text=""/>
 
@@ -56,7 +64,14 @@
             max-width: 300px;
             border: 2px solid #0d0d0d;
         }
-    </style>
+        
+    .dropdownPDF {
+        float: right;
+        position: relative;
+        display: inline-block;
+    
+    }
+        </style>
     <script src="Scripts/jquery-te-1.4.0.js"></script>
     <script>
         //$(document).ready(function () {
@@ -122,9 +137,18 @@
             button: "SEND",
 
         });
-
-
     </script>
-    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[id*=btnGet]").click(function () {
+                var ddlpdf = $("[id*=DropDownListID]");
+                var selectedText = ddlpdf.find("option:selected").text();
+                var selectedValue = ddlpdf.val();
+                alert("PDF name Selected : " + selectedText + "\n\n You can copy and paste this url : \n" +window.location.host+ selectedValue);
+                return false;
+            });
+        });
+    </script>
 
 </asp:Content>

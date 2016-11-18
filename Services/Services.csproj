@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CADESservices - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\cust.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

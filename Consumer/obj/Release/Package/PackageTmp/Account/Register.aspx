@@ -56,5 +56,6 @@
             </div>
         </div>
     </div>
+   <p>After register, you will need to wait the approve of the Administrator</p>
     <script type="text/javascript" src="./Register.js"></script>
 </asp:Content>

@@ -1,54 +1,57 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PDFpage.aspx.cs" Inherits="Administration.PDFpage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .div1{
+            margin-bottom:30px;
+        }
+        .div2{
+            margin-bottom:30px;
+        }
+        .div3{
+            text-align:center;
+            margin-bottom:30px;
+        }
+        .div3 .txt1{
+            width:100%;
+        }
+        .div2 .listbox1{
+            width:100%;
+        }
+        .div2 .div22{
+            text-align:center;
+        }
+    </style>
     <h1 style="text-align:center">PDF Page</h1>
     <br />
     <br />
-    <div style="text-align:center">
-    <asp:FileUpload ID="PdfInput" runat="server" />
-
-     <asp:Button runat="server" OnClick="PDF_Upload_Click" Text="Send" />
+    <div class="div1">
+        <asp:FileUpload ID="PdfInput" runat="server" />
+        <div>
+            <asp:Button runat="server" OnClick="PDF_Upload_Click" Text="Send" />
+        </div>
     </div>
 
-
-   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="pdfpanel">
-        <table id="pdfTable" class="display" >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Link</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <asp:ListView runat="server" ID="pdflist" ItemType="Administration.ServiceReference1.PDF" OnPreRender="DataPagerPDF_PreRender">
-                <EmptyDataTemplate>
-                    <table>
-                        <tr>
-                            <td>No contact was returned.</td>
-                        </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <ItemTemplate>            
-                    <tr>
-                        <td><%#: Item._id %></td>
-                        <td><%#: Item.PdfName %></td>
-                        <td><%#: Item.Pdflink %></td>
-                        <td>
-                            <asp:LinkButton runat="server" OnClick="DeletePdf_Click" CommandArgument="<%#: Item._id %>" CssClass="btn btn-default btn-danger">Delete</asp:LinkButton>
-                        </td>
-                    </tr>
-                </ItemTemplate>
-                <LayoutTemplate>
-            
-                    
-                        <tbody id="itemPlaceholderContainer" runat="server">
-                            <tr id="itemPlaceholder" runat="server"> </tr>
-                        </tbody>
-                    
-                </LayoutTemplate>
-            </asp:ListView>
-        </table>
+    <div class="div2">
+        <asp:ListBox runat="server" id="listbox1" OnPreRender="GetListFile" CssClass="listbox1"></asp:ListBox>
+        <div class="div22">
+            <asp:Button runat="server" OnClick="PDF_Delete_Click" Text="Delete the PDF Selected"  />
+        </div>
     </div>
-          </div>
+    <div class="div3">
+        <div>
+            <asp:Button ID="btnGet" runat="server" Text="Show URL"></asp:Button>
+        </div>
+    </div>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[id*=btnGet]").click(function () {
+            var values = "";
+            var selected = $("[id*=listbox1] option:selected").html();
+            values = "PDF name Selected : " + selected + "\n\n You can copy and paste this url : \n" +window.location.host+"/PDFFolder/"+ selected;
+            alert(values);
+            return false;
+        });
+    });
+</script>
 </asp:Content>

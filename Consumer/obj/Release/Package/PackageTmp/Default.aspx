@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="fonts/style.css" />
     <script src="carousel.js"></script>
+
  <style>
      .btn-transparent {
          background: transparent;
@@ -46,6 +47,7 @@
         border: 0;
         background: transparent;
     }
+
 	</style>
         <div class="carousel slide" id="myCarousel">
             <!--Indicator-->
@@ -92,54 +94,48 @@
                 <iframe runat="server" id="ifYt" class='tutovideo' width='560' height='315' ClientIDMode="static"></iframe>
             </div>
 
-            <div class="services-box">
+ <div class="services-box">
                 <div class="row wow fadeInUp" >
                     <div class="col-md-4">
-                        <div class="media-left"><a href="/Software"><span class="icon-uniE030"></span></a></div>
+                        <div class="media-left"><a href="/About"><span class="icon-uniE030"></span></a></div>
                         <div class="media-body">
-                            <h3>The Idea</h3>
+                            <h3 >About</h3>
                             <p>The purpose of the software is to blablablabla</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="media-left"><a href="/Comments"><span class="icon-connection"></span></a></div>
-                        <div class="media-body">
-                            <h3>Connect</h3>
-                            <p>Blab labla blabla. Blablablab labla blabla aablabla</p>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="media-left"><a href="/Contact"><span class="icon-uniE049"></span></a></div>
-                        <div class="media-body">
-                            <h3>Contact us</h3>
-                            <p>You can contact us blabl ablabla.Blablab lablabla.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row wow fadeInUp" >
-                        <div class="col-md-4">
-                            <div class="media-left"><span class="icon-uniE00E"></span></div>
-                            <div class="media-body">
-                                <h3>Improve your design</h3>
-                                <p>Software Blablabla blabla Blablab lablabla Blablablablabla</p>
-                            </div>
-
-                        </div>
                         <div class="col-md-4">
                             <div class="media-left">
-                                <asp:LinkButton ID="btnDownload" 
+                           <% if (!isApproved) { %>
+                                <a href="/Account/Login"><span class="icon-uniE04D"></span></a>
+                            <% } else { %>
+                                <asp:LinkButton ID="LinkButton1" 
                                     runat="server"   
                                     OnClick="btnDownload_Click">
                                     <span aria-hidden="true" class="icon-uniE04D" style="cursor:pointer" ></span>
                                 </asp:LinkButton>
+                            <% } %>
                             </div>
                             <div class="media-body">
                                 <h3>Download now</h3>
                                 <p>You can find on this website Blabla blablablaBlablabla blabla</p>
                             </div>
 
+                    </div>
+                    <div class="col-md-4">
+                        <div class="media-left"><a href="/Comments"><span class="icon-connection"></span></a></div>
+                        <div class="media-body">
+                            <h3>Comment</h3>
+                            <p>You can comment blabl ablabla.Blablab lablabla.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row wow fadeInUp" >
+                        <div class="col-md-4">
+                            <div class="media-left"><a href="/KeyFeatures"><span class="icon-uniE00E"></span></a></div>
+                            <div class="media-body">
+                                <h3>Key Features</h3>
+                                <p>Software Blablabla blabla Blablab lablabla Blablablablabla</p>
+                            </div>
                         </div>
                         <div class="col-md-4">
                             <div class="media-left"><a href="/Tutorials"><span class="icon-uniE02B"></span></a></div>
@@ -149,10 +145,17 @@
                             </div>
 
                         </div>
+                    <div class="col-md-4">
+                        <div class="media-left"><a href="/Contact"><span class="icon-uniE049"></span></a></div>
+                        <div class="media-body">
+                            <h3>Contact us</h3>
+                            <p>You can contact us blabl ablabla.Blablab lablabla.</p>
+                        </div>
+
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
    
     <!-- news -->
