@@ -60,22 +60,28 @@
             <div class="carousel-inner">
                 <div class="item active" id="slide1">
                         <div class="carousel-caption">
-                            <h4>Qualité / Solide / Usefull</h4>
-                            <h1>This is <span>NameSoftware</span></h1>
+                            <h4></h4>
+                            <h1><span>ADE </span>1.0</h1>
+                            <h3>Antenna Design Explorer</h3>
+                            <br />
                             <a class="btn btn-transparent" href="/Software">Download</a>
                         </div>
                 </div>
                 <div class="item" id="slide2">
                         <div class="carousel-caption">
-                            <h4>Free documentation / Tutoriel</h4>
-                            <h1>This is <span>NameSoftware</span></h1>
+                            <h4>Free documentation / Tutorials</h4>
+                            <h1><span>ADE </span>1.0</h1>
+                            <h3>Antenna Design Explorer</h3>
+                            <br />
                             <a class="btn btn-transparent" href="/Tutorials">Tutorials</a>
                         </div>
                 </div>
                 <div class="item" id="slide3">
                         <div class="carousel-caption">
-                            <h4>Contact / Commentaire</h4>
-                            <h1>This is <span>NameSoftware</span></h1>
+                            <h4>Contact us / Comments</h4>
+                            <h1><span>ADE </span>1.0</h1>
+                            <h3>Antenna Design Explorer</h3>
+                            <br />
                             <a class="btn btn-transparent" href="/Comments">Comments</a>
                         </div>
                 </div>
@@ -88,7 +94,8 @@
     <!--ABOUT-->
         <section id="services">
         <div class="container">
-            <h2>Name Software</h2>
+            <h2><span>ADE </span>1.0</h2>
+            <h2>Antenna Design Explorer</h2>
             <hr class="light-sep">
             <div id="videoYtb">
                 <iframe runat="server" id="ifYt" class='tutovideo' width='560' height='315' ClientIDMode="static"></iframe>
@@ -100,7 +107,7 @@
                         <div class="media-left"><a href="/About"><span class="icon-uniE030"></span></a></div>
                         <div class="media-body">
                             <h3 >About</h3>
-                            <p>The purpose of the software is to blablablabla</p>
+                            <p>You can find informations about the ADE 1.0 here</p>
                         </div>
                     </div>
                         <div class="col-md-4">
@@ -117,7 +124,7 @@
                             </div>
                             <div class="media-body">
                                 <h3>Download now</h3>
-                                <p>You can find on this website Blabla blablablaBlablabla blabla</p>
+                                <p>Download the ADE 1.0</p>
                             </div>
 
                     </div>
@@ -125,7 +132,7 @@
                         <div class="media-left"><a href="/Comments"><span class="icon-connection"></span></a></div>
                         <div class="media-body">
                             <h3>Comment</h3>
-                            <p>You can comment blabl ablabla.Blablab lablabla.</p>
+                            <p>Leave a comment about the ADE 1.0</p>
                         </div>
                     </div>
                 </div>
@@ -134,14 +141,14 @@
                             <div class="media-left"><a href="/KeyFeatures"><span class="icon-uniE00E"></span></a></div>
                             <div class="media-body">
                                 <h3>Key Features</h3>
-                                <p>Software Blablabla blabla Blablab lablabla Blablablablabla</p>
+                                <p>You can find key features of the ADE 1.0</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="media-left"><a href="/Tutorials"><span class="icon-uniE02B"></span></a></div>
                             <div class="media-body">
-                                <h3>Tutorial</h3>
-                                <p>Some tutorial are available Blabla blablablaBla blablablabla.</p>
+                                <h3>Tutorials</h3>
+                                <p>Get access and view the ADE 1.0 tutorials</p>
                             </div>
 
                         </div>
@@ -149,7 +156,7 @@
                         <div class="media-left"><a href="/Contact"><span class="icon-uniE049"></span></a></div>
                         <div class="media-body">
                             <h3>Contact us</h3>
-                            <p>You can contact us blabl ablabla.Blablab lablabla.</p>
+                            <p>You can contact us here</p>
                         </div>
 
                     </div>

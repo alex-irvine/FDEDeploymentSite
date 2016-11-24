@@ -72,7 +72,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                            <li><a href="~/Consumer/Default" class="page-scroll">EM Design Explorer</a></li>
+                            <li><a href="http://www.cadesresearch.azuresites.com" class="page-scroll">EM Design Explorer</a></li>
                         </ul>
                     </div>
                 </div>
