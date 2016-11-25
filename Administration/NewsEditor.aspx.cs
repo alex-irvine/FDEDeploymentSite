@@ -46,7 +46,7 @@ namespace Administration
                         }
                         else
                         {
-                            MessageBox.Show("Fail to load news");
+                            ErreurMessage.Text = "Error";
                         }
                     }
                 }
@@ -72,12 +72,11 @@ namespace Administration
                 });
                 if (!response.Errored)
                 {
-                    MessageBox.Show("News updated");
                     Response.Redirect("~/News?id=" + news._id);
                 }
                 else
                 {
-                    MessageBox.Show("Fail to update news");
+                    ErreurMessage.Text = "Error";
                     Response.Redirect("~/");
                 }
             }

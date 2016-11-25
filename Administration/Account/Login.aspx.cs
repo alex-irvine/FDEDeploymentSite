@@ -41,7 +41,7 @@ namespace Administration.Account
 
                     if (response.Errored)
                     {
-                        MessageBox.Show(response.Message);
+                        ErreurMessage.Text = "Username or password incorrect";
                     }
 
                     if (response.Authenticated)

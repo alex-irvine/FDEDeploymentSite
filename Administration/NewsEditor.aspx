@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewsEditor.aspx.cs" Inherits="Administration.NewsEditor" ValidateRequest="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <div>
+        <asp:Label ID="ErreurMessage" runat="server" > </asp:Label>
+    </div>
     <asp:TextBox runat="server" ID="NewsID" Style="display:none;" Text=""/>
     
     <div class="News_option">

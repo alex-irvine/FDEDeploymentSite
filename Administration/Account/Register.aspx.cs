@@ -55,11 +55,11 @@ namespace Administration.Account
                             });
                             if (!response.Errored)
                             {
-                                MessageBox.Show("Your account has been created");
+                                ErrorMessage.Text = "Your account has been created";
                             }
                             else
                             {
-                                MessageBox.Show("Fail to create your account");
+                                ErrorMessage.Text = "Fail to create your account";
                             }
                         }
                         else

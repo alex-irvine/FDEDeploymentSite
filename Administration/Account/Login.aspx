@@ -44,6 +44,9 @@
                             <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
                         </div>
                     </div>
+                    <div>
+                         <asp:Label ID="ErreurMessage" runat="server" > </asp:Label>
+                    </div>
                 </div>
                 <p>
                     <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>

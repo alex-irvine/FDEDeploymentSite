@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Async="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Software.aspx.cs" Inherits="Administration.Software" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 style="text-align:center"> Upload Page</h1>
+    <div>
+        <asp:Label ID="ErreurMessage" runat="server" > </asp:Label>
+    </div>
     <br />
     <br />
     <div style="text-align:center">

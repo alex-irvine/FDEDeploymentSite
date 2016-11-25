@@ -46,7 +46,7 @@ namespace Administration
                         }
                         else
                         {
-                            MessageBox.Show("Fail to load news");
+                            ErreurMessage.Text = "Error";
                             Response.Redirect("~/");
                         }
                     }
@@ -67,12 +67,11 @@ namespace Administration
                 });
                 if (!response.Errored)
                 {
-                    MessageBox.Show("News has been published");
                     Response.Redirect("~/");
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    ErreurMessage.Text = "Error";
                 }
             }
         }
@@ -89,12 +88,11 @@ namespace Administration
                 });
                 if (!response.Errored)
                 {
-                    MessageBox.Show("News has been published");
                     Response.Redirect("~/");
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    ErreurMessage.Text = "Error";
                 }
             }
         }
@@ -109,12 +107,11 @@ namespace Administration
                 });
                 if (!response.Errored)
                 {
-                    MessageBox.Show("News has been deleted");
                     Response.Redirect("~/");
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    ErreurMessage.Text = "Error";
                 }
             }
         }

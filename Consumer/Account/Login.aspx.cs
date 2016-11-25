@@ -37,7 +37,7 @@ namespace Consumer.Account
 
                 if (response.Errored)
                 {
-                    FailureText.Text = response.Message;
+                    FailureText.Text = "Username or password incorrect";
                 }
                 else
                 {

@@ -161,7 +161,6 @@ namespace Administration
                 }
                 else
                 {
-                    MessageBox.Show("User deleted !");
                     Response.Redirect("~/UsersManagement");
                 }
             }

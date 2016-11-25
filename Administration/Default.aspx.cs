@@ -56,7 +56,6 @@ namespace Administration
                     Response.Redirect("~/NewsEditor?id=" + idlink);
                 }
             }
-            // Redirect to NewsEditor
         }
 
         protected void DataPagerNews_PreRender(object sender, EventArgs e)
@@ -99,7 +98,7 @@ namespace Administration
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    ErreurMessage.Text = "Fail";
                 }
             }
         }
@@ -120,7 +119,7 @@ namespace Administration
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    ErreurMessage.Text = "Fail";
                 }
             }
         }
@@ -139,7 +138,7 @@ namespace Administration
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    ErreurMessage.Text = "Fail";
                 }
             }
         }
@@ -151,14 +150,11 @@ namespace Administration
             {
                 InsertUrlYoutubeResponse response = client.InsertUrlYoutube(new InsertUrlYoutubeRequest()
                 {
-                    //Youtube = new Youtube()
-                    //{
                     urlyoutube = urlvar
-                    //}
                 });
                 if (!response.Errored)
                 {
-                    //MessageBox.Show("erroned 1 : " + response.Message.ToString());
+                    ErreurMessage.Text = "error : " + response.Message.ToString();
                 }
             }
         }
@@ -170,8 +166,7 @@ namespace Administration
                 GetUrlYoutubeResponse response = client.GetUrlYoutube();
                 if (response.Errored)
                 {
-                    MessageBox.Show("erroned 2 : " + response.Message.ToString());
-
+                    ErreurMessage.Text = "error : " + response.Message.ToString();
                 }
                 TextBoxUrl.Text = response.urlyoutube;
             }
