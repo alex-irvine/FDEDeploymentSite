@@ -260,7 +260,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Test authenticator
+        /// 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
