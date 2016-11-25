@@ -105,9 +105,9 @@
                 <div id="iconHomeAbout1" class="col-lg-4 col-sm-4">
                     <div class="icon11">
                         <div class="icon1">
-                           <a href="#"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
+                           <a href="/Software"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
                         </div>
-                        <h5>BlaBla1</h5>
+                        <h5>Software</h5>
                         <p class="imgDescription">
                             Bla Bla blabla bla bal bzefj  zv vzkbvazi zdv bmzdvhb zev evzouzvobv zvze vhbov
                         </p>
@@ -116,9 +116,9 @@
                 <div id="iconHomeAbout2" class="col-lg-4 col-sm-4">
                     <div class="icon22">
                         <div class="icon1">
-                           <a href="#"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
+                           <a href="/People"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
                         </div>
-                        <h5>BlaBla2</h5>
+                        <h5>People</h5>
                         <p class="imgDescription2">
                             Bla Bla blabla bla bal bzefj  zv vzkbvazi zdv bmzdvhb zev evzouzvobv zvze vhbov
                         </p>
@@ -127,9 +127,9 @@
                 <div id="iconHomeAbout3" class="col-lg-4 col-sm-4">
                     <div class="icon33">
                         <div class="icon1">
-                           <a href="#"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
+                           <a href="/Services"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
                         </div>
-                        <h5>BlaBla3</h5>
+                        <h5>Services</h5>
                         <p class="imgDescription3">
                             Bla Bla blabla bla bal bzefj  zv vzkbvazi zdv bmzdvhb zev evzouzvobv zvze vhbov
                         </p>
