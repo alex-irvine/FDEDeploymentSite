@@ -194,6 +194,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Images\bannerPeople.jpg" />
+    <Content Include="Images\bannerService.jpg" />
+    <Content Include="Images\bannerSoftware.jpg" />
     <Content Include="Images\blue_white_image.jpg" />
     <Content Include="Images\imgCaroussel1.jpg" />
     <Content Include="Images\imgCaroussel2.jpg" />

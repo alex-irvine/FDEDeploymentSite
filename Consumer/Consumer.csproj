@@ -199,11 +199,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\icomoon.svg" />
     <Content Include="fonts\style.css" />
+    <Content Include="img\blueBackground.jpg" />
     <Content Include="img\imgCaroussel1.jpg" />
     <Content Include="img\imgCaroussel2.jpg" />
     <Content Include="img\imgCaroussel3.jpg" />
     <Content Include="img\imgSoftware.png" />
     <Content Include="KeyFeatures.aspx" />
+    <Content Include="News.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\CADESresearch - Web Deploy %282%29.pubxml" />
@@ -545,6 +547,13 @@
     </Compile>
     <Compile Include="KeyFeatures.aspx.designer.cs">
       <DependentUpon>KeyFeatures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
     </Compile>
     <Compile Include="Software.aspx.cs">
       <DependentUpon>Software.aspx</DependentUpon>

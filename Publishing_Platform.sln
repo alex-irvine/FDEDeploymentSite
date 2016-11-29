@@ -25,6 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstutedsV1", "Astuteds\Astu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astudes", "Astudes\Astudes.csproj", "{C703075C-0E57-4F53-B472-ADD3B43E6B7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADES", "CADES\CADES.csproj", "{D0A6D43B-E738-45C3-BFC7-A45397F93552}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D8835DA7-366E-43B3-B99F-1EDA9C808430} = {D8835DA7-366E-43B3-B99F-1EDA9C808430}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +68,10 @@ Global
 		{C703075C-0E57-4F53-B472-ADD3B43E6B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C703075C-0E57-4F53-B472-ADD3B43E6B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C703075C-0E57-4F53-B472-ADD3B43E6B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A6D43B-E738-45C3-BFC7-A45397F93552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A6D43B-E738-45C3-BFC7-A45397F93552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A6D43B-E738-45C3-BFC7-A45397F93552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A6D43B-E738-45C3-BFC7-A45397F93552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="~/Content/masterPageStyle.css" />
         <link rel="stylesheet" href="~/Content/bootstrap.css" />
-      <%--  <link rel="stylesheet" href="~/Content/bootstrap.min.css" />--%>
+        <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     </head>
 <body>
     <form runat="server">
@@ -48,10 +48,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Company</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="/About">About Altair</a>
+					    <a runat="server" href="/About">About Astute</a>
                         <a runat="server" href="#">News</a>
                         <a runat="server" href="#">Events</a>
-                        <a runat="server" href="#">Altair Publications</a>
                         <a runat="server" href="#">Follow Us</a>
                         <a runat="server" href="#">Community Outreach</a>
                         <a runat="server" href="#">Partners</a>
@@ -60,37 +59,22 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Software</a>
+                    <a href="#" class="dropbtn">Products & Services</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="#">HyperWorks</a>
-                        <a runat="server" href="#">solidThinking</a>
-                        <a runat="server" href="#">PBS Works</a>
-                        <a runat="server" href="#">Cloud simulation & Business Analytics</a>
-                        <a runat="server" href="#">Partner Alliance</a>
+					    <a runat="server" href="#">Microwave Antenna & Propagation</a>
+                        <a runat="server" href="#">IMicrowave Filter</a>
+                        <a runat="server" href="#">General EM Designs</a>
+                        <a runat="server" href="#">MEMS Designs</a>
+                        <a runat="server" href="#">Efficient Simulation - Driven Optimization</a>
+                        <a runat="server" href="#">Security System Design</a>
+                        <a runat="server" href="#">Product Engineering Consultancy</a>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Services and Product</a>
+                    <a href="#" class="dropbtn">Solutions</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="#">Product Engineering</a>
-                        <a runat="server" href="#">Industrial Design</a>
-                        <a runat="server" href="#">Technical Staffing</a>
-                        <a runat="server" href="#">HyperWorks Solutions</a>
-                        <a runat="server" href="#">Analytics Solutions</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Industries</a>
-                    <div class="dropdown-content">
-					    <a runat="server" href="#">Aerospace</a>
-                        <a runat="server" href="#">Architecture, Engineering & Construction</a>
-                        <a runat="server" href="#">Automotive & Transportation</a>
-                        <a runat="server" href="#">Consumer Products</a>
-                        <a runat="server" href="#">Electronics</a>
-                        <a runat="server" href="#">Energy</a>
-                        <a runat="server" href="#">Heavy Industry</a>
-                        <a runat="server" href="#">Life Sciences</a>
-                        <a runat="server" href="#">Marine & Shipbuilding</a>
+                        <b style="font-size:13px">By Discipline</b>
+					    <a runat="server" href="#">Electromagnetics MEMS</a>
                     </div>
                 </li>
                <li class="dropdown">
@@ -99,22 +83,15 @@
 					    <a runat="server" href="#">Videos</a>
                         <a runat="server" href="#">Case Studies</a>
                         <a runat="server" href="#">Presentations</a>
-                        <a runat="server" href="#">Training & Academia</a>
-                        <a runat="server" href="#">C2R Magazine</a>
-                        <a runat="server" href="#">Corporate Newsletter</a>
-                        <a runat="server" href="#">Company BLOG</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Careers</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="#">Life at Altair</a>
-                        <a runat="server" href="#">Culture and Benefits</a>
-                        <a runat="server" href="#">Career Events</a>
-                        <a runat="server" href="#">Testimonials</a>
-                        <a runat="server" href="#">Awards</a>
-                        <a runat="server" href="#">U.S. Internship Program</a>
-                        <a runat="server" href="#">View Current Opportunities</a>
+					    <a runat="server" href="#">Life at Astute</a>
+                        <a runat="server" href="#">Culture & Benefits</a>
+                        <a runat="server" href="#">Internship Program</a>
+                        <a runat="server" href="#">Vacancies</a>
                     </div>
                 </li>
             

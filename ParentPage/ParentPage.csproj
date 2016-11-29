@@ -57,17 +57,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\logo2navbar.png" />
-    <Content Include="Content\logo2_2.png" />
-    <Content Include="Content\logo2_3.png" />
-    <Content Include="Content\logo2_4.png" />
-    <Content Include="Content\logo2_5.png" />
-    <Content Include="Content\logo2_6.png" />
-    <Content Include="Content\logo2_7.png" />
-    <Content Include="Content\LogoCADES1.png" />
-    <Content Include="Content\LogoCADES2.png" />
+    <Content Include="Images\logo2navbar.png" />
+    <Content Include="Images\logo2_2.png" />
+    <Content Include="Images\logo2_3.png" />
+    <Content Include="Images\logo2_4.png" />
+    <Content Include="Images\logo2_5.png" />
+    <Content Include="Images\logo2_6.png" />
+    <Content Include="Images\logo2_7.png" />
+    <Content Include="Images\LogoCADES1.png" />
+    <Content Include="Images\LogoCADES2.png" />
     <Content Include="Content\ParentCss.css" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
@@ -81,8 +79,15 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

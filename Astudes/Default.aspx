@@ -27,7 +27,7 @@
   </style>
 <div id="CarouselDiv"><!-- HOMEABOUT-->
 <section>
-<div class="containerSpecial2">
+<div class="containerCarousel">
     <div class="carousel slide" id="myCarousel">
         <!--Indicator-->
             <ol class="carousel-indicators">

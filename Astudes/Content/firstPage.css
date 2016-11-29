@@ -18,7 +18,7 @@
 }
 
 /*Carousel*/
-.containerSpecial2{
+.containerCarousel{
     margin: 0 auto;
     position: relative;
     width: auto;
@@ -115,3 +115,48 @@
     color:#00A4E4;
     text-align:left;
 }
+
+/*Page Service People Software*/
+#firstDiv{
+    margin-top:110px;
+    background: #f8f9f4;
+}
+
+.banner{
+    width:800px;
+    max-height:220px;
+}
+
+.containerSpecial2{
+    margin: 0 auto;
+    position: relative;
+    width: 800px !important;
+    background:#f8f9f4;
+    padding-top:20px;
+}
+
+#titrePage{
+    color:#000000;
+    text-align:left;
+    text-transform:uppercase;
+    margin-top:0px;
+    margin-left:10px;
+}
+
+#finArticle2{
+    margin-top: 0px;
+    border-color: #e6e6e6;
+	border-top: 2px solid #eee;
+	box-sizing: content-box;
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+
+#titreLinePage{
+    max-width: 70px;
+    border: 1px solid #0f5dba;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+

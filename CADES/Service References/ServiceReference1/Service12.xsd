@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="GetPersonRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPersonRequest" nillable="true" type="tns:GetPersonRequest" />
+  <xs:complexType name="GetPersonResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:Person" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPersonResponse" nillable="true" type="tns:GetPersonResponse" />
+  <xs:complexType name="ErrorInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Errored" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorInformation" nillable="true" type="tns:ErrorInformation" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Salt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="AuthenticateUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthenticateUserRequest" nillable="true" type="tns:AuthenticateUserRequest" />
+  <xs:complexType name="AuthenticateUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Authenticated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuthenticateUserResponse" nillable="true" type="tns:AuthenticateUserResponse" />
+  <xs:complexType name="RegisterUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterUserRequest" nillable="true" type="tns:RegisterUserRequest" />
+  <xs:complexType name="RegisterUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InsertedId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RegisterUserResponse" nillable="true" type="tns:RegisterUserResponse" />
+  <xs:complexType name="GetApprovedUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApprovedUsersResponse" nillable="true" type="tns:GetApprovedUsersResponse" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="GetApprovedAdminsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApprovedAdminsResponse" nillable="true" type="tns:GetApprovedAdminsResponse" />
+  <xs:complexType name="GetNotApprovedUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNotApprovedUsersResponse" nillable="true" type="tns:GetNotApprovedUsersResponse" />
+  <xs:complexType name="ApproveUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Approve" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApproveUserRequest" nillable="true" type="tns:ApproveUserRequest" />
+  <xs:complexType name="ApproveUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApproveUserResponse" nillable="true" type="tns:ApproveUserResponse" />
+  <xs:complexType name="ApproveAdminRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Admin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApproveAdminRequest" nillable="true" type="tns:ApproveAdminRequest" />
+  <xs:complexType name="ApproveAdminResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApproveAdminResponse" nillable="true" type="tns:ApproveAdminResponse" />
+  <xs:complexType name="DeleteUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteUserRequest" nillable="true" type="tns:DeleteUserRequest" />
+  <xs:complexType name="DeleteUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserResponse" nillable="true" type="tns:DeleteUserResponse" />
+  <xs:complexType name="GetNewsItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewsItems" nillable="true" type="tns:ArrayOfNewsItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNewsItemsResponse" nillable="true" type="tns:GetNewsItemsResponse" />
+  <xs:complexType name="ArrayOfNewsItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsItem" nillable="true" type="tns:NewsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsItem" nillable="true" type="tns:ArrayOfNewsItem" />
+  <xs:complexType name="NewsItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Date_published" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Published" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewsItem" nillable="true" type="tns:NewsItem" />
+  <xs:complexType name="GetPublishedNewsItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewsItems" nillable="true" type="tns:ArrayOfNewsItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPublishedNewsItemsResponse" nillable="true" type="tns:GetPublishedNewsItemsResponse" />
+  <xs:complexType name="GetNewsItemByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNewsItemByIdRequest" nillable="true" type="tns:GetNewsItemByIdRequest" />
+  <xs:complexType name="GetNewsItemByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="News" nillable="true" type="tns:NewsItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNewsItemByIdResponse" nillable="true" type="tns:GetNewsItemByIdResponse" />
+  <xs:complexType name="InsertNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsItem" nillable="true" type="tns:NewsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertNewsItemRequest" nillable="true" type="tns:InsertNewsItemRequest" />
+  <xs:complexType name="InsertNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InsertedId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertNewsItemResponse" nillable="true" type="tns:InsertNewsItemResponse" />
+  <xs:complexType name="PublishNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PublishNewsItemRequest" nillable="true" type="tns:PublishNewsItemRequest" />
+  <xs:complexType name="PublishNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PublishNewsItemResponse" nillable="true" type="tns:PublishNewsItemResponse" />
+  <xs:complexType name="DeleteNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteNewsItemRequest" nillable="true" type="tns:DeleteNewsItemRequest" />
+  <xs:complexType name="DeleteNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteNewsItemResponse" nillable="true" type="tns:DeleteNewsItemResponse" />
+  <xs:complexType name="UpdateNewsItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsItem" nillable="true" type="tns:NewsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateNewsItemRequest" nillable="true" type="tns:UpdateNewsItemRequest" />
+  <xs:complexType name="UpdateNewsItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateNewsItemResponse" nillable="true" type="tns:UpdateNewsItemResponse" />
+  <xs:complexType name="GetFileRecordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DropboxKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFileRecordResponse" nillable="true" type="tns:GetFileRecordResponse" />
+  <xs:complexType name="InsertFileRecordRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertFileRecordRequest" nillable="true" type="tns:InsertFileRecordRequest" />
+  <xs:complexType name="InsertFileRecordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeleteOldFile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OldFileName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertFileRecordResponse" nillable="true" type="tns:InsertFileRecordResponse" />
+  <xs:complexType name="LogFileDownloadRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DownloadLog" nillable="true" type="tns:DownloadLog" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogFileDownloadRequest" nillable="true" type="tns:LogFileDownloadRequest" />
+  <xs:complexType name="DownloadLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateDownloaded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileDownloaded" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadLog" nillable="true" type="tns:DownloadLog" />
+  <xs:complexType name="LogFileDownloadResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LogFileDownloadResponse" nillable="true" type="tns:LogFileDownloadResponse" />
+  <xs:complexType name="InsertTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertTutorialItemRequest" nillable="true" type="tns:InsertTutorialItemRequest" />
+  <xs:complexType name="TutorialItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatePublished" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Pages" nillable="true" type="tns:ArrayOfTutorialPage" />
+      <xs:element minOccurs="0" name="Published" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+  <xs:complexType name="ArrayOfTutorialPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TutorialPage" nillable="true" type="tns:TutorialPage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTutorialPage" nillable="true" type="tns:ArrayOfTutorialPage" />
+  <xs:complexType name="TutorialPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Video" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TutorialPage" nillable="true" type="tns:TutorialPage" />
+  <xs:complexType name="InsertTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="_idtutorial" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertTutorialItemResponse" nillable="true" type="tns:InsertTutorialItemResponse" />
+  <xs:complexType name="GetTutorialItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TutorialItems" nillable="true" type="tns:ArrayOfTutorialItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTutorialItemsResponse" nillable="true" type="tns:GetTutorialItemsResponse" />
+  <xs:complexType name="ArrayOfTutorialItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTutorialItem" nillable="true" type="tns:ArrayOfTutorialItem" />
+  <xs:complexType name="GetPublishTutoItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TutorialItems" nillable="true" type="tns:ArrayOfTutorialItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPublishTutoItemsResponse" nillable="true" type="tns:GetPublishTutoItemsResponse" />
+  <xs:complexType name="PublishTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PublishTutorialItemRequest" nillable="true" type="tns:PublishTutorialItemRequest" />
+  <xs:complexType name="PublishTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PublishTutorialItemResponse" nillable="true" type="tns:PublishTutorialItemResponse" />
+  <xs:complexType name="GetTutorialItemByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTutorialItemByIdRequest" nillable="true" type="tns:GetTutorialItemByIdRequest" />
+  <xs:complexType name="GetTutorialItemByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTutorialItemByIdResponse" nillable="true" type="tns:GetTutorialItemByIdResponse" />
+  <xs:complexType name="DeleteTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteTutorialItemRequest" nillable="true" type="tns:DeleteTutorialItemRequest" />
+  <xs:complexType name="DeleteTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteTutorialItemResponse" nillable="true" type="tns:DeleteTutorialItemResponse" />
+  <xs:complexType name="UpdateTutorialItemRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TutorialItem" nillable="true" type="tns:TutorialItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateTutorialItemRequest" nillable="true" type="tns:UpdateTutorialItemRequest" />
+  <xs:complexType name="UpdateTutorialItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateTutorialItemResponse" nillable="true" type="tns:UpdateTutorialItemResponse" />
+  <xs:complexType name="InsertCommentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertCommentRequest" nillable="true" type="tns:InsertCommentRequest" />
+  <xs:complexType name="Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date_published" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Published" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comment" nillable="true" type="tns:Comment" />
+  <xs:complexType name="InsertCommentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertCommentResponse" nillable="true" type="tns:InsertCommentResponse" />
+  <xs:complexType name="GetPublishedCommentsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPublishedCommentsResponse" nillable="true" type="tns:GetPublishedCommentsResponse" />
+  <xs:complexType name="ArrayOfComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComment" nillable="true" type="tns:ArrayOfComment" />
+  <xs:complexType name="GetUnpublishedCommentsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUnpublishedCommentsResponse" nillable="true" type="tns:GetUnpublishedCommentsResponse" />
+  <xs:complexType name="PublishCommentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PublishCommentRequest" nillable="true" type="tns:PublishCommentRequest" />
+  <xs:complexType name="PublishCommentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PublishCommentResponse" nillable="true" type="tns:PublishCommentResponse" />
+  <xs:complexType name="DeleteCommentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteCommentRequest" nillable="true" type="tns:DeleteCommentRequest" />
+  <xs:complexType name="DeleteCommentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteCommentResponse" nillable="true" type="tns:DeleteCommentResponse" />
+  <xs:complexType name="GetUrlYoutubeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="urlyoutube" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUrlYoutubeResponse" nillable="true" type="tns:GetUrlYoutubeResponse" />
+  <xs:complexType name="InsertUrlYoutubeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="urlyoutube" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertUrlYoutubeRequest" nillable="true" type="tns:InsertUrlYoutubeRequest" />
+  <xs:complexType name="InsertUrlYoutubeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeleteOldUrl" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OldUrlYoutube" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertUrlYoutubeResponse" nillable="true" type="tns:InsertUrlYoutubeResponse" />
+  <xs:complexType name="GetContactsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfContact" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetContactsResponse" nillable="true" type="tns:GetContactsResponse" />
+  <xs:complexType name="ArrayOfContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContact" nillable="true" type="tns:ArrayOfContact" />
+  <xs:complexType name="Contact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact" nillable="true" type="tns:Contact" />
+  <xs:complexType name="InsertContactRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:Contact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertContactRequest" nillable="true" type="tns:InsertContactRequest" />
+  <xs:complexType name="InsertContactResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertContactResponse" nillable="true" type="tns:InsertContactResponse" />
+  <xs:complexType name="DeleteContactRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteContactRequest" nillable="true" type="tns:DeleteContactRequest" />
+  <xs:complexType name="DeleteContactResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorInformation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteContactResponse" nillable="true" type="tns:DeleteContactResponse" />
+</xs:schema>
