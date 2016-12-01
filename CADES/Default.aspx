@@ -46,13 +46,12 @@
                 <div class="carousel-inner">
                     <div class="item active" id="slide1">
                             <div class="carousel-caption">
-                                    <p style="text-align:center"><img alt="300-GHz waveguide filter (fabricated in Birmingham UK)" src="Images/300-GHz waveguide.jpg" style="max-height:200px" /></p>
                                     <p style="text-align:center">300-GHz waveguide filter (fabricated in Birmingham UK)</p>
                             </div>
                     </div>
-                    <div class="item" id="slide2" onclick="javascript:Show()" data-toggle="modal" data-target="#videoModal">
+                    <div class="item" id="slide2">
                             <div class="carousel-caption">
-                                <p style="text-align:center"><img src="Images/Slide_CADES_Block.jpg" style="max-height:200px" /></p>
+                                <p style="text-align:center"><img src="Images/alex_screenshot3.jpg" style="margin-top:-55px;margin-left:-20px"/></p>
                             </div>
                     </div>
                     <div class="item" id="slide3">

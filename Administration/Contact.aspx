@@ -20,6 +20,8 @@
                 <tr>
                     <th>Author</th>
                     <th>Email</th>
+                    <th>Organization</th>
+                    <th>Discipline</th>
                     <th class="columnText">Text</th>
                     <th>Date</th>
                     <th>Action</th>
@@ -37,6 +39,8 @@
                     <tr>
                         <td><%#: Item.Author %></td>
                         <td><%#: Item.Email %></td>
+                        <td><%#: Item.Organization %></td>
+                        <td><%#: Item.Discipline %></td>
                         <td><%#: Item.Text %></td>
                         <td><%#: Item.Date %></td>
                         <td>

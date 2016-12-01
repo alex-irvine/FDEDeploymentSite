@@ -7,23 +7,23 @@
           .titre h2 {
             margin-top: 40px;
             text-transform: uppercase;
-            color:  #24242a;
+            color:  #1879ba;
             text-align: center;
           }
           .sep {
             max-width: 80px;
-            border: 2px solid #0d0d0d;
+            border: 2px solid #1879ba;
             margin-top: 40px;
             margin-bottom: 20px;
             }
           .form-horizontal h4{
               text-align: center;
-              color:  #24242a;
+              color:  #1879ba;
               margin-bottom:40px;
           }
           .form-control{
               border-radius: 0;
-              border: 2px solid #24242a;
+              border: 2px solid #1879ba;
               color: #0d0d0d;
               min-height: 34px;
               background-color: #fff;
@@ -37,14 +37,14 @@
               vertical-align: middle;
             }
             .form-control:focus {
-                border: 3px solid #24242a;
+                border: 3px solid #1879ba;
             }
             .btnlogin{
                 text-align:center;
              background: #fff;
              border-radius: 0;
              color: #24242a;
-             border: 3px solid #24242a;
+             border: 3px solid #1879ba;
              text-transform: uppercase;
              width:150px;
              height:35px;
@@ -54,9 +54,9 @@
              margin-bottom:50px;
          }
          .btnlogin:hover{
-             background: #24242a;
+             background: #1879ba;
              border-radius: 0;
              color: #fff;
-             border: 3px solid #24242a;
+             border: 3px solid #1879ba;
              text-transform: uppercase;
          }

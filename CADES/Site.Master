@@ -49,10 +49,21 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" runat="server" href="~/"><img src="/Images/logo2navbar.png" alt="LogoCades" class="logomenu" /> </a>
                 </div>
+                <% if (!Request.IsAuthenticated) { %>
                 <ul class="nav navbar-nav navbar-right">
     	            <li id="RegisterLogin1"><a href="/Account/Register">Register</a></li>
                     <li id="RegisterLogin2"><a href="/Account/Login">Login</a></li>
                  </ul>
+                <% } else { %>
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%: UserName %><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a runat="server" href="~/Account/Logout"><span class="glyphicon glyphicon-log-out"></span>  Log out</a></li>
+                  </ul>
+                </li>
+              </ul>
+                <% } %>
             </div>
             <div class="row" style="border-bottom:2px;background:#f8f9f4">
             <div class="navbar-collapse collapse navbar-left">
@@ -86,10 +97,11 @@
 
 
 
-    <footer>
+    <footer style="background-color:#2b79ad;color:#fff;text-align:center;">
         <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            <div style="display:inline-block">
+               <p style="text-align:center;float:left">Follow us : </p>
+               <a href="https://www.youtube.com/channel/UCSiAGKde__gtvxsl3u3dxXA"><img src="Images/youtube.png" /> </a>
             </div>
         </div>
     </footer>

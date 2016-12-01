@@ -129,3 +129,16 @@
 #RegisterLogin2:hover{
     background:#1e5f89;
 }
+
+.footer{
+    background-color:#2b79ad;
+    color:#fff;
+    text-align:center;
+    height: 40px;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    margin-top:50px;
+    margin-bottom:0px;
+}

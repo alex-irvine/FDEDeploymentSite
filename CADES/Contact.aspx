@@ -86,7 +86,7 @@
                          <textarea id="messagebox" name="messagebox" class="form-controlmessage" rows="5" placeholder="Message"></textarea>
                     </div>
                     <div class="boutonbox">
-                        <asp:Button id="btnSend" runat="server" text="Send" CssClass="btnSend"/>
+                        <asp:Button id="btnSend" runat="server" text="Send" OnClick="btnSend_Click" CssClass="btnSend"/>
                     </div>
                 </div>
                </div>

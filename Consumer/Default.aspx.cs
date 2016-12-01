@@ -28,8 +28,6 @@ namespace Consumer
                 GetUrlYoutubeResponse response = client.GetUrlYoutube();
                 if (response.Errored)
                 {
-                    MessageBox.Show("erroned 2 : " + response.Message.ToString());
-
                 }
                 string srcvideo = response.urlyoutube;
                 return srcvideo;

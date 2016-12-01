@@ -1493,7 +1493,13 @@ namespace Consumer.ServiceReference1 {
         private System.DateTime DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DisciplineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrganizationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
@@ -1538,6 +1544,19 @@ namespace Consumer.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Discipline {
+            get {
+                return this.DisciplineField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DisciplineField, value) != true)) {
+                    this.DisciplineField = value;
+                    this.RaisePropertyChanged("Discipline");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Email {
             get {
                 return this.EmailField;
@@ -1546,6 +1565,19 @@ namespace Consumer.ServiceReference1 {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Organization {
+            get {
+                return this.OrganizationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrganizationField, value) != true)) {
+                    this.OrganizationField = value;
+                    this.RaisePropertyChanged("Organization");
                 }
             }
         }

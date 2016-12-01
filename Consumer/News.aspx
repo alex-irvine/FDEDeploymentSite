@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="fonts/style.css" />
     <style>
-             .btnnews{
+     .btnnews{
          background: #fff;
          border-radius: 0;
          color: #1879ba;
@@ -34,48 +34,50 @@
         <h2>News</h2>
         <hr class="sep">
     </div>
-    <asp:ListView ID="LVNews" runat="server" ItemType="Consumer.ServiceReference1.NewsItem" OnPreRender="DataPagerNews_PreRender">
-        <EmptyDataTemplate>
-            <table>
-                <tr>
-                    <td>No news was returned.</td>
+    <div class="containerSpecial" style="width:1000px !important">
+        <asp:ListView ID="LVNews" runat="server" ItemType="Consumer.ServiceReference1.NewsItem" OnPreRender="DataPagerNews_PreRender">
+            <EmptyDataTemplate>
+                <table>
+                    <tr>
+                        <td>No news was returned.</td>
+                    </tr>
+                </table>
+            </EmptyDataTemplate>
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer" runat="server">
+                    <td id="itemPlaceholder" runat="server"> </td>
                 </tr>
-            </table>
-        </EmptyDataTemplate>
-        <GroupTemplate>
-            <tr id="itemPlaceholderContainer" runat="server">
-                <td id="itemPlaceholder" runat="server"> </td>
-            </tr>
-        </GroupTemplate>
-        <ItemTemplate>           
+            </GroupTemplate>
+            <ItemTemplate>           
             
-            <td>
-                <div class="news">
-                    <div class="newsHeader">
-                        <h2 class="newsTitle"><%#: Item.Title %></h2>
-                        <em class="newsDate"><%#: Item.Date_modified %></em>
-                    </div> 
-                    <div class="newsText"><%# Item.Text %></div>
-                </div>
-            </td>
+                <td style="border:none">
+                    <div class="news">
+                        <div class="newsHeader">
+                            <h4 class="newsTitle"><%#: Item.Title %></h4>
+                            <em class="newsDate"><%#: Item.Date_modified %></em>
+                        </div> 
+                        <div class="newsText" style="text-align:left"><%# Item.Text %></div>
+                    </div>
+                </td>
 
-        </ItemTemplate>
-        <LayoutTemplate>
+            </ItemTemplate>
+            <LayoutTemplate>
             
-            <table id="groupPlaceholderContainer" runat="server" style="width: 100%" class="table">
-                <tr id="groupPlaceholder"></tr>
-            </table>
-            <div class="grpbtnnews">
-            <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="5" OnPreRender="DataPagerNews_PreRender">
-                <Fields>
-                    <asp:NextPreviousPagerField ButtonCssClass="btn btnnews" ShowFirstPageButton="True" ShowNextPageButton="False" />
-                    <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ButtonCssClass="btn btnnews" ShowLastPageButton="True" ShowPreviousPageButton="False" />
-                </Fields>
-            </asp:DataPager>
-           </div>
-        </LayoutTemplate>
-    </asp:ListView>
+                <table id="groupPlaceholderContainer" runat="server" style="width: 100%" class="table">
+                    <tr id="groupPlaceholder"></tr>
+                </table>
+                <div class="grpbtnnews">
+                <asp:DataPager ID="DataPagerNews" runat="server" PagedControlID="LVNews" PageSize="5" OnPreRender="DataPagerNews_PreRender">
+                    <Fields>
+                        <asp:NextPreviousPagerField ButtonCssClass="btn btnnews" ShowFirstPageButton="True" ShowNextPageButton="False" />
+                        <asp:NumericPagerField />
+                        <asp:NextPreviousPagerField ButtonCssClass="btn btnnews" ShowLastPageButton="True" ShowPreviousPageButton="False" />
+                    </Fields>
+                </asp:DataPager>
+               </div>
+            </LayoutTemplate>
+        </asp:ListView>
+    </div>
     <script type="text/javascript" src="News.js"></script>
         </section>
 

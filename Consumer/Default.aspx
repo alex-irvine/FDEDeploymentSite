@@ -92,7 +92,6 @@
             <div class="carousel-inner">
                 <div class="item active" id="slide1">
                         <div class="carousel-caption">
-                            <h4></h4>
                             <h1><span>ADE </span>1.0</h1>
                             <h3>Antenna Design Explorer</h3>
                             <br />

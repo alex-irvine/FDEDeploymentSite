@@ -62,6 +62,7 @@
             list-style-type:none;
             border-left: 2px solid #1879ba;
             padding:10px 10px;
+            text-align:left;
         }
         #tutopart .table .col-md-9 .tutoTitle {
             margin: 0;
@@ -87,6 +88,7 @@
         }
 
     </style> 
+<div class="containerSpecial" style="width:1200px !important">
     <div id="tutopart">
     <div>
         <div class="titre">
@@ -104,6 +106,9 @@
                   </ItemTemplate>
               </asp:ListView>
               </ul>
+              <p style="text-align:left;color:red">
+                  Please, click <a href="~/">‘ADE 1.0 Users’ Guide’</a> to download and view the full features of the ADE 1.0
+              </p>
           </div>
 
         <!-- placeholder for views -->
@@ -112,4 +117,5 @@
         </div>
     </div>
     </div>
+</div>
 </asp:Content>

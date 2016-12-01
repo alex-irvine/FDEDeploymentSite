@@ -32,6 +32,8 @@ namespace Consumer
             string namestring = Request.Form["namebox"];
             string emailstring = Request.Form["emailbox"];
             string messagestring = Request.Form["messagebox"];
+            string organizationstring = Request.Form["organizationbox"];
+            string disciplinestring = Request.Form["disciplinebox"];
             using (Service1Client client = new Service1Client())
             {
                 InsertContactResponse response = client.InsertContact(new InsertContactRequest()
@@ -40,6 +42,8 @@ namespace Consumer
                     {
                         Author = namestring,
                         Email = emailstring,
+                        Organization = organizationstring,
+                        Discipline = disciplinestring,
                         Text = messagestring,
                         Date = DateTime.Now
                     }

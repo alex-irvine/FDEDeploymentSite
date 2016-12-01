@@ -10,6 +10,8 @@ namespace CADES
 {
     public partial class SiteMaster : MasterPage
     {
+        public string UserName { get; private set; }
+
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -63,11 +65,19 @@ namespace CADES
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] != null) { UserName = ((CADES.ServiceReference1.Person)Session["User"]).Username; }
         }
+
+        /*protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            //Context.GetOwinContext().Authentication.SignOut();
+            Session["User"] = null;
+            Response.Redirect("~/");
+        }*/
     }
 }

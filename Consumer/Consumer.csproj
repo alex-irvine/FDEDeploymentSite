@@ -204,6 +204,7 @@
     <Content Include="img\imgCaroussel2.jpg" />
     <Content Include="img\imgCaroussel3.jpg" />
     <Content Include="img\imgSoftware.png" />
+    <Content Include="img\youtube.png" />
     <Content Include="KeyFeatures.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Scripts\bootstrap.js" />

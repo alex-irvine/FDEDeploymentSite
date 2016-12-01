@@ -34,11 +34,18 @@ namespace Consumer
                 if (!response.Errored)
                 {
                     NewsItem[] items = response.NewsItems;
+                    List<ServiceReference1.NewsItem> items2 = new List<ServiceReference1.NewsItem>();
                     Array.Sort(items, delegate(NewsItem n1, NewsItem n2)
                     {
                         return DateTime.Compare(n2.Date_modified, n1.Date_modified);
                     });
-                    this.LVNews.DataSource = items.ToList<NewsItem>();
+                    foreach(NewsItem i in items){
+                        if (i.Published)
+                        {
+                            items2.Add(i);
+                        }
+                    }
+                    this.LVNews.DataSource = items2.ToList<NewsItem>();
                 }
                 else
                 {
