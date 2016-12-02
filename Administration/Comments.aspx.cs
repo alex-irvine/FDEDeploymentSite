@@ -104,12 +104,12 @@ namespace Administration
                 });
                 if (response.Errored)
                 {
-                    Response.Redirect("~/Comment");
+                    Response.Redirect("~/Comments");
 
                 }
                 else
                 {
-                    Response.Redirect("~/Comment");
+                    Response.Redirect("~/Comments");
                 }
             }
         }

@@ -27,7 +27,14 @@ namespace Consumer
 
         protected void btnDownload_Click(object sender, EventArgs e)
         {
+            if (checkbox1.Checked)
+            {
             Response.Redirect("fileDl.ashx");
+            }
+            else
+            {
+                FailureText.Text = "Accept terms and conditions";
+            }
         }
 
         // HttpContext.Current.User.Identity.Name;

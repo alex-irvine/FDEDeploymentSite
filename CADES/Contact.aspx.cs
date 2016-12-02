@@ -28,15 +28,27 @@ namespace CADES
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
+            Boolean empty = false;
             string namestring = Request.Form["namebox"];
             string emailstring = Request.Form["emailbox"];
             string messagestring = Request.Form["messagebox"];
             string organizationstring = Request.Form["organizationbox"];
             string disciplinestring = Request.Form["disciplinebox"];
+            if (String.IsNullOrEmpty(namestring) || 
+                String.IsNullOrEmpty(emailstring) ||
+                String.IsNullOrEmpty(messagestring) ||
+                String.IsNullOrEmpty(organizationstring) ||
+                String.IsNullOrEmpty(disciplinestring))
+            {
+                empty = true;
+                FailureText.Text = "A field is empty";
+            }
+            if (empty != true) { 
             using (Service1Client client = new Service1Client())
             {
                 InsertContactResponse response = client.InsertContact(new InsertContactRequest()
                 {
+
                     Contact = new CADES.ServiceReference1.Contact()
                     {
                         Author = namestring,
@@ -51,6 +63,7 @@ namespace CADES
                 {
                     Response.Redirect("~/Contact");
                 }
+            }
             }
         }
     }

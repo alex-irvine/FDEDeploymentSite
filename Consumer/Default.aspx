@@ -100,18 +100,12 @@
                 </div>
                 <div class="item" id="slide2">
                         <div class="carousel-caption">
-                            <h1><span>ADE </span>1.0</h1>
-                            <h3>Antenna Design Explorer</h3>
-                            <br />
-                            <a class="btn btn-transparent" href="/Tutorials">Tutorials</a>
+                            <p style="text-align:center"><img src="img/alex_screenshot4.jpg" style="margin-top:-55px;margin-left:-20px"/></p>
                         </div>
                 </div>
                 <div class="item" id="slide3">
-                        <div class="carousel-caption">>
-                            <h1><span>ADE </span>1.0</h1>
-                            <h3>Antenna Design Explorer</h3>
-                            <br />
-                            <a class="btn btn-transparent" href="/Contact">Contact us</a>
+                        <div class="carousel-caption">
+                            
                         </div>
                 </div>
             </div>

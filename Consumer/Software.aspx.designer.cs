@@ -13,6 +13,24 @@ namespace Consumer {
     public partial class Downloads {
         
         /// <summary>
+        /// FailureText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal FailureText;
+        
+        /// <summary>
+        /// checkbox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkbox1;
+        
+        /// <summary>
         /// btnDownload control.
         /// </summary>
         /// <remarks>

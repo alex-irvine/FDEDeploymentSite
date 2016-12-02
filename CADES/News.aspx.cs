@@ -12,18 +12,10 @@ namespace CADES
 {
     public partial class News : System.Web.UI.Page
     {
-        public bool isApproved { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            isApproved = Session["User"] != null ? ((CADES.ServiceReference1.Person)Session["User"]).IsApproved : false;
-            if (Session["User"] == null)
-            {
-                FormsAuthentication.RedirectToLoginPage();
-            }
-            if (!isApproved)
-            {
-                FormsAuthentication.RedirectToLoginPage();
-            }
+
         }
     }
 }

@@ -63,7 +63,7 @@
             </ItemTemplate>
             <LayoutTemplate>
             
-                <table id="groupPlaceholderContainer" runat="server" style="width: 100%" class="table">
+                <table id="groupPlaceholderContainer" runat="server" style="width: 100%;margin-bottom:40px" class="table">
                     <tr id="groupPlaceholder"></tr>
                 </table>
                 <div class="grpbtnnews">

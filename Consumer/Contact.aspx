@@ -86,6 +86,9 @@
   <div class="container">
   <div class="row">
    <div class="col-md-6 col-md-offset-3" >
+         <div style="font-size:14px;color:red">
+              <asp:Literal runat="server" ID="FailureText" />
+         </div>
         <div class="form-group" style="text-align:center">
              <textarea id="namebox" name="namebox" class="form-control" placeholder="Name"  ></textarea>
         </div>

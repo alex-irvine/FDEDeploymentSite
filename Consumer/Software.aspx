@@ -50,6 +50,9 @@
             <h2>Downloads</h2>
             <hr class="sep">
         </div>
+        <div style="font-size:16px;color:red">
+              <asp:Literal runat="server" ID="FailureText" />
+        </div>
         <table style="width:100%;border-collapse: collapse;border-spacing: 0;">
            <tr>
                 <td style="width:800px;vertical-align:top">
@@ -57,7 +60,7 @@
 			            <img src="../img/imgSoftware.png" style="max-width:150px"/>
 		            </div>--%>
                     <div class="boxThings">
-                        <h5><b>Terms & Utilisations</b></h5>
+                        <h5><b>Terms & Conditions</b></h5>
                         <p>Lorem ipsum dolor sit amet, summo officiis recusabo per ea. 
                             Perfecto postulant elaboraret eos ei, an wisi lorem cum. 
                             Ex ius lobortis intellegat. Cu error graecis vix, per dicit sadipscing ut. 
@@ -66,7 +69,7 @@
                             Perfecto postulant elaboraret eos ei, an wisi lorem cum. 
                             Ex ius lobortis intellegat. Cu error graecis vix, per dicit sadipscing ut. 
                             Sea tota dicam minimum eu. Dolore impedit vis in</p>
-                        <input type="checkbox" name="" value="">Terms & Utilisations<br>
+                        <asp:CheckBox ID="checkbox1" runat="server"  clientidmode="static" />I've read and agreed<br>
                     </div>
                     <div class="boxThings">
                        <h5>Need a tutorial ?</h5>
@@ -75,7 +78,7 @@
                 </td>
                <td style="width:400px;vertical-align:top">
                     <div class="boxThings">
-                        <h5><b>Questionnaire</b></h5>
+                        <h5><b>Feedback</b></h5>
                         <p>question 1 : bla bla blaabla bla ?</p>
                         <input type="checkbox" name="" value="">bla.
                         <input type="checkbox" name="" value="">blo.<br />

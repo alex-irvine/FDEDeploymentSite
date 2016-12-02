@@ -51,7 +51,7 @@
                     </div>
                     <div class="item" id="slide2">
                             <div class="carousel-caption">
-                                <p style="text-align:center"><img src="Images/alex_screenshot3.jpg" style="margin-top:-55px;margin-left:-20px"/></p>
+                               <%-- <p style="text-align:center"><img src="Images/alex_screenshot3.jpg" style="margin-top:-55px;margin-left:-20px"/></p>--%>
                             </div>
                     </div>
                     <div class="item" id="slide3">

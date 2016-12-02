@@ -29,28 +29,41 @@ namespace Consumer
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
+            Boolean empty = false;
             string namestring = Request.Form["namebox"];
             string emailstring = Request.Form["emailbox"];
             string messagestring = Request.Form["messagebox"];
             string organizationstring = Request.Form["organizationbox"];
             string disciplinestring = Request.Form["disciplinebox"];
-            using (Service1Client client = new Service1Client())
+            if (String.IsNullOrEmpty(namestring) || 
+                String.IsNullOrEmpty(emailstring) ||
+                String.IsNullOrEmpty(messagestring) ||
+                String.IsNullOrEmpty(organizationstring) ||
+                String.IsNullOrEmpty(disciplinestring))
             {
-                InsertContactResponse response = client.InsertContact(new InsertContactRequest()
+                empty = true;
+                FailureText.Text = "A field is empty";
+            }
+            if (empty != true)
+            {
+                using (Service1Client client = new Service1Client())
                 {
-                    Contact = new Consumer.ServiceReference1.Contact()
+                    InsertContactResponse response = client.InsertContact(new InsertContactRequest()
                     {
-                        Author = namestring,
-                        Email = emailstring,
-                        Organization = organizationstring,
-                        Discipline = disciplinestring,
-                        Text = messagestring,
-                        Date = DateTime.Now
+                        Contact = new Consumer.ServiceReference1.Contact()
+                        {
+                            Author = namestring,
+                            Email = emailstring,
+                            Organization = organizationstring,
+                            Discipline = disciplinestring,
+                            Text = messagestring,
+                            Date = DateTime.Now
+                        }
+                    });
+                    if (!response.Errored)
+                    {
+                        Response.Redirect("~/Contact");
                     }
-                });
-                if (!response.Errored)
-                {
-                    Response.Redirect("~/Contact");
                 }
             }
         }

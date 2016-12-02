@@ -30,11 +30,11 @@
     width:100%;
 }
 #slide2{
-    background: url("../Images/blue-background.jpg") top center no-repeat;
+    /*background: url("../Images/blue-background.jpg") top center no-repeat;*/
     width:100%;
 }
 #slide3{
-    background: url("../Images/Slideshow_New_Block2.jpg") center no-repeat;
+    /*background: url("../Images/Slideshow_New_Block2.jpg") center no-repeat;*/
     width:100%;
     max-width:100%;
 }

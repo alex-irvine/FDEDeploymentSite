@@ -134,6 +134,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="CommunityOutreach.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -194,6 +195,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Events.aspx" />
+    <Content Include="FollowUs.aspx" />
+    <Content Include="GlobalLocation.aspx" />
     <Content Include="Images\bannerPeople.jpg" />
     <Content Include="Images\bannerService.jpg" />
     <Content Include="Images\bannerSoftware.jpg" />
@@ -218,8 +222,11 @@
     <Content Include="Images\SocialMedia\linkedin.png" />
     <Content Include="Images\SocialMedia\twitter.png" />
     <Content Include="Images\SocialMedia\youtube.png" />
+    <Content Include="Images\UKMap.png" />
+    <Content Include="News.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Partners.aspx" />
     <Content Include="People.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -312,6 +319,13 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CommunityOutreach.aspx.cs">
+      <DependentUpon>CommunityOutreach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommunityOutreach.aspx.designer.cs">
+      <DependentUpon>CommunityOutreach.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,8 +340,43 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowUs.aspx.cs">
+      <DependentUpon>FollowUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUs.aspx.designer.cs">
+      <DependentUpon>FollowUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalLocation.aspx.cs">
+      <DependentUpon>GlobalLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalLocation.aspx.designer.cs">
+      <DependentUpon>GlobalLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Partners.aspx.cs">
+      <DependentUpon>Partners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Partners.aspx.designer.cs">
+      <DependentUpon>Partners.aspx</DependentUpon>
     </Compile>
     <Compile Include="People.aspx.cs">
       <DependentUpon>People.aspx</DependentUpon>

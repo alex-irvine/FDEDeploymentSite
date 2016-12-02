@@ -199,11 +199,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\icomoon.svg" />
     <Content Include="fonts\style.css" />
+    <Content Include="img\alex_screenshot3.jpg" />
+    <Content Include="img\alex_screenshot4.jpg" />
     <Content Include="img\blueBackground.jpg" />
     <Content Include="img\imgCaroussel1.jpg" />
     <Content Include="img\imgCaroussel2.jpg" />
     <Content Include="img\imgCaroussel3.jpg" />
     <Content Include="img\imgSoftware.png" />
+    <Content Include="img\Slideshow_New_Block2.jpg" />
     <Content Include="img\youtube.png" />
     <Content Include="KeyFeatures.aspx" />
     <Content Include="News.aspx" />
