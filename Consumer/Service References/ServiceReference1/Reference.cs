@@ -881,10 +881,16 @@ namespace Consumer.ServiceReference1 {
         private string CompanyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsAdminField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -922,6 +928,19 @@ namespace Consumer.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsAdmin {
             get {
                 return this.IsAdminField;
@@ -943,6 +962,19 @@ namespace Consumer.ServiceReference1 {
                 if ((this.IsApprovedField.Equals(value) != true)) {
                     this.IsApprovedField = value;
                     this.RaisePropertyChanged("IsApproved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
                 }
             }
         }

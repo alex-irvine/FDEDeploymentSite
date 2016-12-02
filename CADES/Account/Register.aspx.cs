@@ -37,6 +37,8 @@ namespace CADES.Account
                             {
                                 Username = Email.Text,
                                 Company = Company.Text,
+                                FirstName = FirstName.Text,
+                                LastName = LastName.Text,
                                 IsAdmin = false,
                                 Password = Password.Text
                             };
@@ -53,6 +55,8 @@ namespace CADES.Account
                                 Password.Text = "";
                                 ConfirmPassword.Text = "";
                                 Company.Text = "";
+                                FirstName.Text = "";
+                                LastName.Text = "";
                             }
                             else
                             {

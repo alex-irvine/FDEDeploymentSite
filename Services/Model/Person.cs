@@ -13,6 +13,8 @@ namespace Services.Model
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
         public string Username { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Company { get; set; }
         public bool IsAdmin { get; set; }
         public string Password { get; set; }

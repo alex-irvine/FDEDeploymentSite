@@ -53,6 +53,28 @@ function check_passwords() {
     check_all();
 }
 
+function check_firstname() {
+    if (document.getElementById("MainContent_FirstName").value != "") {
+        document.getElementById("MainContent_FirstName").style.border = "1px solid green";
+        gbl_company = true;
+    } else {
+        document.getElementById("MainContent_FirstName").style.border = "1px solid red";
+        gbl_company = false;
+    }
+    check_all();
+}
+
+function check_lastname() {
+    if (document.getElementById("MainContent_LastName").value != "") {
+        document.getElementById("MainContent_LastName").style.border = "1px solid green";
+        gbl_company = true;
+    } else {
+        document.getElementById("MainContent_LastName").style.border = "1px solid red";
+        gbl_company = false;
+    }
+    check_all();
+}
+
 function check_company() {
     if (document.getElementById("MainContent_Company").value != "") {
         document.getElementById("MainContent_Company").style.border = "1px solid green";

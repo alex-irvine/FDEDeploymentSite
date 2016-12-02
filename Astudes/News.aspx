@@ -58,19 +58,24 @@
                     </td>
                     <td style="width:40px">
                     </td>
-                    <td style="width:120px;vertical-align:top">
-                        <div style="margin-bottom:20px">
-                            <img src="Images/parallax.png" style="margin-top:15px;margin-bottom:20px"/>
-                            <p>Additional Links</p>
-                            <a href="/Software">Software</a>
-                            <a href="/People">People</a><br />
-                            <a href="/Service">Service</a>
+                    <td style="width:140px;vertical-align:top">
+                        <div style="text-align:center"><img src="Images/parallax.png" style="margin-top:15px;margin-bottom:20px"/></div>
+                        <p>Additional Links</p>
+                        <div style="margin-bottom:20px;border-left:2px solid #b2adad;padding-left:5px"> 
+                            <div><a href="/About">About Astute</a></div>
+                            <div><a href="/News">News</a></div>
+                            <div><a href="/Events">Events</a></div>
+                            <div><a href="/FollowUs">Follow Us</a></div>
+                            <div><a href="/CommunityOutreach">Community Outreach</a></div>
+                            <div><a href="/Partners">Partners</a></div>
+                            <div><a href="/GlobalLocation">Global Locations</a></div>
+                            <div><a href="/Contact">Contact Us</a></div>
                         </div>
-                        <div>
-                            <p>Discover Astute</p>
-                            <a href="/Software">Software</a>
-                            <a href="/People">People</a><br />
-                            <a href="/Service">Service</a>
+                        <p>Discover Astute</p>
+                        <div style="margin-bottom:20px;border-left:2px solid #b2adad;padding-left:5px">
+                            <div><a href="/Product">Product</a></div>
+                            <div><a href="/People">People</a></div>
+                            <div><a href="/Service">Service</a></div>
                         </div>
                     </td> 
                   </tr>

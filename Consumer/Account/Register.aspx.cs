@@ -37,6 +37,8 @@ namespace Consumer.Account
                             {
                                 Username = Email.Text,
                                 Company = Company.Text,
+                                FirstName= FirstName.Text,
+                                LastName = LastName.Text,
                                 IsAdmin = false,
                                 Password = Password.Text
                             };
@@ -49,10 +51,13 @@ namespace Consumer.Account
                             {
                                 ErrorMessage.Text = "Your account has been created";
                                 // clear all the fields
+
                                 Email.Text = "";
                                 Password.Text = "";
                                 ConfirmPassword.Text = "";
                                 Company.Text = "";
+                                FirstName.Text = "";
+                                LastName.Text = "";
                             }
                             else
                             {

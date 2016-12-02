@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Software.aspx.cs" Inherits="Astudes.Software" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="Astudes.Software" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/Content/firstPage.css" />
 
@@ -6,7 +6,7 @@
     <section>
         <div class="containerSpecial2">
             <div id="titrePage">
-                <h4>Software</h4>
+                <h4>Product</h4>
             </div>
             <div class="row" style="text-align:center">
                 <img class="banner" src="Images/bannerSoftware.jpg" />
@@ -32,7 +32,7 @@
                         <div>
                             <img src="Images/parallax.png" style="margin-top:15px;margin-bottom:20px"/>
                             <p>Discover Astuteds</p>
-                            <a href="/Software">Software</a>
+                            <a href="/Product">Product</a>
                             <a href="/People">People</a>
                             <a href="/Service">Service</a>
                         </div>

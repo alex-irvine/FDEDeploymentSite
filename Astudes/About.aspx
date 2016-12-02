@@ -10,37 +10,59 @@
                 <h5>Company</h5>
                 <h4>About Astute</h4>
             </div>
-            <div>
+            <div style="margin-bottom:30px;">
                 <table style="width:100%;border-collapse: collapse;border-spacing: 0;">
                   <tr style="width:800px">
                     <td style="width:650px;vertical-align:top">
                         <div style="margin-left:10px;margin-top:10px;">
-                            <h5>Service Lorem ipsum dolor sit amet</h5>
-                            <p style="font-size: 14px;">Lorem ipsum dolor sit amet, mazim facilis disputando in has. Ad cibo graeco indoctum pro. Autem commune salutandi vim id, sed no magna laoreet. Novum utamur interpretaris at usu, in vim postea vidisse vocibus, no reque reprimique mea. Elit dissentiet reprehendunt vim ad, et quo alii legendos, ne has impedit similique.
-                                At congue tractatos quo. <br /><br />
-                                An per dolores copiosae. In sed salutatus maiestatis, viris sanctus accusamus cu nec. Eripuit definiebas sea id, id nam oblique dolorem eloquentiam, cum mucius perfecto argumentum ea. Mei id electram torquatos, ferri augue verear sit no, ex meliore adversarium pro.
-                                In duo impetus adversarium, et verear verterem sit. Iisque bonorum usu ut. Qui nibh mandamus definitiones at. Ut qui ferri nullam scribentur, vivendo assentior scriptorem et eos, laudem primis mei ex. Alia perfecto vituperatoribus sed no.
-                                Omnis fastidii qui ut, ut iudico suavitate duo. <br /><br />
-                                Sea quem nonumy dignissim eu, consul impetus vocibus per eu. Quo an animal oportere. Autem novum postea an his. Nam ex tota phaedrum referrentur, ubique reprehendunt sea ei.<br /><br />
-                            </p>
-                            <h5>Ne mea accusam legendos gubergren</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet, ut porro errem intellegat pro, cu eos oporteat suscipiantur, luptatum moderatius temporibus has no. An petentium erroribus per, per verterem consectetuer no. 
-                                In his facer prompta urbanitas. Ne mea accusam legendos gubergren. Wisi prompta sit ad.<br /><br />
-                                At ubique scripserit eam, vel in voluptua praesent accommodare. Cetero salutatus posidonium ei eum, latine fuisset perfecto id quo. 
-                                In zril tacimates ius, ut appareat tacimates aliquando eos. Eam ea dicant legimus pertinacia. Eius tation meliore duo te, quaeque aliquando id mea.<br /><br />
-                            </p>
+                            <p>Founded in 2015, Astute is focused on the electromagnetics design and services as well as the development 
+                                and application to synthesize and optimize designs, in order to analyze the processes and decisions for 
+                                improved business performance. Privately held with more than 50 employees, Astute headquartered in Manchester
+                                 with collaboration of more than 40 offices throughout 15 countries, and serves many clients across Electromagnetics,
+                                 Electronics and different broad industry segments.</p>
+                            <p>Our appetite is developing and applying emerging technologies in new and ingenious customs to help our clients
+                                 succeed through increased innovation Antenna and Computational Algorithm. we have consistently advanced this
+                                 technology to meet evolving customer needs. We innovate constantly in the way we design, the products we create
+                                 and the business models we experiment with. Engineering Electromagnetics and simulation are our sole focus.
+                                 We aggressively employ our software tools and product development methods, leveraging high-performance computing
+                                 and data analytics, so that we can play an enabling role in the great things our clients are accomplishing.
+                                 We strongly believe that bringing simulation software and rapid manufacturing technology forward in the design
+                                 process can be a source of inspiration along with a winning response to accelerated product lifecycles. </p><br />
+                            <p>Our tools used to predict how product designs will behave in real-world environments. We continually advance 
+                                simulation solutions by Developing or acquiring the very best Algorithm Methods By helping our customers verify
+                                 how their new products will work before ever making a prototype, we save them time and money. Perhaps more 
+                                importantly, we give them confidence that their products will perform flawlessly in service an invaluable business
+                                 asset. We call this process Efficient Design Automation.</p><br />
+                            <p>The Astute suite spans the entire range of physics, so no product design challenge is beyond our capabilities.
+                                 Our software tools not only deliver efficiency, it drives innovation. It reduces or eliminates physical 
+                                constraints, enabling simulated tests that might otherwise not be possible. It also fosters what-if thinking, 
+                                so engineers can readily explore design alternatives for an optimal solution. Because our Tools enables you to 
+                                test thousands of designs in the time it used to take to build a single prototype, the possibilities are endless. 
+                                But when this exploration is done, Efficient Simulation-Driven design automation method will steer you to best 
+                                solution. Also, Integrating them into any simulation complex platform. we help to solve the most complex design 
+                                challenges and engineer products limited only by imagination. </p>
                         </div>
                     </td>
                     <td style="width:40px">
                     </td>
-                    <td style="width:110px;vertical-align:top">
-                        <div>
-                            <img src="Images/parallax.png" style="margin-top:15px;margin-bottom:20px"/>
-                            <p>Additional Links</p>
-                            <a href="/Software">Software</a>
-                            <a href="/People">People</a>
-                            <a href="/Service">Service</a>
+                    <td style="width:140px;vertical-align:top">
+                        <div style="text-align:center"><img src="Images/parallax.png" style="margin-top:15px;margin-bottom:20px"/></div>
+                        <p>Additional Links</p>
+                        <div style="margin-bottom:20px;border-left:2px solid #b2adad;padding-left:5px"> 
+                            <div><a href="/About">About Astute</a></div>
+                            <div><a href="/News">News</a></div>
+                            <div><a href="/Events">Events</a></div>
+                            <div><a href="/FollowUs">Follow Us</a></div>
+                            <div><a href="/CommunityOutreach">Community Outreach</a></div>
+                            <div><a href="/Partners">Partners</a></div>
+                            <div><a href="/GlobalLocation">Global Locations</a></div>
+                            <div><a href="/Contact">Contact Us</a></div>
+                        </div>
+                        <p>Discover Astute</p>
+                        <div style="margin-bottom:20px;border-left:2px solid #b2adad;padding-left:5px">
+                            <div><a href="/Product">Product</a></div>
+                            <div><a href="/People">People</a></div>
+                            <div><a href="/Service">Service</a></div>
                         </div>
                     </td> 
                   </tr>

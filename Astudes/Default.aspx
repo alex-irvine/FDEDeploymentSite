@@ -42,8 +42,11 @@
                         <div style="margin-top:20px">
                             <p style="float:left;margin-left: 350px"><img src="Images/imgSoftwareCompany1.png" style="max-height:220px" /></p>
                             <div style="float:left;text-align:left;margin-left:20px">
-                                <h1><span>Astuteds </span>1</h1>
-                                <p style="max-width: 250px;">Astuteds is here for jiuqhiudh sdioqoiqsd hddj lkdjlk sdnn dgddj ejdd g dkdme fhf rjufnr rlcpcc sdfsdfs</p>
+                                <h1><span>Astute </span></h1>
+                                <p style="max-width: 400px;">Our software tool offers up the most efficient optimum design 
+                                    possible, based on massive amounts of data processing, often creating designs human 
+                                    engineers would be unlikely to envision 
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -53,7 +56,7 @@
                          <div style="margin-top:20px">
                             <p style="float:left;margin-left: 350px"><img src="Images/img_play_1.png" style="max-height:220px" /></p>
                             <div style="float:left;text-align:left;margin-left:20px">
-                                <h1><span>Astuteds </span>2</h1>
+                                <h1><span>Astute</span></h1>
                                 <p style="max-width: 250px;">Click here and play the video</p>
                             </div>
                         </div>
@@ -64,8 +67,8 @@
                         <div style="margin-top:20px">
                             <p style="float:left;margin-left: 350px"><img src="Images/imgSoftwareCompany2.png" style="max-height:220px" /></p>
                             <div style="float:left;text-align:left;margin-left:20px">
-                                <h1><span>Astuteds </span>3</h1>
-                                <p style="max-width: 250px;">Astuteds tdsh sdjkiso dsjjd cjjcjks kdkskdkz zdff hdfj dlsdkfsdf klf dlks dfjlksd fs dlkjsd flk</p>
+                                <h1><span>Astute </span></h1>
+                                <p style="max-width: 400px;">Technology & Services for innovation Electromagnetics and computational Intelligence</p>
                             </div>
                         </div>
                     </div>
@@ -98,16 +101,17 @@
     <section>
         <div class="containerSpecial">
             <div id="titreHomeAbout"class="titre">
-                <h3>Welcome on Astuteds</h3>
+                <h4>Astute culture thrives on seeking out business and technology firsts
+                     to fundamentally change the way organizations design products and make decisions.</h4>
                 <hr id="titreLine" />
             </div>
             <div class="row">
                 <div id="iconHomeAbout1" class="col-lg-4 col-sm-4">
                     <div class="icon11">
                         <div class="icon1">
-                           <a href="/Software"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
+                           <a href="/Product"><img src="/Images/parallax.png" /></a>  <!-- FOCUS ICON-->
                         </div>
-                        <h5>Software</h5>
+                        <h5>Product</h5>
                         <p class="imgDescription">
                             Bla Bla blabla bla bal bzefj  zv vzkbvazi zdv bmzdvhb zev evzouzvobv zvze vhbov
                         </p>
@@ -149,7 +153,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-4">
-                    <a href="#"><img src="/Images/robot-bike-3dprint.jpg" /></a>
+                    <a href="#"><img src="/Images/contentimg/EM radiation.jpg" style="max-width:270px" /></a>
                     <h6><span>Title latest News</span></h6>
                     <p>Something new i can't believe what i see omg sisi</p>
                 </div>

@@ -49,49 +49,50 @@
                     <a href="#" class="dropbtn">Company</a>
                     <div class="dropdown-content">
 					    <a runat="server" href="/About">About Astute</a>
-                        <a runat="server" href="#">News</a>
-                        <a runat="server" href="#">Events</a>
-                        <a runat="server" href="#">Follow Us</a>
-                        <a runat="server" href="#">Community Outreach</a>
-                        <a runat="server" href="#">Partners</a>
-                        <a runat="server" href="#">Global Locations</a>
-                        <a runat="server" href="#">Contact Us</a>
+                        <a runat="server" href="/News">News</a>
+                        <a runat="server" href="/Events">Events</a>
+                        <a runat="server" href="/FollowUs">Follow Us</a>
+                        <a runat="server" href="/CommunityOutreach">Community Outreach</a>
+                        <a runat="server" href="/Partners">Partners</a>
+                        <a runat="server" href="/GlobalLocation">Global Locations</a>
+                        <a runat="server" href="/Contact">Contact Us</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Products & Services</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="#">Microwave Antenna & Propagation</a>
-                        <a runat="server" href="#">IMicrowave Filter</a>
-                        <a runat="server" href="#">General EM Designs</a>
-                        <a runat="server" href="#">MEMS Designs</a>
-                        <a runat="server" href="#">Efficient Simulation - Driven Optimization</a>
-                        <a runat="server" href="#">Security System Design</a>
-                        <a runat="server" href="#">Product Engineering Consultancy</a>
+					    <a runat="server" href="/MicrowaveAntennaPropagation">Microwave Antenna & Propagation</a>
+                        <a runat="server" href="/MicrowaveFilter">Microwave Filter</a>
+                        <a runat="server" href="/GeneralEMDesigns">General EM Designs</a>
+                        <a runat="server" href="/MEMSDesigns">MEMS Designs</a>
+                        <a runat="server" href="/EfficientSimulation">Efficient Simulation - Driven Optimization</a>
+                        <a runat="server" href="/SecuritySystemDesign">Security System Design</a>
+                        <a runat="server" href="/ProductEngineeringConsultancy">Product Engineering Consultancy</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Solutions</a>
                     <div class="dropdown-content">
                         <b style="font-size:13px">By Discipline</b>
-					    <a runat="server" href="#">Electromagnetics MEMS</a>
+					    <a runat="server" href="/Electromagnetics">Electromagnetics</a>
+                        <a runat="server" href="/MEMS">MEMS</a>
                     </div>
                 </li>
                <li class="dropdown">
                     <a href="#" class="dropbtn">Resources</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="#">Videos</a>
-                        <a runat="server" href="#">Case Studies</a>
-                        <a runat="server" href="#">Presentations</a>
+					    <a runat="server" href="/Videos">Videos</a>
+                        <a runat="server" href="/CaseStudies">Case Studies</a>
+                        <a runat="server" href="/Presentations">Presentations</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Careers</a>
                     <div class="dropdown-content">
-					    <a runat="server" href="#">Life at Astute</a>
-                        <a runat="server" href="#">Culture & Benefits</a>
-                        <a runat="server" href="#">Internship Program</a>
-                        <a runat="server" href="#">Vacancies</a>
+					    <a runat="server" href="/LifeAtAstute">Life at Astute</a>
+                        <a runat="server" href="/CultureBenefits">Culture & Benefits</a>
+                        <a runat="server" href="/InternshipProgram">Internship Program</a>
+                        <a runat="server" href="/Vacancies">Vacancies</a>
                     </div>
                 </li>
             

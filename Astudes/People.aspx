@@ -32,7 +32,7 @@
                         <div>
                             <img src="Images/parallax.png" style="margin-top:15px;margin-bottom:20px"/>
                             <p>Discover Astuteds</p>
-                            <a href="/Software">Software</a>
+                            <a href="/Product">Product</a>
                             <a href="/People">People</a>
                             <a href="/Service">Service</a>
                         </div>

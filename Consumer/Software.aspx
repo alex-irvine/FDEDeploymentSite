@@ -53,7 +53,8 @@
         <div style="font-size:16px;color:red">
               <asp:Literal runat="server" ID="FailureText" />
         </div>
-        <table style="width:100%;border-collapse: collapse;border-spacing: 0;">
+        <div style="margin-bottom:50px">
+        <table style="width:100%;border-collapse: collapse;border-spacing: 0;margin-bottom:20px">
            <tr>
                 <td style="width:800px;vertical-align:top">
 <%--                    <div>
@@ -61,15 +62,22 @@
 		            </div>--%>
                     <div class="boxThings">
                         <h5><b>Terms & Conditions</b></h5>
-                        <p>Lorem ipsum dolor sit amet, summo officiis recusabo per ea. 
-                            Perfecto postulant elaboraret eos ei, an wisi lorem cum. 
-                            Ex ius lobortis intellegat. Cu error graecis vix, per dicit sadipscing ut. 
-                            Sea tota dicam minimum eu. Dolore impedit vis in</p>
-                         <p>Lorem ipsum dolor sit amet, summo officiis recusabo per ea. 
-                            Perfecto postulant elaboraret eos ei, an wisi lorem cum. 
-                            Ex ius lobortis intellegat. Cu error graecis vix, per dicit sadipscing ut. 
-                            Sea tota dicam minimum eu. Dolore impedit vis in</p>
-                        <asp:CheckBox ID="checkbox1" runat="server"  clientidmode="static" />I've read and agreed<br>
+                        <p>PDF : <a>linkpdf</a></p>
+                        <asp:CheckBox ID="checkbox1" runat="server"  clientidmode="static" /> I've read and agreed<br>
+                    </div>
+                    <div class="boxThings">
+                        <b>Users of the SADEA optimizer in the ADE tool should cite:</b>
+                        <p>B. Liu, H. Aliakbarian, Z. Ma, G. A. Vandenbosch, G. Gielen, and P. Excell, 
+                            “An efficient method for antenna design optimization based on evolutionary 
+                            computation and machine learning techniques,” IEEE Transactions on Antennas
+                             and Propagation, vol. 62, no. 1, pp. 7–18, 2014</p>
+                        <b>Users of the MOEA/D optimizer in the ADE tool should cite:</b>
+                        <p>H. Li and Q. Zhang, “Multiobjective optimization problems with complicated 
+                            Pareto sets, MOEA/D and NSGA-II,” IEEE Transactions on Evolutionary Computation,
+                             vol. 13, no. 2, pp. 284–302, 2009.</p>
+                        <b>Users of the DE optimizer in the ADE tool should cite: </b>
+                        <p>K. Price, R. Storn, and J. Lampinen, Differential evolution: 
+                            a practical approach to global optimization. Springer Verlag, 2005.</p>
                     </div>
                     <div class="boxThings">
                        <h5>Need a tutorial ?</h5>
@@ -98,6 +106,7 @@
                 </td>
             </tr>
         </table>
+            </div>
     </div>
 </section>
 
