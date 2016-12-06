@@ -15,12 +15,12 @@
             color:  #24242a;
             text-align: center;
           }
-         .btnSend{
+          .btnSend{
             text-align:center;
              background: #fff;
-             border-radius: 0;
+             border-radius: 3px;
              color: #24242a;
-             border: 3px solid #24242a;
+             border: 3px solid #1879ba;
              text-transform: uppercase;
              width:150px;
              height:35px;
@@ -30,10 +30,10 @@
              margin-bottom:50px;
          }
          .btnSend:hover{
-             background: #24242a;
+             background: #1879ba;
              border-radius: 0;
              color: #fff;
-             border: 3px solid #24242a;
+             border: 3px solid #1879ba;
              text-transform: uppercase;
          }
          .boutonbox{
@@ -41,8 +41,8 @@
          }
 
          .form-controlmessage{
-                  border-radius: 0;
-                  border: 2px solid #24242a;
+                  border-radius: 3px;
+                  border: 2px solid #1879ba;
                   color: #0d0d0d;
                   min-height: 45px;
                   background-color: #fff;
@@ -55,13 +55,13 @@
                   vertical-align: middle;
             }
             .form-controlmessage:focus {
-                border: 3px solid #24242a;
+                border: 3px solid #1879ba;
             }
             
             .form-control{
-                  border-radius: 0;
+                  border-radius: 3px;
                   width: 100%;
-                  border: 2px solid #24242a;
+                  border: 2px solid #1879ba;
                   color: #0d0d0d;
                   margin-bottom:30px;
                   background-color: #fff;
@@ -73,13 +73,8 @@
                   max-height:40px;
             }
             .form-control:focus {
-                border: 3px solid #24242a;
+                border: 3px solid #1879ba;
             }
-            .adressecontact{
-                 text-align:"center" ;
-                 margin-bottom:50px;
-            }
-
 </style>
 
 
@@ -91,11 +86,20 @@
   <div class="container">
   <div class="row">
    <div class="col-md-6 col-md-offset-3" >
+         <div style="font-size:14px;color:red">
+              <asp:Literal runat="server" ID="FailureText" />
+         </div>
         <div class="form-group" style="text-align:center">
              <textarea id="namebox" name="namebox" class="form-control" placeholder="Name"  ></textarea>
         </div>
         <div class="form-group" style="text-align:center">
              <textarea id="emailbox" name="emailbox" class="form-control"  placeholder="Email"  ></textarea>
+        </div>
+        <div class="form-group" style="text-align:center">
+                <textarea id="organizationbox" name="organizationbox" class="form-control"  placeholder="Affiliation / Organization"  ></textarea>
+        </div>
+        <div class="form-group" style="text-align:center">
+                <textarea id="disciplinebox" name="disciplinebox" class="form-control"  placeholder="Discipline"  ></textarea>
         </div>
         <div class="form-group">
              <textarea id="messagebox" name="messagebox" class="form-controlmessage" rows="5" placeholder="Message"></textarea>
@@ -107,17 +111,5 @@
    </div>
     </div>
     </section>
-    <section>
-    <div class:"adressecontact">
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
 
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
-    </div>
-    </section>
 </asp:Content>

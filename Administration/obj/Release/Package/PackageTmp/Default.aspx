@@ -9,6 +9,10 @@
         <asp:Button runat="server" Text="Add a news" OnClick="NewNews_Click" CssClass="btn btn-default"/>
     <% } %>
     <!-- Display the news -->
+    <div>
+        <asp:Label ID="ErreurMessage" runat="server" > </asp:Label>
+    </div>
+
     <table id="NewsTable" class="table table-hover">
                 <thead>
                     <tr>
@@ -86,8 +90,7 @@
         <h4>Link already in memory :
          </h4>
          <asp:Button ID="ButtonShowUrl" runat="server" OnClick="Bouton_Show_Url_Click" Text="Show Video Url in memory" CssClass="btnlogin" />
-         <asp:TextBox ID="TextBoxUrl" runat="server"></asp:TextBox>
-
-        
+         <asp:TextBox ID="TextBoxUrl" runat="server"></asp:TextBox>   
     </div>
+
 </asp:Content>

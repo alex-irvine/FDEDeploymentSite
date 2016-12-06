@@ -5,7 +5,9 @@
     <asp:TextBox runat="server" ID="NewsID" style="display:none;" CssClass="form-control" Text=""/>
     <h1><%: NewsContent.Title %></h1>
 
-    
+    <div>
+        <asp:Label ID="ErreurMessage" runat="server" > </asp:Label>
+    </div>
     <div class="News_option">
         <asp:LinkButton runat="server" OnClick="PublishClick" CssClass="btn btn-lg btn-success"><span title="Publish" class="glyphicon glyphicon-remove-circle"></span></asp:LinkButton>
         <asp:LinkButton runat="server" OnClick="UnPublishClick" CssClass="btn btn-lg btn-warning"><span title="unpublish" class="glyphicon glyphicon-remove-circle"></span></asp:LinkButton>

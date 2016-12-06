@@ -17,8 +17,8 @@
         #tutopart .table .col-md-3{
           display: table-cell;
           width:25%;
-          background: #24242a;
-          border: 5px #F2F2F2 solid;
+          background: #fff;
+          border: 2px #3288c1 solid;
           padding: 20px;
           box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset;
           height:auto;
@@ -50,18 +50,19 @@
             transition: 0.5s;
             outline: none;
             border-radius: 0;
-            border: 2px solid #24242a;
+            border: 2px solid #3288c1;
             color: #0d0d0d;
         }
 
         #tutopart .table .col-md-3 .tuto_search:focus {
-            border: 3px solid #fff;
+            border: 3px solid #3288c1;
         }
         #tutopart .table .col-md-3 .listtuto{
             color:#fff;
             list-style-type:none;
-            border-left: 2px solid #BEBCD4;
+            border-left: 2px solid #1879ba;
             padding:10px 10px;
+            text-align:left;
         }
         #tutopart .table .col-md-9 .tutoTitle {
             margin: 0;
@@ -87,6 +88,7 @@
         }
 
     </style> 
+<div class="containerSpecial" style="width:1200px !important">
     <div id="tutopart">
     <div>
         <div class="titre">
@@ -104,6 +106,9 @@
                   </ItemTemplate>
               </asp:ListView>
               </ul>
+              <p style="text-align:left;color:red">
+                  Please, click <a href="~/">‘ADE 1.0 Users’ Guide’</a> to download and view the full features of the ADE 1.0
+              </p>
           </div>
 
         <!-- placeholder for views -->
@@ -112,4 +117,5 @@
         </div>
     </div>
     </div>
+</div>
 </asp:Content>

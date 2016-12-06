@@ -17,7 +17,7 @@
           }
           .sep {
             max-width: 80px;
-            border: 2px solid #0d0d0d;
+            border: 2px solid #3288c1;
             margin-top: 30px;
             margin-bottom: 30px;
         }
@@ -41,7 +41,7 @@
 		        <div class="col-md-2">
 		        </div>
 		        <div class="col-md-8">
-                             <p class="ptext">Developed by the <a href="~/">CADES Research Centre</a>, the Antenna Design Explorer (ADE) 1.0 is a Graphics 
+                             <p style="text-align:center;">Developed by the <a href="~/">CADES Research Centre</a>, the Antenna Design Explorer (ADE) 1.0 is a Graphics 
                                             User Interface (GUI)-based optimisation tool that runs in the MATLAB environment. The aim 
                                             of ADE 1.0 is to optimize antenna geometrical design parameters so as to satisfy the design
                                             specifications and optimize the selected performance(s) in an EFFICIENT manner. At present, 
@@ -51,7 +51,7 @@
                                             often not available; global optimization methods can often obtain a good design, but they cost
                                             very long or prohibitive time. ADE 1.0 is proposed to address this challenge. 
                                          </p>
-                                         <p class="ptext">
+                                         <p style="text-align:center;">
                                              To run the ADE 1.0, the user-defined inputs include the antenna simulation model or evaluation file, 
                                              antenna design variables and their design ranges, optimization goal(s) and constraints. Currently, 
                                              three optimisation algorithms are carefully selected in the ADE 1.0: the surrogate assisted 
@@ -62,7 +62,7 @@
                                              parameters.
                                          </p>
                                         <br>
-                                         <p class="ptext2">
+                                         <p style="text-align:center;color:red;">
                                              Please, click <a href="~/">‘ADE 1.0 Users’ Guide’</a> to download and view the full features of the ADE 1.0
                                          </p>
 		        </div>

@@ -1,0 +1,144 @@
+﻿.logomenu{
+    margin:0;
+    padding:0;
+    width: auto;
+    height: 35px;
+}
+
+.dropbtn {
+    background-color: #ffffff;
+    cursor: pointer;
+    display: block;
+    height: 31px;
+    margin: 5px 0 0 0;
+    padding: 8px 18px 0 18px;
+    text-align: center;
+    border-radius:0px !important;
+    color: #58595B;
+    text-decoration: none;
+    font-family: 'DaxWeb';
+    list-style: none;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0px;
+    background-color: #ffffff;
+    min-width: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #A0A1A3;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    width: 239px;
+    z-index: 50;
+    list-style-type: none;
+}
+
+.dropdown-content a {
+    right: 0;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: #414042;
+    font-size: 13px;
+    height: auto;
+    line-height: 14px;
+    margin: 0;
+    min-height: 10px;
+    padding: 5px 12px 3px;
+    text-align: center;
+    width: auto;
+    list-style-type: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #0f5dba;
+    color: white;
+    list-style-type: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ffffff;
+    border-bottom: 2px solid #0f5dba;
+    border-top: none;
+    border-right:none;
+    border-left:none;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #ffffff;
+    z-index: 9999;
+    border: 0;
+    font-size: 15px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 2px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #000 !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #808080 !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #000 !important;
+}
+.navbar-nav{
+    text-align:center;
+}
+.navbar-brand{
+    margin-top:5px;
+    padding:0px 0px;
+}
+
+#RegisterLogin1{
+    margin-top: 10px;
+}
+
+#RegisterLogin2{
+    margin-right:20px;
+    margin-top: 10px;
+}
+
+#RegisterLogin1:hover{
+    background:#1e5f89;
+}
+
+#RegisterLogin2:hover{
+    background:#1e5f89;
+}
+
+.footer{
+    background-color:#2b79ad;
+    color:#fff;
+    text-align:center;
+    height: 40px;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    margin-top:50px;
+    margin-bottom:0px;
+}

@@ -16,7 +16,7 @@
           }
         .sep {
             max-width: 80px;
-            border: 2px solid #0d0d0d;
+            border: 2px solid #3288c1;
             margin-top: 30px;
             margin-bottom: 30px;
         }
@@ -41,7 +41,7 @@
 		        <div class="col-md-2">
 		        </div>
 		        <div class="col-md-8">
-                             <p class="ptext">Some of the key features of the ADE 1.0 include, but are not limited to:</p>
+                             <p style="text-align:center;">Some of the key features of the ADE 1.0 include, but are not limited to:</p>
                              <ul class="listkey">
                                 <li>Selection and integration of state-of-the-art antenna design exploration approaches and methods
                                     to tackle EFFICIENT antenna optimization over a very broad scope of antenna problems.</li>
@@ -51,7 +51,7 @@
                                     a seamless link: CST Microwave Studio.</li>
                             </ul>
                                         <br>
-                                         <p class="ptext2">
+                                         <p style="text-align:center;color:"red">
                                              Please, click <a href="~/">‘ADE 1.0 Users’ Guide’</a> to download and view the full features of the ADE 1.0
                                          </p>
 		        </div>

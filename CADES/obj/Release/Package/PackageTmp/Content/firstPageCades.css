@@ -1,0 +1,79 @@
+﻿/*Carousel*/
+.containerCarousel{
+    margin: 0 auto;
+    position: relative;
+    width: 500px;
+}
+
+#CarouselDiv{
+    margin-top:0px;
+}
+
+#myCarousel{
+    width:100%;
+}
+.carousel-caption{
+    color:black;
+    position: relative;
+    top: 10%;
+    max-width: 100%;
+    text-align: center;
+    margin:auto;
+    margin-right:150px
+}
+#myCarousel .item {
+    height: 350px;
+    width:auto;
+}
+#slide1{
+    background: url("../Images/300-GHz waveguide filter2.jpg") center no-repeat;
+    width:100%;
+}
+#slide2{
+    /*background: url("../Images/blue-background.jpg") top center no-repeat;*/
+    width:100%;
+}
+#slide3{
+    /*background: url("../Images/Slideshow_New_Block2.jpg") center no-repeat;*/
+    width:100%;
+    max-width:100%;
+}
+
+.section{
+    background:#e7e8e5;
+}
+
+#homeCades{
+    margin-top:110px;
+}
+
+.light-sep {
+    max-width: 80px;
+    border: 2px solid #1879ba;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#services h2 {
+  text-transform: uppercase;
+  color: #1879ba;
+}
+
+.containerSpecial{
+    margin: 0 auto;
+    position: relative;
+    width: 1000px !important;
+    background:#fff;
+    padding-top:45px;
+    text-align:center;
+    padding-left:30px;
+}
+
+#news1:hover{
+    background:#f8f9f4;
+}
+
+#news2:hover{
+    background:#f8f9f4;
+}
+

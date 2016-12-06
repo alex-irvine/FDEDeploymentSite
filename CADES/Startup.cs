@@ -2,7 +2,7 @@
 using Owin;
 using System.Web.Security;
 
-[assembly: OwinStartupAttribute(typeof(CADES.Startup))]
+[assembly: OwinStartupAttribute("CADES",typeof(CADES.Startup))]
 namespace CADES
 {
     public partial class Startup {

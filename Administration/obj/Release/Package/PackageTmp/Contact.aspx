@@ -20,6 +20,8 @@
                 <tr>
                     <th>Author</th>
                     <th>Email</th>
+                    <th>Organization</th>
+                    <th>Discipline</th>
                     <th class="columnText">Text</th>
                     <th>Date</th>
                     <th>Action</th>
@@ -37,6 +39,8 @@
                     <tr>
                         <td><%#: Item.Author %></td>
                         <td><%#: Item.Email %></td>
+                        <td><%#: Item.Organization %></td>
+                        <td><%#: Item.Discipline %></td>
                         <td><%#: Item.Text %></td>
                         <td><%#: Item.Date %></td>
                         <td>
@@ -58,19 +62,9 @@
           </div>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
     <script>
-        //$('#myTabs a').click(function (e) {
-           // e.preventDefault()
-         //   $(this).tab('show')
-        //});
         $(document).ready(function () {
             $("#contactTable").DataTable();
         });
-        //var table = $('#contactTable').DataTable();
-
-        //$('#tab-content').css('display', 'block');
-        //table.columns.adjust().draw();
-
-
 </script>
 
 </asp:Content>

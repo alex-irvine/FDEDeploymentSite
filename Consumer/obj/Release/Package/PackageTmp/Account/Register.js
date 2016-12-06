@@ -64,6 +64,28 @@ function check_company() {
     check_all();
 }
 
+function check_firstname() {
+    if (document.getElementById("MainContent_FirstName").value != "") {
+        document.getElementById("MainContent_FirstName").style.border = "1px solid green";
+        gbl_company = true;
+    } else {
+        document.getElementById("MainContent_FirstName").style.border = "1px solid red";
+        gbl_company = false;
+    }
+    check_all();
+}
+
+function check_lastname() {
+    if (document.getElementById("MainContent_LastName").value != "") {
+        document.getElementById("MainContent_LastName").style.border = "1px solid green";
+        gbl_company = true;
+    } else {
+        document.getElementById("MainContent_LastName").style.border = "1px solid red";
+        gbl_company = false;
+    }
+    check_all();
+}
+
 function check_all() {
     if (gbl_company && gbl_email && gbl_pass && gbl_pass_conf) {
         document.getElementById("MainContent_BtnReg").disabled = false;

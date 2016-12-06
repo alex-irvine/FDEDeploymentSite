@@ -13,7 +13,9 @@
         <table id="NotApprovedTable" class="display" >
             <thead>
                 <tr>
-                    <th>Username</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Administrator</th>
                     <th>Approved</th>
                     <th>Company</th>
@@ -22,7 +24,9 @@
             </thead>
             <tfoot>
                 <tr>
-                    <th>Username</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Administrator</th>
                     <th>Approved</th>
                     <th>Company</th>
@@ -40,6 +44,8 @@
                 <ItemTemplate>            
                     <tr>
                         <td><%#: Item.Username %></td>
+                        <td><%#: Item.FirstName %></td>
+                        <td><%#: Item.LastName %></td>
                         <td><%#: Item.IsAdmin %></td>
                         <td><%#: Item.IsApproved %></td>
                         <td><%#: Item.Company %></td>

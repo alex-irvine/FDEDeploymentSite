@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-CADES-20161125164627;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-CADES-20161125164627.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Dropbox\\Glyndwr\\MATLAB\\Publishing_Platform\\CADES\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>
