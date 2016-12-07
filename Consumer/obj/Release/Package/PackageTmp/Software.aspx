@@ -62,8 +62,8 @@
 		            </div>--%>
                     <div class="boxThings">
                         <h5><b>Terms & Conditions</b></h5>
-                        <p>PDF : <a>linkpdf</a></p>
-                        <asp:CheckBox ID="checkbox1" runat="server"  clientidmode="static" /> I've read and agreed<br>
+                        <p>PDF : <a onclick="openTerms()">Please read and accept by checking the box below</a></p>
+                        <asp:CheckBox ID="checkbox1" runat="server"  clientidmode="static" /> I acknowledge that I have read and agree to the above Terms and Conditions<br>
                     </div>
                     <div class="boxThings">
                         <b>Users of the SADEA optimizer in the ADE tool should cite:</b>
@@ -80,28 +80,20 @@
                             a practical approach to global optimization. Springer Verlag, 2005.</p>
                     </div>
                     <div class="boxThings">
-                       <h5>Need a tutorial ?</h5>
+                       <h5>Need a tutorial?</h5>
                        <a href="Tutorials">Tutorials</a>
                    </div>
                 </td>
                <td style="width:400px;vertical-align:top">
                     <div class="boxThings">
                         <h5><b>Feedback</b></h5>
-                        <p>question 1 : bla bla blaabla bla ?</p>
-                        <input type="checkbox" name="" value="">bla.
-                        <input type="checkbox" name="" value="">blo.<br />
-                        <p>question 2 : blublu blu blu blluu ?</p>
-                        <input type="checkbox" name="" value="">bla.
-                        <input type="checkbox" name="" value="">blo.<br />
-                        <p>question 3 : bloblo blo blo blloo ?</p>
-                        <input type="checkbox" name="" value="">bla.
-                        <input type="checkbox" name="" value="">blo.<br />
-                        <p>question 4 : blbl bl bl blblblbl ?</p>
-                        <input type="checkbox" name="" value="">bla bla blu
-                        <input type="checkbox" name="" value="">blo bi blo<br />
+                        <p>Please fill in this questionnaire once you have used the software. This will help us improve current tools and create new
+                            and useful tools.
+                        </p>
+                        <a href="#"><p><b>FEEDBACK</b></p></a>
                     </div>
                    <div>
-                       <asp:Button ID="btnDownload" runat="server" Text="Download File"  OnClick="btnDownload_Click" class="btndownload"/>
+                       <asp:Button ID="btnDownload" runat="server" Text="Download"  OnClick="btnDownload_Click" class="btndownload"/>
                    </div>
                 </td>
             </tr>
@@ -110,5 +102,11 @@
     </div>
 </section>
 
-
+<script>
+    function openTerms() {
+        var url = 'http://' + window.location.host + '/img/NON_commercial_agreement.pdf';
+        window.open(url, '_blank');
+    }
+</script>
 </asp:Content>
+

@@ -33,7 +33,7 @@ namespace Consumer
             }
             else
             {
-                FailureText.Text = "Accept terms and conditions";
+                FailureText.Text = "Please accept the terms and conditions";
             }
         }
 

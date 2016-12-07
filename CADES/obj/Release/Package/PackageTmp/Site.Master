@@ -97,14 +97,14 @@
 
 
 
-    <footer style="background-color:#2b79ad;color:#fff;text-align:center;">
+<%--    <footer style="background-color:#2b79ad;color:#fff;text-align:center;">
         <div class="content-wrapper">
-            <div style="display:inline-block">
+            <div style="display:inline-block;margin-top:10px;float:right;">
                <p style="text-align:center;float:left">Follow us : </p>
-               <a href="https://www.youtube.com/channel/UCSiAGKde__gtvxsl3u3dxXA"><img src="Images/youtube.png" /> </a>
+               <a href="https://www.youtube.com/channel/UCSiAGKde__gtvxsl3u3dxXA"><img src="Images/YouTube-logo-full_color.png" /> </a>
             </div>
         </div>
-    </footer>
+    </footer>--%>
 
 
     </form>

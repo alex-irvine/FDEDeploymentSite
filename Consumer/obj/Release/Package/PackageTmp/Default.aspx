@@ -40,38 +40,26 @@
                 <td style="width:800px;vertical-align:top">
                     <div>
                         <h4 style="text-align:left;">About ADE 1.0</h4>
-                        <p style="text-align:justify;font-size:12.5px">Developed by the <a href="~/">CADES Research Centre</a>, the Antenna Design Explorer (ADE) 1.0 is a Graphics 
-                                    User Interface (GUI)-based optimisation tool that runs in the MATLAB environment. The aim 
-                                    of ADE 1.0 is to optimize antenna geometrical design parameters so as to satisfy the design
-                                    specifications and optimize the selected performance(s) in an EFFICIENT manner. At present, 
-                                    local optimization and global optimization methods are included in many existing antenna design 
-                                    explorers or optimizers (e.g. CST optimizer, MATLAB optimization or global optimization toolbox
-                                    and ADS optimization tool). Local optimization methods require a good initial design, which is 
-                                    often not available; global optimization methods can often obtain a good design, but they cost
-                                    very long or prohibitive time. ADE 1.0 is proposed to address this challenge. 
-                                    </p>
-                                    <p style="text-align:justify;font-size:12.5px">
-                                        To run the ADE 1.0, the user-defined inputs include the antenna simulation model or evaluation file, 
-                                        antenna design variables and their design ranges, optimization goal(s) and constraints. Currently, 
-                                        three optimisation algorithms are carefully selected in the ADE 1.0: the surrogate assisted 
-                                        differential evolution algorithm (SADEA), the differential evolution (DE) algorithm and the 
-                                        multi objective evolutionary algorithm based on decomposition (MOEA/D). ADE 1.0 also allows users
-                                        to adopt customized algorithms or evaluation functions depending on what is most suitable for
-                                        the antenna problem. The output of the ADE 1.0 is an antenna profile with optimal geometrical design
-                                        parameters.
-                                    </p>
+                        <p style="text-align:justify;font-size:16px">Developed by the 
+                            <a href="http://cadesresearch.azurewebsites.net">CADES Research Centre</a>, the Antenna Design Explorer (ADE) 
+                            1.0 is a GUI-based antenna design optimisation tool that runs in the MATLAB environment. The aim of ADE 1.0 is 
+                            to optimize antenna geometrical design parameters so as to satisfy the design specifications and optimize the selected 
+                            performance(s) in an EFFICIENT manner. At present, local optimization and global optimization methods are included in 
+                            many existing antenna design explorers or optimizers (e.g. CST optimizer, MATLAB optimization toolbox and ADS optimization tool). 
+                            Local optimization methods require a good initial design, which is often not available; global optimization methods can often 
+                            obtain a good design, but they cost very long or prohibitive time. ADE 1.0 is proposed to address this challenge. 
+                            </p>
                                 <br>
 		        </div><%--ABOUT--%>
-                    <div style="margin-top:10px;">
+                    <div style="margin-top:10px;font-size:16px;">
                             <h4 style="text-align:left;">Key Features</h4>
-                            <p style="text-align:justify;font-size:12.5px">Some of the key features of the ADE 1.0 include, but are not limited to:</p>
+                            <p style="text-align:justify;font-size:16px">Some of the key features of the ADE 1.0 include, but are not limited to:</p>
                             <ul class="listkey" style="text-align:left;color:#1879ba;">
                                 <li><b>Selection and integration of state-of-the-art antenna design exploration approaches and methods
                                     to tackle EFFICIENT antenna optimization over a very broad scope of antenna problems.</b></li>
-                                <li><b>Enhanced usability developed by addressing Human-computer Interaction (HCI) issues peculiar
+                                <li><b>Enhanced usability developed by addressing Human-computer Interaction issues peculiar
                                     to antenna design engineers who are not familiar with design automation and optimization.</b></li>
-                                <li><b>Conjunctive operations with an existing parallel simulation and optimization tool through
-                                    a seamless link: CST Microwave Studio.</b></li>
+                                <li><b>Seamless link with CST Microwave Studio.</b></li>
                             </ul>
                             <br>
                             <p style="text-align:left;color:red">

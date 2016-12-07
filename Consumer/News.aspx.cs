@@ -14,15 +14,15 @@ namespace Consumer
         public bool isApproved { get; private set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            isApproved = Session["User"] != null ? ((Consumer.ServiceReference1.Person)Session["User"]).IsApproved : false;
-            if (Session["User"] == null)
-            {
-                FormsAuthentication.RedirectToLoginPage();
-            }
-            if (!isApproved)
-            {
-                FormsAuthentication.RedirectToLoginPage();
-            }
+            //isApproved = Session["User"] != null ? ((Consumer.ServiceReference1.Person)Session["User"]).IsApproved : false;
+            //if (Session["User"] == null)
+            //{
+            //    FormsAuthentication.RedirectToLoginPage();
+            //}
+            //if (!isApproved)
+            //{
+            //    FormsAuthentication.RedirectToLoginPage();
+            //}
         }
 
         protected void DataPagerNews_PreRender(object sender, EventArgs e)

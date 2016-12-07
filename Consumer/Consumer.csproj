@@ -207,11 +207,13 @@
     <Content Include="img\imgCaroussel3.jpg" />
     <Content Include="img\imgSoftware.png" />
     <Content Include="img\Slideshow_New_Block2.jpg" />
+    <Content Include="img\YouTube-logo-full_color.png" />
     <Content Include="img\youtube.png" />
     <Content Include="KeyFeatures.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="img\NON_commercial_agreement.pdf" />
     <None Include="Properties\PublishProfiles\AntennaDesignExplorer - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CADESresearch - Web Deploy %282%29.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

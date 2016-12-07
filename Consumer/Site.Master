@@ -132,14 +132,14 @@ footer{
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" runat="server" href="~/"><img src="/Content/logo2navbar.png" alt="LogoCades" class="logomenu" /></a>
+      <a class="navbar-brand" runat="server" href="http://cadesresearch.azurewebsites.net"><img src="/Content/logo2navbar.png" alt="LogoCades" class="logomenu" /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 				    <li><a runat="server" href="~/Default">Home</a></li>
-          			<li><a runat="server" href="~/Software">Download</a></li>
+          			<li><a runat="server" href="~/Software">Downloads</a></li>
                     <li><a runat="server" href="~/Tutorials">Tutorials</a></li>
                     <li><a runat="server" href="~/News">News & Updates</a></li>
                     <li><a runat="server" href="~/Contact">Contact Us</a></li>
@@ -170,12 +170,12 @@ footer{
     </div>
     </form>
     
-    <footer>
-        <div style="display:inline-block">
+<%--    <footer>
+        <div style="display:inline-block;margin-top:10px;float:right;">
            <p style="text-align:center;float:left">Follow us : </p>
-           <a href="https://www.youtube.com/channel/UCSiAGKde__gtvxsl3u3dxXA"><img src="img/youtube.png" /> </a>
+           <a href="https://www.youtube.com/channel/UCSiAGKde__gtvxsl3u3dxXA"><img src="img/YouTube-logo-full_color.png" /> </a>
         </div>
-    </footer>
+    </footer>--%>
 </div>
 </body>
 </html>

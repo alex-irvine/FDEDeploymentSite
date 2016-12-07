@@ -183,6 +183,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="PDFFolder\NON commercial agreement.pdf" />
+    <Content Include="PDFFolder\PDFTest1.pdf" />
+    <Content Include="PDFFolder\PDFTest2.pdf" />
+    <Content Include="PDFFolder\PDFTest3.pdf" />
     <None Include="Properties\PublishProfiles\CADESadministration - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\cust.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

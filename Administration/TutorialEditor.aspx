@@ -10,7 +10,7 @@
     <div class="dropdownPDF">
         <p> Add a PDF ?</p>
         <asp:DropDownList ID="DropDownListID"  runat="server"></asp:DropDownList>
-        <asp:Button ID="btnGet" runat="server" Text="Show URL"></asp:Button>
+        <asp:Button ID="btnGet" runat="server" Text="Paste URL"></asp:Button>
         <%--<p id="urlPDFdisplay" runat="server"></p>--%>
 
     </div>
@@ -145,7 +145,7 @@
                 var ddlpdf = $("[id*=DropDownListID]");
                 var selectedText = ddlpdf.find("option:selected").text();
                 var selectedValue = ddlpdf.val();
-                alert("PDF name Selected : " + selectedText + "\n\n You can copy and paste this url : \n" +window.location.host+ selectedValue);
+                $('.jqte_editor').append(' http://'+window.location.host+ selectedValue);
                 return false;
             });
         });
