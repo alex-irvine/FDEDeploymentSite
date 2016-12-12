@@ -31,6 +31,10 @@
     width:100%;
     max-width:100%;
 }
+#slide4{
+    background: url("../img/blueBackground.jpg") top center no-repeat;
+    width:100%;
+}
 
 /*OTHER THINGS*/
 .containerSpecial {

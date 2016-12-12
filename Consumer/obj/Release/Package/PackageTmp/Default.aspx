@@ -72,31 +72,40 @@
                <td style="width:400px;vertical-align:top">
             <div class="carousel slide" id="myCarousel" style="text-align:center">
             <!--Indicator-->
-              <ol class="carousel-indicators">
+              <%--<ol class="carousel-indicators">
                   <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
                   <li data-target="#myCarousel" data-slide-to="1"></li>
                   <li data-target="#myCarousel" data-slide-to="2"></li>
-              </ol>
+              </ol>--%>
             <!--Wrapper for slides-->
             <div class="carousel-inner">
                 <div class="item active" id="slide1">
-                        <div class="carousel-caption">
-                            <h1><span>ADE </span>1.0</h1>
-                            <h3>Antenna Design Explorer</h3>
-                            <br />
-                            <a class="btn btn-transparent" href="/Software">Download</a>
-                        </div>
+                    <div class="carousel-caption">
+                        <h1><span>ADE </span>1.0</h1>
+                        <h3>Antenna Design Explorer</h3>
+                        <br />
+                        <a class="btn btn-transparent" href="/Software">Download</a>
+                    </div>
                 </div>
                 <div class="item" id="slide2">
-                        <div class="carousel-caption">
-                            <p style="text-align:center"><img src="img/alex_screenshot4.jpg" style="margin-top:-55px;margin-left:-20px"/></p>
-                        </div>
+                    <div class="carousel-caption">
+                        <p style="text-align:center"><img src="img/alex_screenshot4.jpg" style="height:280px;margin-top:-20px;"/></p>
+                    </div>
                 </div>
                 <div class="item" id="slide3">
-                        <div class="carousel-caption">
-                            
-                        </div>
+                    <div class="carousel-caption">
+                        
+                    </div>
                 </div>
+                <div class="item" id="slide4">
+                    <div class="carousel-caption">
+                        <img src="img/MIMO.jpg" style="margin:auto;"/>
+                        <p style="text-align:center;font-size:10px">
+                            ADE 1.0 product sample: Broadband MIMO antenna (fabricated in Bradford, UK, 2016)
+                        </p>
+                    </div>
+                </div>
+                            
             </div>
             <!--Control-->
             <a class="left carousel-control" data-slide="prev" href="#myCarousel"><span class="icon-prev"></span></a>
