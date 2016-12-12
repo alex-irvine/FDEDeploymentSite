@@ -144,7 +144,7 @@ footer{
                     <li><a runat="server" href="~/News">News & Updates</a></li>
                     <li><a runat="server" href="~/Contact">Contact Us</a></li>
       </ul>
-      <% if (!Request.IsAuthenticated) { %>
+      <% if (Session["User"] == null) { %>
       <ul class="nav navbar-nav navbar-right">
             <li><a runat="server" href="~/Account/Register" class="btnmenulogin"><span class="glyphicon glyphicon-user"></span> Register</a></li>
             <li><a runat="server" href="~/Account/Login" class="btnmenulogin"><span class="glyphicon glyphicon-log-in"></span>  Log in</a></li>

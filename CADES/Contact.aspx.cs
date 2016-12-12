@@ -20,10 +20,6 @@ namespace CADES
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
-            if (!isApproved)
-            {
-                FormsAuthentication.RedirectToLoginPage();
-            }
         }
 
         protected void btnSend_Click(object sender, EventArgs e)

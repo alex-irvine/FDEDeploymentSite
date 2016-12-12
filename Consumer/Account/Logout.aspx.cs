@@ -13,6 +13,7 @@ namespace Consumer.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
+            Session["User"] = null;
             Response.Redirect("~/");
         }
     }

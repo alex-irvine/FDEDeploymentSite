@@ -53,9 +53,9 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
                     CssClass="text-danger" ErrorMessage="The password field is required." />
             </div>
-            <div id="NoJavascript" >
+            <%--<div id="NoJavascript" >
                 <p class="text-danger">Password require numbers and letters, and must be over 6 characters long</p>
-            </div>
+            </div>--%>
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm password</asp:Label>
@@ -73,6 +73,6 @@
             </div>
         </div>
     </div>
-   <p>After register, you will need to wait the approve of the Administrator</p>
+   <p>After you register, you will need to wait for approval before you can download software.</p>
     <script type="text/javascript" src="./Register.js"></script>
 </asp:Content>

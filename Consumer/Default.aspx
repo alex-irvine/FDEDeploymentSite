@@ -34,6 +34,7 @@
             <h2><span>ADE </span>1.0</h2>
             <h3>Antenna Design Explorer</h3>
             <hr class="light-sep">
+            <asp:Label ID="lblErrorMsg" runat="server" CssClass="text-warning"></asp:Label>
         </div>
        <table style="width:100%;border-collapse: collapse;border-spacing: 0;margin-bottom:20px">
            <tr>

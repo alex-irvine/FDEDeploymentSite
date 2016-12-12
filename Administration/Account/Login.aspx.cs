@@ -54,7 +54,7 @@ namespace Administration.Account
                         }
                         else
                         {
-                            FailureText.Text = "You don't have permission to access, please <a href=\"#\">go there </a>";
+                            FailureText.Text = "You don't have permission to access this page";
                             ErrorMessage.Visible = true;
                         }
 

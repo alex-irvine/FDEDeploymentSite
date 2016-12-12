@@ -17,6 +17,11 @@ namespace Consumer
         {
             isApproved = Session["User"] != null ? ((Consumer.ServiceReference1.Person)Session["User"]).IsApproved : false;
             ifYt.Src = GeturlVideo().Replace("watch?v=", "embed/");
+            if(Session["UnapprovedDownloadAttempted"] != null)
+            {
+                Session["UnapprovedDownloadAttempted"] = null;
+                lblErrorMsg.Text = "You must be approved before you can download ADE";
+            }
         }
 
 

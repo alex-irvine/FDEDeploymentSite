@@ -15,13 +15,15 @@ namespace Consumer
         protected void Page_Load(object sender, EventArgs e)
         {
             isApproved = Session["User"] != null ? ((Consumer.ServiceReference1.Person)Session["User"]).IsApproved : false;
-            if (Session["User"] == null)
+            if(Session["User"] == null)
             {
                 FormsAuthentication.RedirectToLoginPage();
+                return;
             }
             if (!isApproved)
             {
-                FormsAuthentication.RedirectToLoginPage();
+                Session["UnapprovedDownloadAttempted"] = true;
+                Response.Redirect("~/",true);
             }
         }
 
