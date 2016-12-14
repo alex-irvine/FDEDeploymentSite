@@ -54,7 +54,8 @@
                 <div class="carousel-inner">
                     <div class="item active" id="slide1">
                             <div class="carousel-caption">
-                                    <p style="text-align:center">300-GHz waveguide filter (fabricated in Birmingham UK)</p>
+                                <p style="text-align:center;font-size:12px;margin-top:100px;">300-GHz waveguide filter (fabricated in Birmingham UK)</p>
+                                <p style="text-align:center;font-size:12px;">A Sample Product Synthesized by CADES Intelligent Design Automation Tools</p>
                             </div>
                     </div>
                     <div class="item" id="slide2">
