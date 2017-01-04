@@ -45,17 +45,17 @@
         <div class="containerCarousel">
             <div class="carousel slide" id="myCarousel">
                 <!--Indicator-->
-                    <ol class="carousel-indicators">
+                   <%-- <ol class="carousel-indicators">
                         <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+                    </ol>--%>
                 <!--Wrapper for slides-->
                 <div class="carousel-inner">
                     <div class="item active" id="slide1">
                             <div class="carousel-caption">
-                                <p style="text-align:center;font-size:12px;margin-top:200px;color:#808080;">300-GHz waveguide filter (fabricated in Birmingham UK)</p>
-                                <p style="text-align:center;font-size:12px;color:#808080;">A Sample Product Synthesized by CADES Intelligent Design Automation Tools</p>
+                                <p style="text-align:center;font-size:18px;margin-top:170px;color:#000;">300-GHz waveguide filter (fabricated in Birmingham UK)</p>
+                                <p style="text-align:center;font-size:18px;color:#000;">A Sample Product Synthesized by CADES Intelligent Design Automation Tools</p>
                             </div>
                     </div>
                     <div class="item" id="slide2">

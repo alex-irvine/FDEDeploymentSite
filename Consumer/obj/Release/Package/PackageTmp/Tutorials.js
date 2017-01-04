@@ -7,6 +7,7 @@ $(document).ready(function () {
             return a.page_number - b.page_number;
         })
     });
+    $('#list_tuto li').first().click();
 });
 
 /**

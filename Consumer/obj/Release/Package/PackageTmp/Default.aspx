@@ -101,7 +101,7 @@
                     <div class="carousel-caption">
                         <img src="img/MIMO.jpg" style="margin:auto;"/>
                         <p style="text-align:center;font-size:10px">
-                            ADE 1.0 product sample: Broadband MIMO antenna (fabricated in Bradford, UK, 2016)
+                            ADE 1.0 product sample: a UWB MIMO antenna (fabricated in Bradford, UK, 2016)
                         </p>
                     </div>
                 </div>

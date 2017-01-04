@@ -45,7 +45,7 @@
     <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="banner">
     <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
-            <div class="row" style="background:#2f7eb2">
+            <div class="row" style="background:#1879ba;">
                 <div class="navbar-header">
                     <a class="navbar-brand" runat="server" href="~/"><img src="/Images/logo2navbar.png" alt="LogoCades" class="logomenu" /> </a>
                 </div>

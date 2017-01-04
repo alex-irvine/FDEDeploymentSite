@@ -20,7 +20,7 @@ html, body {
 
 .navbar {
     margin-bottom: 0;
-    background-color: #3288c1;
+    background-color: #1879ba;
     z-index: 9999;
     border: 0;
     font-size: 15px !important;
