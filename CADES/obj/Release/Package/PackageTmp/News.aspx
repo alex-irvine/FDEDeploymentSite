@@ -17,13 +17,6 @@
                     </td>
                   </tr>
                 </table>
-                <table id="news2" style="margin-top:30px;width:100%;border-collapse: collapse;border-spacing: 5px 30px;">
-                   <tr style="width:auto">
-                    <td style="width:auto;border:2px solid #1879ba;">
-                        <p><span style="color:#1879ba">[15/01/2017]: </span> CADES IC team is expected to release HSPICE COMPANION around summer 2017. This GUI-based software tool aims to highly improve the usability of Synopsys HSPICE and provide substantial support for analog IC design exploration researchers and engineers. </p>
-                    </td>
-                  </tr>
-                </table>
                 <table id="news3" style="margin-top:30px;width:100%;border-collapse: collapse;border-spacing: 5px 30px;">
                    <tr style="width:auto">
                     <td style="width:auto;border:2px solid #1879ba;">
@@ -31,6 +24,14 @@
                     </td>
                   </tr>
                 </table>
+                <table id="news2" style="margin-top:30px;width:100%;border-collapse: collapse;border-spacing: 5px 30px;">
+                   <tr style="width:auto">
+                    <td style="width:auto;border:2px solid #1879ba;">
+                        <p><span style="color:#1879ba">[15/01/2017]: </span> CADES IC team is expected to release HSPICE COMPANION around summer 2017. This GUI-based software tool aims to highly improve the usability of Synopsys HSPICE and provide substantial support for analog IC design exploration researchers and engineers. </p>
+                    </td>
+                  </tr>
+                </table>
+                
             </div>
     </div>
 </section>

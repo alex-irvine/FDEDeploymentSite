@@ -45,7 +45,7 @@
     </style>
 
 <section>
-    <div class="containerSpecial" style="width:1000px !important">
+    <div class="containerSpecial" style="width:1000px !important;margin-top:50px;">
         <div class="titre">
             <h2>Downloads</h2>
             <hr class="sep">

@@ -28,7 +28,7 @@
 
 	</style>
 
-<section style="margin-bottom:50px">
+<section style="margin-bottom:50px;margin-top:50px;">
     <div class="containerSpecial">
         <div id="titleHome">
             <h2><span>ADE </span>1.0</h2>
@@ -42,35 +42,35 @@
                     <div>
                         <h4 style="text-align:left;">About ADE 1.0</h4>
                         <p style="text-align:justify;font-size:16px">Developed by the 
-                            <a href="http://cadesresearch.azurewebsites.net">CADES Research Centre</a>, the Antenna Design Explorer (ADE) 
-                            1.0 is a GUI-based antenna design optimisation tool that runs in the MATLAB environment. The aim of ADE 1.0 is 
-                            to optimize antenna geometrical design parameters so as to satisfy the design specifications and optimize the selected 
+                            <a href="http://cadesresearch.azurewebsites.net">CADES Research Center</a>, the Antenna Design Explorer (ADE) 
+                            1.0 is a GUI-based antenna design optimization tool which runs in the MATLAB environment. The aim of ADE 1.0 is 
+                            to optimize geometrical antenna design parameters so as to satisfy design specifications and optimize selected 
                             performance(s) in an EFFICIENT manner. At present, local optimization and global optimization methods are included in 
                             many existing antenna design explorers or optimizers (e.g. CST optimizer, MATLAB optimization toolbox and ADS optimization tool). 
                             Local optimization methods require a good initial design, which is often not available; global optimization methods can often 
-                            obtain a good design, but they cost very long or prohibitive time. ADE 1.0 is proposed to address this challenge. 
+                            obtain a good design, but they take significant, even prohibitive, amounts of time. ADE 1.0 is proposed to address this challenge. 
                             </p>
                                 <br>
 		        </div><%--ABOUT--%>
                     <div style="margin-top:10px;font-size:16px;">
                             <h4 style="text-align:left;">Key Features</h4>
-                            <p style="text-align:justify;font-size:16px">Some of the key features of the ADE 1.0 include, but are not limited to:</p>
+                            <p style="text-align:justify;font-size:16px">Some of the key features of ADE 1.0 include, (but are not limited to):</p>
                             <ul class="listkey" style="text-align:left;color:#1879ba;">
                                 <li><b>Selection and integration of state-of-the-art antenna design exploration approaches and methods
-                                    to tackle EFFICIENT antenna optimization over a very broad scope of antenna problems.</b></li>
+                                    to tackle EFFICIENT antenna optimization over a considerable range of antenna problems.</b></li>
                                 <li><b>Enhanced usability developed by addressing Human-computer Interaction issues peculiar
-                                    to antenna design engineers who are not familiar with design automation and optimization.</b></li>
-                                <li><b>Seamless link with CST Microwave Studio.</b></li>
+                                    to antenna design engineers, who are not familiar with design automation and optimization.</b></li>
+                                <li><b>Seamless links with CST Microwave Studio.</b></li>
                             </ul>
                             <br>
                             <p style="text-align:left;color:red">
-                                Please, click <a href="~/">‘ADE 1.0 Users’ Guide’</a> to download and view the full features of the ADE 1.0
+                                Please, click <a href="img/ADEUserGuide.pdf" target="_blank">ADE 1.0 Users’ Guide</a> to download and view the full features of ADE 1.0
                             </p>
 		            </div><%--KeyFeature--%>
                 </td>
                <td style="width:50px"></td>
                <td style="width:400px;vertical-align:top">
-            <div class="carousel slide" id="myCarousel" style="text-align:center">
+            <div class="carousel slide" id="myCarousel" style="text-align:center" data-ride="carousel">
             <!--Indicator-->
               <%--<ol class="carousel-indicators">
                   <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
@@ -81,30 +81,31 @@
             <div class="carousel-inner">
                 <div class="item active" id="slide1">
                     <div class="carousel-caption">
+                        <img src="img/MIMO.jpg" style="margin:auto;"/>
+                        <p style="text-align:center;font-size:14px">
+                            ADE 1.0 product sample: a UWB MIMO antenna (fabricated in Bradford, UK, 2016)
+                        </p>
+                    </div>
+                </div>
+                <div class="item" id="slide2">
+                    <div class="carousel-caption">
                         <h1><span>ADE </span>1.0</h1>
                         <h3>Antenna Design Explorer</h3>
                         <br />
                         <a class="btn btn-transparent" href="/Software">Download</a>
                     </div>
                 </div>
-                <div class="item" id="slide2">
+                <div class="item" id="slide3">
                     <div class="carousel-caption">
                         <p style="text-align:center"><img src="img/alex_screenshot4.jpg" style="height:280px;margin-top:-20px;"/></p>
                     </div>
                 </div>
-                <div class="item" id="slide3">
+                <div class="item" id="slide4">
                     <div class="carousel-caption">
                         
                     </div>
                 </div>
-                <div class="item" id="slide4">
-                    <div class="carousel-caption">
-                        <img src="img/MIMO.jpg" style="margin:auto;"/>
-                        <p style="text-align:center;font-size:10px">
-                            ADE 1.0 product sample: a UWB MIMO antenna (fabricated in Bradford, UK, 2016)
-                        </p>
-                    </div>
-                </div>
+                
                             
             </div>
             <!--Control-->

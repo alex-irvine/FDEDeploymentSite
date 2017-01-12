@@ -19,7 +19,7 @@ html, body {
 }
 
 .navbar {
-    margin-bottom: 0;
+    margin-bottom: 50px;
     background-color: #1879ba;
     z-index: 9999;
     border: 0;
@@ -28,7 +28,6 @@ html, body {
     letter-spacing: 1px;
     border-radius: 0;
     text-align: center;
-    max-height:51px;
 }
 .navbar-collapse{
     background-color: #3288c1;
@@ -90,10 +89,12 @@ footer{
     margin-bottom:0px !important;
 }
 .logomenu{
-    margin:0;
+    margin-left:10px;
+    margin-top:0px;
+    margin-bottom:-50px;
     padding:0;
     width: auto;
-    height: 35px;
+    height: 90px;
 }
 
 </style> 

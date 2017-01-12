@@ -1,8 +1,9 @@
 ﻿.logomenu{
-    margin:0;
+    margin-left:30px;
+    margin-top:-15px;
+    margin-bottom:-10px;
     padding:0;
-    width: auto;
-    height: 35px;
+    height: 80px;
 }
 
 .dropbtn {

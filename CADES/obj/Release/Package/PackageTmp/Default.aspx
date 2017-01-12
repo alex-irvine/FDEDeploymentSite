@@ -16,34 +16,38 @@
 
            <div>
                 <table style="width:100%;border-collapse: collapse;border-spacing: 0;">
-                  <tr style="width:800px">
-                    <td style="width:49%;vertical-align:top">
+                  <tr>
+                    <td style="width:800px;vertical-align:top">
                         <div style="margin-left:10px;margin-top:10px;text-align: justify;">
                             <h4 style="color:#1879ba">CADES Research Center: </h4>
-                            <p style="font-size: 14px;">Founded in October 2015, the Computer-aided Design and Engineering Software (CADES) 
+                            <p style="text-align:justify;font-size:16px">Founded in October 2015, the Computer-aided Design and Engineering Software (CADES) 
                                 research center is a multi-disciplinary intellectual hub focusing on the research and development of next generation 
                                 computer-aided design techniques in the field of engineering, design and technology. With members from Europe, North America 
                                 and Asia, the core interests of the CADES research team lies in Computational Intelligence Techniques for Engineering Design, 
-                                Down-to-earth Intelligent Engineering Design Applications and Engineering Software Development. CADES Homepage aims at providing 
-                                conceptual CAD tools for critical problems in engineering design that have not yet been addressed by available tools. <br /><br />
-                                At present, research and development concentrations of CADES include: <br /></p>
-                            <ul style="font-size: 14px;text-align:left;color:#1879ba">
-                                <li><b>Machine Learning and Surrogate Modelling, Optimization, Numerical Analysis, Multi-physics Analytics and Verifications</b></li>
+                                Down-to-earth Intelligent Engineering Design Applications and Engineering Software Development. The CADES Homepage aims to provide 
+                                conceptual CAD tools for critical problems in engineering design, not yet addressed by available tools. </p><br />
+                            <hr />
+                            <p style="font-size:18px;color:#1879ba;"><b>At present, research and development specializations within CADES include: </b></p><br />
+                            
+                            <ul style="font-size: 16px;text-align:left;color:#1879ba">
+                                <li><b>Machine Learning and Surrogate Modelling, Optimization, Numerical Analysis, Multi-physics Analytics and Verification</b></li>
                                 <li><b>Electromagnetic Device Design, Integrated Circuit Design and Mechanics Design </b></li>
                                 <li><b>Human-Computer Interaction and Software Engineering </b>  </li>
                             </ul>
-                            <p style="font-size: 14px;">The conceptual CAD tools produced by CADES do not aim at repeating functions of existing commercial tools, 
-                                but aim at providing solutions for critical problems that have not yet been addressed by available tools. Registered users can download 
-                                CAD software tools from this website and provide feedback for our further improvement. Free registration is opened to engineers, researchers and students. 
-                                CADES welcomes collaborations (or membership) with CAD tool vendors, independent ventures focusing on engineering design as well as academic institutes and universities.  </p>
+                            <hr />
+                            <br />
+                            <p style="text-align:justify;font-size:16px">The conceptual CAD tools produced by CADES do not set out to replicate the functions of existing commercial tools, 
+                                but rather aim to provide solutions for critical problems which have not yet been addressed by these available tools. Registered users can download 
+                                CAD software tools from this website and provide feedback for their further improvement. Free registration is available to engineers, researchers and students. 
+                                CADES welcomes collaborations (or membership) with CAD tool vendors, independent ventures focusing on engineering design as well as academic institutes and universities.</p>
                         </div>
                     </td>
-                    <td style="width:2%">
+                    <td style="width:50px">
                     </td>
-                    <td style="width:49%;vertical-align:central">
+                    <td style="width:400px;vertical-align:top">
                         <div id="CarouselDiv"><!-- HOMEABOUT-->
         <div class="containerCarousel">
-            <div class="carousel slide" id="myCarousel">
+            <div class="carousel slide" id="myCarousel" data-ride="carousel">
                 <!--Indicator-->
                    <%-- <ol class="carousel-indicators">
                         <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
@@ -77,7 +81,7 @@
         </div>
 </div>
                         <div style="margin-top:20px">
-                            <img src="Images/CADES_Block_Diagram.jpg" style="margin-top:15px;margin-bottom:20px;width: 250px;"/>
+                            <img src="Images/Modified_Block.png" style="margin-top:15px;margin-bottom:20px;width: 350px;"/>
                         </div>
                     </td> 
                   </tr>

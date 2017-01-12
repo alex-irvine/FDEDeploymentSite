@@ -107,7 +107,10 @@
               </asp:ListView>
               </ul>
               <p style="text-align:left;color:red">
-                  Please, click <a href="~/">‘ADE 1.0 Users’ Guide’</a> to download and view the full features of the ADE 1.0
+                  Please, click <a href="img/ADEUserGuide.pdf" target="_blank">ADE 1.0 Users’ Guide</a> to download and view the full features of ADE 1.0
+              </p>
+             <p style="text-align:left;color:red">
+                  For common issues please click <a href="img/Common_Problems.pdf" target="_blank">Common Problems</a>
               </p>
           </div>
 
