@@ -86,7 +86,10 @@
         #tutopart .table .col-md-9 .videoplayer:hover{
             border: 1px solid #24242a;
         }
-
+        .tutoDivider{
+            margin-top:5px;
+            margin-bottom:5px;
+        }
     </style> 
 <div class="containerSpecial" style="width:1200px !important">
     <div id="tutopart">
@@ -98,11 +101,11 @@
         </div>
     <div class="table">
          <div class="col-md-3">
-              <input type="text" class="form-control tuto_search" placeholder="Search">
               <ul id="list_tuto" class="listtuto">
               <asp:ListView ID="LVTuto" runat="server" ItemType="Consumer.ServiceReference1.TutorialItem" SelectMethod="GetTutorials" GroupItemCount="1" >
                   <ItemTemplate>            
                       <li class="tutoClick" onclick="showTuto('<%#: Item._id %>')"><a><%#: Item.Title %></a></li>
+                      <hr class="tutoDivider"/>
                   </ItemTemplate>
               </asp:ListView>
               </ul>
@@ -110,7 +113,7 @@
                   Please, click <a href="img/ADEUserGuide.pdf" target="_blank">ADE 1.0 Users’ Guide</a> to download and view the full features of ADE 1.0
               </p>
              <p style="text-align:left;color:red">
-                  For common issues please click <a href="img/Common_Problems.pdf" target="_blank">Common Problems</a>
+                  For common issues please click <a href="img/troubleshooting.pdf" target="_blank">Troubleshooting</a>
               </p>
           </div>
 
