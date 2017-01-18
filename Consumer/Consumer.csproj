@@ -215,11 +215,12 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="img\NON_commercial_agreement.pdf" />
-    <Content Include="img\ADEUserGuide.doc" />
     <Content Include="img\ADEUserGuide.pdf" />
     <Content Include="img\troubleshooting.pdf" />
+    <None Include="Properties\PublishProfiles\ade.cadescenter.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AntennaDesignExplorer - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CADESresearch - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\files.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

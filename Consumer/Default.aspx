@@ -42,7 +42,7 @@
                     <div>
                         <h4 style="text-align:left;">About ADE 1.0</h4>
                         <p style="text-align:justify;font-size:16px">Developed by the 
-                            <a href="http://cadesresearch.azurewebsites.net">CADES Research Center</a>, the Antenna Design Explorer (ADE) 
+                            <a href="http://cadescenter.com">CADES Research Center</a>, the Antenna Design Explorer (ADE) 
                             1.0 is a GUI-based antenna design optimization tool which runs in the MATLAB environment. The aim of ADE 1.0 is 
                             to optimize geometrical antenna design parameters so as to satisfy design specifications and optimize selected 
                             performance(s) in an EFFICIENT manner. At present, local optimization and global optimization methods are included in 

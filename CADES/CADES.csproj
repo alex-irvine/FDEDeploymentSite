@@ -259,6 +259,7 @@
     <Content Include="Images\youtube.png" />
     <Content Include="News.aspx" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\cadescenter.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CADESresearch - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />

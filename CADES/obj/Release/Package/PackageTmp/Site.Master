@@ -71,7 +71,7 @@
                         <li><a href="/Default">Overview</a></li>
                         <li class="dropdown"><a href="#">Products<span class="caret"></span></a>
                           <ul class="dropdown-content">
-                            <li><a href="http://antennadesignexplorer.azurewebsites.net/">ADE</a></li>
+                            <li><a href="http://ade.cadescenter.com">ADE</a></li>
                           </ul>
                         </li>
                         <li><a href="https://www.youtube.com/channel/UCSiAGKde__gtvxsl3u3dxXA">Videos</a></li>
