@@ -7,9 +7,8 @@ namespace Services.Model
 {
     public static class SysConfig
     {
-        public static readonly string DBconn = "mongodb://service:dguiserviceDB@ds015919.mlab.com:15919/da_pp_db";
-        public static readonly string DBKey = "G4qoGWDyk1YAAAAAAACTXbIRhucbsIjnww3RP4Mszu2Q6QxcP_TFdO4HYcuIz9Xn";
-        public static readonly string DBname = "da_pp_db";
-        //public static readonly string DBKey = "xPFISjT9CxAAAAAAAAAACp0lLX_CMzorcZ915ijkLAKyFdTrOBGnJQ9EKqDO7tFw"; //ThomasDbKey
+        public static readonly string DBconn = "mongodb://service:fdeserviceDB@ds056419.mlab.com:56419/fde";
+        public static readonly string DBKey = "G4qoGWDyk1YAAAAAAACVlMXHExpInCJx4jr9rSLLT5_dNv9H6foahTytBCrDruB2";
+        public static readonly string DBname = "fde";
     }
 }

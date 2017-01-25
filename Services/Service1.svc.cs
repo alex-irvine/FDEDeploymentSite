@@ -51,7 +51,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Person>("Users");
 
@@ -101,7 +101,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Person>("Users");
 
@@ -160,7 +160,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Person>("Users");
 
@@ -218,7 +218,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Person>("Users");
 
@@ -270,7 +270,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Person>("Users");
 
@@ -349,7 +349,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Person>("Users");
 
@@ -557,7 +557,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<NewsItem>("NewsItems");
 
@@ -604,7 +604,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<NewsItem>("NewsItems");
 
@@ -646,7 +646,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<NewsItem>("NewsItems");
 
@@ -689,7 +689,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<NewsItem>("NewsItems");
 
@@ -955,7 +955,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<FileRecord>("FileRecord");
 
@@ -989,7 +989,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<DownloadLog>("DownloadLog");
 
@@ -1607,7 +1607,7 @@ namespace Services
             {
                 // open DB client and get DB reference
                 MongoClient client = new MongoClient(SysConfig.DBconn);
-                var database = client.GetDatabase("da_pp_db");
+                var database = client.GetDatabase(SysConfig.DBname);
                 // get the collection
                 var collection = database.GetCollection<Youtube>("Youtube");
 

@@ -33,6 +33,7 @@ namespace Consumer
                 GetUrlYoutubeResponse response = client.GetUrlYoutube();
                 if (response.Errored)
                 {
+                    return "";
                 }
                 string srcvideo = response.urlyoutube;
                 return srcvideo;

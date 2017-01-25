@@ -31,7 +31,7 @@
 <section style="margin-bottom:50px;margin-top:50px;">
     <div class="containerSpecial">
         <div id="titleHome">
-            <h2><span>ADE </span>1.0</h2>
+            <h2><span>FDE </span>1.0</h2>
             <h3>Antenna Design Explorer</h3>
             <hr class="light-sep">
             <asp:Label ID="lblErrorMsg" runat="server" CssClass="text-warning"></asp:Label>
@@ -40,21 +40,21 @@
            <tr>
                 <td style="width:800px;vertical-align:top">
                     <div>
-                        <h4 style="text-align:left;">About ADE 1.0</h4>
+                        <h4 style="text-align:left;">About FDE 1.0</h4>
                         <p style="text-align:justify;font-size:16px">Developed by the 
-                            <a href="http://cadescenter.com">CADES Research Center</a>, the Antenna Design Explorer (ADE) 
-                            1.0 is a GUI-based antenna design optimization tool which runs in the MATLAB environment. The aim of ADE 1.0 is 
+                            <a href="http://cFDEscenter.com">CFDES Research Center</a>, the Antenna Design Explorer (FDE) 
+                            1.0 is a GUI-based antenna design optimization tool which runs in the MATLAB environment. The aim of FDE 1.0 is 
                             to optimize geometrical antenna design parameters so as to satisfy design specifications and optimize selected 
                             performance(s) in an EFFICIENT manner. At present, local optimization and global optimization methods are included in 
                             many existing antenna design explorers or optimizers (e.g. CST optimizer, MATLAB optimization toolbox and ADS optimization tool). 
                             Local optimization methods require a good initial design, which is often not available; global optimization methods can often 
-                            obtain a good design, but they take significant, even prohibitive, amounts of time. ADE 1.0 is proposed to address this challenge. 
+                            obtain a good design, but they take significant, even prohibitive, amounts of time. FDE 1.0 is proposed to address this challenge. 
                             </p>
                                 <br>
 		        </div><%--ABOUT--%>
                     <div style="margin-top:10px;font-size:16px;">
                             <h4 style="text-align:left;">Key Features</h4>
-                            <p style="text-align:justify;font-size:16px">Some of the key features of ADE 1.0 include, (but are not limited to):</p>
+                            <p style="text-align:justify;font-size:16px">Some of the key features of FDE 1.0 include, (but are not limited to):</p>
                             <ul class="listkey" style="text-align:left;color:#1879ba;">
                                 <li><b>Selection and integration of state-of-the-art antenna design exploration approaches and methods
                                     to tackle EFFICIENT antenna optimization over a considerable range of antenna problems.</b></li>
@@ -64,7 +64,7 @@
                             </ul>
                             <br>
                             <p style="text-align:left;color:red">
-                                Please, click <a href="img/ADEUserGuide.pdf" target="_blank">ADE 1.0 Users’ Guide</a> to download and view the full features of ADE 1.0
+                                Please, click <a href="img/FDEUserGuide.pdf" target="_blank">FDE 1.0 Users’ Guide</a> to download and view the full features of FDE 1.0
                             </p>
 		            </div><%--KeyFeature--%>
                 </td>
@@ -83,13 +83,13 @@
                     <div class="carousel-caption">
                         <img src="img/MIMO.jpg" style="margin:auto;"/>
                         <p style="text-align:center;font-size:14px">
-                            ADE 1.0 product sample: a UWB MIMO antenna (fabricated in Bradford, UK, 2016)
+                            FDE 1.0 product sample: a UWB MIMO antenna (fabricated in Bradford, UK, 2016)
                         </p>
                     </div>
                 </div>
                 <div class="item" id="slide2">
                     <div class="carousel-caption">
-                        <h1><span>ADE </span>1.0</h1>
+                        <h1><span>FDE </span>1.0</h1>
                         <h3>Antenna Design Explorer</h3>
                         <br />
                         <a class="btn btn-transparent" href="/Software">Download</a>

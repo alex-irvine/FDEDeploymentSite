@@ -189,6 +189,7 @@
     <Content Include="PDFFolder\PDFTest3.pdf" />
     <None Include="Properties\PublishProfiles\CADESadministration - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\cust.pubxml" />
+    <None Include="Properties\PublishProfiles\fdeadmin.cadescenter.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="PDFpage.aspx" />
     <Content Include="ProgressBar.gif" />

@@ -121,6 +121,8 @@
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\CADESservices - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\cust.pubxml" />
+    <None Include="Properties\PublishProfiles\FDEServices - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\fdeservices.cadescenter.com - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -129,13 +131,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Lib\Lib.csproj">
       <Project>{3aa940ed-dc3e-42e2-98b0-b07d04c43a8a}</Project>
       <Name>Lib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
