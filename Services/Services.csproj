@@ -122,6 +122,7 @@
     <None Include="Properties\PublishProfiles\CADESservices - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\cust.pubxml" />
     <None Include="Properties\PublishProfiles\FDEServices - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\fdeservices.cadescenter.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\fdeservices.cadescenter.com - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
