@@ -20,6 +20,10 @@ using Services.Model;
 using System.Security.AccessControl;
 using System.Security.Principal;
 //using System.IO.Stream;
+using System.Net.Http;
+using System.Windows;
+using Dropbox.Api.Team;
+using System.Threading;
 
 namespace Administration
 {
@@ -52,6 +56,7 @@ namespace Administration
 
                 if (dbxKey.Errored)
                 {
+                    ErreurMessage.Text = "Error";
                     return -1;
                 }
                 string logoPath = Server.MapPath("~/TemporaryFolder");
@@ -61,15 +66,16 @@ namespace Administration
                     System.IO.DirectoryInfo di = new DirectoryInfo(logoPath);
                     di.Delete(true);
                 }
-                
-                    DirectorySecurity securityRules = new DirectorySecurity();
+
+                DirectorySecurity securityRules = new DirectorySecurity();
                     securityRules.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), 
                                                 FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
                                                 PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
                     DirectoryInfo dir = Directory.CreateDirectory(logoPath); 
                     dir.SetAccessControl(securityRules);
-
-                using (var dbx = new DropboxClient(SysConfig.DBKey))
+                var config = new DropboxClientConfig();
+                config.HttpClient = new HttpClient() { Timeout = new TimeSpan(2, 0, 0) } ;
+                using (var dbx = new DropboxClient(SysConfig.DBKey,config))
                 {
                     
                     string folder = Path.GetDirectoryName(Server.MapPath(FileInput.FileName)); // path to containing folder of file to be uploaded
@@ -129,7 +135,7 @@ namespace Administration
                             
 
                         }
-;
+
                     }
                     // file upload finished log new file name
                     InsertFileRecordResponse frResp = client.InsertFileRecord(new InsertFileRecordRequest(){FileName = fileName});
@@ -153,8 +159,8 @@ namespace Administration
                     {
                         System.IO.DirectoryInfo di = new DirectoryInfo(logoPath);
                         di.Delete(true);
-                        
-                        
+
+
                     }
                     Status.Text = "100%";
                     EndMessage.Text = "Upload Completed";
