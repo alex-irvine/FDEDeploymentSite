@@ -66,18 +66,11 @@
                         <asp:CheckBox ID="checkbox1" runat="server"  clientidmode="static" /> I acknowledge that I have read and agree to the above Terms and Conditions<br>
                     </div>
                     <div class="boxThings">
-                        <b>Users of the SADEA optimizer in the ADE tool should cite:</b>
-                        <p>B. Liu, H. Aliakbarian, Z. Ma, G. A. Vandenbosch, G. Gielen, and P. Excell, 
-                            “An efficient method for antenna design optimization based on evolutionary 
-                            computation and machine learning techniques,” IEEE Transactions on Antennas
-                             and Propagation, vol. 62, no. 1, pp. 7–18, 2014</p>
-                        <b>Users of the MOEA/D optimizer in the ADE tool should cite:</b>
-                        <p>H. Li and Q. Zhang, “Multiobjective optimization problems with complicated 
-                            Pareto sets, MOEA/D and NSGA-II,” IEEE Transactions on Evolutionary Computation,
-                             vol. 13, no. 2, pp. 284–302, 2009.</p>
-                        <b>Users of the DE optimizer in the ADE tool should cite: </b>
-                        <p>K. Price, R. Storn, and J. Lampinen, Differential evolution: 
-                            a practical approach to global optimization. Springer Verlag, 2005.</p>
+                        <b>Users of the FDE tool should cite:</b>
+                        <p>
+                            B. Liu, H. Yang, M. Lancaster, “Global Optimization of Microwave Filters Based on a Surrogate Model Assisted Evolutionary Algorithm”, 
+                            IEEE Transactions on Microwave Theory and Techniques, 2017 (In press).
+                        </p>
                     </div>
                     <div class="boxThings">
                        <h5>Need a tutorial?</h5>
@@ -90,7 +83,7 @@
                         <p>Please fill in this questionnaire once you have used the software. This will help us improve current tools and create new
                             and useful tools.
                         </p>
-                        <a href="https://goo.gl/forms/hlGRO5bleitWShyf1" target="_blank"><p><b>FEEDBACK</b></p></a>
+                        <a href="https://goo.gl/forms/nQmwj5KUq4OvXJ9N2" target="_blank"><p><b>FEEDBACK</b></p></a>
                     </div>
                    <div>
                        <asp:Button ID="btnDownload" runat="server" Text="Download"  OnClick="btnDownload_Click" class="btndownload"/>

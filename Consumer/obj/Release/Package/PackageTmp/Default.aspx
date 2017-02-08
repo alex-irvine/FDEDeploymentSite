@@ -32,7 +32,8 @@
     <div class="containerSpecial">
         <div id="titleHome">
             <h2><span>FDE </span>1.0</h2>
-            <h3>Antenna Design Explorer</h3>
+            <h3>Filter Design Explorer</h3>
+            <p>This software is free for academic researchers. Availability for enigneering design companies can be discussed.</p>
             <hr class="light-sep">
             <asp:Label ID="lblErrorMsg" runat="server" CssClass="text-warning"></asp:Label>
         </div>
@@ -42,24 +43,30 @@
                     <div>
                         <h4 style="text-align:left;">About FDE 1.0</h4>
                         <p style="text-align:justify;font-size:16px">Developed by the 
-                            <a href="http://cFDEscenter.com">CFDES Research Center</a>, the Antenna Design Explorer (FDE) 
-                            1.0 is a GUI-based antenna design optimization tool which runs in the MATLAB environment. The aim of FDE 1.0 is 
-                            to optimize geometrical antenna design parameters so as to satisfy design specifications and optimize selected 
-                            performance(s) in an EFFICIENT manner. At present, local optimization and global optimization methods are included in 
-                            many existing antenna design explorers or optimizers (e.g. CST optimizer, MATLAB optimization toolbox and ADS optimization tool). 
-                            Local optimization methods require a good initial design, which is often not available; global optimization methods can often 
-                            obtain a good design, but they take significant, even prohibitive, amounts of time. FDE 1.0 is proposed to address this challenge. 
-                            </p>
+                            <a href="http://cadescenter.com">CADES Research Center</a>, the Filter Design Explorer (FDE) 
+                            1.0 is a GUI-based microwave filter design optimization tool. The aim of FDE 1.0 is to optimize
+                             geometrical design parameters of a filter so as to satisfy design specifications and optimize 
+                            selected performance(s) in an EFFICIENT manner. 
+                        </p>
+                        <p style="text-align:justify;font-size:16px">
+                            For microwave filters, there are often some methods to obtain an initial design, e.g., equivalent 
+                            circuit, coupling matrix (will be included in our future tools). The quality of this design can be 
+                            very different. Local optimizers in existing tools (e.g., CST optimizer, MATLAB optimization toolbox) 
+                            can solve the problem from a high-quality initial design. However, when the initial design is poor or 
+                            the local optimization is trapped in a local optimum, there is often no method. FDE 1.0 is designed 
+                            to fill this gap. 
+                        </p>
                                 <br>
 		        </div><%--ABOUT--%>
                     <div style="margin-top:10px;font-size:16px;">
                             <h4 style="text-align:left;">Key Features</h4>
                             <p style="text-align:justify;font-size:16px">Some of the key features of FDE 1.0 include, (but are not limited to):</p>
                             <ul class="listkey" style="text-align:left;color:#1879ba;">
-                                <li><b>Selection and integration of state-of-the-art antenna design exploration approaches and methods
-                                    to tackle EFFICIENT antenna optimization over a considerable range of antenna problems.</b></li>
-                                <li><b>Enhanced usability developed by addressing Human-computer Interaction issues peculiar
-                                    to antenna design engineers, who are not familiar with design automation and optimization.</b></li>
+                                <li><b>Perform EFFICIENT filter design optimization over a considerable range of problems. 
+                                    Experiments show 20-30 times speed improvement compared to global optimizers in existing tools, 
+                                    obtaining even better design solutions.</b></li>
+                                <li><b>Enhanced usability developed by addressing Human-computer Interaction issues peculiar to filter 
+                                    design engineers, who are not familiar with design automation and optimization.</b></li>
                                 <li><b>Seamless links with CST Microwave Studio.</b></li>
                             </ul>
                             <br>
@@ -90,7 +97,7 @@
                 <div class="item" id="slide2">
                     <div class="carousel-caption">
                         <h1><span>FDE </span>1.0</h1>
-                        <h3>Antenna Design Explorer</h3>
+                        <h3>Filter Design Explorer</h3>
                         <br />
                         <a class="btn btn-transparent" href="/Software">Download</a>
                     </div>
