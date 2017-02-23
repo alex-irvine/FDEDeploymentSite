@@ -199,6 +199,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\icomoon.svg" />
     <Content Include="fonts\style.css" />
+    <Content Include="img\FDEBlock.png" />
     <Content Include="img\filter2.jpg" />
     <Content Include="img\alex_screenshot3.jpg" />
     <Content Include="img\alex_screenshot4.jpg" />

@@ -109,7 +109,7 @@
                 </div>
                 <div class="item" id="slide4">
                     <div class="carousel-caption">
-                        
+                        <img src="img/FDEBlock.png" style="margin:auto;width:500px;margin-top:-20px;"/>
                     </div>
                 </div>
                 
