@@ -88,9 +88,9 @@
             <div class="carousel-inner">
                 <div class="item active" id="slide1">
                     <div class="carousel-caption">
-                        <img src="img/MIMO.jpg" style="margin:auto;"/>
+                        <img src="img/filter2.jpg" style="margin:auto;width:330px;margin-top:-10px;"/>
                         <p style="text-align:center;font-size:14px">
-                            FDE 1.0 product sample: a UWB MIMO antenna (fabricated in Bradford, UK, 2016)
+                            FDE 1.0 product sample: 300GHz Waveguide Filter
                         </p>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="item" id="slide3">
                     <div class="carousel-caption">
-                        <p style="text-align:center"><img src="img/alex_screenshot4.jpg" style="height:280px;margin-top:-20px;"/></p>
+                        <p style="text-align:center"><img src="img/software.png" style="height:280px;margin-top:-20px;"/></p>
                     </div>
                 </div>
                 <div class="item" id="slide4">
