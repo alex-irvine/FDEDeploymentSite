@@ -220,6 +220,7 @@
     <Content Include="img\NON_commercial_agreement.pdf" />
     <Content Include="img\FDEUserGuide.pdf" />
     <Content Include="img\troubleshooting.pdf" />
+    <Content Include="img\Trouble shooting_formal.pdf" />
     <None Include="Properties\PublishProfiles\ade.cadescenter.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AntennaDesignExplorer - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CADESresearch - Web Deploy %282%29.pubxml" />
