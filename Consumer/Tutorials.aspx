@@ -110,10 +110,10 @@
               </asp:ListView>
               </ul>
               <p style="text-align:left;color:red">
-                  Please, click <a href="img/ADEUserGuide.pdf" target="_blank">FDE 1.0 Users’ Guide</a> to download and view the full features of FDE 1.0
+                  Please click <a href="img/FDEUserGuide.pdf" target="_blank">FDE 1.0 Users’ Guide</a> to download and view the full features of FDE 1.0
               </p>
              <p style="text-align:left;color:red">
-                  For common issues please click <a href="img/Trouble shooting_formal.pdf" target="_blank">Troubleshooting</a>
+                  For common issues please click <a href="img/FDETroubleshooting.pdf" target="_blank">Troubleshooting</a>
               </p>
           </div>
 

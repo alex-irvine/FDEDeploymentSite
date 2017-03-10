@@ -71,7 +71,7 @@
                             </ul>
                             <br>
                             <p style="text-align:left;color:red">
-                                Please, click <a href="img/FDEUserGuide.pdf" target="_blank">FDE 1.0 Users’ Guide</a> to download and view the full features of FDE 1.0
+                                Please click <a href="img/FDEUserGuide.pdf" target="_blank">FDE 1.0 Users’ Guide</a> to download and view the full features of FDE 1.0
                             </p>
 		            </div><%--KeyFeature--%>
                 </td>
